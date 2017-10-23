@@ -1,0 +1,174 @@
+<template name="categoryDetails">
+    <div class="bg-white row page-breadcrumb m-b b-b">
+        <div class="content_sortPagiBar clearfix">
+            <div class="inline">
+                <span class="resultsCount">{{start}}-{{limit}} on {{totalCount}} results</span> for
+                {{searchKeyWord}}
+            </div>
+            <div class="pull-right">
+                <div class="faketable">
+                    <div class="table-cell">
+                        <div class="sortBy faketable">
+                            <span class="m-r table-cell">Sort by</span>
+                            <select class="selectProductSort form-control table-cell" id="selectProductSort">
+                                <option selected="selected" value="position:asc">--</option>
+                                <option value="price:asc">Price: Lowest first</option>
+                                <option value="price:desc">Price: Highest first</option>
+                                <option value="name:asc">Product Name: A to Z</option>
+                                <option value="name:desc">Product Name: Z to A</option>
+                                <option value="popularity">Popularity</option>
+                                <option value="new">New</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="table-cell">
+                        <div class="countByPage faketable">
+                            <select class="selectProductSort form-control table-cell" id="selectProductPage">
+                                <option>4</option>
+                                <option>8</option>
+                                <option selected="selected">12</option>
+                                <option>24</option>
+                            </select>
+                            <span class="m-l table-cell">offers/page</span>
+                        </div>
+                    </div>
+                    <div class="table-cell hidden-xs">
+                        <div class="viewResultsStyle inline">
+                            <button view="list" class="btn btn-default btn-small view-type {{addActiveClass 'list'}} "><i view="list" class="fa fa-th-list"></i></button>
+                            <button view="grid" class="btn btn-default btn-small view-type {{addActiveClass 'grid'}}"><i view="grid" class="fa fa-th-large"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight searchResults">
+        <button class="btn btn-sm btn-block m-b btn-primary hidden-lg hidden-md hidden-sm showFiltersButton">Filters</button>
+        <div class="row">
+            <div class="col-sm-3 col-lg-2 padding-sm left-side filtersResults hidden-xs categoryDetailsLeft">
+                <div class="well bg-white searchTable">
+                    <h3><i class="fa fa-folder-open"></i> Categories</h3>
+                    <table class="footable table table-hover toggle-arrow-tiny catalogTable" id="advancedManager">
+                        <tbody>
+                        {{#each categories}}
+                            {{> searchResultCategories}}
+                        {{/each}}
+                        </tbody>
+                    </table>
+                    <div class="input-group table">
+                        <h3><i class="fa fa-filter"></i> Filters</h3>
+                        {{#if hasFilters}}
+                            <div id="activeFilters" class="activeFilters m-b">
+                                <div class="activeFiltersTitle"> Active filters </div>
+                                <ul>
+                                    {{#each activeFilters}}
+                                        {{#if compare this.filterName 'location'}}
+                                            <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"> <span class="titleFilter">{{this.filterName}}</span>: {{selectedLocation}} around {{this.filterValue}} <div class="removeBtn btn-link pull-right"><i index="{{@index}}" filterName="{{filterName}}" class="fa fa-times"></i></div></a>  </li>
+                                        {{else}}
+                                        <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"> <span class="titleFilter">{{this.filterName}}</span>: {{this.filterValue}} <div class="removeBtn btn-link pull-right"><i index="{{@index}}" filterName="{{filterName}}" class="fa fa-times"></i></div></a>  </li>
+                                        {{/if}}
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        {{/if}}
+                        <div id="FiltersResults">
+                            {{#each availableFeatures}}
+                                <div class="filters-group">
+                                    <span class="filterTitle "><i class="fa fa-caret-right"></i> {{_id}} <i class="fa fa-plus-square-o pull-right"></i></span>
+                                    <ul class="filterResults">
+                                        {{#each this.values}}
+                                            <li><a filterName="{{../_id}}" class="activeFilter {{activeClass ../_id this}}">{{this}}</a>
+                                                {{#if filterActive ../_id this}}
+                                                <i class="fa fa-times-circle closeIcon" aria-hidden="true" fName="{{../_id}}" fValue="{{this}}"></i> <span class="countResults"></span>
+                                                {{/if}}
+                                            </li>
+                                        {{/each}}
+                                    </ul>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            {{/each}}
+                            <div class="filters-group">
+                                <span class="filterTitle"><i class="fa fa-caret-right"></i> Price filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                                <div class="filterResults">
+                                    <input type="text" id="priceFilters" />
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="filters-group">
+                                <span class="filterTitle"><i class="fa fa-caret-right"></i> Geolocation <i class="fa fa-plus-square-o pull-right"></i></span>
+                                <div class="">
+                                    <label>Location filter</label>
+                                    <input class="form-control" type="text" id="geolocation-autocomplete" />
+                                </div>
+                            </div>
+
+
+                            <div class="filters-group m-t-sm">
+                                <span class="filterTitle"><i class="fa fa-caret-right"></i> Show offers within a radius <i class="fa fa-plus-square-o pull-right"></i></span>
+                                <div class="filterResults">
+                                    <input type="text" id="locationFilters" />
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="filters-group">
+                                <span class="filterTitle"><i class="fa fa-caret-right"></i> Type <i class="fa fa-plus-square-o pull-right"></i></span>
+                                <ul class="filterResults">
+                                    <li><a filterName="type" class="activeFilter {{activeClass 'type' 'Product'}}">Product</a>
+                                        {{#if filterActive 'type' 'Product'}}
+                                        <i class="fa fa-times-circle closeIcon" aria-hidden="true" fName="type" fValue="Product"> </i>
+                                        {{/if}}
+                                        <span class="countResults"></span>
+                                        {{#if isActive}}
+                                            <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span>
+                                        {{/if}}
+                                    </li>
+                                    <li><a filterName="type" class="activeFilter {{activeClass 'type' 'Service'}}">Service</a>
+                                        {{#if filterActive 'type' 'Service'}}
+                                            <i class="fa fa-times-circle closeIcon" aria-hidden="true" fName="type" fValue="Service"></i>
+                                        {{/if}}
+                                        <span class="countResults"></span>
+                                        {{#if isActive}}
+                                            <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span>
+                                        {{/if}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-9 col-lg-10 categoryDetailsRight">
+                <div class="categoryInfos m-b">
+                    <h1>{{getTranslation category.translation 'name'}}</h1>
+                    <div class="categoryDescription">
+                        {{{getTranslation category.translation 'description'}}}
+                    </div>
+                </div>
+
+                <ul class="productList row">
+                {{#each test}}
+                    {{> productList }}
+                {{/each}}
+                </ul>
+                <div class="col-md-12">
+                    <div class="content_sortPagiBar clearfix">
+                        <ul class="pagiList">
+                            <li><a id="previous"><i class="fa fa-caret-left"></i></a></li>
+                            {{#each pageNavigation}}
+                                <li><a class="{{activePage this}}" id="changePage" name={{this}}>{{this}}</a></li>
+                            {{/each}}
+                            <li><a id="next"><i class="fa fa-caret-right"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="alert alert-info  m-t text-center"><i class="fa fa-info-circle fa-3x pull-left"></i>
+                        You don’t find your project in the results ? <a href="{{pathFor 'SuggestProduct'}}" class="btn btn-danger m-l"><i class="fa fa-pencil"></i> Suggest a new project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

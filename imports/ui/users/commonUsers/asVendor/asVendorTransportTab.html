@@ -1,0 +1,125 @@
+<template name="asVendorTransportTab">
+  <div id="tab-vendorTransport" class="tab-pane">
+    <div class="panel-body">
+      <div class="vendorTransportGeneralFeatures well bg-white">
+        <div class="form-horizontal">
+          <div class="form-group">
+
+            <div class="col-sm-4">
+              <div class="titleFeature">Handlink charges</div>
+              <div class="input-group m-b">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">$</span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="titleFeature">Free shipping starts at</div>
+              <div class="input-group m-b">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">$ (tax excl.)</span>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="titleFeature">Free shipping starts at</div>
+              <div class="input-group m-b">
+                <input type="text" class="form-control">
+                <span class="input-group-addon">kg</span>
+              </div>
+            </div>
+
+
+          </div>
+          <div class="hr-line-dashed"></div>
+          <div class="form-group">
+            <div class="col-sm-12 text-center">
+
+              <button class="ladda-button btn btn-primary" data-style="zoom-in"><span class="ladda-label"><i class="fa fa-floppy-o"></i> Save</span><span class="ladda-spinner"></span><div class="ladda-progress" style="width: 0px;"></div></button>
+
+            </div>
+          </div>                                        
+
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+          <h3 class="pull-left"><i class="fa fa-truck"></i> Carriers</h3> 
+
+          <a href="/asVendorAddCarrier" class="btn btn-default pull-right"><i class="fa fa-plus-square"></i> Add a carrier</a>
+        </div>
+        <div class="panel-body">
+          <table class="table table-striped" width="100%" border="0" cellspacing="0">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Logo</th>
+                <th scope="col">Delay</th>
+                <th scope="col">Status</th>
+                <th scope="col">Free Shipping</th>
+                <th scope="col">Position</th>
+                <th scope="col">Action</th>
+              </tr>    
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>My carrier 1</td>
+                <td><img src="/img/shipping.jpg" alt="$ShippingName" class="img-responsive"></td>
+                <td>Pickup in store</td>
+                <td><div class="carrierStatus text-success"><i class="fa fa-check"></i></div></td>
+                <td><div class="carrierFreeShippingStatus text-danger"><i class="fa fa-times"></i></div></td>
+                <td><span class="label">1</span> <button class="btn btn-link movePosition"><i class="fa fa-arrows"></i></button></td>
+                <td>
+                  <div class="btn-group">
+                    <a href="/asVendorEditCarrier" class="btn btn-default pull-right"><i class="fa fa-edit"></i> Edit</a>
+                    <button class="btn btn-default"><i class="fa fa-trash"></i> Remove</button>
+                  </div>
+
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>My carrier 2</td>
+                <td><img src="/img/shipping.jpg" alt="$ShippingName" class="img-responsive"></td>
+                <td>2 days</td>
+                <td><div class="carrierStatus text-danger"><i class="fa fa-times"></i></div></td>
+                <td><div class="carrierFreeShippingStatus text-success"><i class="fa fa-check"></i></div></td>
+                <td><span class="label">2</span> <button class="btn btn-link movePosition"><i class="fa fa-arrows"></i></button></td>
+                <td>
+                  <div class="btn-group">
+                    <a href="/asVendorEditCarrier" class="btn btn-default pull-right"><i class="fa fa-edit"></i> Edit</a>
+                    <button class="btn btn-default"><i class="fa fa-trash"></i> Remove</button>
+                  </div>
+
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>My carrier 3</td>
+                <td><img src="/img/shipping.jpg" alt="$ShippingName" class="img-responsive"></td>
+                <td>7 days</td>
+                <td><div class="carrierStatus text-success"><i class="fa fa-check"></i></div></td>
+                <td><div class="carrierFreeShippingStatus text-success"><i class="fa fa-check"></i></div></td>
+                <td><span class="label">3</span> <button class="btn btn-link movePosition"><i class="fa fa-arrows"></i></button></td>
+                <td>
+                  <div class="btn-group">
+                    <a href="/asVendorEditCarrier" class="btn btn-default pull-right"><i class="fa fa-edit"></i> Edit</a>
+                    <button class="btn btn-default"><i class="fa fa-trash"></i> Remove</button>
+                  </div>
+
+                </td>
+              </tr>    
+            </tbody>
+
+
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</template>
+

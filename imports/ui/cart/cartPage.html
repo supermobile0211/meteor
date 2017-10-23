@@ -1,0 +1,64 @@
+<template name="cartPage">
+    <div class="animated fadeInRight cartPage row">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox m-t">
+                        <div class="ibox-title">
+                            <div class="row">
+                                <div class="col-sm-2"><h1>My cart</h1></div>
+                                <div class="col-sm-10">
+                                    <div class="stepsTabs">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="step first arrow-triangle {{classes 1}}">
+                                                    <span class="numberStep m-r">1</span>
+                                                    <span class="titleStep">Address</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="step {{classes 2}}">
+                                                    <span class="numberStep m-r">2</span>
+                                                    <span class="titleStep">Shipping</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="step last {{classes 3}}">
+                                                    <span class="numberStep m-r">3</span>
+                                                    <span class="titleStep">Payment</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ibox-content">
+                            {{#if isEmpty}}
+                            <div class="{{#if currentStep 1 }}show {{else}} hide {{/if}}">
+                                {{> address}}
+                            </div>
+
+                            <div class="{{#if currentStep 2 }}show {{else}} hide {{/if}}">
+                                {{> shipping}}
+                            </div>
+
+                            <div class="{{#if currentStep 3 }}show {{else}} hide {{/if}}">
+                                {{> payment}}
+                            </div>
+                            {{else}}
+                                <div class="alert alert-warning">Your Cart is Empty</div>
+                            {{/if}}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>
+
+

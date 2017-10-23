@@ -1,0 +1,99 @@
+
+<template name="myTickets">
+  <!-- Page heading -->
+  {{> pageHeading title='Tickets' category='Users' }}
+
+  <div id="tab-tickets" class="myTickets wrapper wrapper-content animated fadeInRight">
+
+    <div class="ibox">
+      <div class="ibox-title">
+        <h5>Tickets</h5>
+        <!--{{>iboxTools}}-->
+
+        <a href="/createMyTickets" class="btn btn-primary btn-sm pull-right">Create a ticket</a>
+
+
+      </div>
+      <div class="ibox-content">
+        <div>
+          <div class="panel-body">
+
+            <table class="footable table table-stripped toggle-arrow-tiny" data-page-size="8">
+                                      <thead>
+                                        <tr>
+                                          <th data-toggle="true">&nbsp;</th>
+
+                                          <th width="50" data-toggle="true">ID</th>
+                                          <th>Date creation</th>
+                                          <th>Date update</th>
+                                          <th>Sector</th>
+                                          <th>Status</th>
+                                          <th>Last message</th>
+                                          <th width="140">Action</th>
+                                        </tr>
+                                      </thead>
+                                      <tr class="prodTable">
+                            <td><div class="checkbox">
+                                <input type="checkbox" id="singleCheckbox1" value="option1">
+                                <label></label>
+                            </div></td>
+                            <td width="50"><input type="text" id="ticketId" class="form-control input-sm" placeholder=""></td>
+                            <td><input id="filterDate" class="form-control" type="text" name="daterange" value="01/01/2017 - 01/31/2017" /></td>
+                            <td>
+                                <input id="updateDate" class="form-control" type="text" name="daterange" value="01/01/2017 - 01/31/2017" />
+                            </td>
+                            <td>
+                                <select id="sector" name="account3" class="form-control select-sm">
+                                    <option value="all" >All</option>
+                                    <option value="Customer">Customer support</option>
+                                    <option value="Vendor">Vendor support</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="status" name="account2" class="form-control select-sm">
+                                    <option value="all">All</option>
+                                    <option value="open">Open</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="closed">Closed</option>
+                                </select>
+                            </td>
+                            <td><input id="ticket" type="text" class="form-control input-sm" placeholder=""></td>
+                            <td>&nbsp;</td>
+                            </tr>
+                                      <tbody>
+                                        {{#each tickets}}
+                                        <tr>
+                                          <td><div class="checkbox">
+                                            <input type="checkbox" id="singleCheckbox1" value="option1">
+                                            <label></label>
+                                            </div></td>
+                                          <td width="50">{{_id}}</td>
+                                          <td>{{formatDate createdAt}}</td>
+                                          <td>{{formatDate updatedAt}}</td>
+                                          <td>{{sector}} support</td>
+                                          <td><div class="status {{status}}"><i class="fa fa-circle" data-placement="top" data-toggle="tooltip" data-original-title="{{status}}"></i></div></td>
+                                          <td>{{lastMessage this.user this.employee}}....</td>
+                                          <td><div class="btn-group"> <a href="{{pathFor 'myTicketsDetails' _id=this._id }}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a> </div></td>
+                                        </tr>
+                                        {{/each}}
+
+                                      </tbody>
+
+                                      <tfoot>
+                                        <tr>
+                                          <td colspan="8">
+                                            <div class="sk-spinner sk-spinner-chasing-dots">
+                                              <div class="sk-dot1"></div>
+                                              <div class="sk-dot2"></div>
+                                            </div>
+                                          </td>
+                                        </tr>
+                                      </tfoot>
+                                    </table>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>

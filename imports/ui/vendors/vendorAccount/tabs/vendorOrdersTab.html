@@ -1,0 +1,66 @@
+<template name="vendorOrdersTab">
+
+  <div id="vendorOrdersTab" class="vendorOrdersTab tab-pane">
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Order Ref</th>
+            <th>Customer</th>
+            <th>Delivery (day)</th>
+            <th>Invoice</th>
+            <th>Amount ({{Symbol}})</th>
+            <th>Commission ({{Symbol}})</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" class="form-control input-sm" placeholder="" id="orderId"></td>
+            <td><input class="form-control" type="text" name="daterange" id="filterOrderDate"></td>
+            <td><input type="text" class="form-control input-sm" placeholder="" id="orderRef"></td>
+            <td><input type="text" class="form-control input-sm" placeholder="" id="userName"></td>
+            <td><input type="text" class="form-control input-sm" placeholder="" id="deliveryDay"></td>
+            <td>&nbsp;</td>
+            <td id="filterPrice"><input type="text" class="form-control input-sm" placeholder="From" id="totalPriceFrom">
+              <input type="text" class="form-control input-sm" placeholder="To" id="totalPriceTo"></td>
+            <td id="filterCommission"><input type="text" class="form-control input-sm" placeholder="From" id="totalCommissionFrom">
+              <input type="text" class="form-control input-sm" placeholder="To" id="totalCommissionTo"></td>
+            <td><select name="account11" class="form-control select-sm" id="filterStatus">
+              <option selected value="all">All</option>
+              <option>Processing</option>
+              <option>Pending</option>
+              <option>Onhold</option>
+              <option>Cancelled</option>
+              </select></td>
+            <td>&nbsp;</td>
+          </tr>
+            {{#each orders}}
+                <tr>
+                    <td>{{_id}}</td>
+                    <td>{{formatDate createdAt}}</td>
+                    <td>{{orderRef}}</td>
+                    <td><a href="#">{{userName user}}</a></td>
+                    <td>{{deliveryDay}}</td>
+                    {{#if invoices.length}}
+                    <td><a href="{{invoices.[0].url}}" target="_blank"><i class="fa fa-file-text"></i></a></td>
+                    {{else}}
+                    <td>No invoice</td>
+                    {{/if}}
+                    <td>{{Symbol}} {{formatNumber grossPrice}}</td>
+                    <td>{{Symbol}} {{formatNumber commission}}</td>
+                    <td ><div class="orderStatus"><i class="fa fa-circle {{class status}}" data-placement="top" data-toggle="tooltip"  data-original-title="{{class status}}"></i></div></td>
+                    <td><a href="{{pathFor 'vendorOrderDetails' id=_id}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+                </tr>
+            {{/each}}
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</template>
+
+

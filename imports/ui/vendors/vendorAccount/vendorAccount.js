@@ -1,0 +1,9 @@
+
+Template.vendorAccount.onRendered(()=> {
+
+
+
+
+});
+
+

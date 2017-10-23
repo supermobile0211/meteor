@@ -1,0 +1,914 @@
+<template name="vendorDashboardTab">
+
+  <div id="vendorDashboardTab" class="vendorDashboard tab-pane active">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="alert alert-info">
+            INFODEV : When user open the vendor account page for the first time, he must request his vendor account by fill the form to access to all vendor feature. To open his account, he should : <br> 
+            1 - Fill the form   <br>
+            2 - Download his contract.<br>
+            3 - When he get the confirmation code from admin, he fill it here and it activate his account. <br>
+            When vendor account is not activated, instead usual dashboard, it's displayed here the vendor account request form and validation form.
+          </div>
+        </div>
+      </div>
+
+
+      <!-- IF VENDOR ACCOUNT IS NOT YET VALIDATED -->
+
+      <div class="row">
+
+        <div class="col-sm-12">
+          <h1>Request your official vendor account</h1>
+          <p>To protect buyers on our platform, the registered address of your company must be verified. Please complete the form below and send us your complete request by mail. 
+            Once you have received your confirmation code to your address, please fill in the confirmation form</p>
+          <p>During this time, you can alreadry manage your catalog and Shipping solution.</p>
+
+          <div class="hr-line-dashed"></div>
+
+
+          <div class="well bg-white">
+            <div class="well-title m-b-lg">
+              <div class="stepsTabs">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="step first current arrow-triangle">
+                      <span class="numberStep m-r">1</span>
+                      <span class="titleStep">Registration</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="step disabled">
+                      <span class="numberStep m-r">2</span>
+                      <span class="titleStep">Documents</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="step last disabled">
+                      <span class="numberStep m-r">3</span>
+                      <span class="titleStep">Confirmation code</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="well-content">
+              <div class="stepsContainer">
+
+                <div class="step-content">
+
+
+                  <form class="form-horizontal">
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Title *</label>
+                      <div class="col-sm-10">
+
+                        <div class="radio radio-info radio-inline">
+                          <input type="radio" checked="{{mister "mr"}}" name="gender" value="mr" id="genderMale">
+                          <label for="genderMale"> Mr. </label>
+                        </div>
+                        <div class="radio radio-info radio-inline">
+                          <input type="radio" checked="{{misses "mrs"}}" name="gender" value="mrs" id="genderFemale">
+                          <label for="genderFemale"> Mrs. </label>
+                        </div>  
+                      </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Name *</label>
+                      <div class="col-sm-10"><input id="name" type="text" class="form-control" placeholder="Name" ></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">First name *</label>
+                      <div class="col-sm-10"><input id="firstName" type="text" class="form-control" placeholder="First name"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Position *</label>
+                      <div class="col-sm-10">
+
+                        <select class="select2 selectPosition form-control">
+                          <option selected></option>
+                          <option value="CEO">CEO</option>
+                          <option value="Manager">Manager</option>
+                          <option value="Employee">Employee</option>
+                          <option value="Other">Other</option>
+                        </select>
+
+                      </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Company name *</label>
+                      <div class="col-sm-10"><input type="text" class="form-control" placeholder="Company name" id="company_name"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Business Identifiant *</label>
+                      <div class="col-sm-10"><input type="text" class="form-control" placeholder="SIRET or Fiscal Number" id="business"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Bank account *</label>
+                      <div class="col-sm-10"><input type="text" class="form-control" placeholder="Holder" id="backAccount"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">IBAN *</label>
+                      <div class="col-sm-10"><input type="text" class="form-control" placeholder="IBAN Number" id="ibanNumber"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Paypal</label>
+                      <div class="col-sm-10"><input type="email" class="form-control" placeholder="paypal email" id="paypalEmail"></div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Public phone number *</label>
+                      <div class="col-sm-10">{{>phoneFormInput}}</div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                      <label class="col-sm-2 control-label">Operating address *</label>
+                      <div class="col-sm-10">
+
+                        <input type="text" class="form-control" placeholder="Address" id="operatingAddress">
+                        <br>
+                        <input type="text" class="form-control" placeholder="State, Province or Region" id="state">
+                        <br>
+                        <input type="text" class="form-control" placeholder="Zipcode" id="zipCode">
+                        <br>
+                        <input type="text" class="form-control" placeholder="City" id="city">
+                        <br>
+
+                        {{>countriesFormSelect}}
+
+                      </div>
+                    </div>
+
+                  </form>
+
+
+
+
+
+
+                  <div class="alert alert-info">The information provided in your registration form will be checked and must be consistent with the identification number of your company. The confirmation code will be sent to the official address of your company specified in the register of trade companies.</div>
+
+                  <div class="conditionCheck m-t m-b text-center">
+                    <div class="checkbox checkbox-success checkbox-inline">
+                      <input type="checkbox" value="option1" id="VendorConditionCheck">
+                      <label for="VendorConditionCheck"> I accept the <a href="#">General Conditions of Participation</a> </label>
+                    </div>
+                  </div>
+
+
+
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+            </div>
+            <div class="well-footer p-t b-t clearfix">
+              <span class="pull-right">
+                <button type="button" class="btn btn-default btn-large-dim btn-outline" disabled=""><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                <button type="button" class="btn btn-default btn-large-dim btn-outline" id="next"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+              </span>
+            </div>
+          </div>
+
+
+          <div class="well bg-white">
+            <div class="well-title m-b-lg">
+              <div class="stepsTabs">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="step first success arrow-triangle">
+                      <span class="numberStep m-r">1</span>
+                      <span class="titleStep">Registration</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="step current">
+                      <span class="numberStep m-r">2</span>
+                      <span class="titleStep">Documents</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="step last disabled">
+                      <span class="numberStep m-r">3</span>
+                      <span class="titleStep">Confirmation code</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="well-content">
+              <div class="stepsContainer">
+
+                <div class="step-content">
+
+                  <h2>Documents</h2>
+
+                  <div class="alert alert-info">INFODEV 
+
+                    <p>UNIQUE code confirmation is generated at this step, it mean this code </p>
+
+
+                    Here user can download his contract in PDF with the data that he fill in the registration form. Please provide a way to manage the pdf contract template and use variable inside.
+
+                  </div>
+
+
+
+
+                  <div class="alert alert-success">
+                    <p>Your contract has been generated with the information that you filled previously. Please verify the information, you can change them if necessary only returning to the previous step. Then, print the contract in two copies and send them properly signed to the address bellow</p>
+
+                  </div>
+
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="well">
+                        <h3>Your contract</h3>
+                        <p>Download your contract in pdf file. Print it in two copies and send them properly signed </p>
+                        <div class="m-t text-center"><button class="btn btn-success"><i class="fa fa-download"></i> Download my contract</button></div>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <div class="well">
+                        <h3>You must also include the following:</h3>
+                        <ul>
+                          <li>item 1</li>
+                          <li>item 2</li>
+                          <li>item 3</li>
+                          <li>item 4</li>
+                        </ul>                              
+                      </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                      <div class="well">
+                        <h3>Send your files to</h3>
+                        <p>
+                          WebSiteCompany<br>
+                          Street <br>
+                          ZipCODE City<br>
+                          Country
+                          <br>
+                        </p>
+
+                      </div>
+                    </div>
+
+
+                  </div>
+
+                  <div class="contactGenerated">
+                    <h2>Contract</h2>
+
+                    <div class="well">
+
+                      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </h3>
+                      <p>Est asperiores ullam, aperiam sapiente temporibus ad illum. Illo amet cupiditate cum sequi, rerum odit omnis, maiores accusantium, quaerat tempore iure porro?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia magnam nesciunt molestiae vitae velit et cupiditate, sint, nostrum incidunt mollitia molestias doloremque soluta itaque. Omnis possimus aliquid minus perspiciatis magnam! </p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor labore ducimus ut rem placeat commodi excepturi nisi neque deleniti saepe, quidem ipsam, quasi nostrum cumque doloribus debitis magnam, eveniet reiciendis!Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                      <p>Est asperiores ullam, aperiam sapiente temporibus ad illum. Illo amet cupiditate cum sequi, rerum odit omnis, maiores accusantium, quaerat tempore iure porro?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia magnam nesciunt molestiae vitae velit et cupiditate, sint, nostrum incidunt mollitia molestias doloremque soluta itaque. Omnis possimus aliquid minus perspiciatis magnam! </p>
+                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor labore ducimus ut rem placeat commodi excepturi nisi neque deleniti saepe, quidem ipsam, quasi nostrum cumque doloribus debitis magnam, eveniet reiciendis! </p>
+                    </div>
+
+
+
+                  </div>
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+            </div>
+            <div class="well-footer p-t b-t clearfix">
+              <span class="pull-right">
+                <button type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                <button type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+              </span>
+            </div>
+          </div>
+
+          <div class="well bg-white">
+            <div class="well-title m-b-lg">
+              <div class="stepsTabs">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="step first success arrow-triangle">
+                      <span class="numberStep m-r">1</span>
+                      <span class="titleStep">Registration</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="step success">
+                      <span class="numberStep m-r">2</span>
+                      <span class="titleStep">Documents</span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="step last current">
+                      <span class="numberStep m-r">3</span>
+                      <span class="titleStep">Confirmation code</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="well-content">
+              <div class="stepsContainer">
+
+                <div class="step-content  p-t p-b">
+
+                  <h2>Enter your confirmation code</h2>
+
+                  <p class="m-b m-t ">You have received your confirmation code ? Congratulation ! Please fill it here to validate your account and start to sell.</p>
+
+                  <div class="row">
+                    <div class="well col-sm-6 col-sm-offset-3">
+                      <div class="input-group  ">
+                        <input type="text" class="form-control input-lg" placeholder="Confirmation Code"> 
+                        <span class="input-group-btn"> 
+                          <button class="btn btn-primary btn-lg" type="button">Confirm my account</button> 
+                        </span>
+                      </div>
+
+                    </div>
+                  </div>
+
+
+
+
+                </div>
+
+
+
+
+
+              </div>
+            </div>
+            <div class="well-footer p-t b-t clearfix">
+              <span class="pull-right">
+                <button type="button" class="btn btn-default btn-large-dim btn-outline" ><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                <button type="button" class="btn btn-default btn-large-dim btn-outline" disabled=""><i class="fa fa-check"></i><span class="btn-title">Finish</span></button>
+              </span>
+            </div>
+          </div>
+
+
+        </div>
+
+
+
+      </div>      
+      <!-- END IF VENDOR ACCOUNT IS NOT VALIDATED -->
+
+
+
+      <!-- IF VENDOR ACCOUNT IS VALIDATED -->
+
+
+      <div class="row">
+
+        <div class="col-sm-8">
+          <div class="row">
+
+            <div class="col-sm-6">
+              <div class="well bg-white text-center">
+                <div class="simple-title m-b"><i class="fa fa-book"></i> My Catalog</div>
+                <div>Currently, you have <span class="font-bold">1245</span> offers in your catalog.</div>
+                <div class="m-t m-b">
+                  <button class="btn btn-default"><i class="fa fa-edit fa-2x"></i><br>Manage my offers</button>
+                  <button class="btn btn-default"><i class="fa fa-plus fa-2x"></i><br>Add a new offer</button>
+                  <button class="btn btn-default"><i class="fa fa-lightbulb-o fa-2x"></i><br>Suggest a product</button>
+
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="col-sm-6">
+              <div class="well bg-white">
+                <div class="faketable w100">
+                  <div class=" table-cell vam">
+                    <h3 class="text-right">My profile: <span class="progressScore font-bold text-success">47%</span></h3>
+                    <div class="progressBar">
+                      <div class="progress progress-bar-default">
+                        <div style="width: 47%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="47" role="progressbar" class="progress-bar">
+                          <span class="sr-only">47% Complete (success)</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-right"><small><span class="font-bold">Your account is not active</span>. Please <a href="#">complete your profile</a>.</small></div>
+
+
+                  </div>
+                  <div class="m-l text-center table-cell vam">
+                    <div class="pictureUserContainer"><i class="flag16 flag16-France"></i>
+
+                      <div class="avatarContainer">
+
+                        <img class="img-circle" src="/img/a7.jpg" data-placement="top" data-toggle="tooltip" data-original-title="Click to change your company picture">
+                        <div class="changerAvatar"><span><i class="fa fa-2x fa-pencil"></i></span></div>
+
+                      </div>
+
+                    </div>
+                    <div class="font-bold text-success text-center"><i class="fa fa-building"></i> Emaco</div>
+                  </div>
+                </div>
+                <div class="row m-t">
+                  <div class="col-sm-6">Your badge(s): $badgeList</div>
+                  <div class="col-sm-6 text-right">Your review(s): <span class="text-info">New Vendor</span></div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class=" alert alert-warning">Please note that according to our terms of use, adding contact information or advertising posted on public areas of your profile, such as description, banner, or in your avatar, cause immediate banishment.</div>
+
+          <div class="row">
+
+
+            <div class="col-sm-7">
+
+              <div class="well bg-white">
+
+                <div class="simple-title m-b"><i class="fa fa-check-square-o"></i> Add a public profile banner</div>
+
+                <p>Give a nice look to your public profile. Ideal size: 1170x300px</p>
+                <input type="hidden" name="fileField" id="fileField" class="form-control m-b">
+
+                <div class="bannerContainer">
+
+                  <img src="/img/vendorBanner.jpg" class="img-responsive" data-placement="top" data-toggle="tooltip" data-original-title="Click to change your company picture">
+                  <div class="changeBanner"><span><i class="fa fa-2x fa-pencil"></i></span></div>
+
+                </div>
+
+                
+
+              </div>
+            </div>
+
+            <div class="col-sm-5">
+
+              <div class="well bg-white">
+                <div class="simple-title m-b"><i class="fa fa-check-square-o"></i> About you....</div>
+                <p>Please describe your services and specialties. </p>
+
+                <div class="text-right"><span class="label label-info">200/200</span></div>
+                <textarea cols="45" rows="5" class="form-control">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel quam voluptates et impedit aut, eveniet accusamus. Deserunt blanditiis totam ipsam magnam cumque consequatur, fugit atque nihil dolorem, optio commodi, non?</textarea>
+                <div class="text-right m-t"><button class="btn btn-primary btn-sm">Change my description</button></div>
+
+
+
+                
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div class="col-sm-4">
+          <div class="well bg-white">
+            <div class="simple-title m-b"><i class="fa fa-check-square-o"></i> TODO</div>
+            <table class="table todoList" width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              <tbody>
+                <tr class="isDoneLine">
+                  <td><i class="fa fa-check-square-o"></i></td>
+                  <td class="isDone">Confirm my account</td>
+                  <td class="rateValue">30%</td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-square-o"></i></td>
+                  <td>Add an avatar</td>
+                  <td class="rateValue">5%</td>
+                </tr>
+                <tr class="isDoneLine">
+                  <td><i class="fa fa-check-square-o"></i></td>
+                  <td class="isDone">Add a public profile banner</td>
+                  <td class="rateValue">5%</td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-square-o"></i></td>
+                  <td>About you....</td>
+                  <td class="rateValue">10%</td>
+                </tr>
+                <tr class="isDoneLine">
+                  <td><i class="fa fa-check-square-o"></i></td>
+                  <td class="isDone">Add your first offer</td>
+                  <td class="rateValue">10%</td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-square-o"></i></td>
+                  <td>Get your first project</td>
+                  <td class="rateValue">10%</td>
+                </tr>
+                <tr class="isDoneLine">
+                  <td><i class="fa fa-check-square-o"></i></td>
+                  <td class="isDone">Get your first positive review</td>
+                  <td class="rateValue">10%</td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-square-o"></i></td>
+                  <td>Get your first contribution badge</td>
+                  <td class="rateValue">10%</td>
+                </tr>
+                <tr class="isDoneLine">
+                  <td><i class="fa fa-check-square-o"></i></td>
+                  <td class="isDone">Get your first suggestion badge</td>
+                  <td class="rateValue">10%</td>
+                </tr>
+              </tbody>
+
+
+            </table>
+
+          </div>
+
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="well bg-white">
+            <div class="row">
+              <div class="col-sm-7">
+                <div class="simple-title m-b"><i class="fa fa-codepen"></i> My Skills</div>
+
+                <div class="form-group">
+                  <div class="input-group skillsSelector">
+                    <select data-placeholder="Choose your skills..." class="chosen-select" multiple style="width:350px;" tabindex="4">
+                      <option value="">Select</option>
+                      <option value="skill">skill</option>
+                      <option value="skill">skill</option>
+                      <option value="skill">skill</option>
+                      <option value="skill">skill</option>
+                      <option value="skill">skill</option>
+                      <option value="skill">skill</option>
+                      <option value="skill">skill</option>
+
+                    </select>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="col-sm-5">
+                <div class="alert alert-info">
+                  <p>
+                    Specify the skills increases your chance to be notified about new projects. </p>
+                  <p><b>Example</b> <br>
+                    To be alerted of project like : &quot;Creation of a website&quot;
+                    Skills tags can be: <i>HTML, design, CSS, PHP, development</i>
+
+                    You can also fill a profession tag here like: 
+                    <i>developer, programmer, web designer</i>
+                    .</p>
+                  <p>Your skills are also automatically updated according your offers catalog</p>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well bg-white text-center">
+            <h2 class="text-center"><i class="fa fa-shopping-cart"></i> Today's Sales</h2>
+            <div class="text-success mod-value">$150,00</div>            
+
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+          <div class="well bg-white text-center">
+            <h2 class="text-center"><i class="fa fa-line-chart"></i> Today's Orders</h2>
+            <div class="text-success mod-value">$150,00</div>            
+
+          </div>
+
+        </div>
+        <div class="col-sm-4">
+          <div class="well bg-white text-center">
+            <h2 class="text-center"><i class="fa fa-money"></i> Due From Admin</h2>
+            <div class="text-success mod-value">$150,00</div>            
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-8">
+          <div class="well bg-white">
+            <a class="pull-right" href="#"><i class="fa fa-list-alt"></i> View all</a>
+            <div class="simple-title m-b inline"><i class="fa fa-file-o"></i> Last 5 orders</div>
+
+            <table class="table table-striped" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th scope="col">order ID</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Product(s) name</th>
+                  <th scope="col">Price ($currency)</th>
+                  <th scope="col">Qty</th>
+                  <th scope="col">Status</th>
+                </tr>    
+
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td><a href="#linktoOrderDetails">#1</a></td>
+                  <td>12/11/2016</td>
+                  <td>$productName1 | $productName2</td>
+                  <td>64.55</td>
+                  <td>1</td>
+                  <td>
+                    <div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title="completed"></i></div>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td><a href="#linktoOrderDetails">#1</a></td>
+                  <td>12/11/2016</td>
+                  <td>$productName1 | $productName2</td>
+                  <td>64.55</td>
+                  <td>1</td>
+                  <td><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title="completed"></i></div></td>
+                </tr>
+                <tr>
+                  <td><a href="#linktoOrderDetails">#1</a></td>
+                  <td>12/11/2016</td>
+                  <td>$productName1 | $productName2</td>
+                  <td>64.55</td>
+                  <td>1</td>
+                  <td><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title="completed"></i></div></td>
+                </tr>
+                <tr>
+                  <td><a href="#linktoOrderDetails">#1</a></td>
+                  <td>12/11/2016</td>
+                  <td>$productName1 | $productName2</td>
+                  <td>64.55</td>
+                  <td>1</td>
+                  <td><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title="completed"></i></div></td>
+                </tr>
+                <tr>
+                  <td><a href="#linktoOrderDetails">#1</a></td>
+                  <td>12/11/2016</td>
+                  <td>$productName1 | $productName2</td>
+                  <td>64.55</td>
+                  <td>1</td>
+                  <td><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title="completed"></i></div></td>
+                </tr>    
+
+              </tbody>
+
+            </table>
+
+
+
+
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="well bg-white">
+            <div class="simple-title m-b"><i class="fa fa-file"></i> Orders</div>
+            <table class="table" width="100%" border="0" cellspacing="0">
+
+              <tbody>
+
+                <tr>
+                  <td><span class="text-success">Total</span></td>
+                  <td>12</td>
+                </tr>
+                <tr>
+                  <td><span class="orderStatus"><span class="completed">Completed</span></span></td>
+                  <td>8</td>
+                </tr>
+                <tr>
+                  <td><span class="orderStatus"><span class="pending">Pending</span></span></td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td><span class="orderStatus"><span class="processing">Processing</span></span></td>
+                  <td>2</td>
+                </tr>
+                <tr>
+                  <td><span class="orderStatus"><span class="cancelled">Cancelled</span></span></td>
+                  <td>1</td>
+                </tr>
+                <tr>
+                  <td><span class="orderStatus"><span class="refunded">Refunded</span></span></td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td><span class="orderStatus"><span class="onhold">Onhold</span></span></td>
+                  <td>0</td>
+                </tr>    
+
+              </tbody>
+
+            </table>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="well bg-white">
+            <div class="simple-title m-b"><i class="fa fa-star"></i> Top 5 best sales</div>
+            <table class="table table-striped" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Product name</th>
+                  <th scope="col">Sales</th>
+                </tr>    
+
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td>1</td>
+                  <td>$productName</td>
+                  <td>444</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>$productName</td>
+                  <td>444</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>$productName</td>
+                  <td>444</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>$productName</td>
+                  <td>444</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>$productName</td>
+                  <td>444</td>
+                </tr>    
+
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-8">
+
+          <div class="well bg-white">
+
+            <div class="sortChart pull-right">
+              <div class="input-group">
+                <input class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+                <div class="input-group-btn">
+                  <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown">Period <span class="caret"></span></button>
+                  <ul class="dropdown-menu pull-right">
+                    <li><a href="#">Last month</a></li>
+                    <li><a href="#">Last 3 months</a></li>
+                    <li><a href="#">Last 6 months</a></li>
+                    <li><a href="#">Last 12 months</a></li>
+                  </ul>
+                </div>             
+              </div>
+            </div>
+            <div class="simple-title m-b"><i class="fa fa-pie-chart"></i> Sales Report</div>
+
+            <div class="flot-chart">
+              <div class="flot-chart-content" id="flot-line-chart-multi">FLOT CHART HERE</div>
+            </div>        
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="well bg-white">
+            <div class="simple-title m-b">Your income</div>
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="well text-center">
+                  <div class="text-success mod-value">$150,00</div>            
+                  <h2 class="text-center">Last Week</h2>
+
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="well text-center">
+                  <div class="text-success mod-value">$150,00</div>            
+                  <h2 class="text-center">Last Month</h2>
+
+                </div>
+              </div>
+              <div class="col-sm-4">
+                <div class="well text-center">
+                  <div class="text-success mod-value">$1500,00</div>            
+                  <h2 class="text-center">Last Year Today's Sales</h2>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+
+          <div class="well bg-white">
+            <div class="simple-title m-t m-b text-center"><i class="fa fa-plane"></i> Holiday mode <input type="checkbox" class="js-switch" checked /></div>
+            <div class="text-muted text-center">
+              IF ENABLE <br>
+
+              Your account is in holiday mode. Your offers are no longer available. Remember to honoring your current orders before departure.
+
+              <br> ELSE <br>
+
+              Your offers are currently available on the website. You can activate the holiday mode to put your offers paused. Remember to honoring your current orders before departure.
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</template>
+
+

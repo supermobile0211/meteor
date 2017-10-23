@@ -1,0 +1,9 @@
+
+Template.affiliateAccount.onRendered(()=> {
+
+
+
+
+});
+
+

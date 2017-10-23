@@ -1,0 +1,269 @@
+<template name="countriesFormSelect">
+    <div class="input-group">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-white btn-countriesList dropdown-toggle" data-toggle="dropdown"><i class="flag16 flag16-{{SelectedCountry.flag}}"></i> {{SelectedCountry.name}} <span class="caret"></span></button>
+                        <ul class="dropdown-menu countriesListDropdown">
+                            <li class="well clearfix"><input type="text"  id="countryName"  class="form-control" placeholder="Search a country" required name="country"></li>
+                            {{#each countries}}
+                             <li><a href="#" id="selectCountry"><i class="flag16 flag16-{{flag}}" style="margin-right: 5px"></i> {{name}}</a></li>
+                            {{/each}}
+                            <!--<li><a href="#" countryISO="ALA"><i class="flag16 flag16-Aland"></i> Åland Islands</a></li>
+                            <li><a href="#" countryISO="ALB"><i class="flag16 flag16-Albania"></i> Albania</a></li>
+                            <li><a href="#" countryISO="DZA"><i class="flag16 flag16-Algeria"></i> Algeria</a></li>
+                            <li><a href="#" countryISO="ASM"><i class="flag16 flag16-American-Samoa"></i> American Samoa</a></li>
+                            <li><a href="#" countryISO="AND"><i class="flag16 flag16-Andorra"></i> Andorra</a></li>
+                            <li><a href="#" countryISO="AGO"><i class="flag16 flag16-Angola"></i> Angola</a></li>
+                            <li><a href="#" countryISO="AIA"><i class="flag16 flag16-Anguilla"></i> Anguilla</a></li>
+                           <li><a href="#" countryISO="ATA"><i class="flag16 flag16-Antarctica"></i> Antarctica</a></li>
+                           <li><a href="#" countryISO="ATG"><i class="flag16 flag16-Antigua-and-Barbuda"></i> Antigua and Barbuda</a></li>
+                           <li><a href="#" countryISO="ARG"><i class="flag16 flag16-Argentina"></i> Argentina</a></li>
+                           <li><a href="#" countryISO="ARM"><i class="flag16 flag16-Armenia"></i> Armenia</a></li>
+                           <li><a href="#" countryISO="ABW"><i class="flag16 flag16-Aruba"></i> Aruba</a></li>
+                           <li><a href="#" countryISO="AUS"><i class="flag16 flag16-Australia"></i> Australia</a></li>
+                           <li><a href="#" countryISO="AUT"><i class="flag16 flag16-Austria"></i> Austria</a></li>
+                           <li><a href="#" countryISO="AZE"><i class="flag16 flag16-Azerbaijan"></i> Azerbaijan</a></li>
+                           <li><a href="#" countryISO="BHS"><i class="flag16 flag16-Bahamas"></i> Bahamas</a></li>
+                           <li><a href="#" countryISO="BHR"><i class="flag16 flag16-Bahrain"></i> Bahrain</a></li>
+                           <li><a href="#" countryISO="BGD"><i class="flag16 flag16-Bangladesh"></i> Bangladesh</a></li>
+                           <li><a href="#" countryISO="BRB"><i class="flag16 flag16-Barbados"></i> Barbados</a></li>
+                           <li><a href="#" countryISO="BLR"><i class="flag16 flag16-Belarus"></i> Belarus</a></li>
+                           <li><a href="#" countryISO="BEL"><i class="flag16 flag16-Belgium"></i> Belgium</a></li>
+                           <li><a href="#" countryISO="BLZ"><i class="flag16 flag16-Belize"></i> Belize</a></li>
+                           <li><a href="#" countryISO="BEN"><i class="flag16 flag16-Benin"></i> Benin</a></li>
+                           <li><a href="#" countryISO="BMU"><i class="flag16 flag16-Bermuda"></i> Bermuda</a></li>
+                           <li><a href="#" countryISO="BTN"><i class="flag16 flag16-Bhutan"></i> Bhutan</a></li>
+                           <li><a href="#" countryISO="BOL"><i class="flag16 flag16-Bolivia"></i> Bolivia</a></li>
+                           <li><a href="#" countryISO="BIH"><i class="flag16 flag16-Bosnia-and-Herzegovina"></i> Bosnia and Herzegovina</a></li>
+                           <li><a href="#" countryISO="BWA"><i class="flag16 flag16-Botswana"></i> Botswana</a></li>
+                           <li><a href="#" countryISO="BVT"><i class="flag16 flag16-Norway"></i> Bouvet Island</a></li>
+                           <li><a href="#" countryISO="BRA"><i class="flag16 flag16-Brazil"></i> Brazil</a></li>
+                           <li><a href="#" countryISO="IOT"><i class="flag16 flag16-United-Kingdom"></i> British Indian Ocean Territory</a></li>
+                           <li><a href="#" countryISO="VGB"><i class="flag16 flag16-British-Virgin-Islands"></i> British Virgin Islands</a></li>
+                           <li><a href="#" countryISO="BRN"><i class="flag16 flag16-Brunei"></i> Brunei</a></li>
+                           <li><a href="#" countryISO="BGR"><i class="flag16 flag16-Bulgaria"></i> Bulgaria</a></li>
+                           <li><a href="#" countryISO="BFA"><i class="flag16 flag16-Burkina-Faso"></i> Burkina Faso</a></li>
+                           <li><a href="#" countryISO="BDI"><i class="flag16 flag16-Burundi"></i> Burundi</a></li>
+                           <li><a href="#" countryISO="KHM"><i class="flag16 flag16-Cambodia"></i> Cambodia</a></li>
+                           <li><a href="#" countryISO="CMR"><i class="flag16 flag16-Cameroon"></i> Cameroon</a></li>
+                           <li><a href="#" countryISO="CAN"><i class="flag16 flag16-Canada"></i> Canada</a></li>
+                           <li><a href="#" countryISO="CPV"><i class="flag16 flag16-Cape-Verde"></i> Cape Verde</a></li>
+                           <li><a href="#" countryISO="CYM"><i class="flag16 flag16-Cayman-Islands"></i> Cayman Islands</a></li>
+                           <li><a href="#" countryISO="CAF"><i class="flag16 flag16-Central-African-Republic"></i> Central African Republic</a></li>
+                           <li><a href="#" countryISO="TCD"><i class="flag16 flag16-Chad"></i> Chad</a></li>
+                           <li><a href="#" countryISO="CHL"><i class="flag16 flag16-Chile"></i> Chile</a></li>
+                           <li><a href="#" countryISO="CHN"><i class="flag16 flag16-China"></i> China</a></li>
+                           <li><a href="#" countryISO="CXR"><i class="flag16 flag16-Christmas-Island"></i> Christmas Island</a></li>
+                           <li><a href="#" countryISO="CCK"><i class="flag16 flag16-Cocos-Keeling-Islands"></i> Cocos (Keeling) Islands</a></li>
+                           <li><a href="#" countryISO="COL"><i class="flag16 flag16-Colombia"></i> Colombia</a></li>
+                           <li><a href="#" countryISO="COM"><i class="flag16 flag16-Comoros"></i> Comoros</a></li>
+                           <li><a href="#" countryISO="COK"><i class="flag16 flag16-Cook-Islands"></i> Cook Islands</a></li>
+                           <li><a href="#" countryISO="CRI"><i class="flag16 flag16-Costa-Rica"></i> Costa Rica</a></li>
+                           <li><a href="#" countryISO="HRV"><i class="flag16 flag16-Croatia"></i> Croatia</a></li>
+                           <li><a href="#" countryISO="CUB"><i class="flag16 flag16-Cuba"></i> Cuba</a></li>
+                           <li><a href="#" countryISO="CUW"><i class="flag16 flag16-Curacao"></i> Curaçao</a></li>
+                           <li><a href="#" countryISO="CYP"><i class="flag16 flag16-Cyprus"></i> Cyprus</a></li>
+                           <li><a href="#" countryISO="CZE"><i class="flag16 flag16-Czech-Republic"></i> Czech Republic</a></li>
+                           <li><a href="#" countryISO="DNK"><i class="flag16 flag16-Denmark"></i> Denmark</a></li>
+                           <li><a href="#" countryISO="DJI"><i class="flag16 flag16-Djibouti"></i> Djibouti</a></li>
+                           <li><a href="#" countryISO="DMA"><i class="flag16 flag16-Dominica"></i> Dominica</a></li>
+                           <li><a href="#" countryISO="DOM"><i class="flag16 flag16-Dominican-Republic"></i> Dominican Republic</a></li>
+                           <li><a href="#" countryISO="DOM"><i class="flag16 flag16-Dominican-Republic"></i> Dominican Republic</a></li>
+                           <li><a href="#" countryISO="DOM"><i class="flag16 flag16-Dominican-Republic"></i> Dominican Republic</a></li>
+                           <li><a href="#" countryISO="COD"><i class="flag16 flag16-Democratic-Republic-of-the-Congo"></i> DR Congo</a></li>
+                           <li><a href="#" countryISO="ECU"><i class="flag16 flag16-Ecuador"></i> Ecuador</a></li>
+                           <li><a href="#" countryISO="EGY"><i class="flag16 flag16-Egypt"></i> Egypt</a></li>
+                           <li><a href="#" countryISO="SLV"><i class="flag16 flag16-El-Salvador"></i> El Salvador</a></li>
+                           <li><a href="#" countryISO="GNQ"><i class="flag16 flag16-Equatorial-Guinea"></i> Equatorial Guinea</a></li>
+                           <li><a href="#" countryISO="ERI"><i class="flag16 flag16-Eritrea"></i> Eritrea</a></li>
+                           <li><a href="#" countryISO="EST"><i class="flag16 flag16-Estonia"></i> Estonia</a></li>
+                           <li><a href="#" countryISO="ETH"><i class="flag16 flag16-Ethiopia"></i> Ethiopia</a></li>
+                           <li><a href="#" countryISO="FLK"><i class="flag16 flag16-Falkland-Islands"></i> Falkland Islands</a></li>
+                           <li><a href="#" countryISO="FRO"><i class="flag16 flag16-Faroes"></i> Faroe Islands</a></li>
+                           <li><a href="#" countryISO="FJI"><i class="flag16 flag16-Fiji"></i> Fiji</a></li>
+                           <li><a href="#" countryISO="FIN"><i class="flag16 flag16-Finland"></i> Finland</a></li>
+                           <li><a href="#" countryISO="FRA"><i class="flag16 flag16-France"></i> France</a></li>
+                           <li><a href="#" countryISO="GUF"><i class="flag16 flag16-France"></i> French Guiana</a></li>
+                           <li><a href="#" countryISO="PYF"><i class="flag16 flag16-French-Polynesia"></i> French Polynesia</a></li>
+                           <li><a href="#" countryISO="ATF"><i class="flag16 flag16-French-Southern-Territories"></i> French Southern and Antarctic Lands</a></li>
+                           <li><a href="#" countryISO="GAB"><i class="flag16 flag16-Gabon"></i> Gabon</a></li>
+                           <li><a href="#" countryISO="GMB"><i class="flag16 flag16-Gambia"></i> Gambia</a></li>
+                           <li><a href="#" countryISO="GEO"><i class="flag16 flag16-Georgia"></i> Georgia</a></li>
+                           <li><a href="#" countryISO="DEU"><i class="flag16 flag16-Germany"></i> Germany</a></li>
+                           <li><a href="#" countryISO="GHA"><i class="flag16 flag16-Ghana"></i> Ghana</a></li>
+                           <li><a href="#" countryISO="GIB"><i class="flag16 flag16-Gibraltar"></i> Gibraltar</a></li>
+                           <li><a href="#" countryISO="GRC"><i class="flag16 flag16-Greece"></i> Greece</a></li>
+                           <li><a href="#" countryISO="GRL"><i class="flag16 flag16-Greenland"></i> Greenland</a></li>
+                           <li><a href="#" countryISO="GRD"><i class="flag16 flag16-Grenada"></i> Grenada</a></li>
+                           <li><a href="#" countryISO="GLP"><i class="flag16 flag16-France"></i> Guadeloupe</a></li>
+                           <li><a href="#" countryISO="GUM"><i class="flag16 flag16-Guam"></i> Guam</a></li>
+                           <li><a href="#" countryISO="GTM"><i class="flag16 flag16-Guatemala"></i> Guatemala</a></li>
+                           <li><a href="#" countryISO="GGY"><i class="flag16 flag16-Guernsey"></i> Guernsey</a></li>
+                           <li><a href="#" countryISO="GIN"><i class="flag16 flag16-Guinea"></i> Guinea</a></li>
+                           <li><a href="#" countryISO="GNB"><i class="flag16 flag16-Guinea-Bissau"></i> Guinea-Bissau</a></li>
+                           <li><a href="#" countryISO="GUY"><i class="flag16 flag16-Guyana"></i> Guyana</a></li>
+                           <li><a href="#" countryISO="HTI"><i class="flag16 flag16-Haiti"></i> Haiti</a></li>
+                           <li><a href="#" countryISO="HMD"><i class="flag16 flag16-Australia"></i> Heard Island and McDonald Islands</a></li>
+                           <li><a href="#" countryISO="HND"><i class="flag16 flag16-Honduras"></i> Honduras</a></li>
+                           <li><a href="#" countryISO="HKG"><i class="flag16 flag16-Hong-Kong"></i> Hong Kong</a></li>
+                           <li><a href="#" countryISO="HUN"><i class="flag16 flag16-Hungary"></i> Hungary</a></li>
+                           <li><a href="#" countryISO="ISL"><i class="flag16 flag16-Iceland"></i> Iceland</a></li>
+                           <li><a href="#" countryISO="IND"><i class="flag16 flag16-India"></i> India</a></li>
+                           <li><a href="#" countryISO="IDN"><i class="flag16 flag16-Indonesia"></i> Indonesia</a></li>
+                           <li><a href="#" countryISO="IRN"><i class="flag16 flag16-Iran"></i> Iran</a></li>
+                           <li><a href="#" countryISO="IRQ"><i class="flag16 flag16-Iraq"></i> Iraq</a></li>
+                           <li><a href="#" countryISO="IRL"><i class="flag16 flag16-Ireland"></i> Ireland</a></li>
+                           <li><a href="#" countryISO="IMN"><i class="flag16 flag16-Isle-of-Man"></i> Isle of Man</a></li>
+                           <li><a href="#" countryISO="ISR"><i class="flag16 flag16-Israel"></i> Israel</a></li>
+                           <li><a href="#" countryISO="ITA"><i class="flag16 flag16-Italy"></i> Italy</a></li>
+                           <li><a href="#" countryISO="CIV"><i class="flag16 flag16-Cote-dIvoire"></i> Ivory Coast</a></li>
+                           <li><a href="#" countryISO="JAM"><i class="flag16 flag16-Jamaica"></i> Jamaica</a></li>
+                           <li><a href="#" countryISO="JPN"><i class="flag16 flag16-Japan"></i> Japan</a></li>
+                           <li><a href="#" countryISO="JEY"><i class="flag16 flag16-Jersey"></i> Jersey</a></li>
+                           <li><a href="#" countryISO="JOR"><i class="flag16 flag16-Jordan"></i> Jordan</a></li>
+                           <li><a href="#" countryISO="KAZ"><i class="flag16 flag16-Kazakhstan"></i> Kazakhstan</a></li>
+                           <li><a href="#" countryISO="KEN"><i class="flag16 flag16-Kenya"></i> Kenya</a></li>
+                           <li><a href="#" countryISO="KIR"><i class="flag16 flag16-Kiribati"></i> Kiribati</a></li>
+                           <li><a href="#" countryISO="UNK"><i class="flag16 flag16-Kosovo"></i> Kosovo</a></li>
+                           <li><a href="#" countryISO="KWT"><i class="flag16 flag16-Kuwait"></i> Kuwait</a></li>
+                           <li><a href="#" countryISO="KGZ"><i class="flag16 flag16-Kyrgyzstan"></i> Kyrgyzstan</a></li>
+                           <li><a href="#" countryISO="LAO"><i class="flag16 flag16-Laos"></i> Laos</a></li>
+                           <li><a href="#" countryISO="LVA"><i class="flag16 flag16-Latvia"></i> Latvia</a></li>
+                           <li><a href="#" countryISO="LBN"><i class="flag16 flag16-Lebanon"></i> Lebanon</a></li>
+                           <li><a href="#" countryISO="LSO"><i class="flag16 flag16-Lesotho"></i> Lesotho</a></li>
+                           <li><a href="#" countryISO="LBR"><i class="flag16 flag16-Liberia"></i> Liberia</a></li>
+                           <li><a href="#" countryISO="LBY"><i class="flag16 flag16-Libya"></i> Libya</a></li>
+                           <li><a href="#" countryISO="LIE"><i class="flag16 flag16-Liechtenstein"></i> Liechtenstein</a></li>
+                           <li><a href="#" countryISO="LTU"><i class="flag16 flag16-Lithuania"></i> Lithuania</a></li>
+                           <li><a href="#" countryISO="LUX"><i class="flag16 flag16-Luxembourg"></i> Luxembourg</a></li>
+                           <li><a href="#" countryISO="MAC"><i class="flag16 flag16-Macau"></i> Macau</a></li>
+                           <li><a href="#" countryISO="MKD"><i class="flag16 flag16-Macedonia"></i> Macedonia</a></li>
+                           <li><a href="#" countryISO="MDG"><i class="flag16 flag16-Madagascar"></i> Madagascar</a></li>
+                           <li><a href="#" countryISO="MWI"><i class="flag16 flag16-Malawi"></i> Malawi</a></li>
+                           <li><a href="#" countryISO="MYS"><i class="flag16 flag16-Malaysia"></i> Malaysia</a></li>
+                           <li><a href="#" countryISO="MDV"><i class="flag16 flag16-Maldives"></i> Maldives</a></li>
+                           <li><a href="#" countryISO="MLI"><i class="flag16 flag16-Mali"></i> Mali</a></li>
+                           <li><a href="#" countryISO="MLT"><i class="flag16 flag16-Malta"></i> Malta</a></li>
+                           <li><a href="#" countryISO="MHL"><i class="flag16 flag16-Marshall-Islands"></i> Marshall Islands</a></li>
+                           <li><a href="#" countryISO="MTQ"><i class="flag16 flag16-Martinique"></i> Martinique</a></li>
+                           <li><a href="#" countryISO="MRT"><i class="flag16 flag16-Mauritania"></i> Mauritania</a></li>
+                           <li><a href="#" countryISO="MUS"><i class="flag16 flag16-Mauritius"></i> Mauritius</a></li>
+                           <li><a href="#" countryISO="MYT"><i class="flag16 flag16-Mayotte"></i> Mayotte</a></li>
+                           <li><a href="#" countryISO="MEX"><i class="flag16 flag16-Mexico"></i> Mexico</a></li>
+                           <li><a href="#" countryISO="FSM"><i class="flag16 flag16-Micronesia"></i> Micronesia</a></li>
+                           <li><a href="#" countryISO="MDA"><i class="flag16 flag16-Moldova"></i> Moldova</a></li>
+                           <li><a href="#" countryISO="MCO"><i class="flag16 flag16-Monaco"></i> Monaco</a></li>
+                           <li><a href="#" countryISO="MNG"><i class="flag16 flag16-Mongolia"></i> Mongolia</a></li>
+                           <li><a href="#" countryISO="MNE"><i class="flag16 flag16-Montenegro"></i> Montenegro</a></li>
+                           <li><a href="#" countryISO="MSR"><i class="flag16 flag16-Montserrat"></i> Montserrat</a></li>
+                           <li><a href="#" countryISO="MAR"><i class="flag16 flag16-Morocco"></i> Morocco</a></li>
+                           <li><a href="#" countryISO="MOZ"><i class="flag16 flag16-Mozambique"></i> Mozambique</a></li>
+                           <li><a href="#" countryISO="MMR"><i class="flag16 flag16-Myanmar"></i> Myanmar</a></li>
+                           <li><a href="#" countryISO="NAM"><i class="flag16 flag16-Namibia"></i> Namibia</a></li>
+                           <li><a href="#" countryISO="NRU"><i class="flag16 flag16-Nauru"></i> Nauru</a></li>
+                           <li><a href="#" countryISO="NPL"><i class="flag16 flag16-Nepal"></i> Nepal</a></li>
+                           <li><a href="#" countryISO="NLD"><i class="flag16 flag16-Netherlands"></i> Netherlands</a></li>
+                           <li><a href="#" countryISO="NCL"><i class="flag16 flag16-New-Caledonia"></i> New Caledonia</a></li>
+                           <li><a href="#" countryISO="NZL"><i class="flag16 flag16-New-Zealand"></i> New Zealand</a></li>
+                           <li><a href="#" countryISO="NIC"><i class="flag16 flag16-Nicaragua"></i> Nicaragua</a></li>
+                           <li><a href="#" countryISO="NER"><i class="flag16 flag16-Niger"></i> Niger</a></li>
+                           <li><a href="#" countryISO="NGA"><i class="flag16 flag16-Nigeria"></i> Nigeria</a></li>
+                           <li><a href="#" countryISO="NIU"><i class="flag16 flag16-Niue"></i> Niue</a></li>
+                           <li><a href="#" countryISO="NFK"><i class="flag16 flag16-Norfolk-Island"></i> Norfolk Island</a></li>
+                           <li><a href="#" countryISO="PRK"><i class="flag16 flag16-North-Korea"></i> North Korea</a></li>
+                           <li><a href="#" countryISO="MNP"><i class="flag16 flag16-Northern-Mariana-Islands"></i> Northern Mariana Islands</a></li>
+                           <li><a href="#" countryISO="NOR"><i class="flag16 flag16-Norway"></i> Norway</a></li>
+                           <li><a href="#" countryISO="OMN"><i class="flag16 flag16-Oman"></i> Oman</a></li>
+                           <li><a href="#" countryISO="PAK"><i class="flag16 flag16-Pakistan"></i> Pakistan</a></li>
+                           <li><a href="#" countryISO="PLW"><i class="flag16 flag16-Palau"></i> Palau</a></li>
+                           <li><a href="#" countryISO="PSE"><i class="flag16 flag16-Palestine"></i> Palestine</a></li>
+                           <li><a href="#" countryISO="PAN"><i class="flag16 flag16-Panama"></i> Panama</a></li>
+                           <li><a href="#" countryISO="PNG"><i class="flag16 flag16-Papua-New-Guinea"></i> Papua New Guinea</a></li>
+                           <li><a href="#" countryISO="PRY"><i class="flag16 flag16-Paraguay"></i> Paraguay</a></li>
+                           <li><a href="#" countryISO="PER"><i class="flag16 flag16-Peru"></i> Peru</a></li>
+                           <li><a href="#" countryISO="PHL"><i class="flag16 flag16-Philippines"></i> Philippines</a></li>
+                           <li><a href="#" countryISO="PCN"><i class="flag16 flag16-Pitcairn-Islands"></i> Pitcairn Islands</a></li>
+                           <li><a href="#" countryISO="POL"><i class="flag16 flag16-Poland"></i> Poland</a></li>
+                           <li><a href="#" countryISO="PRT"><i class="flag16 flag16-Portugal"></i> Portugal</a></li>
+                           <li><a href="#" countryISO="PRI"><i class="flag16 flag16-Puerto-Rico"></i> Puerto Rico</a></li>
+                           <li><a href="#" countryISO="PRI"><i class="flag16 flag16-Puerto-Rico"></i> Puerto Rico</a></li>
+                           <li><a href="#" countryISO="QAT"><i class="flag16 flag16-Qatar"></i> Qatar</a></li>
+                           <li><a href="#" countryISO="COG"><i class="flag16 flag16-Republic-of-the-Congo"></i> Republic of the Congo</a></li>
+                           <li><a href="#" countryISO="REU"><i class="flag16 flag16-France"></i> Réunion</a></li>
+                           <li><a href="#" countryISO="ROU"><i class="flag16 flag16-Romania"></i> Romania</a></li>
+                           <li><a href="#" countryISO="RUS"><i class="flag16 flag16-Russia"></i> Russia</a></li>
+                           <li><a href="#" countryISO="RWA"><i class="flag16 flag16-Rwanda"></i> Rwanda</a></li>
+                           <li><a href="#" countryISO="BLM"><i class="flag16 flag16-Saint-Barthelemy"></i> Saint Barthélemy</a></li>
+                           <li><a href="#" countryISO="KNA"><i class="flag16 flag16-Saint-Kitts-and-Nevis"></i> Saint Kitts and Nevis</a></li>
+                           <li><a href="#" countryISO="LCA"><i class="flag16 flag16-Saint-Lucia"></i> Saint Lucia</a></li>
+                           <li><a href="#" countryISO="MAF"><i class="flag16 flag16-Saint-Martin"></i> Saint Martin</a></li>
+                           <li><a href="#" countryISO="SPM"><i class="flag16 flag16-France"></i> Saint Pierre and Miquelon</a></li>
+                           <li><a href="#" countryISO="VCT"><i class="flag16 flag16-Saint-Vincent-and-the-Grenadines"></i> Saint Vincent and the Grenadines</a></li>
+                           <li><a href="#" countryISO="WSM"><i class="flag16 flag16-Samoa"></i> Samoa</a></li>
+                           <li><a href="#" countryISO="SMR"><i class="flag16 flag16-San-Marino"></i> San Marino</a></li>
+                           <li><a href="#" countryISO="STP"><i class="flag16 flag16-Sao-Tome-and-Principe"></i> São Tomé and Príncipe</a></li>
+                           <li><a href="#" countryISO="SAU"><i class="flag16 flag16-Saudi-Arabia"></i> Saudi Arabia</a></li>
+                           <li><a href="#" countryISO="SEN"><i class="flag16 flag16-Senegal"></i> Senegal</a></li>
+                           <li><a href="#" countryISO="SRB"><i class="flag16 flag16-Serbia"></i> Serbia</a></li>
+                           <li><a href="#" countryISO="SYC"><i class="flag16 flag16-Seychelles"></i> Seychelles</a></li>
+                           <li><a href="#" countryISO="SLE"><i class="flag16 flag16-Sierra-Leone"></i> Sierra Leone</a></li>
+                           <li><a href="#" countryISO="SGP"><i class="flag16 flag16-Singapore"></i> Singapore</a></li>
+                           <li><a href="#" countryISO="SXM"><i class="flag16 flag16-Saint-Martin"></i> Sint Maarten</a></li>
+                           <li><a href="#" countryISO="SVK"><i class="flag16 flag16-Slovakia"></i> Slovakia</a></li>
+                           <li><a href="#" countryISO="SVN"><i class="flag16 flag16-Slovenia"></i> Slovenia</a></li>
+                           <li><a href="#" countryISO="SLB"><i class="flag16 flag16-Solomon-Islands"></i> Solomon Islands</a></li>
+                           <li><a href="#" countryISO="SOM"><i class="flag16 flag16-Somalia"></i> Somalia</a></li>
+                           <li><a href="#" countryISO="ZAF"><i class="flag16 flag16-South-Africa"></i> South Africa</a></li>
+                           <li><a href="#" countryISO="SGS"><i class="flag16 flag16-South-Georgia-and-the-South-Sandwich-Islands"></i> South Georgia</a></li>
+                           <li><a href="#" countryISO="KOR"><i class="flag16 flag16-South-Korea"></i> South Korea</a></li>
+                           <li><a href="#" countryISO="SSD"><i class="flag16 flag16-South-Sudan"></i> South Sudan</a></li>
+                           <li><a href="#" countryISO="ESP"><i class="flag16 flag16-Spain"></i> Spain</a></li>
+                           <li><a href="#" countryISO="LKA"><i class="flag16 flag16-Sri-Lanka"></i> Sri Lanka</a></li>
+                           <li><a href="#" countryISO="SDN"><i class="flag16 flag16-Sudan"></i> Sudan</a></li>
+                           <li><a href="#" countryISO="SUR"><i class="flag16 flag16-Suriname"></i> Suriname</a></li>
+                           <li><a href="#" countryISO="SJM"><i class="flag16 flag16-Norway"></i> Svalbard and Jan Mayen</a></li>
+                           <li><a href="#" countryISO="SWZ"><i class="flag16 flag16-Swaziland"></i> Swaziland</a></li>
+                           <li><a href="#" countryISO="SWE"><i class="flag16 flag16-Sweden"></i> Sweden</a></li>
+                           <li><a href="#" countryISO="CHE"><i class="flag16 flag16-Switzerland"></i> Switzerland</a></li>
+                           <li><a href="#" countryISO="SYR"><i class="flag16 flag16-Syria"></i> Syria</a></li>
+                           <li><a href="#" countryISO="TWN"><i class="flag16 flag16-Taiwan"></i> Taiwan</a></li>
+                           <li><a href="#" countryISO="TJK"><i class="flag16 flag16-Tajikistan"></i> Tajikistan</a></li>
+                           <li><a href="#" countryISO="TZA"><i class="flag16 flag16-Tanzania"></i> Tanzania</a></li>
+                           <li><a href="#" countryISO="THA"><i class="flag16 flag16-Thailand"></i> Thailand</a></li>
+                           <li><a href="#" countryISO="TLS"><i class="flag16 flag16-East-Timor"></i> Timor-Leste</a></li>
+                           <li><a href="#" countryISO="TGO"><i class="flag16 flag16-Togo"></i> Togo</a></li>
+                           <li><a href="#" countryISO="TKL"><i class="flag16 flag16-Tokelau"></i> Tokelau</a></li>
+                           <li><a href="#" countryISO="TON"><i class="flag16 flag16-Tonga"></i> Tonga</a></li>
+                           <li><a href="#" countryISO="TTO"><i class="flag16 flag16-Trinidad-and-Tobago"></i> Trinidad and Tobago</a></li>
+                           <li><a href="#" countryISO="TUN"><i class="flag16 flag16-Tunisia"></i> Tunisia</a></li>
+                           <li><a href="#" countryISO="TUR"><i class="flag16 flag16-Turkey"></i> Turkey</a></li>
+                           <li><a href="#" countryISO="TKM"><i class="flag16 flag16-Turkmenistan"></i> Turkmenistan</a></li>
+                           <li><a href="#" countryISO="TCA"><i class="flag16 flag16-Turks-and-Caicos-Islands"></i> Turks and Caicos Islands</a></li>
+                           <li><a href="#" countryISO="TUV"><i class="flag16 flag16-Tuvalu"></i> Tuvalu</a></li>
+                           <li><a href="#" countryISO="UGA"><i class="flag16 flag16-Uganda"></i> Uganda</a></li>
+                           <li><a href="#" countryISO="UKR"><i class="flag16 flag16-Ukraine"></i> Ukraine</a></li>
+                           <li><a href="#" countryISO="ARE"><i class="flag16 flag16-United-Arab-Emirates"></i> United Arab Emirates</a></li>
+                           <li><a href="#" countryISO="GBR"><i class="flag16 flag16-United-Kingdom"></i> United Kingdom</a></li>
+                           <li><a href="#" countryISO="USA"><i class="flag16 flag16-United-States"></i> United States</a></li>
+                           <li><a href="#" countryISO="UMI"><i class="flag16 flag16-United-States"></i> United States Minor Outlying Islands</a></li>
+                           <li><a href="#" countryISO="VIR"><i class="flag16 flag16-US-Virgin-Islands"></i> United States Virgin Islands</a></li>
+                           <li><a href="#" countryISO="URY"><i class="flag16 flag16-Uruguay"></i> Uruguay</a></li>
+                           <li><a href="#" countryISO="UZB"><i class="flag16 flag16-Uzbekistan"></i> Uzbekistan</a></li>
+                           <li><a href="#" countryISO="VUT"><i class="flag16 flag16-Vanuatu"></i> Vanuatu</a></li>
+                           <li><a href="#" countryISO="VAT"><i class="flag16 flag16-Vatican-City"></i> Vatican City</a></li>
+                           <li><a href="#" countryISO="VEN"><i class="flag16 flag16-Venezuela"></i> Venezuela</a></li>
+                           <li><a href="#" countryISO="VNM"><i class="flag16 flag16-Vietnam"></i> Vietnam</a></li>
+                           <li><a href="#" countryISO="WLF"><i class="flag16 flag16-Wallis-And-Futuna"></i> Wallis and Futuna</a></li>
+                           <li><a href="#" countryISO="ESH"><i class="flag16 flag16-Western-Sahara"></i> Western Sahara</a></li>
+                           <li><a href="#" countryISO="YEM"><i class="flag16 flag16-Yemen"></i> Yemen</a></li>
+                           <li><a href="#" countryISO="ZMB"><i class="flag16 flag16-Zambia"></i> Zambia</a></li>
+                           <li><a href="#" countryISO="ZWE"><i class="flag16 flag16-Zimbabwe"></i> Zimbabwe</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

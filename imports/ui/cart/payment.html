@@ -1,0 +1,151 @@
+<template name="payment">
+    <div class="ibox m-t">
+
+        <div class="ibox-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="inline">Terms and Payment</h2>
+                </div>
+                <div class="panel-body">
+                    {{#if isProcessing}}
+
+                    <div class="ibox-content">
+                        <div class="spiner-example">
+                            <div class="sk-spinner sk-spinner-chasing-dots">
+                                <div class="sk-dot1"></div>
+                                <div class="sk-dot2"></div>
+                            </div>
+                        </div>
+                    </div>
+                    {{else}}
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="well bg-white text-center">
+                                Need help?
+                                <small>customer service at your disposal</small>
+                                (Monday to Saturday, from 8h to 19h)
+                                <div class="phone">0612 355 658</div>
+                                <small>Price of a local call</small>
+
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="well bg-white">
+                                <table class="table" width="100%" border="0" cellspacing="0">
+                                    <tbody>
+                                    <tr>
+                                        <td>Total product</td>
+                                        <td align="right" class="text-suceess">{{formatNumber grandTotal}} {{Symbol}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total shipping</td>
+                                        <td align="right" class="text-suceess">{{formatNumber grandShipping}} {{Symbol}}</td>
+                                    </tr>
+
+                                    </tbody>
+
+                                    <tfoot>
+                                    <tr class="preTotal">
+                                        <td>Total orders</td>
+                                        <td align="right" class="text-suceess">{{formatNumber grandTotalShipping}} {{Symbol}}</td>
+                                    </tr>
+                                    </tfoot>
+
+
+                                </table>
+
+                            </div>
+
+                            <div class="well bg-white">
+                                <span class="normal-title">Terms of service</span>
+                                <div class="checkbox checkbox-success">
+                                    <input type="checkbox" id="terms">
+                                    <label for="terms">
+                                        I agree to the terms of service and will adhere to them unconditionally. (<a href="#">Read the Terms of Service</a>)
+                                    </label>
+                                </div>
+
+
+
+                            </div>
+
+
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="well bg-white text-center">
+                                <img class="img-auto" src="/img/paymentMethods.jpg">
+                                <div class="text-center m-t">
+
+                                    <button id="payment-by-card" class="btn btn-success btn-lg m-t m-b" name="pay" value="Pay" disabled="{{termsAccepted}}"><i class="fa fa-credit-card-alt"></i> Pay by credit card</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+            <!--customer redirection form-->
+            <form method="POST" action="https://paiement.systempay.fr/vads-payment/">
+
+                <input type="hidden" name="vads_action_mode" value="INTERACTIVE"/>
+                <input type="hidden" name="vads_amount" value="{{orderAmount}}" />
+                <input type="hidden" name="vads_contrib" value="{{AppName}}" />
+                <input type="hidden" name="vads_ctx_mode" value="TEST" />
+                <input type="hidden" name="vads_currency" value="978" />
+                {{#with billingAddress}}
+                    <input type="hidden" name="vads_cust_address" value="{{streetAddress}}" />
+                    <input type="hidden" name="vads_cust_city" value="{{address}}" />
+                {{/with}}
+                <input type="hidden" name="vads_cust_country" value="{{countryCode}}" />
+
+                {{#with getUserEmail}}
+                    <input type="hidden" name="vads_cust_email" value="{{address}}" />
+                {{/with}}
+                <input type="hidden" name="vads_cust_first_name" value="{{getUserProfile.firstName}}" />
+                <input type="hidden" name="vads_cust_id" value="{{currentUser._id}}" />
+                <!--<input type="hidden" name="vads_cust_last_name" value="TEST PRO" />-->
+                {{#with getUserProfile}}
+                    <input type="hidden" name="vads_cust_phone" value="{{phone}}" />
+                {{/with}}
+                {{#with shippingAddress}}
+                    <input type="hidden" name="vads_cust_zip" value="{{zipCode}}" />
+                    <input type="hidden" name="vads_language" value="fr" />
+                    <input type="hidden" name="vads_order_id" value="" />
+                    <!--<input type="hidden" name="vads_order_info" value="Paiement par carte bancaire" />-->
+                    <input type="hidden" name="vads_page_action" value="PAYMENT" />
+                    <input type="hidden" name="vads_payment_cards" value="CB;VISA;VISA_ELECTRON;MASTERCARD;MAESTRO;E-CARTEBLEUE" />
+                    <input type="hidden" name="vads_payment_config" value="SINGLE" />
+                    <input type="hidden" name="vads_return_mode" value="GET" />
+                    <input type="hidden" name="vads_ship_to_city" value="{{address}}" />
+                    <input type="hidden" name="vads_ship_to_country" value="{{getIsoCode country}}" />
+                {{/with}}
+
+                <!--<input type="hidden" name="vads_ship_to_first_name" value="test pro" />-->
+                <!--<input type="hidden" name="vads_ship_to_last_name" value="TEST PRO" />-->
+                {{#with getUserProfile}}
+                    <input type="hidden" name="vads_ship_to_phone_num" value="{{phone}}" />
+                {{/with}}
+                {{#with shippingAddress}}
+                    <input type="hidden" name="vads_ship_to_street" value="{{streetAddress}}" />
+                    <!--<input type="hidden" name="vads_ship_to_street2" value="" />-->
+                    <input type="hidden" name="vads_ship_to_zip" value="{{zipCode}}" />
+                {{/with}}
+                <input type="hidden" name="vads_site_id" value="24937366" />
+                <input type="hidden" name="vads_trans_date" value="" />
+                <input type="hidden" name="vads_trans_id" value="" />
+                <input type="hidden" name="vads_url_return" value="http://localhost:3000/thanks" />
+                <input type="hidden" name="vads_version" value="V2" />
+                <input type="hidden" name="signature" value=""/>
+                <button id="payment" style="display: none" name="pay" value="Pay"></button>
+            </form>
+        </div>
+        <div class="ibox-footer clearfix">
+              <span class="pull-right">
+                <button type="button" id="previous-step3" class="btn btn-default btn-large-dim btn-outline" disabled="{{isPaid}}"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                <button type="button" id="finished" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-check"></i><span class="btn-title">Finished</span></button>
+              </span>
+        </div>
+
+    </div>
+</template>

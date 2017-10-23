@@ -1,0 +1,411 @@
+<template name="vendorOrderDetails">
+    <!-- Page heading -->
+    {{> pageHeading title=title category='Orders' }}
+
+    <div class="wrapper wrapper-content animated fadeInRight vendorOrderDetails">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row-sm">
+                    <div class="col-sm-5 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-user"></i> Customer <a href="#linktocustomerprofil">{{currentUser.username}}</a></h5></div>
+                            <div class="ibox-content clearfix">
+                                <div class="row-sm">
+                                    <div class="col-sm-6 padding-sm shippingAddress">
+                                        <h4>Shipping address
+                                            <div class="mapLink btn btn-default btn-sm addressType" data-toggle="modal" data-target="#showMapModalDetails" addressType="Shipping address"><i class="fa fa-map-marker"></i></div>
+                                        </h4>
+                                        <div class="adressDetails well well-sm">
+                                            {{#with shippingAddress}}
+                                                <address>
+                                                    <strong><span class="fullNameCustomer">{{company}}</span></strong><br>
+                                                    <span class="fullNameCustomer">{{name}} {{firstName}}</span><br>
+                                                    <span class="addressLineCustomer">{{address}}</span><br>
+                                                    <span class="zipcodeCustomer">{{zipCode}}</span>, <span class="cityCustomer">{{city}}</span><br>
+                                                    <span class="countryCustomer">{{country}}</span> <br>
+                                                    <span class="phoneCustomer"><i class="fa fa-phone"></i> {{phoneNumber}}</span>
+                                                </address>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 padding-sm billingAddress">
+                                        <h4>Billing address
+                                            <div class="mapLink btn btn-default btn-sm addressType" data-toggle="modal" data-target="#showMapModalDetails" addressType="Billing address"><i class="fa fa-map-marker"></i></div>
+                                        </h4>
+                                        <div class="adressDetails well well-sm">
+                                        {{#with billingAddress}}
+                                            <address>
+                                                <strong><span class="fullNameCustomer">{{company}}</span></strong><br>
+                                                <span class="fullNameCustomer">{{name}} {{firstName}}</span><br>
+                                                <span class="addressLineCustomer">{{address}}</span><br>
+                                                <span class="zipcodeCustomer">{{zipCode}}</span>, <span class="cityCustomer">{{city}}</span><br>
+                                                <span class="countryCustomer">{{country}}</span> <br>
+                                                <span class="phoneCustomer"><i class="fa fa-phone"></i> {{phoneNumber}}</span>
+                                            </address>
+                                        {{/with}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 padding-sm m-t">
+                                        <div class="faketable w100">
+                                            <div class="phoneCustomer table-cell vat">
+                                                <div class="font-bold">Phone</div>
+                                                <span class="phoneCustomer"><i class="fa fa-phone"></i> {{Customer.profile.phone}}</span>
+                                            </div>
+                                            <div class="emailCustomer table-cell vat">
+                                                <div class="font-bold">Email</div>
+                                                <span class="emailCustomer"><i class="fa fa-envelope"></i> {{Customer.emails.[0].address}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        {{> statusDropdown header="Order process" description="The different steps of the order are updated by the seller. Customer is alerted to each new step."}}
+                    </div>
+                    <div class="col-sm-7 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-content clearfix">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th align="center">ID</th>
+                                        <th>product</th>
+                                        <th class="text-right" align="right">Price</th>
+                                        <th class="text-center" align="center">QTY</th>
+                                        <th class="text-right" align="right">Total Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#with Order}}
+                                        {{#each details}}
+                                            <tr>
+                                                <td>{{../_id}}</td>
+                                                <td>{{productName product}}</td>
+                                                <td align="right">{{Symbol}} {{formatNumber price}}</td>
+                                                <td align="center">{{sales}}</td>
+                                                <td align="right">{{Symbol}} {{formatNumber totalPrice}}</td>
+                                            </tr>
+                                        {{/each}}
+                                    {{/with}}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="preTotal">
+                                        <td colspan="4" align="right">Products</td>
+                                        <td align="right">{{Symbol}} {{formatNumber Order.totalPrice}}</td>
+                                    </tr>
+                                    <tr class="preTotal">
+                                        <td colspan="4" align="right">Shipping</td>
+                                        <td align="right">{{Symbol}} {{formatNumber shippingTotal}}</td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td colspan="4" align="right">Total</td>
+                                        <td align="right">{{Symbol}} {{formatNumber Order.grossPrice}}</td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row-sm">
+                            <div class="col-sm-6 padding-sm">
+                                <div class="ibox">
+                                    <div class="ibox-title"><h5><i class="fa fa-file-text"></i> Invoice</h5></div>
+                                    <div class="ibox-content clearfix">
+                                        {{#if pendingStatus}}
+                                            <div class="alert alert-info">
+                                                Please change status to Processing before be able to add your invoice
+                                            </div>
+                                        {{else}}
+                                        <div class="row-sm clearfix">
+                                            <div class="col-sm-12 padding-sm">
+                                                <div class="input-group">
+                                                    <input type="file" class="form-control" id="inputInvoice" accept=".pdf, .doc, .docx, .xls, .txt, .rtf">
+                                                    <span class="input-group-btn">
+                                                      <button class="btn btn-primary" type="button" id="uploadInvoice"><i class="fa fa-upload"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 padding-sm m-t">
+                                                <p>Please add your invoice for your customer. It will be sent to him via email and will be available from its account. </p>
+                                            </div>
+                                        </div>
+                                        <div class="hr-line-dashed"></div>
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>File</th>
+                                                <th>Action</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#if Invoices.length}}
+                                            <tr>
+                                                <td colspan="2">
+                                                    <a href="{{Invoices.[0].url}}" target="_blank"><i class="fa fa-file-text"></i> {{minimiseLength Invoices.[0].fileName 30}}</a>
+                                                    <i class="fa fa-trash pull-right deleteInvoice"></i>
+                                                </td>
+                                            </tr>
+                                            {{else}}
+                                            <tr>
+                                                <td colspan="2">
+                                                    <i class="fa fa-file-text"></i> No file
+                                                </td>
+                                            </tr>
+                                            {{/if}}
+                                            <tr>
+                                                <td>
+                                                    <i class="fa fa-file-text"></i> {{currentFile}}
+                                                </td>
+                                                <td>
+                                                    <div class="progress progress-striped active">
+                                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+                                                            <span class="sr-only">{{progress}}% Complete</span>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 padding-sm">
+                                <div class="ibox">
+                                    <div class="ibox-title"><h5><i class="fa fa-truck"></i> Shipping</h5></div>
+                                    <div class="ibox-content clearfix">
+                                        <table class="table table-striped">
+                                            <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Carrier</th>
+                                                <th>Shipping cost</th>
+                                                <th>Tracking number</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {{#each Carriers}}
+                                            <tr>
+                                                <td>{{formatDate Order.createdAt}}</td>
+                                                <td>{{carrierName id}}</td>
+                                                <td>{{formatNumber price}}{{Symbol}}</td>
+                                                <td>{{trackingUrl}} &nbsp; <button class="btn btn-default btn-sm trackingNo" data-toggle="modal" data-target="#editShippingNbModal" index="{{@index}}"><i class="fa fa-pencil"></i> Edit</button>
+                                                    <div class="modal inmodal" id="editShippingNbModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content animated bounceInRight">
+                                                                <div class="modal-header">
+                                                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                                    <i class="fa fa-barcode modal-icon"></i>
+                                                                    <h4 class="modal-title">Tracking number</h4>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="form-group"> <input type="text" placeholder="Enter your tracking number" class="form-control" id="trackingNumber" value="{{trackingUrl}}"></div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                                    <button type="button" class="btn btn-primary" id="saveTracking">Save changes</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-sm clearfix">
+                    <div class="col-sm-2 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-file-text-o"></i> Commission</h5></div>
+                            <div class="ibox-content clearfix p-xxs">
+                                <table class="table table-striped">
+                                    <tbody>
+                                    {{#with vendorPayment}}
+                                    <tr>
+                                        <td>Products</td>
+                                        <td>{{Symbol}} {{formatNumber amount}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Shipping</td>
+                                        <td>{{Symbol}} {{formatNumber (shippingCommission shippingTotal)}}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Total</td>
+                                        <td>{{Symbol}} {{formatNumber total}}</td>
+                                    </tr>
+                                    {{/with}}
+
+                                    <!--if pending status-->
+                                    {{#if pendingStatus}}
+                                        <td colspan="2">
+                                            <div class="alert alert-info m-t">
+                                                The commission invoice will be available soon.
+                                            </div>
+                                        </td>
+                                    {{/if}}
+
+                                    <!--if not pending status-->
+                                    {{#unless pendingStatus}}
+                                    <tr>
+                                        <td colspan="2" align="center">Commission order<br><a href="#linto">{{commissionInfo '_id'}}</a></td>
+                                    </tr>
+                                    {{#if checkStatus 'Processing'}}
+                                    <tr>
+                                        <td colspan="2" align="center"><h4>Status Pending</h4></td>
+                                    </tr>
+                                    {{else}}
+                                        <tr>
+                                            <td colspan="2" align="center"><button class="btn btn-default" id="generate-PDF"><i class="fa fa-file-text"></i> Invoice</button>
+                                            </td>
+                                        </tr>
+                                    {{/if}}
+                                    {{/unless}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-credit-card-alt"></i> Payment due from admin</h5>
+                                {{#unless pendingStatus}}
+                                <div class="pull-right">
+                                    <div class="vendorRemainingPartStatus">
+                                        <i class="fa fa-circle {{lowerCase (vendorPayment 'status')}}"></i>
+                                        {{paymentDetails (vendorPayment 'status')}}
+                                        {{#if showTimeDetails}}
+                                        -
+                                        <small>({{formatDate LastPaymentHistory.updatedAt 'DD/MM/YYYY'}})</small>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                {{/unless}}
+                            </div>
+                            <div class="ibox-content clearfix">
+                                {{#unless paymentProcessing}}
+                                {{#if checkStatus 'Completed'}}
+
+                                    <!-- IF PAYMENT DUE IS DONE -->
+                                    {{#if VEAPaid}}
+                                        <div class="alert alert-info">
+                                            The amount due (<span class="font-bold">{{formatNumber dueAmount}} {{Symbol}}</span>) has been paid and is a part of a set of earnings paid with the transaction below.
+                                        </div>
+                                        <!-- IF PAYMENT DUE IS NOT DONE -->
+                                    {{else}}
+                                        <div class="alert alert-danger">
+                                            The amount due (<span class="font-bold">{{formatNumber dueAmount}} {{Symbol}}</span>) is still not paid and will be paid at a future payment of eligible earnings.
+                                        </div>
+                                    {{/if}}
+                                {{else}}
+                                    <div class="alert alert-info">
+                                        The amount due (<span class="font-bold">{{formatNumber dueAmount}} {{Symbol}}</span>) will be added in your VEA when this order will be completed
+                                    </div>
+                                {{/if}}
+                                {{/unless}}
+                                {{#if paymentProcessing}}
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Amount</th>
+                                            <th>Information</th>
+                                            <th>Status</th>
+                                            <th>Action</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            {{#with vendorPayment}}
+                                                {{#if paymentCompleted}}
+                                                <td>{{formatDate createdAt 'DD/MM/YYYY h:mm:ss'}}</td>
+                                                <td class="text-success">{{formatNumber dueAmount}} {{Symbol}}</td>
+                                                <td>{{minimiseLength details 20}}</td>
+                                                <td><div class="paymentDueFromAdminStatus done"><i class="fa fa-check-circle"></i></div></td>
+                                                {{else}}
+                                                    <td>--</td>
+                                                    <td class="text-success">{{formatNumber dueAmount}} {{Symbol}}</td>
+                                                    <td>{{minimiseLength details 20}}</td>
+                                                    <td><div class="paymentDueFromAdminStatus done"><i class="fa fa-times-circle"></i></div></td>
+                                                {{/if}}
+                                                <td><a href="/dueFromAdminPaymentDetails" class="btn btn-default"><i class="fa fa-view"></i> View details</a></td>
+                                            {{/with}}
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                        {{#if checkStatus 'Cancelled'}}
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-circle text-danger"></i> Order canceled: Transaction detail vendor to Admin</h5></div>
+                            <div class="ibox-content clearfix">
+                                <div class="alert alert-info">
+                                    Info dev: When a vendor can no more cancel an order, because his earnings has been paid. He can make a cancellation request. For it, the vendor will sent back the amount related. When The admin will fill the cancel transaction information about this money back. Vendor is informed and can cancel again the order.
+                                </div>
+                                <div class="table-responsive">
+                                    <table class="table table-striped">
+                                        <thead>
+                                        <tr>
+                                            <th>Date/hour</th>
+                                            <th>Amount ({{Symbol}})</th>
+                                            <th>Paid?</th>
+                                            <th>Informations</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>{{formatDate lastOrderHistory 'DD-MM-YYYY h:mm:ss'}}</td>
+                                            <td>70,22</td>
+                                            <td class="text-success"><i class="fa fa-check"></i></td>
+                                            <td>Transfert: X5F2S3C3S6S2C</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        {{/if}}
+                    </div>
+                    <div class="col-sm-5 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-clock-o"></i> Due from admin payment process</h5></div>
+                            {{#if pendingStatus}}
+                                <div class="ibox-content clearfix">
+                                    <div class="alert alert-info">
+                                        Please process the order to start the payment process.
+                                    </div>
+                                </div>
+                            {{else}}
+                            <div class="ibox-content clearfix">
+                                <p>You can see the differents steps about your payment process</p>
+                                <table class="table table-striped">
+                                    <tbody>
+                                        {{#each vendorPayment 'history'}}
+                                            <tr>
+                                                <td>{{displayIndex @index}}</td>
+                                                <td><div class="vendorRemainingPartStatus"><i class="fa fa-circle {{lowerCase status}}" data-placement="top" data-toggle="tooltip" data-original-title="{{lowerCase status}}"></i> {{status}}</div></td>
+                                                <td>{{formatDate updatedAt 'DD/MM/YYYY h:mm:ss'}}</td>
+                                            </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>showMapModal}}
+    </div>
+</template>

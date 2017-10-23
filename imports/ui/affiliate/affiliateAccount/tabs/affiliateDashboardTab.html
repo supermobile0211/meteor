@@ -1,0 +1,350 @@
+<template name="affiliateDashboardTab">
+    <div id="affiliateDashboardTab" class="affiliateDashboard tab-pane active">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="well bg-white ">
+                        <h2 class="text-center">Your affiliate ID : <span class="text-info"><strong>{{affiliate._id}}</strong></span></h2>
+                        <p class="text-center">To create an affiliate link you need to add your affiliate id in a url parameter "af" in a url.</p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="well bg-white m-t text-center">
+                                    <h2>Share {{AppName}} homepage</h2>
+                                    <a class="btn btn-link code m-t m-b btn-block" href="{{webSiteUrl}}?af={{affiliate._id}}">{{webSiteUrl}}?af={{affiliate._id}}</a>
+                                    <div class="socialSharingBlock">
+                                        <i class="fa fa-share-alt m-r"></i>
+                                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{AppUrl}}{{affiliateId}}" class="fs2 btn btn-default facebook"><i class="fa fa-facebook"></i></a>
+                                        <a target="_blank" href="https://twitter.com/home?status={{AppUrl}}{{affiliateId}}" class="fs2 btn btn-default twitter"><i class="fa fa-twitter"></i></a>
+                                        <a target="_blank" href="https://plus.google.com/share?url={{AppUrl}}{{affiliateId}}" class="fs2 btn btn-default google-plus"><i class="fa fa-google-plus"></i></a>
+                                        <a target="_blank" href="https://pinterest.com/pin/create/button/?url=&amp;media=&amp;description={{AppUrl}}{{affiliateId}}" class="fs2 btn btn-default pinterest"><i class="fa fa-pinterest"></i></a>
+                                        <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title={{AppName}}summary=&amp;url={{AppUrl}}{{affiliateId}}" class="fs2 btn btn-default linkedin"><i class="fa fa-linkedin"></i></a>
+                                        <a target="_blank" href="http://digg.com/submit?url={{AppUrl}}{{affiliateId}}&title={{AppName}}" class="fs2 btn btn-default digg"><i class="fa fa-digg"></i></a>
+                                        <a target="_blank" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{AppUrl}}{{affiliateId}}" class="fs2 btn btn-default tumblr"><i class="fa fa-tumblr"></i></a>
+                                        <a target="_blank" href="https://delicious.com/save?v=5&provider={provider}&noui&jump=close&url={{AppUrl}}{{affiliateId}}&title={{AppName}}" class="fs2 btn btn-default delicious"><i class="fa fa-delicious"></i></a>
+                                        <a target="_blank" href="http://www.stumbleupon.com/submit?url={{AppUrl}}{{affiliateId}}&title={{AppName}}" class="fs2 btn btn-default stumbleupon"><i class="fa fa-stumbleupon"></i></a>
+                                        <a target="_blank" href="https://reddit.com/submit?url={{AppUrl}}{{affiliateId}}&title={{AppName}}" class="fs2 btn btn-default reddit"><i class="fa fa-reddit"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="well bg-white m-t text-center">
+                                    <h2>Generate a link</h2>
+                                    <p class="text-center">Copy past any link from the website to generate share link here: </p>
+                                    <div class="has-success">
+                                        <input type="text" id="generateUrl" class="form-control input-lg" placeholder="Past your url...">
+                                    </div>
+                                    <a class="btn btn-link code m-t m-b btn-block" href="{{generatedUrl}}">{{generatedUrl}}</a>
+                                    <div class="socialSharingBlock">
+                                        <i class="fa fa-share-alt m-r"></i>
+                                        <a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u={{generatedUrl}}" class="fs2 btn btn-default facebook"><i class="fa fa-facebook"></i></a>
+                                        <a target="_blank" href="https://twitter.com/home?status={{generatedUrl}}" class="fs2 btn btn-default twitter"><i class="fa fa-twitter"></i></a>
+                                        <a target="_blank" href="https://plus.google.com/share?url={{generatedUrl}}" class="fs2 btn btn-default google-plus"><i class="fa fa-google-plus"></i></a>
+                                        <a target="_blank" href="https://pinterest.com/pin/create/button/?url={{generatedUrl}}media=&amp;description={{AppName}}" class="fs2 btn btn-default pinterest"><i class="fa fa-pinterest"></i></a>
+                                        <a target="_blank" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=&amp;title=&amp;summary=&amp;url={{AppUrl}}/{{affiliateId}}" class="fs2 btn btn-default linkedin"><i class="fa fa-linkedin"></i></a>
+                                        <a target="_blank" href="http://digg.com/submit?url={{generatedUrl}}&title={{AppName}}" class="fs2 btn btn-default digg"><i class="fa fa-digg"></i></a>
+                                        <a target="_blank" href="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{generatedUrl}}" class="fs2 btn btn-default tumblr"><i class="fa fa-tumblr"></i></a>
+                                        <a target="_blank" href="https://delicious.com/save?v=5&provider={provider}&noui&jump=close&url={{generatedUrl}}&title={{AppName}}" class="fs2 btn btn-default delicious"><i class="fa fa-delicious"></i></a>
+                                        <a target="_blank" href="http://www.stumbleupon.com/submit?url={{generatedUrl}}&title={{AppName}}" class="fs2 btn btn-default stumbleupon"><i class="fa fa-stumbleupon"></i></a>
+                                        <a target="_blank" href="https://reddit.com/submit?url={{generatedUrl}}&title={{AppName}}" class="fs2 btn btn-default reddit"><i class="fa fa-reddit"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="well bg-white m-t">
+                                    <h2>Top 5 Popular offers link</h2>
+                                    <table class="popOffers table m-t" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tbody>
+                                            {{#each products}}
+                                                <tr>
+                                                    <td width="2%" align="center" valign="middle"><span class="number fs2 m-r">{{displayIndex @index}}</span></td>
+                                                    <td width="80" valign="middle"><img src="/img/product-large-2.jpg" width="80" height="80" class="img-responsive"></td>
+                                                    <td width="88%" valign="middle"><h4>{{getTranslation translation 'name'}}
+                                                    </h4><a href="{{AppUrl}}productDetails/{{_id}}{{affiliateId}}">{{AppUrl}}productDetails/{{_id}}{{affiliateId}}</a></td>
+                                                </tr>
+                                            {{/each}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="well bg-white m-t">
+                                    <h2>XML API Ressources</h2>
+                                    <div class="alert alert-info">INfoDev: this section can be done at the end...</div>
+                                    <div class="alert alert-info">The XML API allow you to get a xml live ressource to update automatically  content in your applications. </div>
+                                    <div class="text-center"><button type="button" class="btn btn-primary" data-toggle="tab" href="#affiliateXMLRessourceTab">Show XML Ressources</button></div>
+                                </div>
+                                <div class="well bg-white m-t">
+                                    <h2>Banners</h2>
+                                    <p>Animated banners, gif, iframe, js</p>
+                                    <div class="text-center"><button type="button" class="btn btn-primary" data-toggle="tab" href="#affiliateCreateBannerTab">Create my banner</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="widget bg-white well ">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-money fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>Current eligible Earnings</span>
+                                <h2 class="font-bold">$ {{income.currentEarning}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="widget bg-white well ">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-hourglass-half fa-4x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span>Remaining amount necessary to be eligible for a payment</span>
+                                <h2 class="font-bold">$ 25,63</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget style1 red-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-money fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span> Today income </span>
+                                <h2 class="font-bold">$ {{income.today}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 yellow-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-users fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span> Today visits </span>
+                                <h2 class="font-bold">{{visitor.today.length}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 navy-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-shopping-cart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span> Today sales </span>
+                                <h2 class="font-bold">{{sales.today}}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget style1 lazur-bg">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <i class="fa fa-line-chart fa-5x"></i>
+                            </div>
+                            <div class="col-xs-8 text-right">
+                                <span> Today Conversion </span>
+                                <h2 class="font-bold">{{conversions.today}}%</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget red-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">$ {{income.lastMonth}}</h1>
+
+                            <h3 class="font-bold no-margins">
+                                Last 30 days Income
+                            </h3>
+                            <small>Show affiliate income since the last 30 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="income1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget yellow-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{visitor.lastMonth.length}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 30 days Visits
+                            </h3>
+                            <small>Show visits since the last 30 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="visit1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget navy-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{sales.lastMonth}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 30 days Sales
+                            </h3>
+                            <small>Show sales since the last 30 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="sale1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget lazur-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{conversions.lastMonth}}%</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 30 days conversion rate
+                            </h3>
+                            <small>Last 30 days average conversion rate</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="conv1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget red-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">$ {{income.lastThreeMonths}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 90 days Income
+                            </h3>
+                            <small>Show affiliate income since the last 90 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="income2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget yellow-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{visitor.lastThreeMonths.length}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 90 days Visits
+                            </h3>
+                            <small>Show visits since the last 90 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="visit2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget navy-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{sales.lastThreeMonths}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 90 days Sales
+                            </h3>
+                            <small>Show sales since the last 90 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="sale2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget lazur-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{conversions.lastThreeMonths}} %</h1>
+                            <h3 class="font-bold no-margins">
+                                Last 90 days conversion rate
+                            </h3>
+                            <small>Last 90 days average conversion rate</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="conv2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="widget red-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">$ {{income.lastYear}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Annual Income
+                            </h3>
+                            <small>Show affiliate income since the last 365 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="income3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget yellow-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{visitor.lastYear.length}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Annual Visits
+                            </h3>
+                            <small>Show visits since the last 365 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="visit3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget navy-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{sales.lastYear}}</h1>
+                            <h3 class="font-bold no-margins">
+                                Annual Sales
+                            </h3>
+                            <small>Show sales since the last 365 days</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="sale3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="widget lazur-bg no-padding">
+                        <div class="p-m">
+                            <h1 class="m-xs">{{conversions.lastYear}}%</h1>
+                            <h3 class="font-bold no-margins">
+                                Annual conversion rate
+                            </h3>
+                            <small>Show annual average conversion rate</small>
+                            <div class="flot-chart">
+                                <div class="flot-chart-content" id="conv3"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+

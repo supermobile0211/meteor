@@ -1,0 +1,236 @@
+<template name="customerSettingsTab">
+
+  <div id="customerSettingsTab" class="customerSettingsTab tab-pane">
+    <div class="panel-body">
+      <div class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">
+            Notifications
+          </label>
+          <div class="col-sm-9">
+
+            <table class="table table-striped table-hover" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Notifications</th>
+                  <th>Email</th>
+                  <th>Push</th>
+                  <th>Web</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td><p class="font-bold">$notificationName</p>
+                    <p class="text-muted">$notificationDescription</p></td>
+                  <td>
+                    <div class="switch">
+                      <div class="onoffswitch">
+                        <input type="checkbox" id="example1" class="onoffswitch-checkbox" checked="">
+                        <label for="example1" class="onoffswitch-label">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="switch">
+                      <div class="onoffswitch">
+                        <input type="checkbox" id="example2" class="onoffswitch-checkbox" checked="">
+                        <label for="example2" class="onoffswitch-label">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                  <td><div class="switch">
+                    <div class="onoffswitch">
+                      <input type="checkbox" id="example3" class="onoffswitch-checkbox" checked="checked" />
+                      <label for="example3" class="onoffswitch-label"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                    </div>
+                    </div></td>
+                </tr>	
+
+              </tbody>
+
+            </table>
+
+
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Units</label>
+          <div class="col-sm-9">
+          	<div class="radio radio-info radio-inline">
+		        <input type="radio" checked="" name="radioInline" value="imperial" id="unitsimperial">
+		        <label for="unitsimperial">Imperial</label>
+		    </div>
+
+		    <div class="radio radio-info radio-inline">
+		        <input type="radio" checked="" name="radioInline" value="metric" id="unitsmetric">
+		        <label for="unitsmetric">Metric</label>
+		    </div>
+
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Favorite language</label>
+          <div class="col-sm-9"> 
+          	          	{{>languageSelect}}
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Favorite Currency</label>
+
+          <div class="col-sm-9">
+              <select id="currentCurrency" data-placeholder="Choose a Currency..." class="chosen-select" style="width:350px;" tabindex="2">
+                  <option value="USD">USD - Dollar - $</option>
+                  <option value="EUR">EUR - Euro - €</option>
+                  <option value="THB">THB - Baht - ฿</option>
+                  <option value="ARS">ARS - Peso Argentino - ARS</option>
+                  <option value="AUD">AUD - Dollar - $</option>
+                  <option value="AZN">AZN - Manat - AZN</option>
+                  <option value="BYR">BYR - Belarusian ruble - р.</option>
+                  <option value="BOB">BOB - Boliviano - $b</option>
+                  <option value="BRL">BRL - Real - R$</option>
+                  <option value="BGN">BGN - Lev - лв</option>
+                  <option value="CAD">CAD - Dollar (CAD) - CAD$</option>
+                  <option value="CLP">CLP - Peso - $</option>
+                  <option value="CNY">CNY - Yuan - ¥</option>
+                  <option value="COP">COP - Peso - $</option>
+                  <option value="CRC">CRC - Colón - ₡</option>
+                  <option value="HRK">HRK - Croatian Kuna - kn</option>
+                  <option value="CZK">CZK - Czech koruna - Kč</option>
+                  <option value="DKK">DKK - Danish krone - kr</option>
+                  <option value="DOP">DOP - Peso - RD$</option>
+                  <option value="EGP">EGP - Pound - £</option>
+                  <option value="FJD">FJD - Dollar - $</option>
+                  <option value="GEL">GEL - Lari - ლ</option>
+                  <option value="GTQ">GTQ - Quetzal - Q</option>
+                  <option value="GYD">GYD - Dollar - $</option>
+                  <option value="HKD">HKD - Hong Kong Dollar - $</option>
+                  <option value="HUF">HUF - Forint - Ft‎</option>
+                  <option value="INR">INR - Indian Rupee - ₹</option>
+                  <option value="IDR">IDR - Rupiah - Rp‎</option>
+                  <option value="IRR">IRR - Rial - ریال</option>
+                  <option value="ILS">ILS - Shekel - ₪‎</option>
+                  <option value="JPY">JPY - Yen - ¥</option>
+                  <option value="GBP">GBP - Pound - £</option>
+                  <option value="KES">KES - Kenyan shilling - KSh</option>
+                  <option value="CHF">CHF - Franc - CHF</option>
+                  <option value="MYR">MYR - Ringgit - RM</option>
+                  <option value="MXN">MXN - Peso - $</option>
+                  <option value="MDL">MDL - Lei - MDL</option>
+                  <option value="NZD">NZD - Dollar - $</option>
+                  <option value="NGN">NGN - Nigerian naira - ₦</option>
+                  <option value="NOK">NOK - Krone - kr</option>
+                  <option value="PKR">PKR - Rupee - ₨</option>
+                  <option value="PYG">PYG - Guaraní - Gs</option>
+                  <option value="PEN">PEN - Nuevo Sol - S/.</option>
+                  <option value="PHP">PHP - Philippine Peso - PHP</option>
+                  <option value="PLN">PLN - Złoty - zł</option>
+                  <option value="RON">RON - Lei - lei</option>
+                  <option value="RUB">RUB - Ruble - руб</option>
+                  <option value="SAR">SAR - Riyal - ﷼</option>
+                  <option value="RSD">RSD - Dinar - RSD</option>
+                  <option value="SGD">SGD - Dollar - $</option>
+                  <option value="SEK">SEK - Krona - kr</option>
+                  <option value="TWD">TWD - Dollar - NT$</option>
+                  <option value="TND">TND - Tunisian Dinar - DT</option>
+                  <option value="TRY">TRY - Lira - TL</option>
+                  <option value="UAH">UAH - Гривна - ₴</option>
+                  <option value="AED">AED - United Arab Emirates dirham - AED</option>
+                  <option value="UYU">UYU - Peso - $U</option>
+                  <option value="VEF">VEF - Bolívar fuerte - Bs</option>
+                  <option value="VND">VND - Đồng - ₫</option>
+
+
+
+              </select>
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>        
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Need a break?
+
+          </label>
+          <div class="col-sm-9">
+
+
+            <h2>Deactivate my account</h2>
+            <ul>
+              <li>Your profile will appear deleted, but we’ll keep everything for you.</li>
+              <li>Simply sign in at any time re-enable your account.</li>
+            </ul>
+            <button class="btn btn-warning desactivateMyAccount" id="desactivateMyAccount">Deactivate my account</button>
+
+                {{#if desactivateMyAccount}}
+                <div class="m-t">
+                  <p><strong>Confirm your password</strong></p>
+
+                  <input type="password" id="currentPassword1" class="form-control" placeholder="Current password">
+
+                  <div class="m-t">
+                    <button type="button" id="confirmBtn1" class="btn btn-default" disabled="{{enablePassword1}}">Confirm</button>
+                    <button type="button" class="btn btn-default" id="deactivate">Cancel</button>
+                  </div>
+                </div>
+
+                {{/if}}
+
+
+            <div class="hr-line-dashed"></div>
+
+            <!-- IF ACCOUNT IS DISABLED -->
+
+            <h2>Activate my account</h2>
+
+            <button class="btn btn-success activateMyAccount" id="activateMyAccount">Activate my account</button>
+
+
+
+            <div class="hr-line-dashed"></div>
+
+
+            <h2>Delete my account <span class="text-danger">This is permanent!</span></h2>
+            <ul>
+              <li>Everything will be deleted. Your profile, photos, messages, vendor account, affiliate account – all gone.</li>
+              <li>Simply sign in at any time re-enable your account.</li>
+              <li>Public items like order review, product contribution or suggestion remain are kept.</li>
+              
+            </ul>
+            <button class="btn btn-danger" id="deleteMyAccount">Delete my account permanently</button>
+
+              {{#if deleteMyAccount}}
+                <div class="m-t">
+                  <p><strong>Confirm your password</strong></p>
+
+                  <input type="password" id="currentPassword" class="form-control" placeholder="Current password">
+
+                  <div class="m-t">
+                    <button type="button" id="confirmBtn" class="btn btn-default" disabled="{{enablePassword}}">Confirm</button>
+                    <button type="button" class="btn btn-default" id="deleteAccount">Cancel</button>
+                  </div>
+                </div>
+            {{/if}}
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+</template>
+
+

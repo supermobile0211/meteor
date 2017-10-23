@@ -1,0 +1,44 @@
+<template name="customerAddressesTab">
+
+  <div id="customerAddressesTab" class="customerDashboard tab-pane">
+    
+    <div class="panel-body">
+      <div class="text-center"><a href="/customerAddressesAdd" class="btn btn-primary btn-block"><i class="fa fa-plus"></i> Add a new address</a> </div>
+      <div class="hr-line-dashed"></div>
+
+      <table class="table table-striped" width="100%" border="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th scope="col">Company</th>
+            <th scope="col">Name</th>
+            <th scope="col">First name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Country</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+          {{#each addresses}}
+          <tr>
+              <td>{{company}}</td>
+              <td>{{name}}</td>
+              <td>{{firstName}}</td>
+              <td>{{address}}</td>
+              <td>{{country}}</td>
+              <td>{{phoneNumber}}</td>
+              <td><div class="btn-group">
+                  <a href="{{customAddress @index}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a>
+                  <button id="remove" value="{{@index}}" class="ladda-button btn btn-default" data-style="zoom-in"><span class="ladda-label"><i class="fa fa-trash"></i></span><span class="ladda-spinner"></span></button>
+              </div></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</template>
+
+

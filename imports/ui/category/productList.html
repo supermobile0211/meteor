@@ -1,0 +1,38 @@
+<template name="productList">
+
+    <li class="productListItem col-lg-3 col-md-4 col-sm-6" style="list-style: none">
+        <div class="productContainer">
+            <div class="row">
+                <div class="col-sm-12 left-col">
+                    <div class="product-image-container">
+                        {{#if images.length}}
+                        <a href="{{pathFor 'productDetails' id=_id}}"><img class="img-responsive small" src={{images.[0]}}></a>
+                        {{else}}
+                            <a href="{{pathFor 'productDetails' id=_id}}"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                        {{/if}}
+                    </div>
+                </div>
+
+                <div class="col-sm-12 floatingContent text-col">
+                    <div class="row col-container">
+                        <div class="col-sm-12 center-col text-center">
+                            <h2 class="productTitle">{{checkLength translation 'name' 8}}</h2>
+                            {{#if showDetailsButton}}
+                            <div class="productShortDescription">{{{checkLength translation 'description' 18}}}</div>
+                            {{/if}}
+                        </div>
+
+                        <div class="col-sm-12 text-center right-col">
+                            <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{formatNumber startPrice}} {{Symbol}}</span> </div>
+                            {{#if showDetailsButton}}
+                            <div class="text-center buttonContainer"><a href="{{pathFor 'productDetails' id=_id}}" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                            {{/if}}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+
+</template>

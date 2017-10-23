@@ -1,0 +1,385 @@
+<template name="vendorPublicProfileReviews">
+    <div class="animated fadeInRight vendorPublicProfileReviews row">
+        <div class="container">
+            <div class="vendorSummary m-t">
+                <div class="vendorBanner">
+                    <img src="/img/vendorBanner.jpg" class="img-responsive">
+                </div>
+                <div class="vendorSummaryContent">
+                    <div class="faketable">
+                        <div class="vendorAvatar m-r">
+                            <img src="/img/company.jpg" width="160" height="160">
+                        </div>
+                        <div class="userQuickResume-detais table-cell vam">
+                            <div class="socialSharingBlock pull-right">
+                                <i class="fa fa-share-alt m-r"></i>
+                                <a href="#" class="btn btn-default facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="btn btn-default twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="btn btn-default google-plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" class="btn btn-default pinterest"><i class="fa fa-pinterest"></i></a>
+                            </div><h2 class="font-bold no-margins">Adidas <span><i class="flag16 flag16-France" title="France"></i></span> <span class="badgesUser">$badges</span></h2>
+                            <div class="reviews-container">
+                                Average rating
+                <span class="reviews-stars">
+                  <i class="fa fa-star active"></i>
+                  <i class="fa fa-star active"></i>
+                  <i class="fa fa-star active"></i>
+                  <i class="fa fa-star active"></i>
+                  <i class="fa fa-star"></i>
+                </span>
+                                <span class="reviews-count">(165)</span>
+                                <div class="text-muted"><small>The average rating is based on reviews posted in the past 12 months.</small></div>
+                            </div>
+                            <div class="city"> <a href="linkToModalWindowOfCityOnly" target="_blank"><i class="fa fa-map-marker"></i></a> $ZIPCODE $CITY</div>
+                            <div class="personnalDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, tenetur. In illo consequuntur vero dolores possimus ad perferendis qui repudiandae, minima aliquam tenetur deserunt eum repellat aut architecto. Illum, ducimus!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vendorLastOffers">
+                <div class="simple-title clearfix m-b">Last offers
+                    <div class="slide-control pull-right">
+                        <button id="previous" class="btn btn-default btn-lg"><i class="fa fa-caret-left"></i></button>
+                        <button id="next" class="btn btn-default btn-lg"><i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+                <ul class="productList row grid">
+                    {{#each products}}
+                        <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                            <div class="productContainer">
+                                <div class="row">
+                                    <div class="col-sm-12 left-col">
+                                        <div class="product-image-container">
+                                            <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 floatingContent">
+                                        <div class="row col-container">
+                                            <div class="col-sm-12 center-col">
+                                                <h2 class="productTitle">{{getTranslation translation 'name'}}</h2>
+                                                <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                            </div>
+                                            <div class="col-sm-12 text-center right-col">
+                                                <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{bestOffer}}</span> </div>
+                                                <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+                <div class="text-center m-b"><a href="/vendorPublicProfile" class="btn btn-default"><i class="fa fa-chevron-left"></i> Back to catalog</a></div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="well bg-white">
+                        <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th scope="col">Recent evalution</th>
+                                <th scope="col">Last month</th>
+                                <th scope="col">6 months</th>
+                                <th scope="col">12 months</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-plus-circle"></i> Positive</td>
+                                <td>192</td>
+                                <td>192</td>
+                                <td>192</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-bullseye"></i> Neutral</td>
+                                <td>192</td>
+                                <td>192</td>
+                                <td>192</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-minus-circle"></i> Negative</td>
+                                <td>192</td>
+                                <td>192</td>
+                                <td>192</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-link btn btn-block text-center text-success">Read vendor reviews (665)</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="well bg-white">
+                        <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th scope="col">Criteria</th>
+                                <th scope="col">Average rating</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Speed</td>
+                                <td>
+                                    <div class="reviews-container">
+                      <span class="reviews-stars">
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star"></i>
+                      </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                            </tr>
+                            <tr>
+                                <td>Service quality</td>
+                                <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                            </tr>
+                            <tr>
+                                <td>Welcome quality</td>
+                                <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="reviewsContainer">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="well bg-white">
+                            <div class="well">
+                                <div class="chat-review faketable w100 left">
+                                    <div class="table-cell vat user">
+                                        <img class="user-avatar img-circle" src="img/a1.jpg" alt="">
+                                        <span class="review-author"> M. John </span>
+                                    </div>
+                                    <div class="table-cell vat">
+                                        <div class="review">
+                                            <div class="faketable">
+                                                <div class="table-cell">
+                                                    <small class="review-date"> Mon Jan 26 2015 - 18:39:23 </small>
+                          <span class="review-content">
+                            <i class="fa fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                            <i class="fa fa-quote-right"></i>
+                            <div class="text-right m-t">
+                                <button class="btn btn-link">Read more <i class="fa fa-angle-double-right"></i></button>
+                            </div>
+                          </span>
+                                                </div>
+                                                <div class="table-cell nowrap">
+                                                    <div class="review-rating">
+                                                        His rating
+                                                        <div class="reviews-container">
+                              <span class="reviews-stars">
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star"></i>
+                              </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-cell nowrap">
+                                                    <div class="orderItemsRelated">
+                                                        <ul>
+                                                            <li>Name of product n°1</li>
+                                                            <li>Name of product n°2</li>
+                                                            <li>Name of product n°3</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="chat-review right faketable w100">
+                                    <div class="table-cell vat">
+                                        <div class="review">
+                                            <div class="faketable w100">
+                                                <div class="table-cell">
+                                                    <small class="review-date"> Mon Jan 26 2015 - 18:39:23 </small>
+                          <span class="review-content">
+                            <i class="fa fa-quote-left"></i>
+                            Loremg elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                            <i class="fa fa-quote-right"></i>
+                            <div class="text-right m-t">
+                                <button class="btn btn-link">Read more <i class="fa fa-angle-double-right"></i></button>
+                            </div>
+                          </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="table-cell vat user">
+                                        <img class="user-avatar img-circle" src="img/company.jpg" alt="">
+                                        <span class="review-author"> M. John </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="well">
+                                <div class="chat-review faketable w100 left">
+                                    <div class="table-cell vat user">
+                                        <img class="user-avatar img-circle" src="img/a1.jpg" alt="">
+                                        <span class="review-author"> M. John </span>
+                                    </div>
+                                    <div class="table-cell vat">
+                                        <div class="review">
+                                            <div class="faketable">
+                                                <div class="table-cell">
+                                                    <small class="review-date"> Mon Jan 26 2015 - 18:39:23 </small>
+                          <span class="review-content">
+                            <i class="fa fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                            <i class="fa fa-quote-right"></i>
+                            <div class="text-right m-t">
+                                <button class="btn btn-link">Read more <i class="fa fa-angle-double-right"></i></button>
+                            </div>
+                          </span>
+                                                </div>
+                                                <div class="table-cell nowrap">
+                                                    <div class="review-rating">
+                                                        His rating
+                                                        <div class="reviews-container">
+                              <span class="reviews-stars">
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star"></i>
+                              </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-cell nowrap">
+                                                    <div class="orderItemsRelated">
+                                                        <ul>
+                                                            <li>Name of product n°1</li>
+                                                            <li>Name of product n°2</li>
+                                                            <li>Name of product n°3</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vendorActionTools">
+                                    <!-- IF logged as Vendor of this page and do not yet have reply about this comment  -->
+                                    <a href="#" class="block text-right replyToThisComment" data-commentID="ID01"><i class="fa fa-commenting"></i> Reply to this comment</a>
+                                    <div class="replyForm hide chat-review right faketable w100" data-commentID="ID01">
+                                        <div class="alert alert-info">INFODEV: please make this box show/hide only for the related link.</div>
+                                        <div class="table-cell vat">
+                                            <div class="review">
+                                                <div class="faketable w100">
+                                                    <div class="table-cell">
+                                                        <small class="review-date"> Mon Jan 26 2015 - 18:39:23 </small>
+                                                        <div class="label label-info pull-right m-b">333/$XXX</div>
+                          <span class="review-content">
+                            <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea>
+                            <button class="btn btn-success"><i class="fa fa-check"></i> Send my comment</button>
+                          </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-cell vat user">
+                                            <img class="user-avatar img-circle" src="img/company.jpg" alt="">
+                                            <span class="review-author"> M. John </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="well">
+                                <div class="chat-review faketable w100 left">
+                                    <div class="table-cell vat user">
+                                        <img class="user-avatar img-circle" src="img/a1.jpg" alt="">
+                                        <span class="review-author"> M. John </span>
+                                    </div>
+                                    <div class="table-cell vat">
+                                        <div class="review">
+                                            <div class="faketable">
+                                                <div class="table-cell">
+                                                    <small class="review-date"> Mon Jan 26 2015 - 18:39:23 </small>
+                          <span class="review-content">
+                            <i class="fa fa-quote-left"></i>
+                            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+                            <i class="fa fa-quote-right"></i>
+                            <div class="text-right m-t">
+                                <button class="btn btn-link">Read more <i class="fa fa-angle-double-right"></i></button>
+                            </div>
+                          </span>
+                                                </div>
+                                                <div class="table-cell nowrap">
+                                                    <div class="review-rating">
+                                                        His rating
+                                                        <div class="reviews-container">
+                              <span class="reviews-stars">
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star active"></i>
+                                <i class="fa fa-star"></i>
+                              </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="table-cell nowrap">
+                                                    <div class="orderItemsRelated">
+                                                        <ul>
+                                                            <li>Name of product n°1</li>
+                                                            <li>Name of product n°2</li>
+                                                            <li>Name of product n°3</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="vendorActionTools">
+                                    <!-- IF logged as Vendor of this page and do not yet have reply about this comment  -->
+                                    <a href="#" class="block text-right replyToThisComment" data-commentID="ID02"><i class="fa fa-commenting"></i> Reply to this comment</a>
+                                    <div class="replyForm hide chat-review right faketable w100" data-commentID="ID02">
+                                        <div class="alert alert-info">INFODEV: please make this box show/hide only for the related link.</div>
+                                        <div class="table-cell vat">
+                                            <div class="review">
+                                                <div class="faketable w100">
+                                                    <div class="table-cell">
+                                                        <small class="review-date"> Mon Jan 26 2015 - 18:39:23 </small>
+                                                        <div class="label label-info pull-right m-b">333/$XXX</div>
+                          <span class="review-content">
+                            <textarea name="textarea" id="textarea" cols="45" rows="5"></textarea>
+                            <button class="btn btn-success"><i class="fa fa-check"></i> Send my comment</button>
+                          </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="table-cell vat user">
+                                            <img class="user-avatar img-circle" src="img/company.jpg" alt="">
+                                            <span class="review-author"> M. John </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="spiner-example">
+                <div class="sk-spinner sk-spinner-chasing-dots">
+                    <div class="sk-dot1"></div>
+                    <div class="sk-dot2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

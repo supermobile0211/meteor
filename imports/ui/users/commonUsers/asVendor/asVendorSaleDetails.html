@@ -1,0 +1,355 @@
+<template name="asVendorSaleDetails">
+
+
+  <!-- Page heading -->
+  {{> pageHeading title='Vendor sale: #DJSJKLZ' category='Catalog' }}
+
+
+  <div class="wrapper wrapper-content animated fadeInRight asVendorSaleDetails">
+
+    <div class="row">
+      <div class="col-lg-12">
+
+
+
+
+
+          <div class="row-sm">
+            <div class="col-sm-5 padding-sm">
+              <div class="ibox">
+                <div class="ibox-title"><h5><i class="fa fa-user"></i> Customer <a href="#linktocustomerprofil">John Doe</a></h5></div>
+                <div class="ibox-content clearfix">
+                  <div class="row-sm">
+
+                    <div class="col-sm-6 padding-sm shippingAddress">
+                      <h4>Shipping address
+                        <div class="mapLink btn btn-default btn-sm" data-toggle="modal" data-target="#showMapModalDetails"><i class="fa fa-map-marker"></i></div>
+
+                      </h4>
+                      <div class="adressDetails well well-sm">
+                        <address>
+                          <strong><span class="fullNameCustomer">Morison Bertrand</span></strong><br>
+                          <span class="addressLineCustomer">16, Main street 2nd floor </span><br>
+                          <span class="zipcodeCustomer">33133</span>, <span class="cityCustomer">Miami</span><br>
+                          <span class="countryCustomer">United States</span> <br>
+                          <span class="phoneCustomer"><i class="fa fa-phone"></i> 555-444-444</span>
+                        </address>
+
+                      </div>
+                    </div>
+                    <div class="col-sm-6 padding-sm billingAddress">
+                      <h4>Billing address
+                        <div class="mapLink btn btn-default btn-sm" data-toggle="modal" data-target="#showMapModalDetails"><i class="fa fa-map-marker"></i></div>
+
+                      </h4> 
+
+                      <div class="adressDetails well well-sm">
+                        <address>
+                          <strong><span class="fullNameCustomer">Morison Bertrand</span></strong><br>
+                          <span class="addressLineCustomer">16, Main street 2nd floor </span><br>
+                          <span class="zipcodeCustomer">33133</span>, <span class="cityCustomer">Miami</span><br>
+                          <span class="countryCustomer">United States</span> <br>
+                          <span class="phoneCustomer"><i class="fa fa-phone"></i> 555-444-444</span>
+                        </address>
+                      </div>
+                    </div>    
+
+                    <div class="col-sm-12 padding-sm m-t">
+                      <div class="faketable w100">
+
+                        <div class="phoneCustomer table-cell vat">
+                          <div class="font-bold">Phone</div>
+                          <span class="phoneCustomer"><i class="fa fa-phone"></i> 555-444-444</span>
+
+                        </div>
+                        <div class="emailCustomer table-cell vat">
+                          <div class="font-bold">Email</div>
+                          <span class="emailCustomer"><i class="fa fa-envelope"></i> customer@email.com</span>
+
+                        </div>
+
+                      </div>
+                    </div>                                              
+
+                  </div>
+                </div>  
+
+
+              </div>
+            </div>
+            <div class="col-sm-5 padding-sm">
+              <div class="ibox">
+                <div class="ibox-title"><h5><i class="fa fa-file-text"></i> Invoice</h5></div>
+                <div class="ibox-content clearfix">
+                  <div class="row-sm clearfix">
+                    <div class="col-sm-6 padding-sm">
+
+
+                      <div class="input-group">
+                        <input type="file" class="form-control"> 
+                        <span class="input-group-btn"> 
+                          <button class="btn btn-primary" type="button"><i class="fa fa-upload"></i></button> 
+                        </span>
+                      </div>
+
+                    </div>
+                    <div class="col-sm-6 padding-sm">
+
+
+                      <p>Please add your invoice for your customer. It will be sent to him via email and will be available from its account. </p>
+
+                    </div>
+                  </div>
+
+                  <div class="hr-line-dashed"></div>
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>File</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <i class="fa fa-file-text"></i> No file
+                        </td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+
+
+              </div>
+            </div>
+
+            <div class="col-sm-2 padding-sm">
+              <div class="ibox">
+                <div class="ibox-title"><h5><i class="fa fa-file-text-o"></i> Commission</h5></div>
+                <div class="ibox-content clearfix p-xxs">
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td>Products</td>
+                        <td>$80,90</td>
+                      </tr>
+                      <tr>
+                        <td>Shipping</td>
+                        <td>$0,90</td>
+                      </tr>
+                      <tr>
+                        <td>Total</td>
+                        <td>$81,80</td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" align="center">Commission order<br><a href="#linto">XJSHJHD</a></td>
+                      </tr>
+                      <tr>
+                        <td colspan="2" align="center"><button class="btn btn-default"><i class="fa fa-file-text"></i> Invoice</button> 
+                        </td>
+                      </tr>
+                    </tbody>
+
+                  </table>
+
+
+
+
+
+                </div>  
+
+
+              </div>
+            </div>
+
+
+          </div>
+
+          <div class="row-sm clearfix">
+            <div class="col-sm-6 padding-sm">
+              <div class="ibox">
+                <div class="ibox-title"><h5><i class="fa fa-truck"></i> Shipping</h5></div>
+                <div class="ibox-content clearfix">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Carrier</th>
+                        <th>Shipping cost</th>
+                        <th>Tracking number</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>--</td>
+                        <td>Carrier name</td>
+                        <td>9,00€</td>
+                        <td><button class="btn btn-default btn-sm"><i class="fa fa-pencil"></i> Edit</button></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+
+
+              </div>
+            </div>
+            <div class="col-sm-6 padding-sm">
+              <div class="ibox">
+                <div class="ibox-title"><h5><i class="fa fa-credit-card-alt"></i> Payment due from admin</h5></div>
+                <div class="ibox-content clearfix">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Information</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>2015-02-23 17:30:42</td>
+                        <td class="text-success">736,20 {{Symbol}}</td>
+                        <td>Transfert: X5F2S3C3S6S2C</td>
+                        <td><div class="paymentDueFromAdminStatus done"><i class="fa fa-check-circle"></i></div></td>
+                        <td><a href="/dueFromAdminPaymentDetails" class="btn btn-default"><i class="fa fa-view"></i> View details</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+
+
+              </div>
+            </div>
+          </div>
+
+          <div class="row-sm clearfix">
+            <div class="col-sm-7 padding-sm">
+              <div class="ibox">
+                <div class="ibox-content clearfix">
+
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>product</th>
+                        <th>Price</th>
+                        <th>QTY</th>
+                        <th>Total Price</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td align="right">1</td>
+                        <td>Name of product    n°1</td>
+                        <td align="right">43</td>
+                        <td align="right">1</td>
+                        <td align="right">43</td>
+                      </tr>
+                      <tr>
+                        <td align="right">2</td>
+                        <td>Name of product n°2</td>
+                        <td align="right">53</td>
+                        <td align="right">3</td>
+                        <td align="right">159</td>
+                      </tr>
+                      <tr>
+                        <td align="right">3</td>
+                        <td>Name of product    n°3</td>
+                        <td align="right">12</td>
+                        <td align="right">4</td>
+                        <td align="right">48</td>
+                      </tr>
+
+                    </tbody>
+                    <tfoot>
+                      <tr class="preTotal">
+                        <td colspan="4" align="right">Product</td>
+                        <td align="right">250</td>
+                      </tr>
+                      <tr class="preTotal">
+                        <td colspan="4" align="right">Product</td>
+                        <td align="right">250</td>
+                      </tr>                                                        
+                      <tr class="total">
+                        <td colspan="4" align="right">Total</td>
+                        <td align="right">250</td>
+                      </tr>
+                    </tfoot>
+
+                  </table>
+
+                </div>  
+
+
+              </div>
+            </div>
+            <div class="col-sm-5 padding-sm">
+              <div class="ibox">
+                <div class="ibox-title"><h5><i class="fa fa-clock-o"></i> Order process</h5></div>
+                <div class="ibox-content clearfix">
+                  <div class="row-sm m-b">
+                    <div class="col-sm-5 padding-sm">
+
+
+
+                      <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="orderStatus"><i class="fa fa-circle processing" data-placement="top" data-toggle="tooltip" data-original-title="processing"></i> Processing</span> <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          <li><a href="#"><span class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title="completed"></i> Completed</span></a></li>
+                          <li><a href="#"><span class="orderStatus"><i class="fa fa-circle pending" data-placement="top" data-toggle="tooltip" data-original-title="pending"></i> Pending</span></a></li>
+                          <li><a href="#"><span class="orderStatus"><i class="fa fa-circle cancelled" data-placement="top" data-toggle="tooltip" data-original-title="cancelled"></i> Cancelled</span></a></li>
+                          <li><a href="#"><span class="orderStatus"><i class="fa fa-circle refunded" data-placement="top" data-toggle="tooltip" data-original-title="refunded"></i> Refunded</span></a></li>
+                          <li><a href="#"><span class="orderStatus"><i class="fa fa-circle onhold" data-placement="top" data-toggle="tooltip" data-original-title="onhold"></i> Onhold</span></a></li>
+                        </ul>
+                      </div>
+
+
+
+
+
+
+                    </div>
+                    <div class="col-sm-7 padding-sm">The different steps of the order are updated by the seller. Customer is alerted to each new step.</div>                                                      
+                  </div>
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td>3</td>
+                        <td><div class="orderStatus"><i class="fa fa-circle processing" data-placement="top" data-toggle="tooltip" data-original-title="processing"></i> Processing</div></td>
+                        <td>12/03/2015 20:53:08</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td><div class="orderStatus"><i class="fa fa-circle pending" data-placement="top" data-toggle="tooltip" data-original-title="pending"></i> Pending</div></td>
+                        <td>12/03/2015 20:53:08</td>
+                      </tr>
+                      <tr>
+                        <td>1</td>
+                        <td><div class="orderStatus"><i class="fa fa-circle onhold" data-placement="top" data-toggle="tooltip" data-original-title="onhold"></i> Onhold</div></td>
+                        <td>12/03/2015 20:53:08</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>  
+              </div>
+            </div>
+          </div>
+        
+
+
+        
+
+
+      </div>
+
+    </div>
+
+   {{>showMapModal}}
+
+
+  </div>    
+</template>

@@ -1,0 +1,336 @@
+<template name="customerDashboardTab">
+    <div id="customerDashboardTab" class="customerDashboard tab-pane active">
+        <div class="panel-body">
+            <h1>Welcome {{username.username}}</h1>
+            <p>Here are your main panel.</p>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="demo">
+                                <a href="{{pathFor 'customerInformations'}}">
+                                    <i class="fa fa-book fa-2x m-b-sm"></i>
+                                    <h5 class="">My personal information</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="demo">
+                                <a href="{{pathFor 'customerOrders'}}" class="orderHistory">
+                                    <i class="fa fa-shopping-cart fa-2x m-b-sm"></i>
+                                    <h5 class="">Order history</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="demo">
+                                <a href="{{pathFor 'customerAddresses'}}">
+                                    <i class="fa fa-truck fa-2x m-b-sm"></i>
+                                    <h5 class="">My delivery address</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="simple-title clearfix m-b"><i class="fa fa-bullhorn"></i> Followed pages</div>
+                        </div>
+
+                      <!--hide on large devices-->
+                      <div class="visible-xs hidden-sm hidden-md hidden-lg">
+                      {{#if Followed.length}}
+                          <div class="col-sm-4 followedPagesContainer">
+                              <div class="followedPages m-t swiper-container">
+                                  <div class="pull-right">
+                                      <button class="btn btn-default btn-lg swiper-button-prev" id="previous"><i class="fa fa-caret-left"></i></button>
+                                      <button class="btn btn-default btn-lg swiper-button-next" id="next"><i class="fa fa-caret-right" ></i></button>
+                                  </div>
+
+                                  <ul class="productList row grid swiper-wrapper">
+                                      {{#each Followed}}
+                                          <li class="productListItem col-lg-4 col-md-4 col-sm-6 swiper-slide">
+                                              <div class="productContainer">
+                                                  <div class="row">
+                                                      <div class="col-sm-12 left-col">
+                                                          <div class="product-image-container">
+                                                              <a><img class="img-responsive" src="{{images.[0]}}"></a>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-sm-12 floatingContent">
+                                                          <div class="row col-container">
+                                                              <div class="col-sm-12 center-col">
+                                                                  <h2 class="productTitle">{{getTranslation translation 'name'}}</h2>
+                                                                  <div class="productShortDescription">{{{getTranslation translation 'description'}}}</div>
+                                                              </div>
+                                                              <div class="col-sm-12 text-center right-col">
+                                                                  <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{formatNumber bestOffer}} {{Symbol}}</span> </div>
+                                                                  <div class="text-center buttonContainer"><a href="{{pathFor route='productDetails' id=_id}}" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </li>
+                                      {{/each}}
+                                  </ul>
+                              </div>
+                          </div>
+                      {{/if}}
+                      </div>
+
+                      <!--hide on small devics-->
+                      <div class="hidden-xs visible-sm visible-md visible-lg">
+                          <!--for 3 page swiper-->
+                          <div class="col-sm-12 followedPagesContainer">
+                              <div class="followedPages m-t swiper-container">
+                                  <div class="swiper-wrapper">
+                                      {{#each Followed}}
+                                          <div class="productListItem col-lg-4 col-md-4 col-sm-6 swiper-slide">
+                                              <div class="productContainer">
+                                                  <div class="row">
+                                                      <div class="col-sm-12 left-col">
+                                                          <div class="product-image-container">
+                                                              <a><img class="img-responsive" src="{{images.[0]}}"></a>
+                                                          </div>
+                                                      </div>
+                                                      <div class="col-sm-12 floatingContent">
+                                                          <div class="row col-container">
+                                                              <div class="col-sm-12 center-col">
+                                                                  <h2 class="productTitle text-center">{{checkLength translation 'name' 9}}</h2>
+                                                                  <div class="productShortDescription text-center">{{{checkLength translation 'description' 18}}}</div>
+                                                              </div>
+                                                              <div class="col-sm-12 text-center right-col">
+                                                                  <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{formatNumber bestOffer}} {{Symbol}}</span> </div>
+                                                                  <div class="text-center buttonContainer"><a href="{{pathFor route='productDetails' id=_id}}" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      {{/each}}
+                                  </div>
+                                  <!-- Add Pagination -->
+                                  <div class="swiper-pagination"></div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                    <div class="row m-t">
+                        <div class="col-sm-12">
+                            <div class="well bg-white">
+                                {{#each lastOrder}}
+                                    <h2 class="title">My Last Order<span class="pull-right">{{formatDate createdAt}}</span> </h2>
+                                    <div class="hr-line-dashed"></div>
+                                    <table width="100%" border="0" cellspacing="0" class="table">
+                                        <thead>
+                                        <tr>
+                                            <td>Order Reference</td>
+                                            <td>Vendor</td>
+                                            <td>Review</td>
+                                            <td>Price</td>
+                                            <td>Status</td>
+                                            <td>&nbsp;</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td><div class="orderRef">{{orderRef}}</div></td>
+                                            <td><div class="vendor">
+                                                <div class="vendorAvatar"><img src="/img/company.jpg" width="64" class="img-circle" alt="image"></div>
+                                                <strong><a href="#">{{firstName}}</a> </strong>
+                                            </div></td>
+                                            <td><div class="review"><a href="#">Add your review</a></div></td>
+                                            <td><div class="amount">{{totalPrice}}</div></td>
+                                            <td>
+                                                <div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip" data-original-title={{status}}></i></div>
+                                            </td>
+                                            <td><a class="btn btn-primary btn-block" href="{{pathFor 'customerOrderDetails' id=_id}}">Details</a></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                {{/each}}
+                                <a class=" btn-block btn btn-primary" href="{{pathFor 'customerOrders'}}">All orders history</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="well bg-white message-content notificationsContainer">
+                        <button class="btn btn-sm btn-default settingsNotifications"><i class="fa fa-cog"></i> </button>
+                        <div class="icon  text-center"><i class="fa fa-bell fa-2x m-b-sm"></i></div>
+                        <div class="btnTitle text-center m-b">Notifications</div>
+                        <div class="message m-b">
+                            <small class="text-muted">Today 4:21 pm</small> <br>
+                            <div class="faketable w100">
+                                <div class="table-cell vat">
+                                    <div class="picture">
+                                        <img src="/img/product-large.jpg" alt="$title" class="img-circle mainPic">
+                                        <img src="/img/company.jpg" alt="$title" class="icon img-circle">
+                                    </div>
+                                </div>
+                                <div class="table-cell vat">
+                                    <div class="titleNotification"><strong>Here a title message</strong></div>
+                                    <div class="notificationDetails"><p>Voluptatem numquam debitis delectus, maiores </p>  </div>
+                                    <div class="text-right"><a class="btn btn-sm btn-default" href="#">Action</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message m-b">
+                            <small class="text-muted">Today 4:21 pm</small> <br>
+                            <div class="faketable w100">
+                                <div class="table-cell vat">
+                                    <div class="picture">
+                                        <img src="/img/product-large.jpg" alt="$title" class="img-circle mainPic">
+                                        <img src="/img/company.jpg" alt="$title" class="icon img-circle">
+                                    </div>
+                                </div>
+                                <div class="table-cell vat">
+                                    <div class="titleNotification"><strong>Here a title message</strong></div>
+                                    <div class="notificationDetails"><p>Voluptatem numquam debitis delectus, maiores </p>  </div>
+                                    <div class="text-right"><a class="btn btn-sm btn-default" href="#">Action</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message m-b">
+                            <small class="text-muted">Today 4:21 pm</small> <br>
+                            <div class="faketable w100">
+                                <div class="table-cell vat">
+                                    <div class="picture">
+                                        <img src="/img/product-large.jpg" alt="$title" class="img-circle mainPic">
+                                        <img src="/img/company.jpg" alt="$title" class="icon img-circle">
+                                    </div>
+                                </div>
+                                <div class="table-cell vat">
+                                    <div class="titleNotification"><strong>Here a title message</strong></div>
+                                    <div class="notificationDetails"><p>Voluptatem numquam debitis delectus, maiores </p>  </div>
+                                    <div class="text-right"><a class="btn btn-sm btn-default" href="#">Action</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message m-b">
+                            <small class="text-muted">Today 4:21 pm</small> <br>
+                            <div class="faketable w100">
+                                <div class="table-cell vat">
+                                    <div class="picture">
+                                        <img src="/img/product-large.jpg" alt="$title" class="img-circle mainPic">
+                                        <img src="/img/company.jpg" alt="$title" class="icon img-circle">
+                                    </div>
+                                </div>
+                                <div class="table-cell vat">
+                                    <div class="titleNotification"><strong>Here a title message</strong></div>
+                                    <div class="notificationDetails"><p>Voluptatem numquam debitis delectus, maiores </p>  </div>
+                                    <div class="text-right"><a class="btn btn-sm btn-default" href="#">Action</a></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="message m-b">
+                            <small class="text-muted">Today 4:21 pm</small> <br>
+                            <div class="faketable w100">
+                                <div class="table-cell vat">
+                                    <div class="picture">
+                                        <img src="/img/product-large.jpg" alt="$title" class="img-circle mainPic">
+                                        <img src="/img/company.jpg" alt="$title" class="icon img-circle">
+                                    </div>
+                                </div>
+                                <div class="table-cell vat">
+                                    <div class="titleNotification"><strong>Here a title message</strong></div>
+                                    <div class="notificationDetails"><p>Voluptatem numquam debitis delectus, maiores </p>  </div>
+                                    <div class="text-right"><a class="btn btn-sm btn-default" href="#">Action</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="well bg-white text-center">
+                        <h1>{{username.username}}</h1>
+                        <div class="m-b-sm">
+                            <div class="avatarContainer">
+                                <img src="/img/a8.jpg" class="img-circle" alt="image"  data-placement="top" data-toggle="tooltip" data-original-title="Click to change your avatar">
+                                <div class="changerAvatar"><span><i class="fa fa-2x fa-pencil"></i></span></div>
+                            </div>
+                        </div>
+                        <p class="font-bold">Share Us with your friends</p>
+                        <div class="text-center">
+                            <div class="socialSharingBlock">
+                                <i class="fa fa-share-alt m-r"></i>
+                                <a href="#" class="btn btn-default facebook"><i class="fa fa-facebook"></i></a>
+                                <a href="#" class="btn btn-default twitter"><i class="fa fa-twitter"></i></a>
+                                <a href="#" class="btn btn-default google-plus"><i class="fa fa-google-plus"></i></a>
+                                <a href="#" class="btn btn-default pinterest"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="demo">
+                                <a href="{{pathFor 'vendorAccount'}}">
+                                    <i class="fa fa-suitcase fa-2x m-b-sm"></i>
+                                    <h5 class="">Vendor panel</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t">
+                        <div class="col-sm-6">
+                            <div class="demo">
+                                <a href="{{pathFor 'affiliateAccount'}}">
+                                    <i class="fa fa-plug fa-2x m-b-sm"></i>
+                                    <h5 class="">Affiliate panel</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="demo">
+                                <a href="#">
+                                    <i class="fa fa-bullhorn fa-2x m-b-sm"></i>
+                                    <h5 class="">You follow {{Followed.length}} pages</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t">
+                        <div class="col-sm-6">
+                            <div class="demo">
+                                <a href="#" class="helpAnchor">
+                                    <i class="fa fa-question-circle fa-2x m-b-sm"></i>
+                                    <h5 class="">Help</h5>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="demo">
+                                <a href="{{pathFor 'myTickets'}}">
+                                    <i class="fa fa-ticket fa-2x m-b-sm"></i>
+                                    <div>
+                                        <i class="fa fa-ticket"></i> View my ticket <span class="label label-danger">{{ticketTime}}</span>
+                                        <h5 class="">{{duration}} ago</h5>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row m-t">
+                        <div class="col-sm-6">
+                            <a href="{{pathFor 'customerSettings'}}" class="btn btn-block  btn-default  btn-outline">
+                                <div class="icon"><i class="fa fa-cogs fa-2x m-b-sm"></i></div>
+                                <span class="btnTitle">Settings</span>
+                            </a>
+                        </div>
+                        <div class="col-sm-6">
+                            <a href="" class="btn btn-block  btn-default  btn-outline" id="logout">
+                                <div class="icon"><i class="fa fa-power-off fa-2x m-b-sm"></i></div>
+                                <span class="btnTitle">Sign Out</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+
+

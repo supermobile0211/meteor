@@ -1,0 +1,90 @@
+<template name="imageCropper">
+    <div class="addPicture row m-b text-center">
+        <div class="col-sm-3">
+            <h4>Select local file</h4>
+            <div class="input-group">
+                <label title="Upload image file" for="inputImage" class="btn btn-primary">
+                    <input type="file" value="file" accept="image/*" name="file" id="inputImage" class="hide">
+                    <i class="fa fa-upload"></i>
+                    Choose File
+                </label>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            OR
+        </div>
+        <div class="col-sm-7 ">
+            <h4>Select picture from URL</h4>
+            <div class="input-group">
+                <input type="text" id="onlineImage" class="form-control">
+               <span class="input-group-btn">
+                   <button class="btn btn-primary" id="downloadUrl" type="button"><i class="fa fa-cloud-download"></i> Download </button>
+               </span>
+            </div>
+        </div>
+    </div>
+    {{#if imagesValid}}
+        <div class="row">
+            <div class="col-xs-12">
+                <p class="text-danger">Please select and upload image.</p>
+            </div>
+        </div>
+    {{/if}}
+    <div class="productsPictures row m-b {{#if productImages}}show {{else}} hide{{/if}}" >
+        <div class="col-sm-12 m-b"><h4>Current photos</h4></div>
+        {{#each productImages}}
+            <div class="productPicture col-sm-2 m-b">
+                <img src="{{this.url}}" class="startImages">
+                <div class="toolbar">
+                    <button type="button" data-id="{{@index}}" class="btn btn-default editImage"><i class="fa fa-crop"></i></button>
+                    <button type="button" data-id="{{@index}}" class="btn btn-default removeImage"><i class="fa fa-trash"></i></button>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+    <div class="productPictureEditor row {{#if copper}}hide{{/if}}">
+        <div class="col-md-6" >
+            <div class="animated fadeIn">
+                <div class="image-crop animated zoomIn" >
+                    <img src="">
+                    <!--<img src="img/shipping.jpg"/>-->
+                </div>
+                <h4>Other method</h4>
+                <div class="btn-group">
+                    <button class="btn btn-white" id="zoomIn" type="button">Zoom In</button>
+                    <button class="btn btn-white" id="zoomOut" type="button">Zoom Out</button>
+                    <button class="btn btn-white" id="rotateLeft" type="button">Rotate Left</button>
+                    <button class="btn btn-white" id="rotateRight" type="button">Rotate Right</button>
+                    <button class="btn btn-warning" id="setDrag" type="button">New crop</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h4>Preview image</h4>
+                <div class="img-preview img-preview-sm"></div>
+                <h4>Common method</h4>
+                <p>
+                    You can upload new image to crop container and easy download new cropped image.
+                </p>
+            </div>
+            <div class="btn-group">
+                <label id="uploadImage" title="Upload image file" for="inputImage" class="btn btn-primary upload">
+                    Upload image
+                </label>
+                <label title="Download image" id="download" class="btn btn-primary">
+                    Download
+                </label>
+            </div>
+            <br/><br/>
+            {{#if progressBar}}
+                <div class="progress">
+                    <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+                        <span class="sr-only">{{progress}}% Complete</span>
+                    </div>
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</template>

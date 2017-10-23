@@ -1,0 +1,28 @@
+<template name="searchResultCategories">
+    <tr id="searchCategoriesResults" class="catLevel0 no-paddings" data-tt-id="{{_id}}" data-tt-parent-id="{{parent}}">
+        <td id="catName" class="faketable w100" nowrap>
+            <div class="table-cell previousCat {{categoryClass _id}} {{expandChild parent}}" id="expandButton" data-style="expand-left">
+                {{getTranslation translation 'name'}}
+                <span class="countResults" style="color: #999;">
+                    {{#if productCount _id}}
+                        ({{productCount _id}})
+                    {{/if}}
+                </span>
+            </div>
+        </td>
+    </tr>
+    {{#each categories}}
+            {{> searchResultCategories}}
+    {{/each}}
+</template>
+
+
+<template name="searchResultProducts">
+    <tr data-tt-id="{{_id}}" data-tt-parent-id="{{category.[0]}}">
+        <td id="catName" class="faketable w100" nowrap>
+            <div class="table-cell" id="expandButton" data-style="expand-left">
+                {{getTranslation translation 'name'}}
+            </div>
+        </td>
+    </tr>
+</template>

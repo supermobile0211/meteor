@@ -1,0 +1,302 @@
+<template name="vendorCatalogTab">
+
+  <div id="vendorCatalogTab" class="vendorCatalogTab tab-pane">
+    <div class="panel-body">
+      
+      <div class="row">
+        <div class="col-sm-3 left-side filtersResults">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search" id="vendorFilter">
+            <span class="input-group-btn"> 
+              <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+            </span>
+
+          </div>
+
+          <div class="hr-line-dashed"></div>
+
+          <div class="input-group">
+            <h3><i class="fa fa-folder-open"></i> Categories</h3>
+            <div id="vendorCategoriesResults">
+              <ul class="catLevel0 no-paddings">
+                <li class="previousCat"><a href="#">High Tech</a></li>
+                <li class="previousCat"><a href="#">Smartphone</a></li>
+                <li class="currentCategory"><span class="currentCategoryTitle">Apple</span>
+                  <ul class="subCategories">
+                    <li class="subCategory"><a href="#">iPhone 4</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 5</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 5S</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 6</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 7</a> <span class="countResults">(252)</span></li>
+                  </ul>
+
+                </li>
+              </ul>
+
+
+            </div>                                          
+          </div>
+
+          <div class="input-group table">
+            <h3><i class="fa fa-filter"></i> Filters</h3>
+            <div id="activeFilters" class="activeFilters m-b">
+              <div class="activeFiltersTitle"> Active filters </div>
+              <ul>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+              </ul>
+            </div>
+            <div id="FiltersResults">
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+
+                </ul>                                              
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>     
+              <div class="hr-line-dashed"></div>                                            
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Price filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <div class="filterResults">
+                  <div id="priceFilters"></div>
+
+                </div>                                              
+              </div>     
+              <div class="hr-line-dashed"></div>                                            
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Type <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Products</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Services</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>                                                 
+
+
+
+            </div>                                          
+          </div>
+
+        </div>
+        <div class="col-sm-9">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <div class="sortPagiBar well well-sm clearfix">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="checkbox inline m-r-sm">
+                          <input id="myOffersFilter" type="checkbox">
+                          <label for="myOffersFilter">
+                              Show only my current offers
+                          </label>
+                      </div>
+                      <!-- <a href="{{pathFor 'vendorToolsMyOffers' id=_id}}"></a><button class="btn btn-success"><i class="fa fa-plus"></i> Add a new offer</button> -->
+                      
+                      <a href="{{pathFor 'SuggestProduct'}}"><button class="btn btn-success"><i class="fa fa-lightbulb-o"></i> Suggest a product</button></a>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="form-horizontal">
+                        <label class="col-sm-3 control-label">Sort by</label>
+                        <div class="col-sm-9">
+                          <select id="selectProductSort" class="selectProductSort form-control">
+                            <option value="position:asc" selected="selected">--</option>
+                            <option value="price:asc">Price: Lowest first</option>
+                            <option value="price:desc">Price: Highest first</option>
+                            <option value="name:asc">Product Name: A to Z</option>
+                            <option value="name:desc">Product Name: Z to A</option>
+                            <option value="quantity:desc">In stock</option>
+                            <option value="reference:asc">Reference: Lowest first</option>
+                            <option value="reference:desc">Reference: Highest first</option> 
+                          </select>
+                        </div>                                                
+                      </div>
+
+                    </div>
+                  </div>                                                   
+                </div>
+              </div>
+              <div class="row">
+                <div class="productsResultsTable col-sm-12 table-responsive">
+
+
+
+                  <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Stock</th>
+                        <th>Best offer ({{Symbol}})</th>
+                        <th>Align to</th>
+                        <th>Average offer ({{Symbol}})</th>
+                        <th>Vendor offer</th>
+                        <th width="110">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                    {{#each Products}}
+                        <tr class="highlighted">
+                            {{#with mainOffer _id}}
+                                {{#if preloaded ../_id}}
+                                    <td rowspan="{{addTwo (totalCombination ../combinations) 5}}"><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                                {{else}}
+                                    <td rowspan="5"><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                                {{/if}}
+                            <td><div class="productTitle"><a href="{{pathFor 'productDetails' id=../_id}}" target="_blank">{{getTranslation ../translation 'name'}}</a></div>
+                                <div class="productDescription">{{getTranslation ../translation 'description'}}</div></td>
+                            <td><div class="switch">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" checked="{{status}}" class="onoffswitch-checkbox" id="example{{_id}}">
+                                    <label class="onoffswitch-label" for="example{{_id}}"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                                </div>
+                            </div></td>
+                            <td><input type="text" class="productStock form-control" placeholder="Qty" value="{{quantity}}"></td>
+                            <td>{{formatNumber bestOffer}}</td>
+                            <td><div class="checkbox">
+                                <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7" checked="{{alignToOffer}}">
+                                <label></label>
+                            </div></td>
+                            <td>{{formatNumber avgOffer}}</td>
+                            <td><input type="text" class="productVendorOffer form-control" placeholder="{{Symbol}}" value="{{Symbol}} {{price}}"></td>
+                            <td><div class="btn-group">
+                                <a href="{{pathFor route='vendorToolsMyOffersOfferDetails' id=_id}}" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="" class="deleteOffer" offerId="{{_id}}"><i class="fa fa-trash"></i> Delete</a></li>
+                                    </ul>
+                                </div>
+                            </div></td>
+                            {{/with}}
+                        </tr>
+                        {{#each productCombinations combinations _id}}
+                            {{#if offer UIN}}
+                            <tr>
+                                <td>
+                                    {{#each combination}}
+                                        {{attribute}}: <strong id="attr">{{value}}</strong>,
+                                    {{/each}}
+                                </td>
+                            {{#with offer UIN}}
+                                <td><div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" checked="{{status}}" class="onoffswitch-checkbox" id="example{{_id}}">
+                                        <label class="onoffswitch-label" for="example{{_id}}"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                                    </div>
+                                </div></td>
+                                <td><input type="text" class="productStock form-control" placeholder="{{inherited product 'quantity'}}" value="{{quantity}}"></td>
+                                <td>{{formatNumber bestOffer}}</td>
+                                <td><div class="checkbox">
+                                    <input type="checkbox" aria-label="Single checkbox One" checked="{{alignToOffer}}" id="productAlignPrice7">
+                                    <label></label>
+                                </div></td>
+                                <td>{{formatNumber avgOffer}}</td>
+                                <td><input type="text" class="productVendorOffer form-control" placeholder="{{inherited product 'price'}}" value="{{Symbol}} {{price}}"></td>
+                                <td><div class="btn-group">
+                                    <a href="{{pathFor route='vendorToolsMyOffersOfferDetails' id=_id}}" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                    <div class="btn-group">
+                                        <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="text-info" data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                                            <li class="divider"></li>
+                                            <li><a href=""><i class="fa fa-trash"></i> Delete</a></li>
+                                        </ul>
+                                    </div>
+                                </div></td>
+                            {{/with}}
+                            </tr>
+                            {{/if}}
+                        {{/each}}
+                        <tr>
+                            {{#if preloaded _id}}
+                                <td colspan="8" align="center"><button class="btn btn-link btn-outline text-success hideMore" product="{{_id}}">minimize offers related to this product</button></td>
+                            {{else}}
+                                <td colspan="8" align="center"><button class="btn btn-link btn-outline text-success loadMore" product="{{_id}}" number="{{totalCombination combinations}}">Load {{totalCombination combinations}} others combinations offers related to this product</button></td>
+                            {{/if}}
+                        </tr>
+                    {{/each}}
+
+
+                    </tbody>
+
+                  </table>
+
+
+
+
+
+                  {{>asVendorHighlightOffer}}
+
+
+
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="sk-spinner sk-spinner-chasing-dots">
+            <div class="sk-dot1"></div>
+            <div class="sk-dot2"></div>
+          </div>
+        </div>
+      </div>
+    
+
+    </div>
+
+  </div>
+</template>
+
+

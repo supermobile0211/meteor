@@ -1,0 +1,627 @@
+<template name="asVendorCatalogTab">
+  <div id="tab-vendorCatalog" class="tab-pane">
+    <div class="panel-body">
+      <div class="row-sm">
+        <div class="col-sm-3 padding-sm left-side filtersResults">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search"> 
+            <span class="input-group-btn"> 
+              <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button> 
+            </span>
+
+          </div>
+
+          <div class="hr-line-dashed"></div>
+
+          <div class="input-group">
+            <h3><i class="fa fa-folder-open"></i> Categories</h3>
+            <div id="vendorCategoriesResults">
+              <ul class="catLevel0 no-paddings">
+                <li class="previousCat"><a href="#">High Tech</a></li>
+                <li class="previousCat"><a href="#">Smartphone</a></li>
+                <li class="currentCategory"><span class="currentCategoryTitle">Apple</span>
+                  <ul class="subCategories">
+                    <li class="subCategory"><a href="#">iPhone 4</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 5</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 5S</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 6</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">iPhone 7</a> <span class="countResults">(252)</span></li>
+                  </ul>
+
+                </li>
+              </ul>
+
+
+            </div>                                          
+          </div>
+
+          <div class="input-group table">
+            <h3><i class="fa fa-filter"></i> Filters</h3>
+            <div id="activeFilters" class="activeFilters m-b">
+              <div class="activeFiltersTitle"> Active filters </div>
+              <ul>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+              </ul>
+            </div>
+            <div id="FiltersResults">
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+
+                </ul>                                              
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>
+              <div class="hr-line-dashed"></div>
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                  <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>     
+              <div class="hr-line-dashed"></div>                                            
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Price filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                <div class="filterResults">
+                  <div id="priceFilters"></div>
+
+                </div>                                              
+              </div>     
+              <div class="hr-line-dashed"></div>                                            
+              <div class="filters-group">
+                <span class="filterTitle"><i class="fa fa-caret-right"></i> Type <i class="fa fa-plus-square-o pull-right"></i></span>
+                <ul class="filterResults">
+                  <li><a href="#">Products</a> <span class="countResults">(252)</span> </li>
+                  <li><a class="active" href="#">Services</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                </ul>                                              
+              </div>                                                 
+
+
+
+            </div>                                          
+          </div>
+
+        </div>
+        <div class="col-sm-9 padding-sm">
+          <div class="row">
+            <div class="col-sm-12">
+
+              <div class="sortPagiBar well well-sm clearfix">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <button class="btn btn-success"><i class="fa fa-plus"></i> Add a new offer</button>
+                    <button class="btn btn-success"><i class="fa fa-lightbulb-o"></i> Suggest a product</button>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="row">
+                      <div class="form-horizontal">
+                        <label class="col-sm-3 control-label">Sort by</label>
+                        <div class="col-sm-9">
+                          <select id="selectProductSort" class="selectProductSort form-control">
+                            <option value="position:asc" selected="selected">--</option>
+                            <option value="price:asc">Price: Lowest first</option>
+                            <option value="price:desc">Price: Highest first</option>
+                            <option value="name:asc">Product Name: A to Z</option>
+                            <option value="name:desc">Product Name: Z to A</option>
+                            <option value="quantity:desc">In stock</option>
+                            <option value="reference:asc">Reference: Lowest first</option>
+                            <option value="reference:desc">Reference: Highest first</option> 
+                          </select>
+                        </div>                                                
+                      </div>
+
+                    </div>
+                  </div>                                                   
+                </div>
+              </div>
+              <div class="row">
+                <div class="productsResultsTable col-sm-12 table-responsive">
+
+
+
+                  <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Image</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Stock</th>
+                        <th>Best offer ($)</th>
+                        <th>Align to</th>
+                        <th>Average offer ($)</th>
+                        <th>Vendor offer</th>
+                        <th width="110">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td>
+                          <div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div>
+                        </td>
+                        <td>
+                        <div class="switch">
+                            <div class="onoffswitch">
+                                <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                                <label class="onoffswitch-label" for="example1">
+                                    <span class="onoffswitch-inner"></span>
+                                    <span class="onoffswitch-switch"></span>
+                                </label>
+                            </div>
+                        </div>
+                        </td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal2"><span class="label label-primary">Highlight this offer (demo with credit)</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>785,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" id="productAlignPrice2" value="option1" checked aria-label="Single checkbox One">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" disabled class="productVendorOffer form-control" placeholder="$" value="744,00"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice3">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice4">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice5">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice6">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr class="highlighted">
+                        <td rowspan="5"><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td>Color: <strong>Blue</strong>, Size: <strong>L</strong>, Capacity: <strong>64GB</strong></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td>Color: <strong>Blue</strong>, Size: <strong>L</strong>, Capacity: <strong>64GB</strong></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td>Color: <strong>Blue</strong>, Size: <strong>L</strong>, Capacity: <strong>64GB</strong></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td colspan="8" align="center"><button class="btn btn-link btn-outline text-success">Load 39 others combinations offers related to this product</button></td>
+                      </tr>
+                      <tr>
+                        <td rowspan="5"><img class="img-responsive" src="/img/product-large-3.jpg" alt="product title" width="120" height="120"></td>
+                        <td><div class="productTitle"><a href="#linktoproduct" target="_blank"> Seiko 5 Automatic Gents...</a></div>
+                          <div class="productDescription"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget pellentesque qua... </div></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td>Color: <strong>Blue</strong>, Size: <strong>L</strong>, Capacity: <strong>64GB</strong></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td>Color: <strong>Blue</strong>, Size: <strong>L</strong>, Capacity: <strong>64GB</strong></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td>Color: <strong>Blue</strong>, Size: <strong>L</strong>, Capacity: <strong>64GB</strong></td>
+                        <td><div class="switch">
+                          <div class="onoffswitch">
+                            <input type="checkbox" checked class="onoffswitch-checkbox" id="example1">
+                            <label class="onoffswitch-label" for="example1"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                          </div>
+                        </div></td>
+                        <td><input type="text" class="productStock form-control" placeholder="Qty"></td>
+                        <td>744,00</td>
+                        <td><div class="checkbox">
+                          <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice7">
+                          <label></label>
+                          </div></td>
+                        <td>744,00</td>
+                        <td><input type="text" class="productVendorOffer form-control" placeholder="$"></td>
+                        <td><div class="btn-group">
+                          <a href="/editVendorProductOfferDetails" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                          <div class="btn-group">
+                            <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                              <li><a class="text-info"  data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                              <li class="divider"></li>
+                              <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                            </ul>
+                          </div>
+                          </div></td>
+                      </tr>
+                      <tr>
+                        <td colspan="8" align="center"><button class="btn btn-link btn-outline text-success">Load 39 others combinations offers related to this product</button></td>
+                      </tr>
+                    </tbody>
+
+                  </table>
+
+
+
+
+
+                  {{>asVendorHighlightOffer}}
+
+
+
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="sk-spinner sk-spinner-chasing-dots">
+            <div class="sk-dot1"></div>
+            <div class="sk-dot2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+

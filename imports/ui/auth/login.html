@@ -1,0 +1,166 @@
+<template name="login">
+
+
+    <div class="animated fadeInRight loginPage row loginBackground">
+
+        <div class="container">
+            <div class="row">
+                <form class="sign-up-form" role="form">
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Sign up</h2>
+                        <div class="well bg-white">
+                            <div class="text-center">
+                                <span>Register with:</span>
+                                <a href="" class="btn btn-social facebook"><i class="fa fa-facebook fa-2x"></i></a>
+                                <a href="" class="btn btn-social twitter"><i class="fa fa-twitter fa-2x"></i></a>
+                                <a href="" class="btn btn-social google"><i class="fa fa-google-plus fa-2x"></i></a>
+                                <a href="" class="btn btn-social windows"><i class="fa fa-windows fa-2x"></i></a>
+                                <a href="" class="btn btn-social linkedin"><i class="fa fa-linkedin fa-2x"></i></a>
+                                <a href="" class="btn btn-social instagram"><i class="fa fa-instagram fa-2x"></i></a>
+
+                            </div>
+
+                            <div class="orBox m-b"><span>Or</span></div>
+
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="newAvatar text-center">
+                                        <img src="/img/default_avatar.jpg" class="img-circle b-l b-r b-t b-b">
+                                        <div class="m-t"><button class="btn btn-warning btn-outline">Add avatar</button></div>
+
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-7">
+                                    <div class="form-group">
+                                        <div class="input-group m-b">
+                    <span class="input-group-addon">
+                      <i class="fa fa-envelope fa-fw"></i>
+                    </span>
+                                            <input type="email" class="form-control" placeholder="Email address" id="email" required>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group m-b">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user fa-fw"></i>
+                    </span>
+                                            <input type="text" class="form-control" placeholder="Username" id="userName">
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group m-b">
+                    <span class="input-group-addon">
+                      <i class="fa fa-lock fa-fw"></i>
+                    </span>
+                                            <input type="password" class="form-control" placeholder="Password" id="password" required>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group m-b">
+                    <span class="input-group-addon">
+                      <i class="fa fa-lock fa-fw"></i>
+                    </span>
+                                            <input type="password" class="form-control" placeholder="Confirm your password" id="confirmPassword">
+
+                                        </div>
+                                    </div>
+
+
+
+
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="text-center"><button type="submit" class="btn btn-lg btn-success"><i class="fa fa-sign-in"></i> Create my account</button></div>
+
+
+                        </div>
+                    </div>
+                </form>
+                <form class="login" role="form">
+                    <div class="col-sm-6">
+                        <h2 class="text-center">Already a member?</h2>
+                        <div class="well bg-white">
+                            <div class="text-center">
+                                <span>Login with:</span>
+                                <a href="" class="btn btn-social facebook"><i class="fa fa-facebook fa-2x"></i></a>
+                                <a href="" class="btn btn-social twitter"><i class="fa fa-twitter fa-2x"></i></a>
+                                <a href="" class="btn btn-social google"><i class="fa fa-google-plus fa-2x"></i></a>
+                                <a href="" class="btn btn-social windows"><i class="fa fa-windows fa-2x"></i></a>
+                                <a href="" class="btn btn-social linkedin"><i class="fa fa-linkedin fa-2x"></i></a>
+                                <a href="" class="btn btn-social instagram"><i class="fa fa-instagram fa-2x"></i></a>
+
+                            </div>
+
+                            <div class="orBox m-b"><span>Or</span></div>
+
+                            <div class="row">
+
+
+                                <div class="col-sm-8 col-sm-offset-2 table-cell vam loginForm">
+
+                                    <div class="form-group">
+                                        <div class="input-group m-b">
+                    <span class="input-group-addon">
+                      <i class="fa fa-user fa-fw"></i>
+                    </span>
+                                            <input type="email" class="form-control" placeholder="email" name="email" value="vendor@vendor.com" required>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="input-group m-b">
+                    <span class="input-group-addon">
+                      <i class="fa fa-lock fa-fw"></i>
+                    </span>
+                                            <input type="password" class="form-control" placeholder="Password" value="vendor" name="password" required>
+
+
+                                        </div>
+                                        <div class="text-right"><a href="{{pathFor 'forgotPassword'}}">Forget your password?</a></div>
+
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="text-center">
+
+              <span class="inline m-r">
+
+                <div class="checkbox checkbox-success">
+                    <input type="checkbox" id="checkbox3">
+                    <label for="checkbox3">
+                        Keep me signed
+                    </label>
+                </div>
+
+              </span>
+
+                                <button type="submit" class="btn btn-lg btn-primary"><i class="fa fa-unlock"></i> Login</button>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+</template>

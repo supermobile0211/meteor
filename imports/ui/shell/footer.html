@@ -1,0 +1,79 @@
+<template name="footer">
+    <div class="footer row p-t p-b m-t-lg">
+        <div class="">
+            <div class="footerTop row"></div>
+            <div class="footerMiddle row p-b p-t">
+                <div class="col-sm-3 box dropdownFooter">
+                    <div class="title">Shopping with us</div>
+                    <ul class="animated fadeInDown">
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Contact us</a></li>
+                        <li><a href="#">Customer service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms and Conditions</a></li>
+                        <li><a href="#">Frequently Asked Questions</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-2 box dropdownFooter">
+                    <div class="title">Your Account</div>
+                    <ul class="animated fadeInDown">
+                        <li><a href="{{pathFor 'customerAccount'}}">Your Account</a></li>
+                        <li><a href="{{pathFor 'customerInformations'}}">Personal Information</a></li>
+                        <li><a href="#">Search Terms</a></li>
+                        <li><a href="#">Advanced Search</a></li>
+                        <li><a href="{{pathFor 'customerOrders'}}">Order History</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-4 box">
+                    <div class="title">Keep in touch</div>
+                    <p><i>Enter your email to be informed of special offers.</i></p>
+                    <div><input type="text" placeholder="Your email" class="form-control input-lg" style="color: #333333;"></div>
+                </div>
+                <div class="col-sm-3 box footerBoxSet">
+                    <div class="socialLinks clearfix">
+                        <div class="title">Follow us</div>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-youtube"></i></a> </li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a> </li>
+                        </ul>
+                    </div>
+                    <div class="paymentSolutions clearfix m-t">
+                        <div class="title">Payment methods</div>
+                        <ul>
+                            <li><i class="fa fa-cc-visa"></i> </li>
+                            <li><i class="fa fa-cc-mastercard"></i> </li>
+                            <li><i class="fa fa-cc-amex"></i> </li>
+                            <li><i class="fa fa-credit-card"></i></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footerBottom row m-t p-t">
+                <div class="col-md-4 col-md-offset-4">Copyright {{AppName}} &copy; {{formatDate today 'YYYY'}}</div>
+                <div class="col-sm-4 text-right">
+                    <div class="btn-group dropup">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">USD <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            {{#each currencies}}
+                                <li id="currentCurrency" value="{{isoCode}}"><a href="">{{isoCode}}</a></li>
+                            {{/each}}
+                        </ul>
+                    </div>
+                    <div class="btn-group dropup">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">{{selectedLanguages.name}} <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            {{#each Followed}}
+                                <li id="selectLanguage"><a href="#">{{name}}</a></li>
+                            {{/each}}
+                            <!--<li><a href="#">German</a></li>-->
+                            <!--<li><a href="#">...</a></li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

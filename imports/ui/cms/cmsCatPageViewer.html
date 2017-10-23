@@ -1,0 +1,193 @@
+<template name="cmsCatPageViewer">
+
+
+
+    
+
+  <div class="wrapper wrapper-content animated fadeInRight cmsCatPageViewer">
+  <button class="btn btn-sm btn-block m-b btn-primary hidden-lg hidden-md hidden-sm showFiltersButton">Filters</button>
+
+    <div class="row">
+
+      <div class="col-sm-3 col-lg-2 padding-sm left-side cmsCategories hidden-xs">
+        <div class="well bg-white">
+          <h3><i class="fa fa-folder-open"></i> Categories</h3>
+
+          <div id="cmsCategoriesResults">
+              <ul class="catLevel0 no-paddings">
+                <li class="previousCat"><a href="#">Company documents</a></li>
+                <li class="previousCat"><a href="#">About us</a></li>
+                <li class="currentCategory"><span class="currentCategoryTitle">Help</span>
+                  <ul class="subCategories">
+                    <li class="subCategory"><a href="#">Tutorials</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">How to...</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">How to...</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">How to...</a> <span class="countResults">(252)</span></li>
+                    <li class="subCategory"><a href="#">How to...</a> <span class="countResults">(252)</span></li>
+                  </ul>
+
+                </li>
+              </ul>
+
+
+            </div>
+
+          
+
+        </div>
+      </div>	
+
+      <div class="col-sm-9 col-lg-10 ">
+        
+        <div class="categoryInfos m-b">
+          <h1><i class="fa fa-folder-open"></i> CategoryName</h1>
+          <div class="categoryLongDescription">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          </div>
+          <div class="m-t subCategoriesList">
+            <h2><i class="fa fa-folder-o"></i> Sub categories</h2>
+
+            <!-- iteration count required for each 3 items new row -->
+            <div class="row">
+              <div class="col-sm-4">
+                <div class="well bg-white">
+                  <p class="categoryname"><strong><a href="#linktopage"><i class="fa fa-folder"></i> $CategoryName (5)</a></strong></p>
+                  <p class="categoryShortDesc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias aliquid laborum sequi id asperiores soluta temporibus atque commodi at corporis maiores molestiae, suscipit modi excepturi explicabo, itaque accusamus quam enim. 
+                    <div class="text-right"><a href="#linktopage" class="btn btn-default btn-sm m-t-sm"><i class="fa fa-folder"></i> Open category</a></div>
+                  </p>
+                  
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="well bg-white">
+                  <p class="categoryname"><strong><a href="#linktopage"><i class="fa fa-folder"></i> $CategoryName (5)</a></strong></p>
+                  <p class="categoryShortDesc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias aliquid laborum sequi id asperiores soluta temporibus atque commodi at corporis maiores molestiae, suscipit modi excepturi explicabo, itaque accusamus quam enim. 
+                    <div class="text-right"><a href="#linktopage" class="btn btn-default btn-sm m-t-sm"><i class="fa fa-folder"></i> Open category</a></div>
+                  </p>
+                  
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <div class="well bg-white">
+                  <p class="categoryname"><strong><a href="#linktopage"><i class="fa fa-folder"></i> $CategoryName (5)</a></strong></p>
+                  <p class="categoryShortDesc">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias aliquid laborum sequi id asperiores soluta temporibus atque commodi at corporis maiores molestiae, suscipit modi excepturi explicabo, itaque accusamus quam enim. 
+                    <div class="text-right"><a href="#linktopage" class="btn btn-default btn-sm m-t-sm"><i class="fa fa-folder"></i> Open category</a></div>
+                  </p>
+                  
+                </div>
+              </div>
+            </div>
+            
+          </div>
+
+          <div class="categoryPagesList">
+            <h2><i class="fa fa-file-o"></i> Documents available</h2>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="well bg-white">
+                  <div class="faketable faketable-responsive  w100">
+                    <div class="table-cell vam">
+                      <p class="pageName"><strong><a href="#linktopage"><i class="fa fa-file-text"></i> $pageName</a></strong></p>
+                      <p class="categoryShortDesc">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        
+                      </p>
+                      
+                    </div>
+                    <div class="table-cell vam ">
+                      <div class="text-right"><a href="#linktopage" class="btn btn-default"><i class="fa fa-file-text"></i> Read more</a></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="well bg-white">
+                  <div class="faketable faketable-responsive  w100">
+                    <div class="table-cell vam">
+                      <p class="pageName"><strong><a href="#linktopage"><i class="fa fa-file-text"></i> $pageName</a></strong></p>
+                      <p class="categoryShortDesc">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        
+                      </p>
+                      
+                    </div>
+                    <div class="table-cell vam ">
+                      <div class="text-right"><a href="#linktopage" class="btn btn-default"><i class="fa fa-file-text"></i> Read more</a></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="well bg-white">
+                  <div class="faketable faketable-responsive  w100">
+                    <div class="table-cell vam">
+                      <p class="pageName"><strong><a href="#linktopage"><i class="fa fa-file-text"></i> $pageName</a></strong></p>
+                      <p class="categoryShortDesc">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        
+                      </p>
+                      
+                    </div>
+                    <div class="table-cell vam ">
+                      <div class="text-right"><a href="#linktopage" class="btn btn-default"><i class="fa fa-file-text"></i> Read more</a></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <div class="col-sm-12">
+                <div class="well bg-white">
+                  <div class="faketable faketable-responsive  w100">
+                    <div class="table-cell vam">
+                      <p class="pageName"><strong><a href="#linktopage"><i class="fa fa-file-text"></i> $pageName</a></strong></p>
+                      <p class="categoryShortDesc">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                        
+                      </p>
+                      
+                    </div>
+                    <div class="table-cell vam ">
+                      <div class="text-right"><a href="#linktopage" class="btn btn-default"><i class="fa fa-file-text"></i> Read more</a></div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            
+          
+
+            
+          </div>
+
+          
+        </div>
+        
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+  </div>
+</template>

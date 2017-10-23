@@ -1,0 +1,89 @@
+<template name="currencySelect">
+  <div>
+          <div>
+            <!--<button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown">$symbol - $ISOCODE  <span class="caret"></span></button>-->
+            <!--<ul class="dropdown-menu">-->
+                <!--<li class="well clearfix"><input id="currencyName" type="text" class="form-control" placeholder="Search a currency"></li>-->
+                <!--&lt;!&ndash;{{#each isoCode}}&ndash;&gt;-->
+                 <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - {{isoCode}}</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;{{/each}}&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+                <!--&lt;!&ndash;<li><a href="#" id="selectCurrency">$symbol - $ISOCODE</a></li>&ndash;&gt;-->
+            <!--</ul>-->
+              <select id="currentCurrency" data-placeholder="Choose a Currency..." class="chosen-select" style="width:350px;" tabindex="2">
+                  <option value="USD">USD - Dollar - $</option>
+                  <option value="EUR">EUR - Euro - €</option>
+                  <option value="THB">THB - Baht - ฿</option>
+                  <option value="ARS">ARS - Peso Argentino - ARS</option>
+                  <option value="AUD">AUD - Dollar - $</option>
+                  <option value="AZN">AZN - Manat - AZN</option>
+                  <option value="BYR">BYR - Belarusian ruble - р.</option>
+                  <option value="BOB">BOB - Boliviano - $b</option>
+                  <option value="BRL">BRL - Real - R$</option>
+                  <option value="BGN">BGN - Lev - лв</option>
+                  <option value="CAD">CAD - Dollar (CAD) - CAD$</option>
+                  <option value="CLP">CLP - Peso - $</option>
+                  <option value="CNY">CNY - Yuan - ¥</option>
+                  <option value="COP">COP - Peso - $</option>
+                  <option value="CRC">CRC - Colón - ₡</option>
+                  <option value="HRK">HRK - Croatian Kuna - kn</option>
+                  <option value="CZK">CZK - Czech koruna - Kč</option>
+                  <option value="DKK">DKK - Danish krone - kr</option>
+                  <option value="DOP">DOP - Peso - RD$</option>
+                  <option value="EGP">EGP - Pound - £</option>
+                  <option value="FJD">FJD - Dollar - $</option>
+                  <option value="GEL">GEL - Lari - ლ</option>
+                  <option value="GTQ">GTQ - Quetzal - Q</option>
+                  <option value="GYD">GYD - Dollar - $</option>
+                  <option value="HKD">HKD - Hong Kong Dollar - $</option>
+                  <option value="HUF">HUF - Forint - Ft‎</option>
+                  <option value="INR">INR - Indian Rupee - ₹</option>
+                  <option value="IDR">IDR - Rupiah - Rp‎</option>
+                  <option value="IRR">IRR - Rial - ریال</option>
+                  <option value="ILS">ILS - Shekel - ₪‎</option>
+                  <option value="JPY">JPY - Yen - ¥</option>
+                  <option value="GBP">GBP - Pound - £</option>
+                  <option value="KES">KES - Kenyan shilling - KSh</option>
+                  <option value="CHF">CHF - Franc - CHF</option>
+                  <option value="MYR">MYR - Ringgit - RM</option>
+                  <option value="MXN">MXN - Peso - $</option>
+                  <option value="MDL">MDL - Lei - MDL</option>
+                  <option value="NZD">NZD - Dollar - $</option>
+                  <option value="NGN">NGN - Nigerian naira - ₦</option>
+                  <option value="NOK">NOK - Krone - kr</option>
+                  <option value="PKR">PKR - Rupee - ₨</option>
+                  <option value="PYG">PYG - Guaraní - Gs</option>
+                  <option value="PEN">PEN - Nuevo Sol - S/.</option>
+                  <option value="PHP">PHP - Philippine Peso - PHP</option>
+                  <option value="PLN">PLN - Złoty - zł</option>
+                  <option value="RON">RON - Lei - lei</option>
+                  <option value="RUB">RUB - Ruble - руб</option>
+                  <option value="SAR">SAR - Riyal - ﷼</option>
+                  <option value="RSD">RSD - Dinar - RSD</option>
+                  <option value="SGD">SGD - Dollar - $</option>
+                  <option value="SEK">SEK - Krona - kr</option>
+                  <option value="TWD">TWD - Dollar - NT$</option>
+                  <option value="TND">TND - Tunisian Dinar - DT</option>
+                  <option value="TRY">TRY - Lira - TL</option>
+                  <option value="UAH">UAH - Гривна - ₴</option>
+                  <option value="AED">AED - United Arab Emirates dirham - AED</option>
+                  <option value="UYU">UYU - Peso - $U</option>
+                  <option value="VEF">VEF - Bolívar fuerte - Bs</option>
+                  <option value="VND">VND - Đồng - ₫</option>
+
+
+
+              </select>
+
+          </div>
+        </div>
+</template>

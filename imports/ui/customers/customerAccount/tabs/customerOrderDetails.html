@@ -1,0 +1,304 @@
+<template name="customerOrderDetails">
+    <!-- Page heading -->
+    {{> pageHeading title=title category='Catalog' }}
+    <div class="wrapper wrapper-content animated fadeInRight AsCustomerPurchaseDetails">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row-sm" >
+                    <div class="col-sm-6 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-user"></i> Information sent to the vendor</h5></div>
+                            <div class="ibox-content clearfix">
+                                <div class="row-sm">
+                                    <div class="col-sm-6 padding-sm shippingAddress">
+                                        <h4>Shipping address
+                                            <div class="mapLink btn btn-default btn-sm addressType" data-toggle="modal" data-target="#showMapModalDetails" addressType="Shipping address"><i class="fa fa-map-marker"></i></div>
+                                        </h4>
+                                        <div class="adressDetails well well-sm">
+                                          {{#with shippingAddress}}
+                                            <address>
+                                                <strong><span class="fullNameCustomer">{{company}}</span></strong><br>
+                                                <span class="fullNameCustomer">{{name}} {{firstName}}</span><br>
+                                                <span class="addressLineCustomer">{{address}}</span><br>
+                                                <span class="zipcodeCustomer">{{zipCode}}</span>, <span class="cityCustomer">{{city}}</span><br>
+                                                <span class="countryCustomer">{{country}}</span> <br>
+                                                <span class="phoneCustomer"><i class="fa fa-phone"></i> {{phoneNumber}}</span>
+                                            </address>
+                                          {{/with}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 padding-sm billingAddress">
+                                        <h4>Billing address
+                                            <div class="mapLink btn btn-default btn-sm addressType" data-toggle="modal" data-target="#showMapModalDetails" addressType="Billing address"><i class="fa fa-map-marker"></i></div>
+                                        </h4>
+                                        <div class="adressDetails well well-sm">
+                                            {{#with billingAddress}}
+                                                <address>
+                                                    <strong><span class="fullNameCustomer">{{company}}</span></strong><br>
+                                                    <span class="fullNameCustomer">{{name}} {{firstName}}</span><br>
+                                                    <span class="addressLineCustomer">{{address}}</span><br>
+                                                    <span class="zipcodeCustomer">{{zipCode}}</span>, <span class="cityCustomer">{{city}}</span><br>
+                                                    <span class="countryCustomer">{{country}}</span> <br>
+                                                    <span class="phoneCustomer"><i class="fa fa-phone"></i> {{phoneNumber}}</span>
+                                                </address>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 padding-sm m-t">
+                                        <div class="faketable w100">
+                                            <div class="phoneCustomer table-cell vat">
+                                                <div class="font-bold">Phone</div>
+                                                <span class="phoneCustomer"><i class="fa fa-phone"></i> {{Customer.profile.phone}}</span>
+                                            </div>
+                                            <div class="emailCustomer table-cell vat">
+                                                <div class="font-bold">Email</div>
+                                                <span class="emailCustomer"><i class="fa fa-envelope"></i> {{Customer.emails.[0].address}}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-user"></i> About the vendor</h5></div>
+                            <div class="ibox-content clearfix">
+                                <div class="row-sm">
+                                    <div class="col-sm-6 padding-sm shippingAddress">
+                                        <h4>Operating address
+                                            <div class="mapLink btn btn-default btn-sm addressType" data-toggle="modal" data-target="#showMapModalDetails" addressType="Operating address"><i class="fa fa-map-marker"></i></div>
+                                        </h4>
+                                        <div class="adressDetails well well-sm">
+                                            {{#with Vendor}}
+                                                <address>
+                                                    <strong><span class="fullNameCustomer">{{profile.vendor.company}}</span></strong><br>
+                                                    <span class="fullNameCustomer">{{profile.name}} {{profile.firstName}}</span><br>
+                                                    <span class="addressLineCustomer">{{profile.address.[0].address}}</span><br>
+                                                    <span class="zipcodeCustomer">{{profile.address.[0].zipCode}}</span>, <span class="cityCustomer">{{profile.address.[0].city}}</span><br>
+                                                    <span class="countryCustomer">{{profile.country}}</span> <br>
+                                                    <span class="phoneCustomer"><i class="fa fa-phone"></i> {{profile.phone}}</span>
+                                                </address>
+                                            {{/with}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6 padding-sm text-center marginTopFive">
+                                        <div class="avatar text-center customOrderLeft"><img src="/img/a7.jpg" class="img- img-circle m-b" width="80" height="80" alt="vendorname"></div>
+                                        <div class="pull-lft details customOrderRight">
+                                            <div>
+                                                <span class="company-name">
+                                                    <a href="#" target="_blank"><i class="fa fa-building"></i> Epik</a>
+                                                </span>
+                                                <span><i class="flag16 flag16-France" title="France"></i></span>
+                                                <span data-toggle="tooltip" data-placement="top" title="" class="CustomerBadges CustomerBadgesname1" data-original-title="Badge title"></span>
+                                                <span data-toggle="tooltip" data-placement="top" title="" class="CustomerBadges CustomerBadgesname2" data-original-title="Badge title"></span>
+                                                <span data-toggle="tooltip" data-placement="top" title="" class="CustomerBadges CustomerBadgesname3" data-original-title="Badge title"></span>
+                                            </div>
+                                            <div class="reviews-container">
+                                                <span class="reviews-stars">
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star active"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </span>
+                                                <span class="reviews-count">(165)</span>
+                                            </div>
+                                            <div class="city"> <a href="http://maps.google.com/?q={{vendorPlace.profile.country}}" target="_blank"><i class="fa fa-map-marker"></i></a> {{vendorPlace.profile.country}}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 padding-sm m-t">
+                                        <div class="faketable w100">
+                                            <div class="phoneCustomer table-cell vat nowrap">
+                                                <div class="font-bold">Email</div>
+                                                <span class="phoneCustomer"><i class="fa fa-envelope"></i> {{Vendor.emails.[0].address}} </span>
+                                            </div>
+                                            <div class="emailCustomer table-cell vat nowrap">
+                                                <div class="font-bold">Phone</div>
+                                                <span class="emailCustomer"><i class="fa fa-phone"></i> {{Vendor.profile.phone}}</span>
+                                            </div>
+                                            <div class="reviewsFromCustomer table-cell vat">
+                                                <div class="font-bold">Review</div>
+                                                The customer have not yet provided his review
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-truck"></i> Shipping</h5></div>
+                            <div class="ibox-content clearfix">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Carrier</th>
+                                        <th>Shipping cost</th>
+                                        <th>Tracking number</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each carriers}}
+                                        <tr>
+                                            <td>{{formatDate Order.createdAt}}</td>
+                                            <td>{{carrierName id}}</td>
+                                            <td>{{price}}</td>
+                                            <td>{{trackingUrl}}</td>
+                                        </tr>
+                                    {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title"><h5><i class="fa fa-file-text"></i> Invoice</h5></div>
+                            <div class="ibox-content clearfix">
+                                <table class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>File</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                    {{#if Order.invoices.length}}
+                                    {{#each Order.invoices}}
+                                            <td colspan="2">
+                                                <a href="{{Order.invoices.[0].url}}" target="_blank"><i class="fa fa-file-text"></i> {{minimiseLength Order.invoices.[0].fileName 30}}</a>
+                                            </td>
+                                    {{/each}}
+                                    {{else}}
+                                        {{#if Order.invoiceClaimed}}
+                                            <td colspan="2" class="alert alert-info">
+                                                <span class="dateClaim">{{formatDate Order.claimedAt}}</span>
+                                                - The invoice has been claimed to the vendor
+                                            </td>
+                                        {{else}}
+                                        <td><i class="fa fa-file-text"></i> No file</td>
+                                            {{#if pendingStatus}}
+                                            <td><button id="claim" class="btn btn-default btn-sm">Claim the invoice</button></td>
+                                            {{else}}
+                                               <td></td>
+                                            {{/if}}
+                                        {{/if}}
+                                    {{/if}}
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-content clearfix">
+                                <table class="table table-striped">
+                                    {{#with Order}}
+                                    <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>product</th>
+                                        <th>Price</th>
+                                        <th>QTY</th>
+                                        <th>Total Price</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each Order.details}}
+                                        <tr>
+                                            <td>{{Order._id}}</td>
+                                            <td>{{productName product}}</td>
+                                            <td>{{formatNumber price}}</td>
+                                            <td>{{sales}}</td>
+                                            <td>{{formatNumber totalPrice}}</td>
+                                        </tr>
+                                    {{/each}}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="total">
+                                        <td colspan="4" align="right">Total</td>
+                                        <td align="right">{{formatNumber grossPrice}}</td>
+                                    </tr>
+                                    </tfoot>
+                                    {{/with}}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5 padding-sm">
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5><i class="fa fa-clock-o"></i> Order process</h5>
+                                <button class="btn btn-sm btn-danger pull-right" data-toggle="modal" data-target="#cancelOrderModal" disabled="{{canceled}}">Cancel the order</button>
+
+                            </div>
+                            <div class="ibox-content clearfix">
+                                {{#if Order.cancelMessage}}
+                                <div class="cancellation-message">
+                                    
+                                    <div class="faketable">
+                                        <div class="table-cell"><img class="message-avatar" src="/img/a1.jpg" alt="$username"></div>
+                                        <div class="table-cell">
+                                            <div class="message">
+                                        <a class="message-author" href="#"> {{currentUser.username}} </a>
+                                        <span class="message-date"> {{formatDate Order.cancelDate 'ddd MMM Do YYYY - h:mm:ss'}} </span>
+                                            <span class="message-content">
+                                                {{Order.cancelMessage}}
+                                            </span>
+                                    </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/if}}
+                                <div class="row-sm m-b">
+                                </div>
+                                <table class="table table-striped">
+                                    <tbody>
+                                    {{#with Order}}
+                                        {{#each history}}
+                                            <tr>
+                                                <td>{{displayIndex @index}}</td>
+                                                <td><div class="orderStatus"><i class="fa fa-circle {{lowerCase status}}" data-placement="top" data-toggle="tooltip" data-original-title="{{lowerCase status}}"></i> {{status}}</div></td>
+                                                <td>{{formatDate updatedAt}}</td>
+                                            </tr>
+                                        {{/each}}
+                                    {{/with}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal inmodal" id="cancelOrderModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated bounceInRight">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <i class="fa fa-times-circle modal-icon"></i>
+                        <h4 class="modal-title">Cancel the order</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="alert alert-danger">Please note that the cancellation is definitive.</div>
+                        <div class="form-group"><label>Please let a message to explain why you want to cancel your order. </label> 
+                            <textarea  class="form-control" name="textarea" id="textarea" cols="45" rows="5"></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="cancelOrder" data-dismiss="modal">I confirm the cancellation of my order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{>showMapModal}}
+    </div>
+</template>

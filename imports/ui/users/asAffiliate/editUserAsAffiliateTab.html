@@ -1,0 +1,192 @@
+<template name="editUserAsAffiliateTab">
+<div id="tab-asAffiliate" class="tab-pane">
+
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="panel panel-warning user-info">
+            <div class="panel-heading">
+              <a class="login-btn btn btn-warning absolute" href="#">
+                <i class="fa fa-sign-in"></i> Login
+              </a>
+              <div class="userQuickResume">
+                <img class="img-circle user-avatar m-r" src="/img/a4.jpg" alt="username" width="128" height="128">
+                <div class="userQuickResume-detais">
+                  <h2 class="font-bold no-margins">Alex Smith</h2>  
+                </div>
+              </div>
+            </div>                              
+            <div class="panel-body">
+              <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                <tbody>
+
+
+                  <tr>
+                    <td>Official affiliate account request</td>
+                    <td>24/02/2014</td>
+                  </tr>
+                  <tr>
+                    <td>Official confirmation date</td>
+                    <td>24/02/2014</td>
+                  </tr>
+                  <tr>
+                    <td>Registration</td>
+                    <td>24/02/2014</td>
+                  </tr>
+                  <tr>
+                    <td>Last connexion</td>
+                    <td>12/08/2015</td>
+                  </tr>
+                  <tr>
+                    <td>Used IP's</td>
+                    <td>
+                      <i class="flag16 flag16-France" title="France"></i> 244.25.95.5<br />
+                      <i class="flag16 flag16-France" title="France"></i> 45.124.95.5<br />
+                      <i class="flag16 flag16-France" title="France"></i> 155.63.95.5<br />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Language</td>
+                    <td>
+                      <select name="vendorMainLanguage" class="select2 form-control">
+                        <option>French</option>
+                        <option>Italian</option>
+                        <option>German</option>
+                        <option>...</option>
+                      </select>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Affiliate account status</td>
+                    <td>
+                      <div class="switch">
+                        <div class="onoffswitch">
+                          <input type="checkbox" id="userAccountStatus" class="onoffswitch-checkbox" checked="">
+                          <label for="userAccountStatus" class="onoffswitch-label">
+                            <span class="onoffswitch-inner"></span>
+                            <span class="onoffswitch-switch"></span>
+                          </label>
+                        </div>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Title</td>
+                    <td>
+                      <div class="radio radio-info radio-inline">
+                        <input type="radio" checked="" name="gender" value="mr" id="genderMale">
+                        <label for="genderMale"> Mr. </label>
+                      </div>
+                      <div class="radio radio-info radio-inline">
+                        <input type="radio" checked="" name="gender" value="mrs" id="genderFemale">
+                        <label for="genderFemale"> Mrs. </label>
+                      </div>                                        
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Name</td>
+                    <td><input type="text" class="form-control" placeholder="Name"></td>
+                  </tr>
+                  <tr>
+                    <td>First name</td>
+                    <td><input type="text" class="form-control" placeholder="First name"></td>
+                  </tr>
+                  <tr>
+                    <td>Position</td>
+                    <td>
+                      <select class="select2 selectPosition form-control">
+                        <option selected></option>
+                        <option value="CEO">CEO</option>
+                        <option value="Manager">Manager</option>
+                        <option value="Employee">Employee</option>
+                        <option value="Other">Other</option>
+                      </select>             
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Company name</td>
+                    <td><input type="text" class="form-control" placeholder="Company name"></td>
+                  </tr>
+                  <tr>
+                    <td>Business Identifiant</td>
+                    <td><input type="text" class="form-control" placeholder="SIRET or Fiscal Number"></td>
+                  </tr>
+                  <tr>
+                    <td>Bank account</td>
+                    <td><input type="text" class="form-control" placeholder="Holder"></td>
+                  </tr>
+                  <tr>
+                    <td>IBAN</td>
+                    <td><input type="text" class="form-control" placeholder="IBAN Number"></td>
+                  </tr>
+                  <tr>
+                    <td>Paypal</td>
+                    <td><input type="email" class="form-control" placeholder="paypal email"></td>
+                  </tr>
+                  <tr>
+                    <td>Phone number</td>
+                    <td>
+                      {{>phoneFormInput}}
+
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Address</td>
+                    <td><input type="text" class="form-control" placeholder="Address">
+                      <br>
+                      <input type="text" class="form-control" placeholder="State, Province or Region">
+                      <br>
+                      <input type="text" class="form-control" placeholder="Zipcode">
+                      <br>
+                      <input type="text" class="form-control" placeholder="City">
+                      <br>
+
+                      {{>countriesFormSelect}}
+
+                      
+
+
+                    </td>
+                  </tr>
+
+                </tbody>
+
+
+              </table>
+
+            </div>
+            <div class="panel-footer"><div class="text-center"><button class="ladda-button btn btn-primary btn-block" data-style="zoom-in"><i class="fa fa-floppy-o"></i> Save</button>
+              </div></div>
+          </div>
+
+
+        </div>
+        <div class="col-sm-9">
+          <div class="tabs-container">
+            <ul class="nav nav-tabs">
+                <li class="{{ isActivePath regex='asAffiliateDashboardTab' }}"><a href="{{ pathFor 'asAffiliateDashboardTab'}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+                <li class="{{ isActivePath regex='asAffiliateEarningTab' }}"><a href="{{ pathFor 'asAffiliateEarningTab'}}"><i class="fa fa-money"></i> Earning</a></li>
+                <li class="{{ isActivePath regex='asAffiliateBestSalesTab' }}"><a href="{{ pathFor 'asAffiliateBestSalesTab'}}"><i class="fa fa-star"></i> Best sales</a></li>
+                <li class="{{ isActivePath regex='asAffiliateVisitsTab' }}"><a href="{{ pathFor 'asAffiliateVisitsTab'}}"><i class="fa fa-users"></i> Visits</a></li>
+                <li class="{{ isActivePath regex='asAffiliateFinancesTab' }}"><a href="{{ pathFor 'asAffiliateFinancesTab'}}"><i class="fa fa-money"></i> Finances</a></li>
+
+
+
+
+
+            </ul>
+
+                {{> yield region='content4'}}
+
+            {{>yield region="asAffiliateTabsContents"}}
+
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  
+	</div>
+</template>

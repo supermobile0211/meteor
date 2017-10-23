@@ -1,0 +1,304 @@
+<template name="vendorTransportEditCarrier">
+    <!-- Page heading -->
+
+    <div class="asVendorEditCarrier wrapper wrapper-content animated fadeInRight">
+
+        <div class="row">
+            <div class="col-sm-2">
+                <div class="ibox">
+                    <div class="ibox-title">Logo</div>
+                    <div class="tempLogo ibox-content text-muted text-center"><i class="fa fa-truck" style="font-size: 180px;color: #e5e5e5 "></i> </div>
+                </div>
+            </div>
+            <div class="col-sm-10">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <div class="stepsTabs">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="step first  arrow-triangle {{classes 1}}">
+                                        <span class="numberStep m-r">1</span>
+                                        <span class="titleStep">General settings</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="step {{classes 2}}">
+                                        <span class="numberStep m-r">2</span>
+                                        <span class="titleStep">Shipping location span costs</span>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="step last {{classes 3}}">
+                                        <span class="numberStep m-r">3</span>
+                                        <span class="titleStep">Size and weight</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="{{#if currentStep 1 }}show {{else}} hide {{/if}}">
+                      {{> carrierGeneralSettingsEdit}}
+                    </div>
+                    <div class="{{#if currentStep 2 }}show {{else}} hide {{/if}}">
+                      {{> carrierShippingEdit}}
+                    </div>
+                    <div class="{{#if currentStep 3 }}show {{else}} hide {{/if}}">
+                      {{> carrierSizeEdit}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="carrierGeneralSettingsEdit">
+    <form id="general-step1">
+        <div class="ibox-content">
+            <div class="stepsContainer">
+                <div class="step-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Status</label>
+                                    <div class="col-sm-9">
+                                        <div class="switch">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" id="example1" class="updateStatus onoffswitch-checkbox" checked="">
+                                                <label for="example1" class="onoffswitch-label">
+                                                    <span class="onoffswitch-inner"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label for="carrierName" class="col-sm-3 control-label">Carrier name *</label>
+                                    <div class="col-sm-9">
+                                        <input id="carrierName" name="carrierName" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Transit Time *</label>
+                                    <div class="col-sm-9">
+                                        <input id="carrierTransitTime" name="transit" type="text" class="form-control"></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Logo *</label>
+                                    <div class="col-sm-9">
+                                        {{> imageCropper}}
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Tracking URL</label>
+                                    <div class="col-sm-9"><input id="carrierTrackingURL" name="carrierTrackingURL" type="text" class="form-control"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ibox-footer clearfix">
+        <span class="pull-right">
+            <!--<button type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion" disabled><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>-->
+            <button id="goSecondStep" type="submit" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+        </span>
+        </div>
+    </form>
+</template>
+
+<template name="carrierShippingEdit">
+    <form id="general-step2">
+        <div class="ibox-content">
+            <div class="stepsContainer">
+                <div class="step-content">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Free shipping</label>
+                                    <div class="col-sm-9">
+                                        <div class="switch">
+                                            <div class="onoffswitch">
+                                                <input type="checkbox" id="example2" class="freeShipping onoffswitch-checkbox" checked="">
+                                                <label for="example2" class="onoffswitch-label">
+                                                    <span class="onoffswitch-inner"></span>
+                                                    <span class="onoffswitch-switch"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="panel panel-default">
+                                <div class="panel-heading clearfix">
+                                    <h3 class="pull-left">Ranges</h3>
+                                    <button type="button" id="add-range" class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add range</button>
+                                </div>
+                                <div class="panel-body table-responsive">
+                                    <table class="table table-striped shippingLocationCost" width="100%" border="0" cellspacing="0">
+                                        <thead>
+                                        <tr>
+                                            <th scope="col">&nbsp;</th>
+                                            <th scope="col">&nbsp;</th>
+                                            {{#each range}}
+                                                <th width="200" scope="col">Range {{index @index}}</th>
+                                            {{/each}}
+                                            <!--<th width="200" scope="col">Range 2</th>-->
+                                            <!--<th width="200" scope="col">Range 3</th>-->
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td>Will be applied when the weight is</td>
+                                            <td>&gt;=</td>
+                                            {{#each range}}
+                                                <td class="min"><div class="input-group m-b"><input type="text" id="max{{@index}}" data-max="{{@index}}" name="range1" class="form-control rangeMax" value={{max}}> <span class="input-group-addon">kg</span></div></td>
+                                            {{/each}}
+                                        </tr>
+                                        <tr>
+                                            <td>Will be applied when the weight is</td>
+                                            <td>&lt;</td>
+                                            {{#each range}}
+                                                <td class="max"><div class="input-group m-b"><input type="text" id="min{{@index}}" data-min="{{@index}}" name="range2" class="form-control rangeMin" value={{min}}> <span class="input-group-addon">kg</span></div></td>
+                                            {{/each}}
+                                        </tr>
+                                        <tr class="countriesList">
+                                            <td>All</td>
+                                            <td class="check-status"><div class="checkbox">
+                                                <input type="checkbox" class="checked" aria-label="Single checkbox One" value="option1" id="markAll">
+                                                <label></label>
+                                            </div></td>
+                                            {{#each range}}
+                                                <td class="price"><div class="input-group m-b">
+                                                    <input id="allPrice" fieldId="mark{{@index}}" type="text" class="form-control">
+                                                    <span class="input-group-addon">$</span></div></td>
+                                            {{/each}}
+
+                                        </tr>
+                                        {{#each countries}}
+                                            {{#let parentIndex=@index}}
+                                                <tr data-id="{{_id}}" id="{{_id}}">
+                                                    <td>{{name}}</td>
+                                                    <td class="check-status"><div class="checkbox">
+                                                        <input type="checkbox" class="checked singlebox" aria-label="Single checkbox One" value="option1" id="singleCheckbox{{@index}}" checked="{{ischecked @index}}">
+                                                        <label></label>
+                                                    </div></td>
+                                                    {{#each range}}
+                                                        <td class="price"><div class="input-group m-b">
+                                                            <input type="text" class="form-control allTextBoxes" id="textBox{{parentIndex}}_{{@index}}" value="{{countryRange parentIndex @index}}">
+                                                            <span class="input-group-addon">$</span></div></td>
+                                                    {{/each}}
+                                                </tr>
+                                            {{/let}}
+                                        {{/each}}
+
+                                        <tr class="remove-buttons">
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            <td>&nbsp;</td>
+                                            {{#each range}}
+                                                {{#if @index}}
+                                                    <td class="text-center"><buton type="button" class="btn-default btn btn btn-block removeRange" data-id="{{@index}}"><i class="fa fa-trash"></i> Remove</buton></td>
+                                                {{/if}}
+                                            {{/each}}
+                                            <!--<td class="text-center"><buton class="btn-default btn btn btn-block"><i class="fa fa-trash"></i> Remove</buton></td>-->
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ibox-footer clearfix">
+        <span class="pull-right">
+            <button  id="previous-step1" type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+            <button id="goThirdStep" type="submit" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+        </span>
+        </div>
+    </form>
+</template>
+
+<template name="carrierSizeEdit">
+    <div class="ibox-content">
+        <div class="stepsContainer">
+            <div class="step-content">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading clearfix">
+                                <h3 class="pull-left">Size and weight</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Maximum package width</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group m-b">
+                                                <input id="width" type="text" class="form-control">
+                                                <span class="input-group-addon">cm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Maximum package height</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group m-b">
+                                                <input id="height" type="text" class="form-control">
+                                                <span class="input-group-addon">cm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Maximum depth of the package</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group m-b">
+                                                <input id="depth" type="text" class="form-control">
+                                                <span class="input-group-addon">cm</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3">Maximum Package weight</label>
+                                        <div class="col-sm-9">
+                                            <div class="input-group m-b">
+                                                <input id="weight" type="text" class="form-control">
+                                                <span class="input-group-addon">kg</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="ibox-footer clearfix">
+        <span class="pull-right">
+            <button id="previous-step2" type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+            <button id="finish" type="button" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-check" disabled></i><span class="btn-title">Finish</span></button>
+        </span>
+    </div>
+</template>

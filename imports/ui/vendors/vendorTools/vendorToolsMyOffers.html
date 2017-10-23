@@ -1,0 +1,310 @@
+<template name="vendorToolsMyOffers">
+
+  <div class="bg-white row page-breadcrumb m-b b-b">
+    <div class="content_sortPagiBar clearfix">
+      <div class="inline">
+          {{#each categoriesListings}}
+              <div class="categoryBreadcrumb">
+                  {{#each this}}
+                      {{#if this}}
+                          {{#if first .. this}}
+                              {{#if last .. this}}
+                                  <i class="fa fa-folder-open">&nbsp;</i> <a href="{{pathFor 'search' id=this}}">{{ catName this}}</a>
+                                  <i class="fa fa-angle-right"></i> <a href="{{pathFor 'productDetails' id=product._id}}">{{ getTranslation product.translation 'name'}}</a> <i class="fa fa-angle-right"></i> <span class="currentCategory text-warning">My offers</span>
+                              {{else}}
+                                  <i class="fa fa-folder-open">&nbsp;</i><a href="{{pathFor 'search' id=this}}">{{ catName this}}</a>
+                              {{/if}}
+                          {{else}}
+                              {{#if last .. this}}
+                                  <i class="fa fa-angle-right"></i> <a href="{{pathFor 'search' id=this}}">{{ catName this}}</a>
+                                  <i class="fa fa-angle-right"></i> <a href="{{pathFor 'productDetails' id=_id}}">{{ getTranslation product.translation 'name'}}</a> <i class="fa fa-angle-right"></i> <span class="currentCategory text-warning">My offers</span>
+                              {{else}}
+                                  <i class="fa fa-angle-right"></i> <a href="{{pathFor 'search' route=search id=this}}">{{ catName this}}</a>
+                              {{/if}}
+                          {{/if}}
+                      {{/if}}
+                  {{/each}}
+              </div>
+          {{/each}}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="wrapper wrapper-content  animated fadeInRight vendorToolsMyOffers">
+
+    <div class="row">
+
+      <div class="col-lg-12">
+        <div class="ibox">
+          <div class="ibox-title">
+            {{product.type}} : My offers
+          </div>
+          <div class="ibox-content">
+
+            <div class="alert alert-warning">
+              This product contains <span class="text-underline-dashed" data-placement="top" data-toggle="tooltip" data-original-title="A combination is a product variation. For example a product can be available in several colors or sizes.">combinations</span>. To activate your combinations offers, you must enable and edit the <span class="text-underline-dashed" data-placement="top" data-toggle="tooltip" data-original-title="The main offer is the default offer, it's always in the top of result of the table bellow.">main offer</span> of the product. Then, you can edit the details of each combination that you want to propose. If an offer about a combination is enabled, but you have not filled in the details, so it's the details of the main offer that will be used. <br>
+              For example, if you main offer price is 50 $currency and you activate offers on product combinations but not fill the price, activated combinations will be sold at 50 $currency. If you want to sell a specific combination at a different price, you must edit the offer of the combination. <br>
+              This principle applies to all the details of an offer (price, description, method of transportation, delays).
+            </div>
+
+            <div class="row">
+              <div class="col-sm-2">
+                <img class="img-responsive" src="/img/product-large-2.jpg">
+              </div>
+              <div class="col-sm-10">
+
+                <div class="combinationsContainer clearfix">
+                  <h3 class="col-lg-12 simple-title-sm">Refine existing Combinations</h3>
+
+                  {{#each attributesName product.attributes}}
+                      <div class="col-sm-4">
+                          <div class="form-group">
+                              <div class="combinationItem">
+                                  <label class="combinationTitle">{{this}}</label>
+                                  <div class="combinationValues input-group">
+                                      <select data-placeholder="Choose a Country..." name="{{this}}" class="chosen-select form-control" style="width:100%;" tabindex="2">
+                                          <option value="">Select</option>
+                                        {{#each attributes product.attributes this}}
+                                            <option>{{this}}</option>
+                                        {{/each}}
+                                      </select>
+                                  </div>
+                              </div>
+
+                          </div>
+                      </div>
+                  {{/each}}
+
+                </div>
+                <div class="col-lg-12">
+                  <div class="alert alert-info m-t text-center">
+                    <p>You can't find your combination? Suggest product change and add your combination. <a href="/vendorToolsProductContribution#stepProductCombination" class="m-l btn btn-success"><i class="fa fa-plus"></i> Suggest new combination</a></p>
+                  </div>
+
+                  <div class="table-responsive">
+<table class="table table-striped" width="100%" border="0" cellspacing="0">
+                    <thead>
+                      <tr>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th width="110">Stock</th>
+                        <th>Delay (days)</th>
+                        <th width="110">Best offer ({{Symbol}})</th>
+                        <th>Align to</th>
+                        <th>Average offer ({{Symbol}})</th>
+                        <th>Vendor offer</th>
+                        <th width="250">Description</th>
+                        <th width="110">When out of stock</th>
+                        <th width="250">Shipping and package</th>
+                        <th width="110">Shipping method</th>
+                        <th width="110">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="highlighted">
+                            <td>
+                                <div class="productTitle">
+                                    <a href="{{pathFor route='productDetails' id=product._id}}" id="pro_name"> {{checkLength product.translation 'name' 20}}</a>
+                                </div>
+                                <div class="productDescription" id="description"> {{checkLength product.translation 'description' 40}} </div>
+                            </td>
+                        {{#with mainOffer}}
+                        <td><div class="switch">
+                            <div class="onoffswitch">
+                                <input type="checkbox" class="onoffswitch-checkbox"  id="mainOfferStatus" checked="{{status}}">
+                                <label class="onoffswitch-label" for="mainOfferStatus"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                            </div>
+                        </div></td>
+                        <td><input type="text" id="mainOfferQuantity" class="productStock form-control inheritedQuantity" value="{{quantity}}"></td>
+                        <td><input type="text" id="offerDelayDeadline" class="offerDelayDeadline form-control inheritedQuantity" value="" /></td>
+                        <td id="bestOffer">{{toFixedPrice bestOffer}}</td>
+                        <td><div class="checkbox">
+                            <input type="checkbox" aria-label="Single checkbox One" value="option1" id="mainOfferAlign" checked="{{alignToOffer}}">
+                            <label></label>
+                        </div></td>
+                        <td id="avgOffer">{{toFixedPrice avgOffer}}</td>
+                        <td><input type="text" id="mainOfferPrice" class="productVendorOffer form-control" value="{{toFixedPrice price}}"></td>
+                        <td>
+                        <textarea class="form-control" name="offerDescription" id="offerDescription" cols="45" rows="5"></textarea></td>
+                        <td>
+<div class="checkbox">
+                                            <input id="allowOrderStatus" type="checkbox">
+                                            <label for="allowOrderStatus">
+                                                Allow order
+                                            </label>
+                                        </div>
+                                        
+                                                                
+                        </td>
+                        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td>Width</td>
+                            <td>
+                            <div class="input-group">
+                            <span class="input-group-addon">cm</span> 
+                            <input type="text" class="form-control" id="packageWidth" placeholder="Package width">
+                          </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Depth</td>
+                            <td>
+                            <div class="input-group">
+                            <span class="input-group-addon">cm</span> 
+                            <input type="text" class="form-control" id="packageDepth" placeholder="Package depth">
+                          </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Weight</td>
+                            <td>
+                            <div class="input-group">
+                            <span class="input-group-addon">kg</span> 
+                            <input type="text" class="form-control" id="packageWeight" placeholder="Package weight">
+                          </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>Height</td>
+                            <td>
+                            <div class="input-group">
+                            <span class="input-group-addon">cm</span> 
+                            <input type="text" class="form-control" id="packageHeight" placeholder="Package height">
+                          </div>
+                            </td>
+                          </tr>
+                        </table></td>
+                        <td>
+<table class="table">
+                        <tbody>
+                        
+                          <tr>
+                            <td><div class="checkbox">
+                              <input type="checkbox" id="shippingMethod_0" value="MFmKdenAvZHgHvTNp">
+                              <label for="shippingMethod_0">
+                               Shipping method name
+                              </label>
+                              </div>
+                            </td>
+                          </tr>
+                          
+                        </tbody>
+                        <tfoot>
+                        </tfoot>
+                      </table>                        
+                        </td>
+                        <td><div class="btn-group">
+                            <a href="{{pathFor route='vendorToolsMyOffersOfferDetails' id=_id}}" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                            <div class="btn-group">
+                                <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li><a class="text-info" data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><i class="fa fa-trash"></i> Clear</a></li>
+                                </ul>
+                            </div>
+                        </div></td>
+                        {{/with}}
+                    </tr>
+                    {{#each combinations}}
+                        <tr class="highlighted">
+                                    <td>
+                                        {{#each combination}}
+                                            {{attribute}}: <strong id="attr">{{value}}</strong>,
+                                        {{/each}}
+                                    </td>
+                            {{#with offer combId}}
+                            <td><div class="switch">
+                                <div class="onoffswitch">
+                                    <input type="checkbox" class="onoffswitch-checkbox offer-status" name="{{_id}}" id="example_{{_id}}" checked="{{status}}" disabled="{{mainOfferStatus}}">
+                                    <label class="onoffswitch-label" for="example_{{_id}}"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                                </div>
+                            </div></td>
+                            <td><input type="text" name="{{_id}}" id="qty" class="productStock form-control inheritedQuantity parent qty" placeholder="{{inheritedQuantity}}" value="{{quantity}}"></td>
+                            <td id="bestOffer"><input type="text" id="offerDelayDeadline2" class="offerDelayDeadline form-control inheritedQuantity" value="" /></td>
+                            <td id="bestOffer">{{bestOffer}}</td>
+                            <td><div class="checkbox">
+                                <input type="checkbox" aria-label="Single checkbox One" value="option1" id="productAlignPrice" checked="{{alignToOffer}}">
+                                <label></label>
+                            </div></td>
+                            <td id="avgOffer">{{avgOffer}}</td>
+                            <td><input type="text" id="vendorPrice" class="productVendorOffer form-control vendorPrice" name="{{_id}}" placeholder="{{inheritedPrice}}" value="{{price}}" disabled="{{alignToOffer}}"></td>
+                            <td><textarea class="form-control" name="offerDescription2" id="offerDescription2" cols="45" rows="5"></textarea></td>
+                            <td><div class="checkbox">
+                              <input id="allowOrderStatus2" type="checkbox" />
+                              <label for="allowOrderStatus2"> Allow order </label>
+                            </div></td>
+                            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td>Width</td>
+                                <td><div class="input-group"> <span class="input-group-addon">cm</span>
+                                  <input type="text" class="form-control" id="packageWidth2" placeholder="Package width" />
+                                </div></td>
+                              </tr>
+                              <tr>
+                                <td>Depth</td>
+                                <td><div class="input-group"> <span class="input-group-addon">cm</span>
+                                  <input type="text" class="form-control" id="packageDepth2" placeholder="Package depth" />
+                                </div></td>
+                              </tr>
+                              <tr>
+                                <td>Weight</td>
+                                <td><div class="input-group"> <span class="input-group-addon">kg</span>
+                                  <input type="text" class="form-control" id="packageWeight2" placeholder="Package weight" />
+                                </div></td>
+                              </tr>
+                              <tr>
+                                <td>Height</td>
+                                <td><div class="input-group"> <span class="input-group-addon">cm</span>
+                                  <input type="text" class="form-control" id="packageHeight2" placeholder="Package height" />
+                                </div></td>
+                              </tr>
+                            </table></td>
+                            <td><table class="table">
+                              <tbody>
+                                <tr>
+                                  <td><div class="checkbox">
+                                    <input type="checkbox" id="shippingMethod_" value="MFmKdenAvZHgHvTNp" />
+                                    <label for="shippingMethod_"> Shipping method name </label>
+                                  </div></td>
+                                </tr>
+                              </tbody>
+                              <tfoot>
+                              </tfoot>
+                            </table></td>
+                            <td><div class="btn-group">
+                                <a href="{{pathFor route='vendorToolsMyOffersOfferDetails' id=_id}}" class="btn btn-default btn-sm"><i class="fa fa-pencil-square-o"></i> Edit</a>
+                                <div class="btn-group">
+                                    <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="text-info" data-toggle="modal" data-target="#highlightOfferModal"><span class="label label-primary">Highlight this offer</span></a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="#"><i class="fa fa-trash"></i> Delete</a></li>
+                                    </ul>
+                                </div>
+                            </div></td>
+                            {{/with}}
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                  </table>                    
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="ibox-footer clearfix">
+            <span class="pull-right">
+              <button type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-times"></i><span class="btn-title">Cancel</span></button>
+              <button id="save" type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-floppy-o"></i><span class="btn-title">Save</span></button>
+            </span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</template>

@@ -1,0 +1,143 @@
+<template name="vendorReviewsTab">
+
+  <div id="vendorReviewsTab" class="vendorReviewsTab tab-pane">
+    <div class="panel-body">
+      
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="well bg-white">
+            <table class="table table-striped" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th scope="col">Criteria</th>
+                  <th scope="col">Average rating</th>
+                </tr>    
+              </thead>
+              <tbody>
+                {{#each criteria.criteria}}
+                  <tr>
+                    <td>{{this}}</td>
+                    <td><div class="reviews-container">
+                      <span class="reviews-stars">
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star active"></i>
+                        <i class="fa fa-star"></i>
+                      </span>
+                      </div></td>
+                  </tr>
+                  {{/each}}
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="well bg-white">
+
+            <table class="table table-striped" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th scope="col">Recent evaluations</th>
+                  <th scope="col">Last month</th>
+                  <th scope="col">6 months</th>
+                  <th scope="col">12 months</th>
+                </tr>    
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td><i class="fa fa-plus-circle text-info"></i> Positive</td>
+                  <td>129</td>
+                  <td>129</td>
+                  <td>129</td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-dot-circle-o text-primary"></i> Neutral</td>
+                  <td>129</td>
+                  <td>129</td>
+                  <td>129</td>
+                </tr>
+                <tr>
+                  <td><i class="fa fa-minus-circle text-danger"></i> Negative</td>
+                  <td>129</td>
+                  <td>129</td>
+                  <td>129</td>
+                </tr>    
+              </tbody>
+
+            </table>
+          </div>
+        </div>
+
+      </div>
+      <div class="hr-line-dashed"></div>
+      <div class="row">
+        <div class="col-sm-12">
+
+          <div class="well bg-white">
+            <table class="table table-striped" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th scope="col">Date</th>
+                  <th scope="col">Customer</th>
+                  <th scope="col">Average rating</th>
+                  <th scope="col">Order Red</th>
+                  <th scope="col">Comment</th>
+                  <th scope="col">Action</th>
+                </tr>    
+              </thead>
+              <tbody>
+
+                <tr>
+                  <td>03/12/2015 22:45:32 </td>
+                  <td>DOE John</td>
+                  <td><div class="reviews-container">
+                    <span class="reviews-stars">
+                      <i class="fa fa-star active"></i>
+                      <i class="fa fa-star active"></i>
+                      <i class="fa fa-star active"></i>
+                      <i class="fa fa-star active"></i>
+                      <i class="fa fa-star"></i>
+                    </span>
+                    </div></td>
+                  <td>TS154FJ4</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac convallis ante. Suspendisse potenti...</td>
+                  <td><button class="btn btn-default" data-toggle="modal" data-target="#vendorReviewDetailsModal"><i class="fa fa-edit"></i> Details</button></td>
+                </tr>
+                <tr>
+                  <td>03/12/2015 22:45:32 </td>
+                  <td>DOE John</td>
+                  <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                  <td>TS154FJ4</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac convallis ante. Suspendisse potenti...</td>
+                  <td><button class="btn btn-default" data-toggle="modal" data-target="#vendorReviewDetailsModal"><i class="fa fa-edit"></i> Details</button></td>
+                </tr>
+                <tr>
+                  <td>03/12/2015 22:45:32 </td>
+                  <td>DOE John</td>
+                  <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                  <td>TS154FJ4</td>
+                  <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ac convallis ante. Suspendisse potenti...</td>
+                  <td><button class="btn btn-default" data-toggle="modal" data-target="#vendorReviewDetailsModal"><i class="fa fa-edit"></i> Details</button></td>
+                </tr>    
+              </tbody>
+
+            </table>
+          </div>
+
+
+          {{>asVendorReviewDetails}}
+
+        </div>
+      </div>
+
+
+    
+    </div>
+
+  </div>
+</template>
+
+

@@ -1,0 +1,102 @@
+<template name="asVendorHighlightOffer">
+  <div class="modal inmodal loaded-details-container" id="highlightOfferModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content animated flipInY">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span><span class="sr-only">Close</span></button>
+          <img src="img/highlight-demo.jpg" alt="highlight">
+          <h4 class="modal-title text-info m-t">Highlight my offer</h4>
+          <span class="font-bold">To highlight your offer over your competitors you can apply this option. Your ad will be framed in green and will attract more customers.</span>
+        </div>
+        <div class="modal-body">
+          <div class="alert alert-info">
+            Your balance is exhausted. Please charge your account to highlight your offer.
+          </div>
+          <div class="form-group">
+
+
+            <div class="input-group">
+              <span class="input-group-addon">$</span> 
+              <select name="account" class="form-control">
+                <option>20</option>
+                <option>40</option>
+                <option>60</option>
+                <option>80</option>
+                <option>100</option>
+              </select>
+
+              <span class="input-group-btn"> 
+                <button class="btn btn-primary btn-group"><i class="fa fa-credit-card-alt"></i> Make a deposit</button>
+              </span>
+            </div>
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BELLOW EXAMPLE FORM IF USER HAVE CHARGED HIS ACCOUNT -->
+  <div class="modal inmodal loaded-details-container" id="highlightOfferModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content animated flipInY">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span><span class="sr-only">Close</span></button>
+          <img src="img/highlight-demo.jpg" alt="highlight">
+          <h4 class="modal-title text-info m-t">Highlight my offer</h4>
+          <span class="font-bold">To highlight your offer over your competitors you can apply this option. Your ad will be framed in green and will attract more customers.</span>
+        </div>
+        <div class="modal-body text-center">
+
+          Enable Highlighting on this offer: <input type="checkbox" class="js-switch_3" />
+          <div class="hr-line-dashed"></div>
+
+
+          <div class="alert alert-info">
+            <div class="checkbox m-t">
+              <input type="checkbox" id="conditionsToHighlight">
+              <label for="conditionsToHighlight">
+                I accept the conditions <a href="#conditionsToHighlightModal" data-toggle="modal" data-target="#conditionsToHighlightModal">(Read the conditions)</a>
+              </label>
+
+              <div class="modal inmodal loaded-details-container" id="conditionsToHighlightModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content animated flipInY">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times-circle"></i></span><span class="sr-only">Close</span></button>
+                      <h4 class="modal-title">Condition of Highlighting</h4>
+                      <small class="font-bold">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</small>
+                    </div>
+                    <div class="modal-body">
+                      <p><strong>Lorem Ipsum is simply dummy</strong> text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                        printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,
+                        remaining essentially unchanged.</p>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                    </div>
+                  </div>
+                </div>
+              </div>                                                      
+            </div> 
+          </div>
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+
+        </div>
+      </div>
+    </div>
+  </div>  
+
+</template>

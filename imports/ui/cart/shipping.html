@@ -1,0 +1,131 @@
+<template name="shipping">
+    <div class="ibox m-t">
+        <div class="ibox-content">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button class="btn btn-default pull-right"><i class="fa fa-file-pdf-o"></i> Quote</button>
+                    <h2 class="inline">Summary and shipping</h2>
+                </div>
+
+                {{#each multiCarts}}
+                    <div class="panel-body">
+                        {{#let parentIndex=@index}}
+
+                            <table class="table table-striped summaryShippingTable" width="100%" border="0" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Vendor</th>
+                                    <th scope="col">Avaiability (hours)</th>
+                                    <th scope="col">Unit price ($currency)</th>
+                                    <th scope="col" width="140">QTY</th>
+                                    <th scope="col">Total ($currency)</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+
+                                </thead>
+
+                                <tbody>
+
+                                {{#each this}}
+                                    {{#with currentCart @index}}
+                                        <tr>
+                                            <td><img src="/img/product-48.jpg" class="img-responsive"></td>
+                                            <td><span class="hidden-md hidden-lg hidden-sm label-mobil">Description: </span><span class="valueInfo">{{getTranslation product.translation 'name'}}</span></td>
+                                            <td><span class="hidden-md hidden-lg hidden-sm label-mobil">Vendor: </span><span class="valueInfo">{{vendorName}}</span></td>
+                                            <td><span class="hidden-md hidden-lg hidden-sm label-mobil">Avaiability (hours): </span><span class="valueInfo">{{offer.delayDays}}h</span></td>
+                                            <td><span class="hidden-md hidden-lg hidden-sm label-mobil">Unit price ($currency) </span><span class="valueInfo">{{offer.price}}</span></td>
+
+                                            <td>
+                                                <div class="input-group">
+                                                    <input type="number" id="product-qty-{{parentIndex}}{{@index}}" offer="{{this.offer}}" class="form-control input-sm product-qty" value="{{this.qty}}" index="{{@index}}" parentIndex="{{parentIndex}}">
+                                                <span class="input-group-btn ">
+                                                  <button class="btn btn-default btn-sm" id="decrement" index="{{@index}}" parentIndex="{{parentIndex}}" offer="{{this.offer}}"><i class="fa fa-minus"></i></button>
+                                                  <button class="btn btn-default btn-sm" id="increment" index="{{@index}}" parentIndex="{{parentIndex}}" offer="{{this.offer}}"><i class="fa fa-plus" ></i></button>
+                                                </span>
+                                                </div>
+                                            </td>
+                                            <td><span class="hidden-md hidden-lg hidden-sm label-mobil">Total ($currency): </span><span class="valueInfo">{{totalPrice}}</span></td>
+                                            <td><button class="btn btn-default" id="remove" value="{{@index}}" index="{{@index}}" parentIndex="{{parentIndex}}"><i class="fa fa-trash"></i> Remove</button></td>
+                                        </tr>
+                                    {{/with}}
+                                {{/each}}
+
+                                </tbody>
+
+                                <tfoot>
+
+                                <tr>
+                                    <td>{{selectedCarrier @index 'name'}}</td>
+                                    <td><div class="btn-group">
+                                        <button class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">{{selectedCarrier @index 'name'}}<span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            {{#each availableCarriers this @index}}
+                                                <li><a id="{{_id}}" parent="{{parentIndex}}" index="{{@index}}" class="shipping-dropdown-item dropdown-ele-{{@index}}"> {{name}}</a></li>
+                                            {{/each}}
+                                        </ul>
+                                    </div></td>
+                                    {{#with appliedRange @index (selectedCarrier @index 'ranges')}}
+                                        <td align="right">{{price}}</td>
+                                    {{/with}}
+                                    {{#if hasCarrier @index}}
+                                        <td><div class="alert alert-danger">No carrier available for this vendor. Reason: This package is to heavy. Please modify your selection to lighten the weight </div></td>
+                                    {{/if}}
+                                </tr>
+
+                                <tr class="preTotal">
+                                    <td colspan="7" align="right">Total product</td>
+                                    <td align="right">{{formatNumber (eachOfferSum @index)}} {{Symbol}}</td>
+                                </tr>
+                                {{#with appliedRange @index (selectedCarrier @index 'ranges')}}
+                                    <tr>
+                                        <td colspan="7" align="right">Total Shipping</td>
+                                            <td align="right">{{price}}</td>
+                                    </tr>
+                                    <tr class="total">
+                                        <td colspan="7" align="right">Total price</td>
+                                        <td align="right">{{formatNumber (totalCalPrice @index price)}} {{Symbol}}</td>
+                                    </tr>
+                                {{/with}}
+
+                                </tfoot>
+                            </table>
+                        {{/let}}
+
+                    </div>
+                {{/each}}
+                <div class="panel-body">
+                    <table class="table table-striped summaryShippingTable" width="100%" border="0" cellspacing="0">
+                        <tfoot>
+                            <tr class="preTotal">
+                                <td colspan="7" align="right">Total product</td>
+                                <td align="right">{{formatNumber getGrandTotal}} {{Symbol}}</td>
+                            </tr>
+                            <tr>
+                                <td colspan="7" align="right">Total Shipping</td>
+                                <td align="right">{{formatNumber shippingTotalAmount}} {{Symbol}}</td>
+                            </tr>
+                            <tr class="total">
+                                <td colspan="7" align="right">Grand Total price</td>
+                                <td align="right">{{formatNumber (grandTotalWithShipping shippingTotalAmount)}} {{Symbol}}</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="ibox-footer clearfix">
+              <span class="pull-right">
+                <button type="button" id="previous-step2" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+
+              {{#if checkCarrier}}
+                  <button type="button" disabled="true" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+              {{else}}
+                  <button type="button" id="save" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+              {{/if}}</span>
+        </div>
+    </div>
+</template>

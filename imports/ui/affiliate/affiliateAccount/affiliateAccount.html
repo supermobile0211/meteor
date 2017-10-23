@@ -1,0 +1,47 @@
+<template name="affiliateAccount">
+
+  <div class="wrapper wrapper-content animated fadeInRight affiliateAccount">
+    
+    <div class="row">
+      <div class="col-lg-12">
+          <div class="tabs-container">
+
+              <ul class="nav nav-tabs">
+                  <li class="{{ isActivePath regex='/affiliate/dashboard' }}"><a href="{{ pathFor 'affiliateDashboard'}}"> <i class="fa fa-tachometer"></i> Dashboard </a></li>
+                  <li class="{{ isActivePath regex='/affiliate/earning' }}"><a href="{{ pathFor 'affiliateEarning'}}"><i class="fa fa-book"></i> Earning</a></li>
+                  <li class="{{ isActivePath regex='/affiliate/bestSales' }}"><a href="{{ pathFor 'affiliateBestSales'}}"> <i class="fa fa-shopping-cart"></i> Best sales </a></li>
+                  <li class="{{ isActivePath regex='/affiliate/visits' }}"><a href="{{ pathFor 'affiliateVisits'}}"><i class="fa fa-truck"></i> Visits </a></li>
+                  <li class="{{ isActivePath regex='/affiliate/finances' }}"><a href="{{ pathFor 'affiliateFinances'}}"><i class="fa fa-bell"></i>Finances</a></li>
+                  <li class="{{ isActivePath regex='/affiliate/settings' }}"><a href="{{ pathFor 'affiliateSettings'}}"><i class="fa fa-cogs"></i>Settings</a></li>
+                  <li class="{{ isActivePath regex='/affiliate/createBanner' }}"><a href="{{ pathFor 'affiliateCreateBanner'}}"><i class="fa fa-code"></i>Create a banner</a></li>
+                  <li class="{{ isActivePath regex='/affiliate/XMLRessource' }}"><a href="{{ pathFor 'affiliateXMLRessource'}}"><i class="fa fa-code"></i>XML API</a></li>
+              </ul>
+
+              <div >
+                  {{> Template.dynamic template=vendorsTabsContents}}
+              </div>
+
+          </div>
+
+
+      </div>
+
+    </div>
+
+  
+    
+  </div>    
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+

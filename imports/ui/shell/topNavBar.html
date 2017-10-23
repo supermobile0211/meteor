@@ -1,0 +1,575 @@
+<template name="topNavbar">
+    <header class="topHeader">
+        <nav class="navbar topNav" role="navigation" style="margin-bottom: 0">
+            <div class="topNavbar row bg-white b-b">
+                <div class="faketable w100 topNavbar-content">
+                    <div class="table-cell vam logo text-center b-r">
+                        <a class="mainMenubtn btn btn-link" id="mainMenubtn" href="#">
+                            <i class="fa fa-shopping-bag fa-2x text-success"></i><br>
+                            <i class="fa fa-bars btn btn-link"></i>
+                        </a>
+                        <ul class="dropdown-mainMenu animated fadeInDown">
+                            {{#each categories}}
+                                <li>
+                                    <a href="#">
+                                        <div>
+                                            <i class="fa fa-book"></i> {{getTranslation translation 'name'}}
+                                            <!-- ifSubMenu show chevron icon -->
+                                            <i class="pull-right fa fa-chevron-right itemChevron"></i>
+                                        </div>
+                                    </a>
+                                    <ul class="subMenuHTMLContainer">
+                                        <li class="subMenuHTMLContent">
+                                            <span class="title">Demo Content</span>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!</p>
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <img src="/img/product-large-2.jpg" class="pull-left img-responsive"> <br>
+                                                    <a href="#"><strong>Product name</strong> </a><br>
+                                                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <span class="subtitle"><a href="#">here a title</a></span>
+                                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. </p>
+                                                    <span class="subtitle"><a href="#">here a title</a></span>
+                                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. </p>
+                                                    <span class="subtitle"><a href="#">here a title</a></span>
+                                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. </p>
+                                                    <span class="subtitle"><a href="#">here a title</a></span>
+                                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                                        tempor incididunt ut labore et dolore magna aliqua. </p>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                            {{/each}}
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-shopping-cart"></i> Category 2-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category 3-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!</p>-->
+                                        <!--<div class="row">-->
+                                            <!--<div class="col-sm-4">-->
+                                                <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
+                                                <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
+                                                <!--quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
+                                                <!--consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse-->
+                                                <!--cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non-->
+                                                <!--proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+                                            <!--</div>-->
+                                            <!--<div class="col-sm-4">-->
+                                                <!--<img src="/img/product-large-2.jpg" class="pull-left">-->
+                                                <!--<a href="#">Product name</a>-->
+                                                <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
+                                                <!--quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
+                                                <!--consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse-->
+                                                <!--cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non-->
+                                                <!--proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+                                            <!--</div>-->
+                                            <!--<div class="col-sm-4">-->
+                                                <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod-->
+                                                <!--tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,-->
+                                                <!--quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
+                                                <!--consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse-->
+                                                <!--cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non-->
+                                                <!--proident, sunt in culpa qui officia deserunt mollit anim id est laborum.-->
+                                            <!--</div>-->
+                                        <!--</div>-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                            <!--<li>-->
+                                <!--<a href="#">-->
+                                    <!--<div>-->
+                                        <!--<i class="fa fa-truck"></i> Category X-->
+                                        <!--&lt;!&ndash; ifSubMenu show chevron icon &ndash;&gt;-->
+                                        <!--<i class="pull-right fa fa-chevron-right itemChevron"></i>-->
+                                    <!--</div>-->
+                                <!--</a>-->
+                                <!--<ul class="subMenuHTMLContainer">-->
+                                    <!--<li class="subMenuHTMLContent">-->
+                                        <!--Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum minima doloribus natus, repellendus quas dolorum eius! Fugiat alias doloribus minima, officiis provident consectetur voluptate cupiditate. Quidem ducimus voluptas, asperiores magni!-->
+                                    <!--</li>-->
+                                <!--</ul>-->
+                            <!--</li>-->
+                            <!--<li class="divider"></li>-->
+                        </ul>
+                    </div>
+                    <div class="table-cell vam MainMenu text-center b-r"><a href="#" id="navbar-minimalize"><i class="fa fa-bars btn btn-link"></i></a> </div>
+                    <div class="table-cell vam SearchForm hidden-xs hidden-sm animated">
+                        <form role="search" class="navbar-form-custom faketable search_input animated " action="search_results">
+                            <span class="text-center mobilSearchBtn text-center table-cell vam bg-primary hidden-lg hidden-md"><span class="btn btn-link btn-lg"><i class="fa fa-chevron-left"></i></span></span>
+                            <div class="form-group table-cell vam">
+                                <div class="input-group">
+                                    <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                                    <input type="text" autocomplete="off" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="autosuggestion">
+                            <!-- Best score for keyword in this categories -->
+                            <table class="table table-hover" width="100%" border="0" cellspacing="0">
+                                <tbody>
+                                    {{#each searchResultCategories}}
+                                        <tr class="searchRow">
+                                            <td class="searchKeyword"><a href="{{pathFor 'search' id=cat query=searchKeyWord }}" class="categories" category="{{cat}}">{{{ searchResult name }}} <strong> | {{ categoryName @index }}</strong></a></td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            <div class="hr-line-dashed"></div>
+                            <table class="table table-hover" width="100%" border="0" cellspacing="0">
+                                <tbody>
+                                {{#each text_search}}
+                                    <tr>
+                                        <td><a href="{{pathFor 'search' id=defaultCategory query=searchKeyWord}}">{{{searchResult translation.[0].name }}}</a></td>
+                                    </tr>
+                                {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="table-cell vam becomeVendor text-center b-r hidden-xs"><a href="/vendorAccount" class="btn btn-info btn-outline becomeVendor">Become vendor</a></div>
+                    <div class="table-cell vam becomeVendor text-center b-r hidden-lg hidden-md"><span class="btn btn-link mobilSearchBtn"><i class="fa fa-search fa-size"></i> </span></div>
+                    <div class="table-cell vam vendor dropdown text-center b-r">
+                        <a class="dropdown-toggle  btn btn-link" data-toggle="dropdown" href="#">
+                            <i class="fa fa-briefcase fa-size alertChip"></i> <span class="title">Vendor</span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="{{pathFor route='profile' id=_id}}">
+                                    <div>
+                                        <i class="fa fa-ticket text-danger"></i> Your account is not active <br>
+                                        Please <a href="#">complete your profile</a>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='vendorCatalog'}}">
+                                    <div>
+                                        <i class="fa fa-book"></i> My catalog
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='vendorOrders'}}">
+                                    <div>
+                                        <i class="fa fa-shopping-cart"></i> Order <span class="label label-danger">3</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-truck"></i> Transport
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-star"></i> Reviews
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-credit-card"></i> Finance
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='vendorSettings'}}">
+                                    <div>
+                                        <i class="fa fa-wrench"></i> Settings
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-money"></i> My balance: <span class="text success font-bold">16.80 {{Symbol}}</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-plane"></i> Holiday mode <input type="checkbox" class="js-switch" checked />
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="table-cell vam Language Shipping Currency dropdown b-r text-center hidden-xs">
+                        <a class="dropdown-toggle  btn btn-link" data-toggle="dropdown" href="#">
+                            <span class="title">Ship to</span> <i class="flag16 flag16-France" title="France"></i> / EUR  <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu multi-level">
+                          <li class="dropdown-submenu">
+                            <a class="subDropdown" tabindex="-1" href="#">Ship to <span class="currentDeliveryCountry"><i class="flag16 flag16-France" title="France"></i> France</span> </a>
+                            <ul class="dropdown-menu">
+                              <li><a tabindex="-1" href="#"><i class="flag16 flag16-France" title="France"></i> France</a></li>
+                              <li><a tabindex="-1" href="#"><i class="flag16 flag16-United-States" title="United-States"></i> United-States</a></li>
+                              <li><a tabindex="-1" href="#"><i class="flag16 flag16-Germany" title="Germany"></i> Germany</a></li>
+                            </ul>
+                          </li>
+                          <li class="dropdown-submenu">
+                            <a class="subDropdown" tabindex="-1" href="#">Currency <span class="currentCurrency">EUR</span> </a>
+                            <ul class="dropdown-menu">
+                              <li><a tabindex="-1" href="#">EUR</a></li>
+                              <li><a tabindex="-1" href="#">USD</a></li>
+                              <li><a tabindex="-1" href="#">GBP</a></li>
+                            </ul>
+                          </li>
+                        </ul>
+                    </div>
+
+                    <div class="table-cell vam Language Shipping Currency dropdown b-r text-center hidden-xs">
+                        <a class="dropdown-toggle  btn btn-link" data-toggle="dropdown" href="#">
+                            <span class="title">Language <span class="currentLangage"><i class="flag16 flag16-France" title="France"></i></span> </span> <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+
+                              <li><a tabindex="-1" href="#"><i class="flag16 flag16-France" title="French"></i> French</a></li>
+                              <li><a tabindex="-1" href="#"><i class="flag16 flag16-United-States" title="English"></i> English</a></li>
+                              <li><a tabindex="-1" href="#"><i class="flag16 flag16-Germany" title="German"></i> German</a></li>
+                            
+                        </ul>
+                    </div>
+
+
+                    <div class="table-cell vam Help dropdown b-r text-center hidden-xs">
+                        <a class="dropdown-toggle  btn btn-link" data-toggle="dropdown" href="#">
+                            <i class="fa fa-life-ring fa-size alertChip"></i> <span class="title">Help</span> <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-phone"></i> Call Us: <span class="text-info text-bold">064 456 789</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/myTickets">
+                                    <div>
+                                        <i class="fa fa-ticket"></i> View my ticket <span class="label label-danger">2</span>
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-question-circle"></i> How to ask a question to a vendor?
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="table-cell vam user dropdown text-center b-r">
+                        <a class="dropdown-toggle  inline userProfile" data-toggle="dropdown" href="#">
+                            <div class="faketable">
+                                <div class="table-cell vam avatar">
+                                    {{> customAvatar}}
+                                    <!--<img src="/img/a7.jpg" alt="$username" class="img-circle" width="48" height="48">-->
+                                </div>
+                                <div class="title table-cell vam">
+                                    <small>Welcome</small> <br>
+                                    {{#if currentUser.username}}
+                                        <div>{{currentUser.username}} </div>
+                                    {{else}}
+                                        <div>Guest</div>
+                                    {{/if}}
+                                </div>
+                                <div class="table-cell vam icoContainer">
+                                    <i class="fa fa-angle-down"></i>
+                                </div>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-alerts">
+                            <li>
+                                <a href="/vendorAccount">
+                                    <div>
+                                        <i class="fa fa-suitcase"></i> Become vendor
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-briefcase"></i> Become affiliate
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='customerInformations'}}">
+                                    <div>
+                                        <i class="fa fa-user"></i> My personnal information
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='customerOrders'}}">
+                                    <div>
+                                        <i class="fa fa-shopping-cart"></i> Order history
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='customerAddresses'}}">
+                                    <div>
+                                        <i class="fa fa-truck"></i> Addresses
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#">
+                                    <div>
+                                        <i class="fa fa-bell"></i> Followed pages
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="/myTickets">
+                                    <div>
+                                        <i class="fa fa-ticket"></i> My tickets <span class="label label-danger">3</span>
+                                        <span class="pull-right text-muted small">4 minutes ago</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='customerSettings'}}">
+                                    <div>
+                                        <i class="fa fa-cogs"></i> My settings
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="{{pathFor route='login'}}" id="logout">
+                                    <div>
+                                        <i class="fa fa-power-off"></i> Sign out
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    {{#if isLogin}}
+                        <div class="table-cell vam user dropdown text-center b-r">
+                            <a class="dropdown-toggle  inline userProfile" data-toggle="dropdown" href="#">
+                                <div class="faketable">
+                                    <div class="table-cell vam avatar"><img src="/img/default_avatar.jpg" alt="login" class="img-circle" width="48" height="48"> </div>
+                                    <div class="title table-cell vam">
+                                        <small>Welcome</small> <br>
+                                        <div>Sign in</div>
+                                    </div>
+                                    <div class="table-cell vam icoContainer">
+                                        <i class="fa fa-angle-down"></i>
+                                    </div>
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu no-logged">
+                                <li>
+                                    <a href="{{pathFor route='login'}}" class="btn btn-danger"><i class="fa fa-sign-in"></i> Sign in</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <div class="text-center">New here ? </div>
+                                    <a href="{{pathFor route='login'}}" class="btn btn-primary"><i class="fa fa-user"></i> Create an account</a>
+                                </li>
+                            </ul>
+                        </div>
+                    {{/if}}
+                    <div class="table-cell vam cart text-center">
+                        <a class=" btn btn-link" href="/cartPage">
+                            <div class="faketable">
+                                <div class="table-cell vam"><i class="fa fa-shopping-basket fa-size"></i></div>
+                                {{#if isEmpty}}
+                                    <div class="title table-cell vam">
+                                        <div>Cart
+                                            <small>({{cart}})</small>
+                                        </div>
+                                    </div>
+                                {{else}}
+                                    <div class="title table-cell vam">
+                                        <div>Cart </div>
+                                    </div>
+                                    <span class="badge badge-danger">3</span>
+                                {{/if}}
+                                <div class="table-cell vam">
+                                    <i class="fa fa-angle-right pull-right"></i>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+</template>

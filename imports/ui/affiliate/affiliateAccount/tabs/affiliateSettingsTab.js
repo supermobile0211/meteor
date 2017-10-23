@@ -1,0 +1,5 @@
+Template.affiliateSettingsTab.onRendered(()=> {
+
+});
+
+

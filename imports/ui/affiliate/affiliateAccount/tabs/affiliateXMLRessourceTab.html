@@ -1,0 +1,220 @@
+<template name="affiliateXMLRessourceTab">
+
+  <div id="affiliateXMLRessourceTab" class="affiliateXMLRessourceTab tab-pane">
+
+
+        <div class="panel-body">
+
+          <div class="commonParameters">
+                      
+            <h2>Common url parameters</h2>
+            
+
+
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="table table-hover">
+
+  <thead>
+    <tr>
+      <th scope="col">URL Parameter</th>
+      <th scope="col">Variable</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+
+  <tbody>
+   <tr>
+    <td><span class="text-danger"><strong>af</strong></span></td>
+    <td><span class="text-danger">$affiliateID</span></td>
+    <td>This parameter is <strong>required</strong> to track your sales. Your Affiliate ID is unique <span class="text-danger"><strong>EG41245674</strong></span></td>
+    </tr>
+  <tr>
+    <td><span class="text-info"><strong>geolocation</strong></span></td>
+    <td><span class="text-info">$location</span> </td>
+    <td>Allow to search arround a city or address</td>
+    </tr>
+  <tr>
+    <td><span class="text-info"><strong>distance</strong></span></td>
+    <td><span class="text-info">$distanceRadius</span></td>
+    <td>Allow to limit a search arround <em>&quot;</em><strong>x</strong><em>&quot;</em> km of &quot;<strong>$location</strong>&quot;. Require &quot;<strong>geolocation</strong><em>&quot;</em> parameter</td>
+    </tr>
+  <tr>
+    <td><span class="text-info"><strong>offersCountry</strong></span></td>
+    <td><span class="text-info">$offersCountry</span></td>
+    <td>Allow to get offers only from a specific country.</td>
+    </tr>
+  <tr>
+    <td><span class="text-info"><strong>language</strong></span></td>
+    <td><span class="text-info">$language</span></td>
+    <td><p>Allow to get the content, description, in a specific language available. Use one of the language available: <strong>$listISOAvailableLanguage</strong></p>
+      <p>Some of languages can have a description auto-translated.</p>
+    </td>
+    </tr>
+  <tr>
+    <td><span class="text-info"><strong>currency</strong></span></td>
+    <td><span class="text-info">$currency</span></td>
+    <td>Allow to get price in a specific currency among those available: <strong>$listISOAvailableCurrencies</strong></td>
+    </tr>   
+    
+  </tbody>
+  
+
+</table>
+
+          </div>
+
+<div class="hr-line-dashed"></div>
+<h2>Select XML API</h2>
+<div id="accordion" class="panel-group">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a href="#collapseOne" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" class="">Popular offers</a>
+                                </h4>
+                              </div>
+                              <div class="panel-collapse collapse" id="collapseOne" aria-expanded="true" style="">
+                                <div class="panel-body">
+
+
+                                  <p><em>Show the current Top 50 popular offers. </em></p>
+                                  <p>XML url: http://$url.com/api/v1/popularoffers.xml?af=<strong class="text-danger">$affiliateID</strong>&geolocation=<strong class="text-info">$location</strong>&distance=<strong class="text-info">$distanceRadius</strong></p>
+                                  <p>Parameters list: </p>
+                                  <ul>
+                                    <li> url to product with affiliate ID</li>
+                                    <li>best price</li>
+                                    <li>title</li>
+                                    <li>Main image</li>
+                                    <li>short description</li>
+                                  </ul>
+
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a href="#collapseCategory" data-parent="#accordion" data-toggle="collapse" aria-expanded="true" class="">Category offers</a>
+                                </h4>
+                              </div>
+                              <div class="panel-collapse collapse" id="collapseCategory" aria-expanded="true" style="">
+                                <div class="panel-body">
+                                  <p><em>Show the content of a specific category. </em></p>
+                                  <p>XML url: http://$url.com/api/v1/category.xml?catID=<strong class="text-info">$categoryID</strong>&amp;af=<strong class="text-danger">$affiliateID</strong></p>
+                                  <p>Parameters list: </p>
+                                  <ul>
+                                    <li>Category
+                                      <ul>
+                                        <li>Sort by</li>
+                                        <li>Category title</li>
+                                        <li>Page number</li>
+                                        <li>Results by page</li>
+                                      </ul>
+                                    </li>
+                                    <li>products results
+                                      <ul>
+                                        <li> url to product with affiliate ID</li>
+                                        <li>best price</li>
+                                        <li>title</li>
+                                        <li>Main image</li>
+                                        <li>short description</li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a href="#collapseTwo" data-parent="#accordion" data-toggle="collapse" class="collapsed" aria-expanded="false">Search offers</a>
+                                </h4>
+                              </div>
+                              <div class="panel-collapse collapse" id="collapseTwo" aria-expanded="false" style="height: 0px;">
+                                <div class="panel-body">
+
+                                  <p><em>Show the content for a specific keyword. </em></p>
+                                  <p>XML url: http://$url.com/api/v1/search.xml?keyword=<strong class="text-info">$keyword</strong>&amp;af=<strong class="text-danger">$affiliateID</strong>&amp;filterCategory=<strong class="text-info">$idCategory</strong>&amp;priceRange=<strong class="text-info">$priceRange</strong>&amp;type=<strong class="text-info">$productType</strong></p>
+                                  <p>Parameters list: </p>
+                                  <ul>
+                                    <li>Category
+                                      <ul>
+                                        <li>Sort by</li>
+                                        <li>Category title</li>
+                                        <li>Page number</li>
+                                        <li>Results by page</li>
+                                        <li>Categories related</li>
+                                      </ul>
+                                    </li>
+                                    <li>products results
+                                      <ul>
+                                        <li> url to product with affiliate ID</li>
+                                        <li>best price</li>
+                                        <li>title</li>
+                                        <li>Main image</li>
+                                        <li>short description</li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h4 class="panel-title">
+                                  <a href="#collapseThree" data-parent="#accordion" data-toggle="collapse" class="collapsed" aria-expanded="false">Specific Product</a>
+                                </h4>
+                              </div>
+                              <div class="panel-collapse collapse" id="collapseThree" aria-expanded="false">
+                                <div class="panel-body">
+                                  <p><em>Show the content of a specific product ID. </em></p>
+                                  <p>XML url: http://$url.com/api/v1/product.xml?productID=<strong class="text-info">$productID</strong>&amp;af=<strong class="text-danger">$affiliateID</strong>&amp;geolocation=<strong class="text-info">$location</strong>&amp;offerspn=<strong class="text-info">$offersPageNumber</strong>&amp;offernb=<strong class="text-info">$offernb</strong></p>
+                                  <p>Parameters list: </p>
+                                  <ul>
+                                    <li>Product
+                                      <ul>
+                                        <li>Title</li>
+                                        <li>Short description</li>
+                                        <li>Main image</li>
+                                        <li>Best price</li>
+                                        <li> url to product with affiliate ID</li>
+                                        <li>Has tutorial status</li>
+                                        <li>Related product list ID</li>
+                                        <li>Attributes list</li>
+                                      </ul>
+                                    </li>
+                                    <li>Offers
+                                      <ul>
+                                        <li>Page number</li>
+                                        <li>Offers by page</li>
+                                        <li>Offers list
+                                          <ul>
+                                            <li>vendor
+                                              <ul>
+                                                <li>name</li>
+                                                <li>country</li>
+                                                <li>total price</li>
+                                                <li>base price</li>
+                                                <li>delay</li>
+                                                <li>review rate</li>
+                                                <li>city</li>
+                                                <li>url select this offer with affiliate ID                                            </li>
+                                              </ul>
+                                            </li>
+                                          </ul>
+                                        </li>
+                                      </ul>
+                                    </li>
+                                  </ul>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+        </div>
+    
+  </div>
+
+
+  
+
+</template>

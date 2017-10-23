@@ -1,0 +1,13 @@
+{
+  "private": {
+    "base": "packages",
+    "packages": {
+      "package": "package"
+    }
+  },
+  "packages": {
+    "package": {
+      "path": "packages/package"
+    }
+  }
+}

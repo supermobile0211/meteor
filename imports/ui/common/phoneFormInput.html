@@ -1,0 +1,293 @@
+<!--
+<template name="phoneFormInput">
+  <div class="input-group">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="input-group">
+          <div class="input-group-btn">
+            <button type="button" class="btn btn-white dropdown-toggle" data-toggle="dropdown"><i class="flag16 flag16-{{SelectedCountry.flag}}"></i> <span class="caret"></span></button>
+            <ul class="dropdown-menu prefixListDropdown">
+              <li class="well clearfix"><input type="text" class="form-control" placeholder="Search a prefix" required id="prefixNo"></li>
+                {{#each countries}}
+                    <li><a href="#" id="selectPrefix"><i class="flag16 flag16-{{flag}}"></i> {{name}} ({{prefix}})</a></li>
+                {{/each}}
+                    &lt;!&ndash;<li><a href="#" prefixVal="93"><i class="flag16 flag16-Afghanistan"></i> Afghanistan (+93)</a></li>&ndash;&gt;
+             &lt;!&ndash; <li><a href="#" prefixVal="358"><i class="flag16 flag16-Aland"></i> Åland Islands (+358)</a></li>
+              <li><a href="#" prefixVal="355"><i class="flag16 flag16-Albania"></i> Albania (+355)</a></li>
+              <li><a href="#" prefixVal="213"><i class="flag16 flag16-Algeria"></i> Algeria (+213)</a></li>
+              <li><a href="#" prefixVal="1684"><i class="flag16 flag16-American-Samoa"></i> American Samoa (+1684)</a></li>
+              <li><a href="#" prefixVal="376"><i class="flag16 flag16-Andorra"></i> Andorra (+376)</a></li>
+              <li><a href="#" prefixVal="244"><i class="flag16 flag16-Angola"></i> Angola (+244)</a></li>
+              <li><a href="#" prefixVal="1264"><i class="flag16 flag16-Anguilla"></i> Anguilla (+1264)</a></li>
+              <li><a href="#" prefixVal=""><i class="flag16 flag16-Antarctica"></i> Antarctica (+)</a></li>
+              <li><a href="#" prefixVal="1268"><i class="flag16 flag16-Antigua-and-Barbuda"></i> Antigua and Barbuda (+1268)</a></li>
+              <li><a href="#" prefixVal="54"><i class="flag16 flag16-Argentina"></i> Argentina (+54)</a></li>
+              <li><a href="#" prefixVal="374"><i class="flag16 flag16-Armenia"></i> Armenia (+374)</a></li>
+              <li><a href="#" prefixVal="297"><i class="flag16 flag16-Aruba"></i> Aruba (+297)</a></li>
+              <li><a href="#" prefixVal="61"><i class="flag16 flag16-Australia"></i> Australia (+61)</a></li>
+              <li><a href="#" prefixVal=""><i class="flag16 flag16-Australia"></i> Heard Island and McDonald Islands (+)</a></li>
+              <li><a href="#" prefixVal="43"><i class="flag16 flag16-Austria"></i> Austria (+43)</a></li>
+              <li><a href="#" prefixVal="994"><i class="flag16 flag16-Azerbaijan"></i> Azerbaijan (+994)</a></li>
+              <li><a href="#" prefixVal="1242"><i class="flag16 flag16-Bahamas"></i> Bahamas (+1242)</a></li>
+              <li><a href="#" prefixVal="973"><i class="flag16 flag16-Bahrain"></i> Bahrain (+973)</a></li>
+              <li><a href="#" prefixVal="880"><i class="flag16 flag16-Bangladesh"></i> Bangladesh (+880)</a></li>
+              <li><a href="#" prefixVal="1246"><i class="flag16 flag16-Barbados"></i> Barbados (+1246)</a></li>
+              <li><a href="#" prefixVal="375"><i class="flag16 flag16-Belarus"></i> Belarus (+375)</a></li>
+              <li><a href="#" prefixVal="32"><i class="flag16 flag16-Belgium"></i> Belgium (+32)</a></li>
+              <li><a href="#" prefixVal="501"><i class="flag16 flag16-Belize"></i> Belize (+501)</a></li>
+              <li><a href="#" prefixVal="229"><i class="flag16 flag16-Benin"></i> Benin (+229)</a></li>
+              <li><a href="#" prefixVal="1441"><i class="flag16 flag16-Bermuda"></i> Bermuda (+1441)</a></li>
+              <li><a href="#" prefixVal="975"><i class="flag16 flag16-Bhutan"></i> Bhutan (+975)</a></li>
+              <li><a href="#" prefixVal="591"><i class="flag16 flag16-Bolivia"></i> Bolivia (+591)</a></li>
+              <li><a href="#" prefixVal="387"><i class="flag16 flag16-Bosnia-and-Herzegovina"></i> Bosnia and Herzegovina (+387)</a></li>
+              <li><a href="#" prefixVal="267"><i class="flag16 flag16-Botswana"></i> Botswana (+267)</a></li>
+              <li><a href="#" prefixVal="55"><i class="flag16 flag16-Brazil"></i> Brazil (+55)</a></li>
+              <li><a href="#" prefixVal="1284"><i class="flag16 flag16-British-Virgin-Islands"></i> British Virgin Islands (+1284)</a></li>
+              <li><a href="#" prefixVal="673"><i class="flag16 flag16-Brunei"></i> Brunei (+673)</a></li>
+              <li><a href="#" prefixVal="359"><i class="flag16 flag16-Bulgaria"></i> Bulgaria (+359)</a></li>
+              <li><a href="#" prefixVal="226"><i class="flag16 flag16-Burkina-Faso"></i> Burkina Faso (+226)</a></li>
+              <li><a href="#" prefixVal="257"><i class="flag16 flag16-Burundi"></i> Burundi (+257)</a></li>
+              <li><a href="#" prefixVal="855"><i class="flag16 flag16-Cambodia"></i> Cambodia (+855)</a></li>
+              <li><a href="#" prefixVal="237"><i class="flag16 flag16-Cameroon"></i> Cameroon (+237)</a></li>
+              <li><a href="#" prefixVal="1"><i class="flag16 flag16-Canada"></i> Canada (+1)</a></li>
+              <li><a href="#" prefixVal="238"><i class="flag16 flag16-Cape-Verde"></i> Cape Verde (+238)</a></li>
+              <li><a href="#" prefixVal="1345"><i class="flag16 flag16-Cayman-Islands"></i> Cayman Islands (+1345)</a></li>
+              <li><a href="#" prefixVal="236"><i class="flag16 flag16-Central-African-Republic"></i> Central African Republic (+236)</a></li>
+              <li><a href="#" prefixVal="235"><i class="flag16 flag16-Chad"></i> Chad (+235)</a></li>
+              <li><a href="#" prefixVal="56"><i class="flag16 flag16-Chile"></i> Chile (+56)</a></li>
+              <li><a href="#" prefixVal="86"><i class="flag16 flag16-China"></i> China (+86)</a></li>
+              <li><a href="#" prefixVal="61"><i class="flag16 flag16-Christmas-Island"></i> Christmas Island (+61)</a></li>
+              <li><a href="#" prefixVal="61"><i class="flag16 flag16-Cocos-Keeling-Islands"></i> Cocos (Keeling) Islands (+61)</a></li>
+              <li><a href="#" prefixVal="57"><i class="flag16 flag16-Colombia"></i> Colombia (+57)</a></li>
+              <li><a href="#" prefixVal="269"><i class="flag16 flag16-Comoros"></i> Comoros (+269)</a></li>
+              <li><a href="#" prefixVal="682"><i class="flag16 flag16-Cook-Islands"></i> Cook Islands (+682)</a></li>
+              <li><a href="#" prefixVal="506"><i class="flag16 flag16-Costa-Rica"></i> Costa Rica (+506)</a></li>
+              <li><a href="#" prefixVal="225"><i class="flag16 flag16-Cote-dIvoire"></i> Ivory Coast (+225)</a></li>
+              <li><a href="#" prefixVal="385"><i class="flag16 flag16-Croatia"></i> Croatia (+385)</a></li>
+              <li><a href="#" prefixVal="53"><i class="flag16 flag16-Cuba"></i> Cuba (+53)</a></li>
+              <li><a href="#" prefixVal="5999"><i class="flag16 flag16-Curacao"></i> Curaçao (+5999)</a></li>
+              <li><a href="#" prefixVal="357"><i class="flag16 flag16-Cyprus"></i> Cyprus (+357)</a></li>
+              <li><a href="#" prefixVal="420"><i class="flag16 flag16-Czech-Republic"></i> Czech Republic (+420)</a></li>
+              <li><a href="#" prefixVal="243"><i class="flag16 flag16-Democratic-Republic-of-the-Congo"></i> DR Congo (+243)</a></li>
+              <li><a href="#" prefixVal="45"><i class="flag16 flag16-Denmark"></i> Denmark (+45)</a></li>
+              <li><a href="#" prefixVal="253"><i class="flag16 flag16-Djibouti"></i> Djibouti (+253)</a></li>
+              <li><a href="#" prefixVal="1767"><i class="flag16 flag16-Dominica"></i> Dominica (+1767)</a></li>
+              <li><a href="#" prefixVal="1809"><i class="flag16 flag16-Dominican-Republic"></i> Dominican Republic (+1809)</a></li>
+              <li><a href="#" prefixVal="1829"><i class="flag16 flag16-Dominican-Republic"></i> Dominican Republic (+1829)</a></li>
+              <li><a href="#" prefixVal="1849"><i class="flag16 flag16-Dominican-Republic"></i> Dominican Republic (+1849)</a></li>
+              <li><a href="#" prefixVal="670"><i class="flag16 flag16-East-Timor"></i> Timor-Leste (+670)</a></li>
+              <li><a href="#" prefixVal="593"><i class="flag16 flag16-Ecuador"></i> Ecuador (+593)</a></li>
+              <li><a href="#" prefixVal="20"><i class="flag16 flag16-Egypt"></i> Egypt (+20)</a></li>
+              <li><a href="#" prefixVal="503"><i class="flag16 flag16-El-Salvador"></i> El Salvador (+503)</a></li>
+              <li><a href="#" prefixVal="240"><i class="flag16 flag16-Equatorial-Guinea"></i> Equatorial Guinea (+240)</a></li>
+              <li><a href="#" prefixVal="291"><i class="flag16 flag16-Eritrea"></i> Eritrea (+291)</a></li>
+              <li><a href="#" prefixVal="372"><i class="flag16 flag16-Estonia"></i> Estonia (+372)</a></li>
+              <li><a href="#" prefixVal="251"><i class="flag16 flag16-Ethiopia"></i> Ethiopia (+251)</a></li>
+              <li><a href="#" prefixVal="500"><i class="flag16 flag16-Falkland-Islands"></i> Falkland Islands (+500)</a></li>
+              <li><a href="#" prefixVal="298"><i class="flag16 flag16-Faroes"></i> Faroe Islands (+298)</a></li>
+              <li><a href="#" prefixVal="679"><i class="flag16 flag16-Fiji"></i> Fiji (+679)</a></li>
+              <li><a href="#" prefixVal="358"><i class="flag16 flag16-Finland"></i> Finland (+358)</a></li>
+              <li><a href="#" prefixVal="33"><i class="flag16 flag16-France"></i> France (+33)</a></li>
+              <li><a href="#" prefixVal="262"><i class="flag16 flag16-France"></i> Réunion (+262)</a></li>
+              <li><a href="#" prefixVal="508"><i class="flag16 flag16-France"></i> Saint Pierre and Miquelon (+508)</a></li>
+              <li><a href="#" prefixVal="590"><i class="flag16 flag16-France"></i> Guadeloupe (+590)</a></li>
+              <li><a href="#" prefixVal="594"><i class="flag16 flag16-France"></i> French Guiana (+594)</a></li>
+              <li><a href="#" prefixVal="689"><i class="flag16 flag16-French-Polynesia"></i> French Polynesia (+689)</a></li>
+              <li><a href="#" prefixVal=""><i class="flag16 flag16-French-Southern-Territories"></i> French Southern and Antarctic Lands (+)</a></li>
+              <li><a href="#" prefixVal="241"><i class="flag16 flag16-Gabon"></i> Gabon (+241)</a></li>
+              <li><a href="#" prefixVal="220"><i class="flag16 flag16-Gambia"></i> Gambia (+220)</a></li>
+              <li><a href="#" prefixVal="995"><i class="flag16 flag16-Georgia"></i> Georgia (+995)</a></li>
+              <li><a href="#" prefixVal="49"><i class="flag16 flag16-Germany"></i> Germany (+49)</a></li>
+              <li><a href="#" prefixVal="233"><i class="flag16 flag16-Ghana"></i> Ghana (+233)</a></li>
+              <li><a href="#" prefixVal="350"><i class="flag16 flag16-Gibraltar"></i> Gibraltar (+350)</a></li>
+              <li><a href="#" prefixVal="30"><i class="flag16 flag16-Greece"></i> Greece (+30)</a></li>
+              <li><a href="#" prefixVal="299"><i class="flag16 flag16-Greenland"></i> Greenland (+299)</a></li>
+              <li><a href="#" prefixVal="1473"><i class="flag16 flag16-Grenada"></i> Grenada (+1473)</a></li>
+              <li><a href="#" prefixVal="1671"><i class="flag16 flag16-Guam"></i> Guam (+1671)</a></li>
+              <li><a href="#" prefixVal="502"><i class="flag16 flag16-Guatemala"></i> Guatemala (+502)</a></li>
+              <li><a href="#" prefixVal="44"><i class="flag16 flag16-Guernsey"></i> Guernsey (+44)</a></li>
+              <li><a href="#" prefixVal="224"><i class="flag16 flag16-Guinea"></i> Guinea (+224)</a></li>
+              <li><a href="#" prefixVal="245"><i class="flag16 flag16-Guinea-Bissau"></i> Guinea-Bissau (+245)</a></li>
+              <li><a href="#" prefixVal="592"><i class="flag16 flag16-Guyana"></i> Guyana (+592)</a></li>
+              <li><a href="#" prefixVal="509"><i class="flag16 flag16-Haiti"></i> Haiti (+509)</a></li>
+              <li><a href="#" prefixVal="504"><i class="flag16 flag16-Honduras"></i> Honduras (+504)</a></li>
+              <li><a href="#" prefixVal="852"><i class="flag16 flag16-Hong-Kong"></i> Hong Kong (+852)</a></li>
+              <li><a href="#" prefixVal="36"><i class="flag16 flag16-Hungary"></i> Hungary (+36)</a></li>
+              <li><a href="#" prefixVal="354"><i class="flag16 flag16-Iceland"></i> Iceland (+354)</a></li>
+              <li><a href="#" prefixVal="91"><i class="flag16 flag16-India"></i> India (+91)</a></li>
+              <li><a href="#" prefixVal="62"><i class="flag16 flag16-Indonesia"></i> Indonesia (+62)</a></li>
+              <li><a href="#" prefixVal="98"><i class="flag16 flag16-Iran"></i> Iran (+98)</a></li>
+              <li><a href="#" prefixVal="964"><i class="flag16 flag16-Iraq"></i> Iraq (+964)</a></li>
+              <li><a href="#" prefixVal="353"><i class="flag16 flag16-Ireland"></i> Ireland (+353)</a></li>
+              <li><a href="#" prefixVal="44"><i class="flag16 flag16-Isle-of-Man"></i> Isle of Man (+44)</a></li>
+              <li><a href="#" prefixVal="972"><i class="flag16 flag16-Israel"></i> Israel (+972)</a></li>
+              <li><a href="#" prefixVal="39"><i class="flag16 flag16-Italy"></i> Italy (+39)</a></li>
+              <li><a href="#" prefixVal="1876"><i class="flag16 flag16-Jamaica"></i> Jamaica (+1876)</a></li>
+              <li><a href="#" prefixVal="81"><i class="flag16 flag16-Japan"></i> Japan (+81)</a></li>
+              <li><a href="#" prefixVal="44"><i class="flag16 flag16-Jersey"></i> Jersey (+44)</a></li>
+              <li><a href="#" prefixVal="962"><i class="flag16 flag16-Jordan"></i> Jordan (+962)</a></li>
+              <li><a href="#" prefixVal="76,77"><i class="flag16 flag16-Kazakhstan"></i> Kazakhstan (+76,77)</a></li>
+              <li><a href="#" prefixVal="254"><i class="flag16 flag16-Kenya"></i> Kenya (+254)</a></li>
+              <li><a href="#" prefixVal="686"><i class="flag16 flag16-Kiribati"></i> Kiribati (+686)</a></li>
+              <li><a href="#" prefixVal="383"><i class="flag16 flag16-Kosovo"></i> Kosovo (+383)</a></li>
+              <li><a href="#" prefixVal="965"><i class="flag16 flag16-Kuwait"></i> Kuwait (+965)</a></li>
+              <li><a href="#" prefixVal="996"><i class="flag16 flag16-Kyrgyzstan"></i> Kyrgyzstan (+996)</a></li>
+              <li><a href="#" prefixVal="856"><i class="flag16 flag16-Laos"></i> Laos (+856)</a></li>
+              <li><a href="#" prefixVal="371"><i class="flag16 flag16-Latvia"></i> Latvia (+371)</a></li>
+              <li><a href="#" prefixVal="961"><i class="flag16 flag16-Lebanon"></i> Lebanon (+961)</a></li>
+              <li><a href="#" prefixVal="266"><i class="flag16 flag16-Lesotho"></i> Lesotho (+266)</a></li>
+              <li><a href="#" prefixVal="231"><i class="flag16 flag16-Liberia"></i> Liberia (+231)</a></li>
+              <li><a href="#" prefixVal="218"><i class="flag16 flag16-Libya"></i> Libya (+218)</a></li>
+              <li><a href="#" prefixVal="423"><i class="flag16 flag16-Liechtenstein"></i> Liechtenstein (+423)</a></li>
+              <li><a href="#" prefixVal="370"><i class="flag16 flag16-Lithuania"></i> Lithuania (+370)</a></li>
+              <li><a href="#" prefixVal="352"><i class="flag16 flag16-Luxembourg"></i> Luxembourg (+352)</a></li>
+              <li><a href="#" prefixVal="853"><i class="flag16 flag16-Macau"></i> Macau (+853)</a></li>
+              <li><a href="#" prefixVal="389"><i class="flag16 flag16-Macedonia"></i> Macedonia (+389)</a></li>
+              <li><a href="#" prefixVal="261"><i class="flag16 flag16-Madagascar"></i> Madagascar (+261)</a></li>
+              <li><a href="#" prefixVal="265"><i class="flag16 flag16-Malawi"></i> Malawi (+265)</a></li>
+              <li><a href="#" prefixVal="60"><i class="flag16 flag16-Malaysia"></i> Malaysia (+60)</a></li>
+              <li><a href="#" prefixVal="960"><i class="flag16 flag16-Maldives"></i> Maldives (+960)</a></li>
+              <li><a href="#" prefixVal="223"><i class="flag16 flag16-Mali"></i> Mali (+223)</a></li>
+              <li><a href="#" prefixVal="356"><i class="flag16 flag16-Malta"></i> Malta (+356)</a></li>
+              <li><a href="#" prefixVal="692"><i class="flag16 flag16-Marshall-Islands"></i> Marshall Islands (+692)</a></li>
+              <li><a href="#" prefixVal="596"><i class="flag16 flag16-Martinique"></i> Martinique (+596)</a></li>
+              <li><a href="#" prefixVal="222"><i class="flag16 flag16-Mauritania"></i> Mauritania (+222)</a></li>
+              <li><a href="#" prefixVal="230"><i class="flag16 flag16-Mauritius"></i> Mauritius (+230)</a></li>
+              <li><a href="#" prefixVal="262"><i class="flag16 flag16-Mayotte"></i> Mayotte (+262)</a></li>
+              <li><a href="#" prefixVal="52"><i class="flag16 flag16-Mexico"></i> Mexico (+52)</a></li>
+              <li><a href="#" prefixVal="691"><i class="flag16 flag16-Micronesia"></i> Micronesia (+691)</a></li>
+              <li><a href="#" prefixVal="373"><i class="flag16 flag16-Moldova"></i> Moldova (+373)</a></li>
+              <li><a href="#" prefixVal="377"><i class="flag16 flag16-Monaco"></i> Monaco (+377)</a></li>
+              <li><a href="#" prefixVal="976"><i class="flag16 flag16-Mongolia"></i> Mongolia (+976)</a></li>
+              <li><a href="#" prefixVal="382"><i class="flag16 flag16-Montenegro"></i> Montenegro (+382)</a></li>
+              <li><a href="#" prefixVal="1664"><i class="flag16 flag16-Montserrat"></i> Montserrat (+1664)</a></li>
+              <li><a href="#" prefixVal="212"><i class="flag16 flag16-Morocco"></i> Morocco (+212)</a></li>
+              <li><a href="#" prefixVal="258"><i class="flag16 flag16-Mozambique"></i> Mozambique (+258)</a></li>
+              <li><a href="#" prefixVal="95"><i class="flag16 flag16-Myanmar"></i> Myanmar (+95)</a></li>
+              <li><a href="#" prefixVal="264"><i class="flag16 flag16-Namibia"></i> Namibia (+264)</a></li>
+              <li><a href="#" prefixVal="674"><i class="flag16 flag16-Nauru"></i> Nauru (+674)</a></li>
+              <li><a href="#" prefixVal="977"><i class="flag16 flag16-Nepal"></i> Nepal (+977)</a></li>
+              <li><a href="#" prefixVal="31"><i class="flag16 flag16-Netherlands"></i> Netherlands (+31)</a></li>
+              <li><a href="#" prefixVal="687"><i class="flag16 flag16-New-Caledonia"></i> New Caledonia (+687)</a></li>
+              <li><a href="#" prefixVal="64"><i class="flag16 flag16-New-Zealand"></i> New Zealand (+64)</a></li>
+              <li><a href="#" prefixVal="505"><i class="flag16 flag16-Nicaragua"></i> Nicaragua (+505)</a></li>
+              <li><a href="#" prefixVal="227"><i class="flag16 flag16-Niger"></i> Niger (+227)</a></li>
+              <li><a href="#" prefixVal="234"><i class="flag16 flag16-Nigeria"></i> Nigeria (+234)</a></li>
+              <li><a href="#" prefixVal="683"><i class="flag16 flag16-Niue"></i> Niue (+683)</a></li>
+              <li><a href="#" prefixVal="672"><i class="flag16 flag16-Norfolk-Island"></i> Norfolk Island (+672)</a></li>
+              <li><a href="#" prefixVal="1670"><i class="flag16 flag16-Northern-Mariana-Islands"></i> Northern Mariana Islands (+1670)</a></li>
+              <li><a href="#" prefixVal="850"><i class="flag16 flag16-North-Korea"></i> North Korea (+850)</a></li>
+              <li><a href="#" prefixVal="47"><i class="flag16 flag16-Norway"></i> Norway (+47)</a></li>
+              <li><a href="#" prefixVal="4779"><i class="flag16 flag16-Norway"></i> Svalbard and Jan Mayen (+4779)</a></li>
+              <li><a href="#" prefixVal=""><i class="flag16 flag16-Norway"></i> Bouvet Island (+)</a></li>
+              <li><a href="#" prefixVal="968"><i class="flag16 flag16-Oman"></i> Oman (+968)</a></li>
+              <li><a href="#" prefixVal="92"><i class="flag16 flag16-Pakistan"></i> Pakistan (+92)</a></li>
+              <li><a href="#" prefixVal="680"><i class="flag16 flag16-Palau"></i> Palau (+680)</a></li>
+              <li><a href="#" prefixVal="970"><i class="flag16 flag16-Palestine"></i> Palestine (+970)</a></li>
+              <li><a href="#" prefixVal="507"><i class="flag16 flag16-Panama"></i> Panama (+507)</a></li>
+              <li><a href="#" prefixVal="675"><i class="flag16 flag16-Papua-New-Guinea"></i> Papua New Guinea (+675)</a></li>
+              <li><a href="#" prefixVal="595"><i class="flag16 flag16-Paraguay"></i> Paraguay (+595)</a></li>
+              <li><a href="#" prefixVal="51"><i class="flag16 flag16-Peru"></i> Peru (+51)</a></li>
+              <li><a href="#" prefixVal="63"><i class="flag16 flag16-Philippines"></i> Philippines (+63)</a></li>
+              <li><a href="#" prefixVal="64"><i class="flag16 flag16-Pitcairn-Islands"></i> Pitcairn Islands (+64)</a></li>
+              <li><a href="#" prefixVal="48"><i class="flag16 flag16-Poland"></i> Poland (+48)</a></li>
+              <li><a href="#" prefixVal="351"><i class="flag16 flag16-Portugal"></i> Portugal (+351)</a></li>
+              <li><a href="#" prefixVal="1787"><i class="flag16 flag16-Puerto-Rico"></i> Puerto Rico (+1787)</a></li>
+              <li><a href="#" prefixVal="1939"><i class="flag16 flag16-Puerto-Rico"></i> Puerto Rico (+1939)</a></li>
+              <li><a href="#" prefixVal="974"><i class="flag16 flag16-Qatar"></i> Qatar (+974)</a></li>
+              <li><a href="#" prefixVal="242"><i class="flag16 flag16-Republic-of-the-Congo"></i> Republic of the Congo (+242)</a></li>
+              <li><a href="#" prefixVal="40"><i class="flag16 flag16-Romania"></i> Romania (+40)</a></li>
+              <li><a href="#" prefixVal="7"><i class="flag16 flag16-Russia"></i> Russia (+7)</a></li>
+              <li><a href="#" prefixVal="250"><i class="flag16 flag16-Rwanda"></i> Rwanda (+250)</a></li>
+              <li><a href="#" prefixVal="590"><i class="flag16 flag16-Saint-Barthelemy"></i> Saint Barthélemy (+590)</a></li>
+              <li><a href="#" prefixVal="1869"><i class="flag16 flag16-Saint-Kitts-and-Nevis"></i> Saint Kitts and Nevis (+1869)</a></li>
+              <li><a href="#" prefixVal="1758"><i class="flag16 flag16-Saint-Lucia"></i> Saint Lucia (+1758)</a></li>
+              <li><a href="#" prefixVal="590"><i class="flag16 flag16-Saint-Martin"></i> Saint Martin (+590)</a></li>
+              <li><a href="#" prefixVal="1721"><i class="flag16 flag16-Saint-Martin"></i> Sint Maarten (+1721)</a></li>
+              <li><a href="#" prefixVal="1784"><i class="flag16 flag16-Saint-Vincent-and-the-Grenadines"></i> Saint Vincent and the Grenadines (+1784)</a></li>
+              <li><a href="#" prefixVal="685"><i class="flag16 flag16-Samoa"></i> Samoa (+685)</a></li>
+              <li><a href="#" prefixVal="378"><i class="flag16 flag16-San-Marino"></i> San Marino (+378)</a></li>
+              <li><a href="#" prefixVal="239"><i class="flag16 flag16-Sao-Tome-and-Principe"></i> São Tomé and Príncipe (+239)</a></li>
+              <li><a href="#" prefixVal="966"><i class="flag16 flag16-Saudi-Arabia"></i> Saudi Arabia (+966)</a></li>
+              <li><a href="#" prefixVal="221"><i class="flag16 flag16-Senegal"></i> Senegal (+221)</a></li>
+              <li><a href="#" prefixVal="381"><i class="flag16 flag16-Serbia"></i> Serbia (+381)</a></li>
+              <li><a href="#" prefixVal="248"><i class="flag16 flag16-Seychelles"></i> Seychelles (+248)</a></li>
+              <li><a href="#" prefixVal="232"><i class="flag16 flag16-Sierra-Leone"></i> Sierra Leone (+232)</a></li>
+              <li><a href="#" prefixVal="65"><i class="flag16 flag16-Singapore"></i> Singapore (+65)</a></li>
+              <li><a href="#" prefixVal="421"><i class="flag16 flag16-Slovakia"></i> Slovakia (+421)</a></li>
+              <li><a href="#" prefixVal="386"><i class="flag16 flag16-Slovenia"></i> Slovenia (+386)</a></li>
+              <li><a href="#" prefixVal="677"><i class="flag16 flag16-Solomon-Islands"></i> Solomon Islands (+677)</a></li>
+              <li><a href="#" prefixVal="252"><i class="flag16 flag16-Somalia"></i> Somalia (+252)</a></li>
+              <li><a href="#" prefixVal="27"><i class="flag16 flag16-South-Africa"></i> South Africa (+27)</a></li>
+              <li><a href="#" prefixVal="500"><i class="flag16 flag16-South-Georgia-and-the-South-Sandwich-Islands"></i> South Georgia (+500)</a></li>
+              <li><a href="#" prefixVal="82"><i class="flag16 flag16-South-Korea"></i> South Korea (+82)</a></li>
+              <li><a href="#" prefixVal="211"><i class="flag16 flag16-South-Sudan"></i> South Sudan (+211)</a></li>
+              <li><a href="#" prefixVal="34"><i class="flag16 flag16-Spain"></i> Spain (+34)</a></li>
+              <li><a href="#" prefixVal="94"><i class="flag16 flag16-Sri-Lanka"></i> Sri Lanka (+94)</a></li>
+              <li><a href="#" prefixVal="249"><i class="flag16 flag16-Sudan"></i> Sudan (+249)</a></li>
+              <li><a href="#" prefixVal="597"><i class="flag16 flag16-Suriname"></i> Suriname (+597)</a></li>
+              <li><a href="#" prefixVal="268"><i class="flag16 flag16-Swaziland"></i> Swaziland (+268)</a></li>
+              <li><a href="#" prefixVal="46"><i class="flag16 flag16-Sweden"></i> Sweden (+46)</a></li>
+              <li><a href="#" prefixVal="41"><i class="flag16 flag16-Switzerland"></i> Switzerland (+41)</a></li>
+              <li><a href="#" prefixVal="963"><i class="flag16 flag16-Syria"></i> Syria (+963)</a></li>
+              <li><a href="#" prefixVal="886"><i class="flag16 flag16-Taiwan"></i> Taiwan (+886)</a></li>
+              <li><a href="#" prefixVal="992"><i class="flag16 flag16-Tajikistan"></i> Tajikistan (+992)</a></li>
+              <li><a href="#" prefixVal="255"><i class="flag16 flag16-Tanzania"></i> Tanzania (+255)</a></li>
+              <li><a href="#" prefixVal="66"><i class="flag16 flag16-Thailand"></i> Thailand (+66)</a></li>
+              <li><a href="#" prefixVal="228"><i class="flag16 flag16-Togo"></i> Togo (+228)</a></li>
+              <li><a href="#" prefixVal="690"><i class="flag16 flag16-Tokelau"></i> Tokelau (+690)</a></li>
+              <li><a href="#" prefixVal="676"><i class="flag16 flag16-Tonga"></i> Tonga (+676)</a></li>
+              <li><a href="#" prefixVal="1868"><i class="flag16 flag16-Trinidad-and-Tobago"></i> Trinidad and Tobago (+1868)</a></li>
+              <li><a href="#" prefixVal="216"><i class="flag16 flag16-Tunisia"></i> Tunisia (+216)</a></li>
+              <li><a href="#" prefixVal="90"><i class="flag16 flag16-Turkey"></i> Turkey (+90)</a></li>
+              <li><a href="#" prefixVal="993"><i class="flag16 flag16-Turkmenistan"></i> Turkmenistan (+993)</a></li>
+              <li><a href="#" prefixVal="1649"><i class="flag16 flag16-Turks-and-Caicos-Islands"></i> Turks and Caicos Islands (+1649)</a></li>
+              <li><a href="#" prefixVal="688"><i class="flag16 flag16-Tuvalu"></i> Tuvalu (+688)</a></li>
+              <li><a href="#" prefixVal="256"><i class="flag16 flag16-Uganda"></i> Uganda (+256)</a></li>
+              <li><a href="#" prefixVal="380"><i class="flag16 flag16-Ukraine"></i> Ukraine (+380)</a></li>
+              <li><a href="#" prefixVal="971"><i class="flag16 flag16-United-Arab-Emirates"></i> United Arab Emirates (+971)</a></li>
+              <li><a href="#" prefixVal="44"><i class="flag16 flag16-United-Kingdom"></i> United Kingdom (+44)</a></li>
+              <li><a href="#" prefixVal="246"><i class="flag16 flag16-United-Kingdom"></i> British Indian Ocean Territory (+246)</a></li>
+              <li><a href="#" prefixVal="1"><i class="flag16 flag16-United-States"></i> United States (+1)</a></li>
+              <li><a href="#" prefixVal=""><i class="flag16 flag16-United-States"></i> United States Minor Outlying Islands (+)</a></li>
+              <li><a href="#" prefixVal="598"><i class="flag16 flag16-Uruguay"></i> Uruguay (+598)</a></li>
+              <li><a href="#" prefixVal="1340"><i class="flag16 flag16-US-Virgin-Islands"></i> United States Virgin Islands (+1340)</a></li>
+              <li><a href="#" prefixVal="998"><i class="flag16 flag16-Uzbekistan"></i> Uzbekistan (+998)</a></li>
+              <li><a href="#" prefixVal="678"><i class="flag16 flag16-Vanuatu"></i> Vanuatu (+678)</a></li>
+              <li><a href="#" prefixVal="379"><i class="flag16 flag16-Vatican-City"></i> Vatican City (+379)</a></li>
+              <li><a href="#" prefixVal="58"><i class="flag16 flag16-Venezuela"></i> Venezuela (+58)</a></li>
+              <li><a href="#" prefixVal="84"><i class="flag16 flag16-Vietnam"></i> Vietnam (+84)</a></li>
+              <li><a href="#" prefixVal="681"><i class="flag16 flag16-Wallis-And-Futuna"></i> Wallis and Futuna (+681)</a></li>
+              <li><a href="#" prefixVal="212"><i class="flag16 flag16-Western-Sahara"></i> Western Sahara (+212)</a></li>
+              <li><a href="#" prefixVal="967"><i class="flag16 flag16-Yemen"></i> Yemen (+967)</a></li>
+              <li><a href="#" prefixVal="260"><i class="flag16 flag16-Zambia"></i> Zambia (+260)</a></li>
+              <li><a href="#" prefixVal="263"><i class="flag16 flag16-Zimbabwe"></i> Zimbabwe (+263)</a></li>
+&ndash;&gt;
+            </ul>
+          </div>
+
+        <input type="text" value="{{prefixed}}" class="form-control" placeholder="Phone number" id="phoneNumber">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>-->
+
+<template name="phoneFormInput">
+    <!--<div class="input-group">-->
+        <!--<div class="row">-->
+            <!--<div class="col-sm-12">-->
+                <!--<div class="input-group">-->
+
+                    <input value="{{prefixed}}" type="tel" class="form-control" id="phoneNumber" name="phone">
+                    {{#if validNumber}}
+                        <span class="text-danger">Invalid number</span>
+                    {{/if}}
+
+
+    <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</template>

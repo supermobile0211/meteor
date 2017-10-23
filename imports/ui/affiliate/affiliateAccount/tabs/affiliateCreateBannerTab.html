@@ -1,0 +1,451 @@
+<template name="affiliateCreateBannerTab">
+
+  <div id="affiliateCreateBannerTab" class="affiliateCreateBannerTab tab-pane">
+
+        <div class="panel-body">
+
+
+
+
+<h2 class="m-t">Choose configuration</h2>
+
+
+
+<div class="hr-line-dashed"></div>
+                                                            
+<div class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Max product rotation 1 to 20</label>
+    <div class="col-sm-10">
+      <input type="text" placeholder="" class="form-control">
+    </div>
+  </div>
+
+  <div class="hr-line-dashed"></div>
+  <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Source</label>
+    <div class="col-sm-10">
+      <div class="sourceList">
+
+
+        <div class="radio radio-info radio-inline">
+            <input id="Source_0" value="Source_0" name="radioInline" checked="" type="radio">
+            <label for="Source_0">Popular offers <span class="text-muted">(Show the last 50 popular offers)</span></label>
+        </div>
+
+        <div class="hr-line-dashed"></div>
+
+        <div class="radio radio-info radio-inline">
+            <input id="Source_1" value="Source_1" name="radioInline" checked="" type="radio">
+            <label for="Source_1">Category offers <span class="text-muted">(Show last offers from a specific category)</span></label>
+        </div>
+                <input type="text" class="form-control m-t-sm" placeholder="Enter a category id"> 
+
+
+        <div class="hr-line-dashed"></div>
+        <div class="radio radio-info radio-inline">
+            <input id="Source_2" value="Source_2" name="radioInline" checked="" type="radio">
+            <label for="Source_2">Keyword <span class="text-muted">(Show results based on a keyword)</span></label>
+        </div>
+                <input type="text" class="form-control m-t-sm" placeholder="Enter a keyword"> 
+
+
+        <div class="hr-line-dashed"></div>
+        <div class="radio radio-info radio-inline">
+            <input id="Source_3" value="Source_3" name="radioInline" checked="" type="radio">
+            <label for="Source_3">Specific product <span class="text-muted">(Select specifics products for your banner)</span></label>
+        </div>
+
+        <input type="text" class="form-control m-t-sm" placeholder="Enter some product id">
+
+
+        <div class="hr-line-dashed"></div>                               
+      </div>
+
+    </div>
+  </div>
+
+  <div class="hr-line-dashed"></div>
+  <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Geolocation</label>
+    <div class="col-sm-10">
+      <div class="sourceList">
+
+
+        
+          
+
+        <div class="checkbox checkbox-primary">
+            <input id="IPlocation" checked="" type="checkbox">
+            <label for="IPlocation">
+                Show much close offers related to visitor location (IP based)
+            </label>
+        </div>
+
+        <div class="hr-line-dashed"></div>
+
+          
+
+        
+        
+        <div class="checkbox checkbox-primary">
+            <input id="specificCurrency" type="checkbox">
+            <label for="specificCurrency">Force to use a specific currency</label>
+            
+        </div>
+        <p class="text-muted">If you don't force to use a specific currency, it will be automatically selected. Automatic selection is based on visitor location. If user is not located, the defaut currency is used.</p>
+        <select disabled class="select2 selectPosition form-control m-t">
+            <option selected value="eur">Euro</option>
+            <option value="usd">USD</option>
+            
+          </select>
+
+        <div class="hr-line-dashed"></div>
+
+        <div class="checkbox checkbox-primary">
+            <input id="specificLanguage" type="checkbox">
+            <label for="specificLanguage">Force to use a specific language</label>
+            
+        </div>
+
+        <p class="text-muted">If you don't force to use a specific language, it will be automatically selected. Automatic selection is based on visitor location. If user is not located, the source language description is used.</p>
+
+        <select disabled class="select2 selectPosition form-control m-t">
+                          <option selected="None">Select a language</option>
+                          <option value="fr">French</option>
+                          <option value="en">English</option>
+                          <option value="de">German</option>
+                          
+                        </select>
+
+
+        
+
+      
+
+        
+         <br>
+        
+
+        <br>                                
+      </div>
+
+    </div>
+  </div>
+  <div class="hr-line-dashed"></div>
+  <div class="form-group">
+    <label class="col-sm-2 col-sm-2 control-label">Hide website label</label>
+    <div class="col-sm-10">
+      <div class="iconSettings">
+
+
+
+            <div class="radio">
+                <input name="iconStatus" id="iconStatus_0" value="iconStatus_0" checked="" type="radio">
+                <label for="iconStatus_0">
+                    Yes
+                </label>
+            </div>
+            <div class="radio">
+                <input name="iconStatus" id="iconStatus_1" value="iconStatus_1" type="radio">
+                <label for="iconStatus_1">
+                    No
+                </label>
+            </div>
+        
+
+
+
+                               
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <div class="hr-line-dashed"></div>
+<div class="modal inmodal" id="showCodeModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content animated bounceInRight">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                        <i class="fa fa-code modal-icon"></i>
+                                        <h4 class="modal-title">Code</h4>
+                                        <small class="font-bold">Copy this code to your application to display your affiliate banner</small>
+                                    </div>
+                                    <div class="modal-body">
+                                        <p><button data-clipboard-target="#copycode" class="btn btn-white"><i class="fa fa-copy"></i> Copy</button></p>
+                                        <p><textarea id="copycode" class="code form-control">Code</textarea></p>
+                                        
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                              <h2 class="m-t">Select a model</h2>
+                              <p>Click to view code to insert banner in your website.</p>
+<div class="previewBannersList">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">160x600</a>
+        </div>
+        <a class="ibanner ban160x600" href="#">
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, cons...</span>
+        <span class="priceContainer">
+          <span class="text-right"><small class="text-muted">Start at</small></span>
+          <span class="price">799,90 €</span>
+
+        </span>
+
+        <span class="hr-line-dashed"></span>
+
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, cons...</span>
+        <span class="priceContainer">
+          <span class="text-right"><small class="text-muted">Start at</small></span>
+          <span class="price">799,90 €</span>
+
+        </span>        
+      </a>
+      </div><div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">300x600</a>
+          
+        </div>
+        <a class="ibanner ban300x600" href="#">
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, cons...Lorem ipsum dolor sit amet, cons...</span>
+
+
+
+        <span class="faketable w100">
+          <span class="table-cell vam">
+            <span class="priceContainer">
+              <span class="text-right"><small class="text-muted">Start at</small></span>
+              <span class="price">799,90 €</span>
+            </span>
+          </span>
+          <span class="table-cell vam">
+            <span class="actionBtn btn btn-outline btn-success">View the offers</span>
+          </span>
+        </span>
+
+        <span class="hr-line-dashed"></span>
+
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, cons...</span>
+
+        <span class="faketable w100">
+          <span class="table-cell vam">
+            <span class="priceContainer">
+              <span class="text-right"><small class="text-muted">Start at</small></span>
+              <span class="price">799,90 €</span>
+            </span>
+          </span>
+          <span class="table-cell vam">
+            <span class="actionBtn btn btn-outline btn-success">View the offers</span>
+          </span>
+        </span>     
+      </a>
+      </div><div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">300x600b</a>
+          
+        </div>
+        <a class="ibanner ban300x600b" href="#">
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore consectetur accusantium, labore magni quam sequi veritatis eius? Ratione exercitationem unde, iure tempora eum sapiente rerum alias perferendis totam, eaque harum?</span>
+
+
+
+        <span class="faketable w100 bottom">
+          <span class="table-cell vam">
+            <span class="priceContainer">
+              <span class="text-right"><small class="text-muted">Start at</small></span>
+              <span class="price">799,90 €</span>
+            </span>
+          </span>
+          <span class="table-cell vam">
+            <span class="actionBtn btn btn-outline btn-success">View the offers</span>
+          </span>
+        </span>
+
+
+
+      </a>
+      </div><div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">300x250</a>
+          
+        </div>
+        <a class="ibanner ban300x250" href="#">
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+
+
+
+        <span class="faketable w100 bottom">
+          <span class="table-cell vam">
+            <span class="priceContainer">
+              <span class="text-right"><small class="text-muted">Start at</small></span>
+              <span class="price">799,90 €</span>
+            </span>
+          </span>
+          <span class="table-cell vam">
+            <span class="actionBtn btn btn-outline btn-success">View the offers</span>
+          </span>
+        </span>
+
+
+
+      </a>
+      </div><div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">160x300</a>
+          
+        </div>
+        <a class="ibanner ban160x300" href="#">
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+        <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, cons...</span>
+        <span class="priceContainer">
+          <span class="text-right"><small class="text-muted">Start at</small></span>
+          <span class="price">799,90 €</span>
+
+        </span>
+      </a>
+      </div><div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">729x90</a>
+          
+        </div>
+        <a class="ibanner ban729x90" href="#">
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+        <span class="faketable w100 bottom">
+          <span class="table-cell vam left">
+            <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+          </span>
+
+          <span class="table-cell vam text-left center">
+            <span class="productTitle"><strong>$ProductName</strong></span>
+            <span class="productShortDescription text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis </span>
+          </span>
+
+          <span class="table-cell vam text-right right">
+            <span class="priceContainer">
+              <span class="text-right"><small class="text-muted">Start at</small></span>
+              <span class="price">799,90 €</span>
+            </span>
+            <span class="actionBtn btn btn-outline btn-success m-t-sm">View the offers</span>
+          </span>
+
+        </span>
+
+
+
+      </a>
+      </div><div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">468x60</a>
+          
+        </div>
+        <a class="ibanner ban468x60" href="#">
+
+        <div class="faketable w100 bottom">
+          <div class="table-cell vam left">
+            <div class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></div>
+          </div>
+
+          <div class="table-cell vam text-left center">
+            <div class="productTitle"><strong>$ProductName</strong></div>
+            <div class="productShortDescription text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi ... </div>
+          </div>
+
+          <div class="table-cell vam text-left right">
+            <div class="priceContainer">
+              <span class="text-left"><small class="text-muted">Start at</small></span>
+              <span class="price">799,90 €</span>
+            </div>
+
+          </div>
+
+          <div class="table-cell vam text-right iconContainer">
+            <div class="icon"><i class="fa fa-shopping-bag"></i></div>
+
+          </div>
+
+
+
+        </div>
+
+
+
+      </a>
+      </div>
+
+
+      
+
+      
+
+      <div class="bannerContainer" data-toggle="modal" data-target="#showCodeModal">
+        <div class="details">
+          <a href="#" class="showCode">320x50</a>
+          
+        </div>
+        <a class="ibanner ban320x50" href="#">
+
+        <span class="productImage product-image-container"><span class="product-image-content"><img class="img-responsive" src="/img/product-large-2.jpg"></span></span>
+        <span class="productTitle"><strong>$ProductName</strong></span>
+
+
+        <span class="icon"><i class="fa fa-shopping-bag"></i></span>
+
+        <span class="priceContainer">
+          <span class="text-right"><small class="text-muted">Start at</small></span>
+          <span class="price">799,90 €</span>
+        </span>
+
+      </a>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>                              
+
+        
+
+
+                            
+
+                        
+
+        </div>
+    
+  </div>
+</template>
+
+

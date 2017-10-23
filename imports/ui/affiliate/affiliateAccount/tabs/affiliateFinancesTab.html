@@ -1,0 +1,122 @@
+<template name="affiliateFinancesTab">
+
+  <div id="affiliateFinancesTab" class="affiliateFinancesTab tab-pane">
+
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-lg-6">
+
+          <div class="widget bg-white well ">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-money fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span>Current eligible Earnings</span>
+                <h2 class="font-bold" id="currentEarning">$ 25,63</h2>
+              </div>
+            </div>
+          </div>
+        
+          
+        </div>
+        <div class="col-lg-6">
+
+          <div class="widget bg-white well ">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-hourglass-half fa-4x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span>Remaining amount necessary to be eligible for a payment</span>
+                <h2 class="font-bold">$ 25,63</h2>
+              </div>
+            </div>
+          </div>
+        
+          
+        </div>
+      </div>
+
+
+
+    
+      
+      <table class="footable table table-striped toggle-arrow-tiny myTable" data-page-size="8">
+          <thead class="prodTableHead">
+            <tr>
+              <th data-toggle="true">&nbsp;</th>
+              <th width="50" data-toggle="true">ID</th>
+              <th>Date</th>
+              <th>Transactin details</th>
+              <th>Amount ($currency)</th>
+              <th width="170">Sales</th>
+              <th width="170">Status</th>
+              <th width="170">Status action</th>
+            </tr>
+          </thead>
+
+            <tr class="prodTable">
+              <td><div class="checkbox">
+                <input type="checkbox" id="singleCheckbox1" value="option1">
+                <label></label>
+                </div></td>
+              <td width="50"><input id="orderId" type="text" class="form-control input-sm" placeholder=""></td>
+              <td>
+                <input id="orderDate" class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+              </td>
+                <td><input type="text" class="form-control input-sm" placeholder=""></td>
+                <td id="orderAmount">
+                    <input id="amountFrom" type="text" class="form-control input-sm" placeholder="From">
+                    <input id="amountTo" type="text" class="form-control input-sm" placeholder="To">
+                </td>
+                <td id="orderSales">
+                    <input id="salesFrom" type="text" class="form-control input-sm" placeholder="From">
+                    <input id="salesTo" type="text" class="form-control input-sm" placeholder="To">
+                </td>
+                <td><select id="status" name="account2" class="form-control select-sm">
+                    <option value="All" selected>All</option>
+                    <option value="Processing">Processing</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Onhold">Onhold</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select></td>
+              <td>&nbsp;</td>
+            </tr>
+          <tbody>
+            {{#each orders}}
+              <tr>
+                  <td><div class="checkbox">
+                      <input type="checkbox" id="singleCheckbox12" value="option1">
+                      <label></label>
+                  </div></td>
+                  <td>{{_id}}</td>
+                  <td>{{formattedDate}}</td>
+                  <td>{{transactionalDetails}}</td>
+                  <td>{{totalPrice}}</td>
+                  <td nowrap>{{sales}}</td>
+                  <td nowrap><div class="affiliateTransactionDetailsStatus"> <i class="fa fa-circle {{status}}" data-placement="top" data-toggle="tooltip" data-original-title="The commission has been {{status}}"></i> {{status}} </div></td>
+                  <td><a href="/dueFromAdminPaymentDetailsTypeAffiliate" class="btn btn-default"><i class="fa fa-edit"></i> Edit</a></td>
+              </tr>
+            {{/each}}
+
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="8">
+                <div class="sk-spinner sk-spinner-chasing-dots">
+                  <div class="sk-dot1"></div>
+                  <div class="sk-dot2"></div>
+                </div>                                    
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+    </div>
+
+  
+  </div>
+</template>
+
+

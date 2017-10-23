@@ -1,0 +1,221 @@
+<template name="asVendorSalesTab">
+
+  <div id="tab-vendorSales" class="tab-pane">
+    <div class="panel-body">
+
+      <div class="well">
+        <div class="form-horizontal row">
+          <label class="control-label col-sm-2">Select a period</label>
+          <div class="col-sm-7 input-group" id="periodSelection">
+            <input class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+            <span class="input-group-btn"> 
+              <button class="btn btn-primary" type="button">Go!</button> 
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flot-chart">
+        <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+      </div>
+
+      <div class="hr-line-dashed"></div>
+
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Order Ref</th>
+            <th>Customer</th>
+            <th>Delivery (day)</th>
+            <th>Invoice</th>
+            <th>Amount ($)</th>
+            <th>Commission ($)</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td><input class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" /></td>
+            <td><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td>&nbsp;</td>
+            <td ><input type="text" class="form-control input-sm" placeholder="From">
+              <input type="text" class="form-control input-sm" placeholder="To"></td>
+            <td ><input type="text" class="form-control input-sm" placeholder="From">
+              <input type="text" class="form-control input-sm" placeholder="To"></td>
+            <td ><select name="account11" class="form-control select-sm">
+              <option selected>All</option>
+              <option>Processing</option>
+              <option>Pending</option>
+              <option>Onhold</option>
+              <option>Cancelled</option>
+              <option>...</option>
+              </select></td>
+            <td >&nbsp;</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td>No invoice</td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td><span >$187,00</span></td>
+            <td>$18,80</td>
+            <td><div class="orderStatus"><i class="fa fa-circle pending" data-placement="top" data-toggle="tooltip"  data-original-title="pending"></i></div></td>
+            <td><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td>No invoice</td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle processing" data-placement="top" data-toggle="tooltip"  data-original-title="processing"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>4</td>
+            <td>12/12/2015</td>
+
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle cancelled" data-placement="top" data-toggle="tooltip"  data-original-title="cancelled"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>5</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td>No invoice</td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle refunded" data-placement="top" data-toggle="tooltip"  data-original-title="refunded"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>6</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle refunded" data-placement="top" data-toggle="tooltip"  data-original-title="refunded"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>7</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>8</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>9</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>10</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>11</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+
+          <tr>
+            <td>12</td>
+            <td>12/12/2015</td>
+            <td>OS82SP5</td>
+            <td><a href="#">John Doe</a></td>
+            <td>2</td>
+            <td><button class="btn- btnsm btn-default"><i class="fa fa-file-text"></i></button></td>
+            <td >$187,00</td>
+            <td >$18,80</td>
+            <td ><div class="orderStatus"><i class="fa fa-circle completed" data-placement="top" data-toggle="tooltip"  data-original-title="completed"></i></div></td>
+            <td ><a href="{{ pathFor 'asVendorSaleDetails'}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</template>

@@ -1,0 +1,41 @@
+{
+  "name": "newFrontC",
+  "private": true,
+  "scripts": {
+    "start": "export MONGO_URL=mongodb://127.0.0.1:27017/marketPlace&& meteor",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "async": "^1.5.2",
+    "babel-runtime": "^6.20.0",
+    "bcrypt": "^0.8.7",
+    "body-parser": "^1.17.0",
+    "compress": "^0.99.0",
+    "crypto": "0.0.3",
+    "d3": "^4.2.7",
+    "datatables.net": "^1.10.12",
+    "datatables.net-bs": "^1.10.12",
+    "datatables.net-buttons": "^1.2.2",
+    "datatables.net-responsive": "^2.1.0",
+    "dateformat": "^1.0.12",
+    "desandro-get-style-property": "^1.0.4",
+    "desandro-matches-selector": "^2.0.1",
+    "doc-ready": "^1.0.4",
+    "eventie": "^1.0.6",
+    "fibers": "^1.0.15",
+    "fizzy-ui-utils": "^2.0.3",
+    "get-size": "^2.0.2",
+    "jquery": "^1.11.9",
+    "meteor-node-stubs": "^0.2.3",
+    "moment": "^2.15.1",
+    "node-schedule": "^1.2.0",
+    "numeral": "^2.0.4",
+    "outlayer": "^2.1.0",
+    "soap": "^0.13.0",
+    "spin.js": "^2.3.2",
+    "switchery": "0.0.2",
+    "uuid": "^2.0.1",
+    "webshot": "^0.18.0",
+    "wolfy87-eventemitter": "^5.1.0"
+  }
+}

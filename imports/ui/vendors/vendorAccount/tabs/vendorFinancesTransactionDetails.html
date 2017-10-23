@@ -1,0 +1,149 @@
+<template name="vendorFinancesTransactionDetails">
+
+  <!-- Page heading -->
+  {{> pageHeading title='Due from admin to $vendor for period $dateRange' category='Finances' }}
+
+
+  <div class="wrapper wrapper-content animated fadeInRight vendorFinancesTransactionDetails">
+
+    <div class="row">
+
+      <div class="col-sm-12">
+
+        <div class="row">
+          <div class="col-sm-8">
+            <div class="ibox">
+              <div class="ibox-title"><h5><i class="fa fa-credit-card-alt"></i> Payment due from admin</h5></div>
+              <div class="ibox-content clearfix">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Date</th>
+                      <th>Amount</th>
+                      <th>Information</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>2015-02-23 17:30:42</td>
+                      <td class="text-danger">{{formatNumber 73620}} {{Symbol}}</td>
+                      <td>--</td>
+                      <td><div class="paymentDueFromAdminStatus pending"><i class="fa fa-hourglass-half"></i></div></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>  
+
+
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="ibox">
+              <div class="ibox-title"><h5><i class="fa fa-clock-o"></i> Vendor transaction process</h5></div>
+              <div class="ibox-content clearfix">
+                <table class="table table-striped">
+                  <tbody>
+                    <tr>
+                      <td>2</td>
+                      <td><div class="affiliateCommissionStatus"><i class="fa fa-circle paid" data-placement="top" data-toggle="tooltip" data-original-title="paid"></i> Paid</div></td>
+                      <td>12/03/2015 20:53:08</td>
+                    </tr>
+                    
+                    <tr>
+                      <td>1</td>
+                      <td><div class="affiliateCommissionStatus"><i class="fa fa-circle processing" data-placement="top" data-toggle="tooltip" data-original-title="processing"></i> Processing</div></td>
+                      <td>12/03/2015 20:53:08</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>  
+            </div>
+          </div>
+        </div>
+        <div class="ibox">
+          <div class="ibox-title"><i class="fa fa-clock-o"></i> Order related</div>
+          <div class="ibox-content">
+
+
+
+            <table class="table table-striped" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th scope="col">Id Order</th>
+                  <th scope="col">Date</th>
+                  <th scope="col">Order Ref</th>
+                  <th scope="col">Order Price ($currency)</th>
+                  <th scope="col">Order Commission ($currency)</th>
+                  <th scope="col">Action</th>
+                  <th class="text-right">Due to vendor ($currency)</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td>4512</td>
+                  <td>24/12/12</td>
+                  <td>0FDF45S</td>
+                  <td>300,00</td>
+                  <td>30,00</td>
+                  <td><a class="btn btn-default" href="/vendorOrderDetails"><i class="fa fa-eye"></i> View</a></td>
+                  <td align="right">270,00</td>
+                </tr>
+                <tr>
+                  <td>4512</td>
+                  <td>24/12/12</td>
+                  <td>0FDF45S</td>
+                  <td>350,00</td>
+                  <td>35,00</td>
+                  <td><a class="btn btn-default" href="/vendorOrderDetails"><i class="fa fa-eye"></i> View</a></td>
+                  <td align="right">315,00</td>
+                </tr>
+                <tr>
+                  <td>4512</td>
+                  <td>24/12/12</td>
+                  <td>0FDF45S</td>
+                  <td>180,00</td>
+                  <td>18,00</td>
+                  <td><a class="btn btn-default" href="/vendorOrderDetails"><i class="fa fa-eye"></i> View</a></td>
+                  <td align="right">162,00</td>
+                </tr>
+
+
+              </tbody>
+
+              <tfoot>
+
+                <tr class="preTotal">
+                  <td colspan="6" align="right">Total sales</td>
+                  <td align="right">830,00</td>
+                </tr>
+                <tr class="preTotal">
+                  <td colspan="6" align="right">Total commission</td>
+                  <td align="right">83,00</td>
+                </tr>
+                <tr class="total">
+                  <td colspan="6" align="right">Total due to vendor</td>
+                  <td align="right">747,00</td>
+                </tr>    
+              </tfoot>
+
+            </table>
+
+          </div>
+
+        </div>
+
+
+
+      </div>
+
+
+      
+
+    </div>
+
+  </div>
+
+</template>

@@ -1,0 +1,88 @@
+<template name="thanks">
+    <div class="animated fadeInRight thanks row">
+        <div class="container">
+            <div class="well bg-white text-center m-t-lg">
+                {{#if paymentStatus}}
+                    <span class="simple-title"><i class="fa fa-check"></i> Your order is complete</span> <a href="{{pathFor route="customerOrders"}}" class="m-l-lg btn btn-primary"><i class="fa fa-chevron-right"></i> View my order history</a>
+                {{else}}
+                    <span class="simple-title"><i class="fa fa-times"></i> Your order is not complete</span> <a href="{{pathFor route="customerOrders"}}" class="m-l-lg btn btn-primary"><i class="fa fa-chevron-right"></i> View my order history</a>
+                {{/if}}
+            </div>
+            <div class="popularOffers m-t">
+                <div class="simple-title clearfix m-b">Popular offers
+                    <div class="slide-control pull-right">
+                        <button class="btn btn-default btn-lg"><i class="fa fa-caret-left"></i></button>
+                        <button class="btn btn-default btn-lg"><i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+                <ul class="productList row grid">
+                    {{#each products}}
+                        <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                            <div class="productContainer">
+                                <div class="row">
+                                    <div class="col-sm-12 left-col">
+                                        <div class="product-image-container">
+                                            {{#if images.length}}
+                                                <a href="{{pathFor 'productDetails' id=_id}}"><img class="img-responsive" src={{images.[0]}}></a>
+                                            {{else}}
+                                                <a href="{{pathFor 'productDetails' id=_id}}"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            {{/if}}
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 floatingContent">
+                                        <div class="row col-container">
+                                            <div class="col-sm-12 center-col">
+                                                <h2 class="productTitle">{{getTranslation translation 'name'}}</h2>
+                                                <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                            </div>
+                                            <div class="col-sm-12 text-center right-col">
+                                                <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{bestOffer}}</span> </div>
+                                                <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                </ul>
+            </div>
+            <div class="cmsthanksContent">
+                $htmlCMSContent
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit temporibus aperiam, dolores labore qui voluptas. Excepturi consectetur ad architecto quasi aperiam quisquam deserunt velit nobis quae. Veritatis amet mollitia ipsa.
+            </div>
+            <div class="topSellers m-t">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <span class="title">Top Sellers</span>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="topSellersListContainer">
+                            <ul class="topSellersList clearfix" style="width: 2000px;">
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                                <li class="anim-image-container"><a href="#linktovendorprofile"><img src="/img/company.jpg" alt="$vendorname" width="90" height="90"> </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

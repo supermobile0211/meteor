@@ -1,0 +1,451 @@
+
+<template name="asVendorEditCarrier">
+  <!-- Page heading -->
+  {{> pageHeading title='Edit $CarrierName' category='Users' }}
+
+  <div class="asVendorEditCarrier wrapper wrapper-content animated fadeInRight">
+
+    <div class="row">
+            <div class="col-sm-2">
+              <div class="ibox">
+                <div class="ibox-title">Logo</div>
+                <div class="tempLogo ibox-content text-muted text-center"><i class="fa fa-truck" style="font-size: 180px;color: #e5e5e5 "></i> </div>
+              </div>
+            </div>
+            <div class="col-sm-10">
+
+              <div class="ibox">
+                <div class="ibox-title">
+                  <div class="stepsTabs">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="step first current arrow-triangle">
+                          <span class="numberStep m-r">1</span>
+                          <span class="titleStep">General settings</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="step disabled">
+                          <span class="numberStep m-r">2</span>
+                          <span class="titleStep">Shipping location span costs</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="step last disabled">
+                          <span class="numberStep m-r">3</span>
+                          <span class="titleStep">Size and weight</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="ibox-content">
+                  <div class="stepsContainer">
+
+                    <div class="step-content">
+
+                      <div class="row">
+                        <div class="col-lg-12">
+
+
+                          <div class="form-horizontal">
+
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Carrier name *</label>
+                              <div class="col-sm-9"><input id="carrierName" name="carrierName" type="text" class="form-control required"></div>
+
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Transit Time *</label>
+                              <div class="col-sm-9"><input id="carrierTransitTime" name="carrierTransitTime" type="text" class="form-control required"></div>
+
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Logo *</label>
+                              <div class="col-sm-9">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="image-crop">
+                                      <img src="img/shipping.jpg">
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <h4>Preview image</h4>
+                                    <div class="img-preview img-preview-sm"></div>
+                                    <h4>Comon method</h4>
+                                    <p>
+                                      You can upload new image to crop container and easy download new cropped image.
+                                    </p>
+                                    <div class="btn-group">
+                                      <label title="Upload image file" for="inputImage" class="btn btn-primary">
+                                        <input type="file" accept="image/*" name="file" id="inputImage" class="hide">
+                                        Upload new image
+                                      </label>
+                                      <label title="Donload image" id="download" class="btn btn-primary">Download</label>
+                                    </div>
+                                    <h4>Other method</h4>
+                                    <p>
+                                      You may set cropper options with <code>$({image}).cropper(options)</code>
+                                    </p>
+                                    <div class="btn-group">
+                                      <button class="btn btn-white" id="zoomIn" type="button">Zoom In</button>
+                                      <button class="btn btn-white" id="zoomOut" type="button">Zoom Out</button>
+                                      <button class="btn btn-white" id="rotateLeft" type="button">Rotate Left</button>
+                                      <button class="btn btn-white" id="rotateRight" type="button">Rotate Right</button>
+                                      <button class="btn btn-warning" id="setDrag" type="button">New crop</button>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+                            <div class="hr-line-dashed"></div>
+
+                            <div class="form-group">
+                              <label class="col-sm-3 control-label">Tracking URL</label>
+                              <div class="col-sm-9"><input id="carrierTrackingURL" name="carrierTrackingURL" type="text" class="form-control"></div>
+
+                            </div>
+
+                          </div>
+
+
+                        </div>
+
+                      </div>
+
+
+
+                    </div>
+
+
+
+
+
+                  </div>
+                </div>
+                <div class="ibox-footer clearfix">
+                  <span class="pull-right">
+                    <button type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion" disabled><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                    <button type="button" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="ibox">
+                <div class="ibox-title">
+                  <div class="stepsTabs">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="step first success">
+                          <span class="numberStep m-r">1</span>
+                          <span class="titleStep">General settings</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="step current">
+                          <span class="numberStep m-r">2</span>
+                          <span class="titleStep">Shipping location span costs</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="step last disabled">
+                          <span class="numberStep m-r">3</span>
+                          <span class="titleStep">Size and weight</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="ibox-content">
+                  <div class="stepsContainer">
+
+
+
+                    <div class="step-content">
+
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="panel panel-default">
+                            <div class="panel-heading clearfix">
+                              <h3 class="pull-left">Ranges</h3>
+                              <button class="btn btn-default pull-right"><i class="fa fa-plus"></i> Add range</button>
+                            </div>
+                            <div class="panel-body table-responsive">
+
+
+
+                              <table class="table table-striped shippingLocationCost" width="100%" border="0" cellspacing="0">
+                                <thead>
+                                  <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">&nbsp;</th>
+                                    <th width="200" scope="col">Range 1</th>
+                                    <th width="200" scope="col">Range 2</th>
+                                    <th width="200" scope="col">Range 3</th>
+                                  </tr>    
+                                </thead>
+                                <tbody>
+
+                                  <tr>
+                                    <td>Will be applied when the weight is</td>
+                                    <td>&gt;=</td>
+                                    <td><div class="input-group m-b"><input type="text" class="form-control"> <span class="input-group-addon">kg</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">kg</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">kg</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Will be applied when the weight is</td>
+                                    <td>&lt;</td>
+                                    <td><div class="input-group m-b"><input type="text" class="form-control"> <span class="input-group-addon">kg</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">kg</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">kg</span></div></td>
+                                  </tr>
+                                  <tr class="countriesList">
+                                    <td>All</td>
+                                    <td><div class="checkbox">
+                                      <input type="checkbox" aria-label="Single checkbox One" value="option1" id="singleCheckbox6">
+                                      <label></label>
+                                      </div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Albanie</td>
+                                    <td><div class="checkbox">
+                                      <input type="checkbox" aria-label="Single checkbox One" value="option1" id="singleCheckbox5">
+                                      <label></label>
+                                      </div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Allemagne</td>
+                                    <td><div class="checkbox">
+                                      <input type="checkbox" aria-label="Single checkbox One" value="option1" id="singleCheckbox4">
+                                      <label></label>
+                                      </div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Andora</td>
+                                    <td><div class="checkbox">
+                                      <input type="checkbox" aria-label="Single checkbox One" value="option1" id="singleCheckbox3">
+                                      <label></label>
+                                      </div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td>Austrian</td>
+                                    <td><div class="checkbox">
+                                      <input type="checkbox" aria-label="Single checkbox One" value="option1" id="singleCheckbox8">
+                                      <label></label>
+                                      </div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                    <td><div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">$</span></div></td>
+                                  </tr>
+                                  <tr>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td>&nbsp;</td>
+                                    <td class="text-center"><buton class="btn-default btn btn btn-block"><i class="fa fa-trash"></i> Remove</buton></td>
+                                    <td class="text-center"><buton class="btn-default btn btn btn-block"><i class="fa fa-trash"></i> Remove</buton></td>
+                                  </tr>    
+                                </tbody>
+
+                              </table>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+
+
+                  </div>
+                </div>
+                <div class="ibox-footer clearfix">
+                  <span class="pull-right">
+                    <button type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                    <button type="button" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-chevron-circle-right"></i><span class="btn-title">Next</span></button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="ibox">
+                <div class="ibox-title">
+                  <div class="stepsTabs">
+                    <div class="row">
+                      <div class="col-sm-4">
+                        <div class="step first success">
+                          <span class="numberStep m-r">1</span>
+                          <span class="titleStep">General settings</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="step success">
+                          <span class="numberStep m-r">2</span>
+                          <span class="titleStep">Shipping location span costs</span>
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="step last current">
+                          <span class="numberStep m-r">3</span>
+                          <span class="titleStep">Size and weight</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <div class="ibox-content">
+                  <div class="stepsContainer">
+
+
+
+                    <div class="step-content">
+
+                      <div class="row">
+                        <div class="col-sm-12">
+                          <div class="panel panel-default">
+                            <div class="panel-heading clearfix">
+                              <h3 class="pull-left">Size and weight</h3>
+
+
+                            </div>
+                            <div class="panel-body">
+                              <div class="form-horizontal">
+                                <div class="form-group">
+                                  <label class="control-label col-sm-3">Maximum package width</label>
+                                  <div class="col-sm-9">
+                                    <div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">cm</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+
+                                <div class="form-group">
+                                  <label class="control-label col-sm-3">Maximum package height</label>
+                                  <div class="col-sm-9">
+                                    <div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">cm</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+
+                                <div class="form-group">
+                                  <label class="control-label col-sm-3">Maximum depth of the package</label>
+                                  <div class="col-sm-9">
+                                    <div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">cm</span>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+
+                                <div class="form-group">
+                                  <label class="control-label col-sm-3">Maximum Package weight</label>
+                                  <div class="col-sm-9">
+                                    <div class="input-group m-b">
+                                      <input type="text" class="form-control">
+                                      <span class="input-group-addon">kg</span>
+                                    </div>
+                                  </div>
+                                </div>
+
+                              </div>
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div class="ibox-footer clearfix">
+                  <span class="pull-right">
+                    <button type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion"><i class="fa fa-chevron-circle-left"></i><span class="btn-title">Previous</span></button>
+                    <button type="button" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-check" disabled></i><span class="btn-title">Finish</span></button>
+                  </span>
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+    
+
+  </div>    
+
+</template>
+
+
+
+
+

@@ -1,0 +1,18 @@
+<template name="languageSelect">
+
+  <div>
+          <div>
+            <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown"><i class="flag16 flag16-{{SelectedLanguage.flag}}"></i>  <span class="caret"></span></button>
+            <ul class="dropdown-menu">
+
+              <li class="well clearfix"><input id="languageName" type="text" class="form-control" placeholder="Search a language"></li>
+                {{#each Languages}}
+	                <li><a href="#" id="selectLang"><i class="flag16 flag16-{{flag}}"></i>  {{name}}</a></li>
+                {{/each}}
+            </ul>
+          </div>
+          
+        </div>
+
+
+</template>

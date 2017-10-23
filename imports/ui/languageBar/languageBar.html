@@ -1,0 +1,16 @@
+<template name="languageBar">
+    <div class="text-center">
+        <div class="languageSelector btn-group">
+            <button class="btn btn-white"><i class="fa fa-language"></i></button>
+            {{#each Languages}}
+                <button class="btn btn-default changeLang {{activeLanguage}}" data-code="{{isoCode}}">
+                    <i class="flag16 flag16-{{flag}}" title="{{flag}}"></i> {{name}}
+                    {{#if sourceLanguage this}}
+                        <i class="fa fa-anchor"></i>
+                    {{/if}}
+                </button>
+            {{/each}}
+            <button class="btn btn-default mainBtnAutoTranslate"><i class="fa fa-cog"></i> Auto Translate</button>
+        </div>
+    </div>
+</template>

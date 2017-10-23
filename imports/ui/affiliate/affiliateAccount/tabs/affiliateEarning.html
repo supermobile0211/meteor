@@ -1,0 +1,80 @@
+<template name="affiliateEarningTab">
+
+  <div id="affiliateEarningTab" class="affiliateEarningTab tab-pane">
+
+    <div class="panel-body">
+
+      <div class="well">
+        <div class="form-horizontal row">
+          <label class="control-label col-sm-2">Select a period</label>
+          <div class="col-sm-7 input-group" id="periodSelection">
+            <input id="orderDate" class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+            <span class="input-group-btn"> 
+              <button class="btn btn-primary" type="button">Go!</button> 
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flot-chart">
+        <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+      </div>
+
+      <div class="hr-line-dashed"></div>
+
+      <table class="footable table table-striped toggle-arrow-tiny" data-page-size="8">
+        <thead>
+          <tr>
+            <th data-toggle="true">&nbsp;</th>
+            <th width="50" data-toggle="true">ID</th>
+            <th>Date</th>
+            <th>Origin</th>
+            <th>Landing page</th>
+            <th>Order Red</th>
+            <th>Product</th>
+            <th>Vendor</th>
+            <th>Amount product ($currency)</th>
+            <th>Amount commission %</th>
+            <th>Amount commission ($currency)</th>
+            <th width="170">Status</th>
+            <th width="170">Status action</th>
+          </tr>
+        </thead>
+        <tbody>
+  {{#each products}}
+          <tr>
+              <td><div class="checkbox">
+                  <input type="checkbox" id="singleCheckbox12" value="option1">
+                  <label></label>
+              </div></td>
+              <td>{{_id}}</td>
+              <td>{{formattedDate orderDetails.createdAt}}</td>
+              <td><a href="#linkToCompleteURLSource">{{affiliate.origin}}</a></td>
+              <td><a href="#linkToLandingPage" class="btn btn-default"><i class="fa fa-eye"></i> View</a></td>
+              <td><a href="#linktoOrder">{{orderDetails.orderRef}}</a></td>
+              <td><a href="#linktoProduct">{{affiliate_name}}</a></td>
+              <td><a href="#linkToVendor">{{orderDetails.vendor}}</a></td>
+              <td>{{orderDetails.totalPrice}}</td>
+              <td>{{orderDetails.commissionPerc}}%</td>
+              <td>{{orderDetails.commission}}</td>
+              <td nowrap><div class="affiliateCommissionStatus"> <i class="fa fa-circle {{orderDetails.status}}" data-placement="top" data-toggle="tooltip" data-original-title="The commission has been paid"></i> {{orderDetails.status}} </div></td>
+              <td><button class="btn btn-default"><i class="fa fa-trash"></i> Remove</button></td>
+          </tr>
+  {{/each}}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="13">
+              <div class="sk-spinner sk-spinner-chasing-dots">
+                <div class="sk-dot1"></div>
+                <div class="sk-dot2"></div>
+              </div>                                    
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+
+  
+  </div>
+</template>

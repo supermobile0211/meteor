@@ -1,0 +1,44 @@
+<template name="customerOrdersTab">
+
+  <div id="customerOrdersTab" class="customerOrdersTab tab-pane">
+    <div class="panel-body">
+
+      <div id="tab-purchases" class="tab-pane">
+                <div class="panel-body">
+                  <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th>Date</th>
+                        <th>Order Ref</th>
+                        <th>Vendor</th>
+                        <th>Review</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {{#each orders}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{formattedDate this}}</td>
+                            <td>{{orderRef}}</td>
+                            <td>{{vendor}}</td>
+                            <td>abc</td>
+                            <td>{{Symbol}}{{formatNumber grossPrice}}</td>
+                            <td ><div class="orderStatus"><i class="fa fa-circle {{class status}}" data-placement="top" data-toggle="tooltip"  data-original-title="{{class status}}"></i></div></td>
+                            <td ><a href="{{pathFor 'customerOrderDetails' id=_id}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a></td>
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+    </div>
+
+  </div>
+</template>
+
+

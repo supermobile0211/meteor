@@ -1,0 +1,692 @@
+<template name="productDetails">
+    <div class="animated fadeInRight productDetails row">
+        
+            
+            <div class="productContainer productContainerDetails col-lg-8 col-xs-12">
+                
+                    <div class="container-md row">
+                        {{#if isVendor}}
+                            <div class="vendorToolsBar well bg-white">
+
+                                <div class="bg-white row page-breadcrumb m-b b-b">
+                                    <div class="content_sortPagiBar clearfix">
+                                        <div class="inline">
+                                            {{#each categoriesListings}}
+                                                <div class="categoryBreadcrumb">
+                                                {{#each this}}
+                                                    {{#if this}}
+                                                        {{#if first .. this}}
+                                                            {{#if last .. this}}
+                                                                <i class="fa fa-folder-open">&nbsp;</i><a href="{{pathFor route=search id=this}}"><span class="text-warning">{{ catName this}}</span></a>
+                                                            {{else}}
+                                                                <i class="fa fa-folder-open">&nbsp;</i><a href="{{pathFor route=search id=this}}">{{ catName this}}</a>
+                                                            {{/if}}
+                                                        {{else}}
+                                                            {{#if last .. this}}
+                                                                <i class="fa fa-angle-right"></i> <a href="{{pathFor route=search id=this}}"><span class="text-warning">{{ catName this}}</span></a>
+                                                                {{else}}
+                                                                <i class="fa fa-angle-right"></i> <a href="{{pathFor route=search route=search id=this}}">{{ catName this}}</a>
+                                                            {{/if}}
+                                                        {{/if}}
+                                                    {{/if}}
+                                                {{/each}}
+                                                </div>
+                                            {{/each}}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="faketable w100">
+                                    <div class="table-cell vam vendorToolsBox">
+                                        <h5 class="simple-title showVendorToolBtn"><i class="fa fa-cogs"></i> Vendor tools <div class="pull-right"><i class="fa fa-plus-square fa-x2"></i></div> </h5>
+                                        <p class="hidden-sm hidden-xs hideM">This page is collaborative. As vendor, you can manage your offers and suggest page changes.</p>
+                                    </div>
+                                    <div class="table-cell vam hidden-sm hidden-xs hideM animated fadeIn">
+                                        <a href="{{pathFor route='vendorToolsMyOffers' id=id}}" class="btn btn-default btn-outline btn-vendorToolsBar">
+                                            <div class="icon"><i class="fa fa-gavel"></i></div>
+                                            <span class="btnTitle">My Offers </span>
+                                            <span class="offersCounter badge badge-primary">{{offerCount}}</span>
+                                        </a>
+                                    </div>
+                                    <div class="table-cell vam hidden-sm hidden-xs hideM animated fadeIn">
+                                        <a href="{{pathFor route='vendorToolsProductContribution' productId=id hash='stepProductDescription'}}" class="btn btn-default btn-outline btn-vendorToolsBar">
+                                            <div class="icon"><i class="fa fa-edit"></i></div>
+                                            <span class="btnTitle">Description</span>
+                                        </a>
+                                    </div>
+                                    <div class="table-cell vam hidden-sm hidden-xs hideM animated fadeIn">
+                                        <a href="{{pathFor route='vendorToolsProductContribution' productId=id hash='stepProductPicture'}}" class="btn btn-default btn-outline btn-vendorToolsBar">
+                                            <div class="icon"><i class="fa fa-picture-o"></i></div>
+                                            <span class="btnTitle">Pictures</span>
+                                        </a>
+                                    </div>
+                                    <div class="table-cell vam hidden-sm hidden-xs hideM animated fadeIn">
+                                        <a href="{{pathFor route='vendorToolsProductContribution' productId=id hash='stepProductCombination'}}" class="btn btn-default btn-outline btn-vendorToolsBar">
+                                            <div class="icon"><i class="fa fa-cubes"></i></div>
+                                            <span class="btnTitle">Combinations</span>
+                                        </a>
+                                    </div>
+                                    <div class="table-cell vam hidden-sm hidden-xs hideM animated fadeIn">
+                                        <a href="{{pathFor route='vendorToolsProductContribution' productId=id hash='stepProductFeature'}}" class="btn btn-default btn-outline btn-vendorToolsBar">
+                                            <div class="icon"><i class="fa fa-list-alt"></i></div>
+                                            <span class="btnTitle">Features</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        {{/if}}
+                        <div class="ProductSummary">
+                            <div class="col-sm-12 col-md-5">
+                                <div class="productPreview marginTopTwenty">
+                                    <div class="currentPicture m-b">
+                                        <div class="controlSlide leftControl"><i class="fa fa-chevron-left fa-2x"></i></div>
+                                        <div class="lightBoxGallery">
+                                                {{#each productImages}}
+                                                   <a href="{{this}}" title="Image from Unsplash" data-gallery="" data-remote="{{this}}"><img class="img-responsive centerImage {{showImage @index}} " src="{{this}}"></a>
+                                                {{/each}}
+                                        </div>
+                                        <div class="controlSlide rightControl"><i class="fa fa-chevron-right fa-2x"></i></div>
+                                    </div>
+                                    <div class="ProductVisuals-thumbnails">
+                                        <div class="ProductVisuals-thumbnailsContainer searchSliderBox">
+                                            <ul class="ProductVisualsThumbnails-list clearfix" style="width: 100%;">
+                                                {{#each productImages}}
+                                                    <li class="ProductVisuals-item active {{activeSmallImg @index}}" id="proImages" index="{{@index}}"><a href="#"><img src="{{this}}" width="80" height="80"></a> </li>
+                                                {{/each}}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 col-md-7">
+                                <h1 class="productTitle">{{getTranslation Product.translation 'name'}}</h1>
+                                <p class="shortDescription">{{{getTranslation Product.translation 'description'}}}
+                                    <span class="readMore"><a href="#">Read more <i class="fa fa-angle-double-right"></i></a></span>
+                                </p>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="reinsuranceBlock">
+                                            <div class="faketable">
+                                                <div class="table-cell vam"><i class="fa fa-check fa-2x"></i></div>
+                                                <div class="table-cell vam">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+                                            </div>
+                                            <div class="faketable">
+                                                <div class="table-cell vam"><i class="fa fa-check fa-2x"></i></div>
+                                                <div class="table-cell vam">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+                                            </div>
+                                            <div class="faketable">
+                                                <div class="table-cell vam"><i class="fa fa-check fa-2x"></i></div>
+                                                <div class="table-cell vam">Lorem ipsum dolor sit amet, consectetur adipisicing elit</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="priceContainer m-b m-t">
+                                            <div class="text-right priceSup">Start at</div>
+                                            <div class="price text-success text-right">{{formatNumber offersStarts}} {{Symbol}}</div>
+                                        </div>
+                                        <div class="text-right buttonContainer">
+                                            <a href="{{viewOffers}}" class="btn btn-danger btn-lg"><i class="fa fa-list"></i> View the offer</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faketable faketable-responsive w100 m-t">
+                                    <div class="table-cell vam text-center">
+                                        <a href="#linkTutorial" class="btn btn-default btn-sm"><i class="fa fa-graduation-cap"></i> Tutorial</a>
+                                        <a href="#linkRelatedProducts" class="btn btn-default btn-sm"><i class="fa fa-shopping-cart"></i> Related products</a>
+                                        {{#if subscribed}}
+                                            <a class="btn btn-default btn-sm" id="unSubscribe"><i class="fa fa-bell"></i> Subscribed</a>
+                                        {{else}}
+                                            <a class="btn btn-default btn-sm" id="subscribe"><i class="fa fa-bell"></i> Subscribe</a>
+                                        {{/if}}
+                                    </div>
+                                </div>
+                                <div class="table-cell vam text-center" style="width: 100%;">
+                                    <div class="socialSharingBlock" style="padding: 7px;">
+                                        {{>shareit shareData}}
+                                        <!--<i class="fa fa-share-alt m-r"></i>-->
+                                        <!--<a href="#" class="btn btn-default facebook"><i class="fa fa-facebook"></i></a>-->
+                                        <!--<a href="#" class="btn btn-default twitter"><i class="fa fa-twitter"></i></a>-->
+                                        <!--<a href="#" class="btn btn-default google-plus"><i class="fa fa-google-plus"></i></a>-->
+                                        <!--<a href="#" class="btn btn-default pinterest"><i class="fa fa-pinterest"></i></a>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-md row">
+                        <div class="floatingTabsMenu">
+                            <ul class="floatingTabsMenu-list clearfix">
+                                <li class="link-fun active"><a href="#linktoOffers" class="clearfixAnchor"><i class="fa fa-list"></i> Offers</a> </li>
+                                <li class="link-fun"><a href="#linktoDescription" class="clearfixAnchor"><i class="fa fa-list-alt"></i> Description</a> </li>
+                                <li class="link-fun"><a href="#linkTutorial" class="clearfixAnchor"><i class="fa fa-graduation-cap"></i> Tutorial</a> </li>
+                                <li class="link-fun"><a href="#linkRelatedProducts" class="clearfixAnchor"><i class="fa fa-shopping-cart"></i> Related products</a> </li>
+                                <li class="actionSharingBlock pull-right">
+                                    <div class="">
+                                        {{>shareit shareData}}
+                                        <!--<a href="#" class="btn btn-outline btn-default btn-sm subscribe"><i class="fa fa-bell"></i></a>-->
+                                        <!--<a href="#" class="btn btn-outline btn-default btn-sm facebook"><i class="fa fa-facebook"></i></a>-->
+                                        <!--<a href="#" class="btn btn-outline btn-default btn-sm twitter"><i class="fa fa-twitter"></i></a>-->
+                                        <!--<a href="#" class="btn btn-outline btn-default btn-sm google-plus"><i class="fa fa-google-plus"></i></a>-->
+                                        <!--<a href="#" class="btn btn-outline btn-default btn-sm pinterest"><i class="fa fa-pinterest"></i></a>-->
+                                    </div>
+                                </li>
+                                <li class="hidden-md hidden-lg"><div class="text-center m-t closeMenu"><i class="fa fa-times fa-2x"></i></div> </li>
+                            </ul>
+                        </div>
+                        <div class="alert alert-info">
+                            infodev: this menu is floating. It should apparear only when user had scroll bellow this section. The item of the menu will be selected in the related position, similar to this <a class="font-bold" target="_blank" href="https://www.airbnb.fr/rooms/1020785?checkin=30%2F03%2F2016&checkout=27%2F04%2F2016&s=FbX0vLEG">airbnb example </a> <br>
+                            On low resolution, it should apparear with left swipe as menu
+                        </div>
+                        <div class="col-lg-12">
+                            <div class="offersTabContainer" style="overflow: hidden" id="linkToMuchCloseOffer">
+                                <!-- if combination -->
+                                {{#if Product.attributes}}
+                                <div class="row">
+                                    <div class="combinationsContainer clearfix">
+                                        <h3 class="col-lg-12">Combinations available</h3>
+                                        {{#each attributesName Product.attributes}}
+                                            <div class="col-sm-4">
+                                                <div class="form-group">
+                                                    <div class="combinationItem">
+                                                        <label class="combinationTitle">{{this}}</label>
+                                                        <div class="combinationValues input-group">
+                                                            <select id="combinationsSelect" data-placeholder="Choose a Country..." class="chosen-select combinationsSelect form-control" style="width:100%;" tabindex="2" name={{this}} index={{this}}>
+                                                                <option value="">Select</option>
+                                                                {{#each attributes Product.attributes this}}
+                                                                    <option>{{this}}</option>
+                                                                {{/each}}
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        {{/each}}
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="alert alert-info m-t text-center">
+                                            <p>You can't fine your combination? Add yours and get offers <a href="#" id="addcombination" class="m-l btn btn-success" data-toggle="modal" data-target="#addNewCombinationModal"><i class="fa fa-plus"></i> Add my combination</a></p>
+                                        </div>
+                                        <div class="modal inmodal" id="addNewCombinationModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                            <div class="modal-dialog modal-lg">
+                                                <div class="modal-content animated bounceInRight">
+                                                    <div class="modal-header">
+                                                        <button type="button" id="closeModel" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                        <i class="fa fa-cubes modal-icon"></i>
+                                                        <h4 class="modal-title">Combination creation</h4>
+                                                        <div>To create a new combination, add value for each attribute of your combination. <br> After save, a moderator will validate your suggestion and the related vendors will be informed.</div>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <p>
+                                                        <table class="table bg-white" width="100%" border="0" cellspacing="0" cellpadding="0">
+                                                            <thead>
+                                                            <tr>
+                                                                <th scope="col">Attributes</th>
+                                                                <th scope="col">Existing values</th>
+                                                                <th scope="col">Your combination</th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            {{#each productAttributes}}
+                                                                <tr>
+                                                                    <td>{{name}}</td>
+                                                                    <td>
+                                                                        {{#each values}}
+                                                                            <span class="currentValue">{{this}}</span>
+                                                                        {{/each}}
+                                                                    </td>
+                                                                    <td><input type="text" placeholder="Type a {{name}} value" class="form-control" id="{{name}}"></td>
+                                                                </tr>
+                                                            {{/each}}
+                                                            </tbody>
+                                                        </table>
+                                                        <div class="hr-line-dashed"></div>
+                                                        <div class="checkbox checkbox-inline">
+                                                            <input type="checkbox" value="option1" id="inlineCheckbox1" checked>
+                                                            <label for="inlineCheckbox1"> Uncheck this box if you don't subscribe to this product and be notified about new offers. </label>
+                                                        </div>
+                                                        </p>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-white" data-dismiss="modal" id="closeBtn">Close</button>
+                                                        <button type="button" class="btn btn-primary" id="addvalue">Save changes</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/if}}
+                                <div class="row" >
+                                    {{#each muchCloseOffer}}
+                                        <div class="muchCloseOfferContainer col-lg-12">
+                                            <div class="">
+                                                <div class="muchCloseOfferContent  ">
+                                                    <div class="row">
+                                                        <div class="col-lg-3 col-sm-12">
+                                                            <div class="mapOfferPosition">
+
+                                                                <div class="mapSmDeviceHeightSet" style="width: 100%; height: 150px">
+                                                                    {{> googleMap name="mapDemo2" class="label" options=mapDemo2Options}}
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-sm-12 col-lg-6 marginBottom">
+                                                            <div class="title m-b">The much close of you...</div>
+                                                            <!--<div class="table-responsive">-->
+                                                            <table width="100%" border="0" cellspacing="0" class="muchCloseOfferUserTable">
+                                                                <tbody><tr>
+                                                                    <td rowspan="2" class="b-r">
+                                                                        <div class="userQuickResume">
+                                                                            <a href="#linktoPubicProfile"><img class="user-avatar user-avatar-box m-r" src="/img/company.jpg" alt="CompanyName" width="96" height="96"></a>
+                                                                            <div class="userQuickResume-detais">
+                                                                                <h2 class="font-bold no-margins"><a href="#linktoPublicProfile">{{vendorProfile.vendor.company}}</a> <span><i class="flag16 flag16-{{flag}}" title="{{flag}}"></i></span> <span class="badgesUser">$badges</span></h2>
+                                                                                <div class="reviews-container">
+                                                                                    <span class="reviews-stars">
+                                                                                        <i class="fa fa-star active"></i>
+                                                                                        <i class="fa fa-star active"></i>
+                                                                                        <i class="fa fa-star active"></i>
+                                                                                        <i class="fa fa-star active"></i>
+                                                                                        <i class="fa fa-star"></i>
+                                                                                    </span>
+                                                                                    <span class="reviews-count">(165)</span>
+                                                                                </div>
+                                                                                <div class="city"> <a href="http://maps.google.com/?q=Maastrich" target="_blank"><i class="fa fa-map-marker"></i></a>{{vendorProfile.address.[0].address}} {{calculateDistance vendor}} ({{getDistance vendor}})</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="b-b p-l"><i class="fa fa-clock-o"></i> Delay</td>
+                                                                    <td class="b-b p-l">{{delayDays}} days</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="p-l"><i class="fa fa-truck fa-flip-horizontal"></i> Shipping</td>
+                                                                    <td class="p-l">
+                                                                        <select class="form-control" id="selected-offer">
+                                                                            <!--TODO add freeShiping key in offer schema-->
+                                                                            {{#if freeShiping}}
+                                                                                <option value="0">Free shipping</option>
+                                                                            {{/if}}
+                                                                            {{#each shippingOffers}}
+                                                                                <option value="{{selectPrice ranges Product.weight '#selected-offer'}}">{{name}}</option>
+                                                                            {{/each}}
+                                                                        </select>
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                
+                                                        </div>
+                                                        <div class="col-sm-12 col-lg-3">
+                                                            <div class="well bg-white text-center">
+                                                                <div class="basePriceContainer">
+                                                                    <div class="basePrice text-success font-bold">{{Symbol}} {{addPriceSelected price}}</div>
+                                                                    <div class="shippingPrice">
+                                                                        <small>Shipping: <span class="text-danger font-bold">{{selectedShippingPrice}}</span></small>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="totalPriceContainer">
+                                                                    <div class="totalPrice text-info">
+                                                                        {{Symbol}} {{price}}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="button-container">
+                                                                    <button  id="selectOffer" class="btn btn-success btn-block"><i class="fa fa-shopping-cart"></i> Select this offer</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="muchcloseOfferMoreDetails faketable">
+                                                           <div class="muchCloseOfferCombination table-cell nowrap">
+                                                            <h5>Combination</h5>
+                                                                    <ul>
+                                                                        <li><span class="attributeName">Color</span>: <span class="attributeValue">blue</span> </li> 
+                                                                        <li><span class="attributeName">Size</span>: <span class="attributeValue">XL</span> </li> 
+                                                                        <li><span class="attributeName">Brand</span>: <span class="attributeValue">Adidas</span> </li> 
+                                                                    </ul>
+
+                                                            </div>
+                                                            <div class="muchCloseOfferDescription table-cell">
+                                                                <h5>Offer description</h5>
+
+                                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia cupiditate facilis magni? Labore, mollitia nam commodi sequi iure quasi, ex dolorum ea amet consequuntur nemo omnis. Voluptatem sunt sapiente voluptatum?
+                                                            </div>                                                        
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                                <span class="btn btn-block btn-white hidden-md hidden-lg showOffersBtn"><i class="fa fa-plus-circle"></i> Show more offers</span>
+
+                                
+
+
+
+                                <div class="row hidden-xs" id="linktoOffers" style="min-height: 650px">
+                                    <div class="col-lg-12">
+                                        <h3 class="simple-title text-center title-triangle-top title-underline no-margins">Other offers available</h3>
+                                        <div class="offers_sortPagiBar clearfix m-b">
+                                            <div class="faketable pull-right">
+                                                <div class="table-cell">
+                                                    <div class="sortBy faketable">
+                                                        <span class="m-r table-cell">Shipping to</span>
+                                                        <select class="selectProductSort form-control table-cell" id="selectCountry">
+                                                            <option selected="selected" value="">--</option>
+                                                            {{#each countries}}
+                                                                <option value="{{name}}">{{name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="table-cell">
+                                                    <div class="sortBy faketable">
+                                                        <span class="m-r table-cell">Sort by</span>
+                                                        <select class="selectProductSort form-control table-cell" id="selectProductSort">
+                                                            <option selected="selected" value="position:asc">--</option>
+                                                            <option value="basePrice:asc">Base Price: Lowest first</option>
+                                                            <option value="basePrice:desc">Base Price: Highest first</option>
+                                                            <option value="totalPrice:asc">Total Price: Lowest first</option>
+                                                            <option value="totalPrice:desc">Total Price: Highest first</option>
+                                                            <option value="name:asc">Vendor Name: A to Z</option>
+                                                            <option value="name:desc">Vendor Name: Z to A</option>
+                                                            <option value="distance:desc">Distance: Smallest first</option>
+                                                            <option value="distance:asc">Distance: Biggest first</option>
+                                                            <option value="TopVendor:asc">Best reviews</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="table-cell">
+                                                    <div class="countByPage faketable">
+                                                        <select class="selectProductSort form-control table-cell" id="selectProductSort">
+                                                            <option selected="selected" value="12">12</option>
+                                                            <option value="24">24</option>
+                                                            <option value="48">48</option>
+                                                            <option value="96">96</option>
+                                                        </select>
+                                                        <span class="m-l table-cell">offers/page</span>
+                                                    </div>
+                                                </div>
+                                                <div class="table-cell">
+                                                    <div class="viewResultsStyle inline">
+                                                        <button class="btn btn-default btn-small active"><i class="fa fa-th-list"></i></button>
+                                                        <button class="btn btn-default btn-small"><i class="fa fa-th-large"></i></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{#each productOffers Product.attributes}}
+                                            <div class="offerContent">
+                                                    <div class="offerContainer highlighted" id="linktoOffers">
+                                                        <div class="offerContent" id="{{_id}}">
+                                                            <table width="100%" border="0" cellspacing="0" class="offerContent-table">
+                                                                <tbody>
+                                                                <tr>
+                                                                    <td class="userQuickResumeContainer">
+                                                                        <div class="userQuickResume w100 faketable">
+                                                                            <a href="#linktoPubicProfile"><img class="user-avatar user-avatar-box m-r table-cell vam" src="/img/company.jpg" alt="CompanyName" width="96" height="96"></a>
+                                                                            <div class="userQuickResume-detais table-cell vam">
+                                                                                <h2 class="font-bold no-margins"><a href="#linktoPublicProfile">{{vendorName}}</a> <span><i class="flag16 flag16-{{flag}}" title="{{flag}}"></i></span> <span class="badgesUser">$badges</span></h2>
+                                                                                <div class="reviews-container">
+                                                                              <span class="reviews-stars">
+                                                                                <i class="fa fa-star active"></i>
+                                                                                <i class="fa fa-star active"></i>
+                                                                                <i class="fa fa-star active"></i>
+                                                                                <i class="fa fa-star active"></i>
+                                                                                <i class="fa fa-star"></i>
+                                                                              </span>
+                                                                                    <span class="reviews-count">(165)</span>
+                                                                                </div>
+                                                                                <div class="city"> <a href="http://maps.google.com/?q={{vendorProfile.address.[0].address}}" target="_blank"><i class="fa fa-map-marker"></i></a> {{vendorProfile.address.[0].address}} {{calculateDistance vendor}}  ({{getDistance vendor}})</div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="delayContainer">
+                                                                        <span class="colTitle">Delay</span>
+                                                                        <i class="fa fa-clock-o"></i> {{delayDays}} days</td>
+                                                                    <td class="shippingContainer">
+                                                                        <span class="colTitle">Shipping</span>
+                                                                        <select class="selectedPrice form-control" id="total-price{{@index}}" index="{{@index}}">
+                                                                            <!--TODO add freeShiping key in offer schema-->
+                                                                            {{#if freeShiping}}
+                                                                                <option value="0">Free shipping</option>
+                                                                            {{/if}}
+                                                                            {{#each shippingOffers}}
+                                                                                <option value="{{selectPrice ranges Product.weight}}">{{name}}</option>
+                                                                            {{/each}}
+                                                                        </select>
+                                                                    </td>
+                                                                    <td class="basePriceContainer">
+                                                                        <span class="colTitle">Base price</span>
+                                                                        <div>
+                                                                            <div class="basePrice text-success font-bold">{{Symbol}} {{price}}</div>
+                                                                            <div class="shippingPrice">
+                                                                                <small>Shipping: <span class="text-danger font-bold">{{shippingPrice @index}}</span></small>
+                                                                            </div>
+                                                                        </div></td>
+                                                                    <td class="totalPriceContainer">
+
+                                                                        <span class="colTitle">Total price</span>
+                                                                        <div>
+                                                                            <div class="totalPrice text-info">
+                                                                                {{Symbol}} {{addPrice price @index}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </td>
+                                                                    <td class="selectOfferContainer">
+                                                                        <div class="button-container">
+                                                                            <button class="btn btn-block btn-link" id="selectOffer"><i class="fa fa-shopping-cart"></i> <span>Select this offer</span></button>
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="descriptionContainer">
+                                                                    <td colspan="6">{{{getTranslation translation 'description'}}}
+                                                                    </td>
+                                                                </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <!--</div>-->
+                                                            <div class="muchcloseOfferMoreDetails faketable">
+                                                                   <div class="muchCloseOfferCombination table-cell nowrap">
+                                                                    <h5>Combination</h5>
+                                                                            <ul>
+                                                                                <li><span class="attributeName">Color</span>: <span class="attributeValue">blue</span> </li> 
+                                                                                <li><span class="attributeName">Size</span>: <span class="attributeValue">XL</span> </li> 
+                                                                                <li><span class="attributeName">Brand</span>: <span class="attributeValue">Adidas</span> </li> 
+                                                                            </ul>
+
+                                                                    </div>
+                                                                    <div class="muchCloseOfferDescription table-cell">
+                                                                        <h5>Offer description</h5>
+
+                                                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia cupiditate facilis magni? Labore, mollitia nam commodi sequi iure quasi, ex dolorum ea amet consequuntur nemo omnis. Voluptatem sunt sapiente voluptatum?
+                                                                    </div>                                                        
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        {{/each}}
+                                        <div class="endlessScroll">
+                                            <div class="spiner-example">
+                                                <div class="sk-spinner sk-spinner-chasing-dots">
+                                                    <div class="sk-dot1"></div>
+                                                    <div class="sk-dot2"></div>
+                                                </div>
+                                            </div>
+                                            <div class="alert alert-info">
+                                                Info dev: When no search request is done, and that user is not localized, so all offers are displayed. The X first offers will be displayed. If there is much offers than X, so other can be loaded by endlessScroll.. Homeover this content must be SEO optimized. Take a look on <a href="#" target="_blank">https://www.quicksprout.com/2014/05/21/how-to-create-an-seo-friendly-infinite-scrolling-page/</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mobileTabs m-t faketable text-center w100">
+                                <span class="btn btn-white hidden-md hidden-lg showDescriptionBtn table-cell">Description</span>
+
+                                <span class="btn btn-white hidden-md hidden-lg showTutorialBtn table-cell">Tutorial</span>
+
+                                <span class="btn btn-white hidden-md hidden-lg showRelatedProductsBtn table-cell">Related products</span>
+                            </div>
+                            
+                            <div class="descriptionTabContainer m-b-lg" id="linktoDescription" style="min-height: 650px">
+                                <h3 class="simple-title text-center title-triangle-top title-underline m-b">Description</h3>
+                                <!-- IF autotranslated description -->
+                                {{{getTranslation Product.translation 'description'}}}
+                                <div class="alert alert-info text-center">
+                                    <p>This description is auto-translated from the original {{SourceLang.name}} version. Do you want help us to improve the description in your language? </p>
+                                    <a href="#" class="btn btn-success btn-sm m-t">View original version ({{SourceLang.name}})</a>
+                                    <a href="{{pathFor route='vendorToolsProductContribution' productId=Product._id hash='stepProductDescription'}}" class="btn btn-success m-r m-t btn-sm">Improve the description</a>
+                                </div>
+                                <div class="descriptionProduct">
+                                    <div class="featuresTable m-t">
+                                        <div class="simple-title-sm m-b-sm">Features</div>
+                                        <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                                            <tbody>
+                                            <tr>
+                                                <td><span class="featureName">UIN</span></td>
+                                                <td><span class="featureValue">{{Product.uin}}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><span class="featureName">GTIN</span></td>
+                                                <td><span class="featureValue">{{product.gtin}}</span></td>
+                                            </tr>
+                                            {{#each FeatureObj Product.features}}
+                                                <tr>
+                                                    <td><span class="featureName">{{name}}</span></td>
+                                                    <td><span class="featureValue">{{values.toString}}</span></td>
+                                                </tr>
+                                            {{/each}}
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tutorialTabContainer m-b-lg hidden-xs" id="linkTutorial" style="min-height: 650px">
+                                <h3 class="simple-title text-center title-triangle-top title-underline m-b">Tutorial</h3>
+                                <div class="tutorialProduct">{{{getTranslation Product.translation 'tutorial'}}}</div>
+                            </div>
+                            
+                            <div class="relatedProductsTabContainer m-b-lg hidden-xs" id="linkRelatedProducts" style="min-height: 1000px">
+                                <h3 class="simple-title text-center title-triangle-top title-underline m-b">Related products</h3>
+                                <div class="simple-title-sm m-b-sm font-italic">We found 10 products related</div>
+                                <ul class="productList row grid">
+                                    {{#each RelatedProducts Product}}
+                                        <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                                            <div class="productContainer">
+                                                <div class="row">
+                                                    <div class="col-sm-12 left-col">
+                                                        <div class="product-image-container">
+                                                            {{#if images.length}}
+                                                            <a href="{{pathFor route='productDetails' id=_id}}"><img class="img-responsive" src="{{images.[0]}}"></a>
+                                                            {{else}}
+                                                                <a href="{{pathFor 'productDetails' id=_id}}"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                                            {{/if}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 floatingContent">
+                                                        <div class="row col-container">
+                                                            <div class="col-sm-12 center-col">
+                                                                <h2 class="productTitle">{{checkLength translation 'name' 6}}</h2>
+                                                                <div class="productShortDescription">{{{checkLength translation 'description' 18}}}</div>
+                                                            </div>
+                                                            <div class="col-sm-12 text-center right-col">
+                                                                <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{formatNumber bestOffer}}{{Symbol}}</span> </div>
+                                                                <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                                <div class="simple-title-sm m-b-sm font-italic">Similar items </div>
+                                <ul class="productList row grid">
+                                    {{#each SimilarProducts Product}}
+                                        <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                                            <div class="productContainer">
+                                                <div class="row">
+                                                    <div class="col-sm-12 left-col">
+                                                        <div class="product-image-container">
+                                                            {{#if images.length}}
+                                                                <a href="{{pathFor route='productDetails' id=_id}}"><img class="img-responsive" src="{{images.[0]}}"></a>
+                                                            {{else}}
+                                                                <a href="{{pathFor 'productDetails' id=_id}}"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                                            {{/if}}
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-12 floatingContent">
+                                                        <div class="row col-container">
+                                                            <div class="col-sm-12 center-col">
+                                                                <h2 class="productTitle">{{checkLength translation 'name' 8}}</h2>
+                                                                <div class="productShortDescription">{{{checkLength translation 'description' 18}}} </div>
+                                                            </div>
+                                                            <div class="col-sm-12 text-center right-col">
+                                                                <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{formatNumber bestOffer}}{{Symbol}}</span> </div>
+                                                                <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                
+            </div>
+            <div class="col-xs-12 col-lg-4 mapOffersContainer-sidebar mapOffersContainerSmdevice">
+                <div class="row">
+                    <span class="showSearchFormBt hidden-md hidden-lg btn btn-white"><i class="fa fa-search"></i> Search location</span>
+                    <div class="searchOffersContainer col-xs-12 col-md-12 m-t mapChild  " style="z-index:1;">
+                        
+                        <div class="searchOffersContent hidden-xs hidden-sm">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <input type="text" class="input-lg form-control" id="map-autocomplete" placeholder="City">
+                                </div>
+                                <div class="col-sm-6">
+                                    <h5>Show offers within a radius of</h5>
+                                    <div class="distanceSliderValues">
+                                        <!--<input type="text" id="distanceFilters" />-->
+                                         <!--<div class="minValue inline">0</div> -->
+                                         <!--<div class="maxValue pull-right">No limit</div> -->
+                                    </div>
+                                    <div id="distanceSlider" class="m-b"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    We found {{findOffers}} offers
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="checkbox checkbox-primary">
+                                        <input type="checkbox" id="map-checkbox">
+                                        <label for="map-checkbox">
+                                            Refresh results when I move the map
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="map-container mapSmDeviceHeightSet" style="width: 100%; height: 100vh">
+                        {{> googleMap name="userDetailsMap" class="label" options=userDetailsMapOptions}}
+                    </div>
+                </div>
+            </div>
+
+    </div>
+    <div id="blueimp-gallery" class="blueimp-gallery">
+        <div class="slides"></div>
+        <h3 class="title"></h3>
+        <a class="prev">‹</a>
+        <a class="next">›</a>
+        <a class="close">×</a>
+        <a class="play-pause"></a>
+        <ol class="indicator"></ol>
+    </div>
+</template>

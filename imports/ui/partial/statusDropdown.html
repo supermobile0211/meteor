@@ -1,0 +1,37 @@
+<template name="statusDropdown">
+
+
+    <div class="ibox">
+        <div class="ibox-title"><h5><i class="fa fa-clock-o"></i> {{header}}</h5></div>
+        <div class="ibox-content clearfix">
+            <div class="row-sm m-b">
+                <div class="col-sm-5 padding-sm">
+                    <div class="btn-group">
+                        <button class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><span class="orderStatus"><i class="fa fa-circle" style="color: {{getOrderStatusColor selectedStatus}}" data-placement="top" data-toggle="tooltip" data-original-title="{{selectedStatus}}"></i> {{selectedStatus}}</span> <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                          {{#each orderSteps}}
+                              <li><a href="Javascript:" class="order-status" status="{{getTranslation translation 'name'}}"><span class="orderStatus"><i class="fa fa-circle" style="color: {{color}}" data-placement="top" data-toggle="tooltip" data-original-title="{{getTranslation translation 'name'}}"></i> {{getTranslation translation 'name'}}</span></a></li>
+                          {{/each}}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-7 padding-sm">{{description}}</div>
+            </div>
+            <table class="table table-striped">
+                <tbody>
+                {{#with ordersFilterByStatus}}
+                  {{#each history}}
+                      <tr>
+                          <td>{{displayIndex @index}}</td>
+                          <td><div class="orderStatus"><i class="fa fa-circle" style="color: {{getOrderStatusColor status}}" data-placement="top" data-toggle="tooltip" data-original-title="{{lowerCase status}}"></i> {{status}} </div></td>
+                          <td>{{formatDate updatedAt 'DD/MM/YYYY h:mm:ss'}}</td>
+                      </tr>
+                  {{/each}}
+                {{/with}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+</template>

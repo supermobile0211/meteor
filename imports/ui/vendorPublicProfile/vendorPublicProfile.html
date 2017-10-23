@@ -1,0 +1,674 @@
+<template name="vendorPublicProfile">
+    <div class="animated fadeInRight vendorPublicProfile row">
+        <div class="container">
+            <div class="vendorSummary m-t">
+                <div class="vendorBanner">
+                    <img src="/img/vendorBanner.jpg" class="img-responsive">
+                </div>
+                <div class="vendorSummaryContent">
+                    <div class="faketable">
+                        <div class="vendorAvatar m-r">
+                            <img src="/img/a7.jpg" width="160" height="160">
+                        </div>
+                        {{#with vendor}}
+                            <div class="userQuickResume-detais table-cell vam">
+                                <div class="socialSharingBlock pull-right">
+                                    <!--<i class="fa fa-share-alt m-r"></i>-->
+                                    {{>shareit shareData}}
+                                </div><h2 class="font-bold no-margins">{{name}} <span><i class="flag16 flag16-{{vendorCountry}}" title="{{vendorCountry}}"></i></span> <span class="badgesUser">$badges</span></h2>
+                                <div class="reviews-container">
+                                    Average rating
+                                    <span class="reviews-stars">
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star active"></i>
+                                        <i class="fa fa-star"></i>
+                                    </span>
+                                    <span class="reviews-count">(165)</span>
+                                    <div class="text-muted"><small>The average rating is based on reviews posted in the past 12 months.</small></div>
+                                </div>
+                                <div class="city"> <a href="linkToModalWindowOfCityOnly" target="_blank"><i class="fa fa-map-marker"></i></a> {{vendorDetails.zipCode}} {{vendorDetails.city}}</div>
+                                <div class="personnalDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium, tenetur. In illo consequuntur vero dolores possimus ad perferendis qui repudiandae, minima aliquam tenetur deserunt eum repellat aut architecto. Illum, ducimus!</div>
+                            </div>
+                        {{/with}}
+                    </div>
+                </div>
+            </div>
+            <div class="vendorLastOffers">
+                <div class="simple-title clearfix m-b">Last offers
+                    <div class="slide-control pull-right">
+                        <button id="previous" class="btn btn-default btn-lg"><i class="fa fa-caret-left"></i></button>
+                        <button id="next" class="btn btn-default btn-lg"><i class="fa fa-caret-right"></i></button>
+                    </div>
+                </div>
+                <ul class="productList row grid">
+                    {{#each vendorProducts}}
+                        <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                            <div class="productContainer">
+                                <div class="row">
+                                    <div class="col-sm-12 left-col">
+                                        <div class="product-image-container">
+                                            <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 floatingContent">
+                                        <div class="row col-container">
+                                            <div class="col-sm-12 center-col">
+                                                <h2 class="productTitle">{{getTranslation translation 'name'}}</h2>
+                                                <div class="productShortDescription">{{{getTranslation translation 'description'}}}</div>
+                                            </div>
+                                            <div class="col-sm-12 text-center right-col">
+                                                <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">{{formatNumber bestOffer}} {{Symbol}}</span> </div>
+                                                <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                    <!-- <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                       <div class="productContainer">
+                         <div class="row">
+                           <div class="col-sm-12 left-col">
+                             <div class="product-image-container">
+                               <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                             </div>
+                           </div>
+
+                           <div class="col-sm-12 floatingContent">
+                             <div class="row col-container">
+                               <div class="col-sm-12 center-col">
+                                 <h2 class="productTitle">$ProductName</h2>
+                                 <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                               </div>
+
+                               <div class="col-sm-12 text-center right-col">
+                                 <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                 <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                               </div>
+
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </li>
+                     <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                       <div class="productContainer">
+                         <div class="row">
+                           <div class="col-sm-12 left-col">
+                             <div class="product-image-container">
+                               <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                             </div>
+                           </div>
+
+                           <div class="col-sm-12 floatingContent">
+                             <div class="row col-container">
+                               <div class="col-sm-12 center-col">
+                                 <h2 class="productTitle">$ProductName</h2>
+                                 <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                               </div>
+
+                               <div class="col-sm-12 text-center right-col">
+                                 <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                 <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                               </div>
+
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </li>
+                     <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                       <div class="productContainer">
+                         <div class="row">
+                           <div class="col-sm-12 left-col">
+                             <div class="product-image-container">
+                               <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                             </div>
+                           </div>
+
+                           <div class="col-sm-12 floatingContent">
+                             <div class="row col-container">
+                               <div class="col-sm-12 center-col">
+                                 <h2 class="productTitle">$ProductName</h2>
+                                 <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                               </div>
+
+                               <div class="col-sm-12 text-center right-col">
+                                 <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                 <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                               </div>
+
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </li>
+                     <li class="productListItem col-lg-15 col-md-4 col-sm-6">
+                       <div class="productContainer">
+                         <div class="row">
+                           <div class="col-sm-12 left-col">
+                             <div class="product-image-container">
+                               <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                             </div>
+                           </div>
+
+                           <div class="col-sm-12 floatingContent">
+                             <div class="row col-container">
+                               <div class="col-sm-12 center-col">
+                                 <h2 class="productTitle">$ProductName</h2>
+                                 <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                               </div>
+
+                               <div class="col-sm-12 text-center right-col">
+                                 <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                 <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                               </div>
+
+                             </div>
+                           </div>
+                         </div>
+                       </div>
+                     </li>-->
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="well bg-white">
+                        <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th scope="col">Recent evalution</th>
+                                <th scope="col">Last month</th>
+                                <th scope="col">6 months</th>
+                                <th scope="col">12 months</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            <tr>
+                                <td><i class="fa fa-plus-circle"></i> Positive</td>
+                                <td>192</td>
+                                <td>192</td>
+                                <td>192</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-bullseye"></i> Neutral</td>
+                                <td>192</td>
+                                <td>192</td>
+                                <td>192</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fa fa-minus-circle"></i> Negative</td>
+                                <td>192</td>
+                                <td>192</td>
+                                <td>192</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div class="btn-link btn btn-block text-center text-success">Read vendor reviews (665)</div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="well bg-white">
+                        <table class="table table-striped" width="100%" border="0" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th scope="col">Criteria</th>
+                                <th scope="col">Average rating</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Speed</td>
+                                <td>
+                                    <div class="reviews-container">
+                                        <span class="reviews-stars">
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star active"></i>
+                                            <i class="fa fa-star"></i>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Price</td>
+                                <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                            </tr>
+                            <tr>
+                                <td>Service quality</td>
+                                <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                            </tr>
+                            <tr>
+                                <td>Welcome quality</td>
+                                <td><div class="reviews-container"> <span class="reviews-stars"> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star active"></i> <i class="fa fa-star"></i> </span> </div></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="well bg-white">
+                <div class="content_sortPagiBar clearfix">
+                    <div class="inline">
+                        <span class="resultsCount">1-24 on 3 724 444 results</span> for
+                        <span class="categoryBreadcrumb font-bold"><a href="#">Category</a> <i class="fa fa-angle-right"></i> <a href="#">SubCategory</a> <i class="fa fa-angle-right"></i> <a href="#">SubCategory</a> <i class="fa fa-angle-right"></i> <span class="currentCategory text-warning">SubCategory</span></span>
+                    </div>
+                    <div class="pull-right">
+                        <div class="faketable">
+                            <div class="table-cell">
+                                <div class="sortBy faketable">
+                                    <span class="m-r table-cell">Sort by</span>
+                                    <select class="selectProductSort form-control table-cell" id="selectProductSort">
+                                        <option selected="selected" value="position:asc">--</option>
+                                        <option value="price:asc">Price: Lowest first</option>
+                                        <option value="price:desc">Price: Highest first</option>
+                                        <option value="name:asc">Product Name: A to Z</option>
+                                        <option value="name:desc">Product Name: Z to A</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="table-cell">
+                                <div class="countByPage faketable">
+                                    <select class="selectProductSort form-control table-cell" id="selectProductSort">
+                                        <option selected="selected" value="12">12</option>
+                                        <option value="24">24</option>
+                                        <option value="48">48</option>
+                                        <option value="96">96</option>
+                                    </select>
+                                    <span class="m-l table-cell">offers/page</span>
+                                </div>
+                            </div>
+                            <div class="table-cell">
+                                <div class="viewResultsStyle inline">
+                                    <button class="btn btn-default btn-small active"><i class="fa fa-th-list"></i></button>
+                                    <button class="btn btn-default btn-small"><i class="fa fa-th-large"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper wrapper-content animated fadeInRight categoryDetails">
+                <div class="row">
+                    <div class="col-sm-3 col-lg-3 padding-sm left-side filtersResults">
+                        <div class="well bg-white">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Search in this store">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-primary" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                            <div class="hr-line-dashed"></div>
+                            <div class="input-group">
+                                <h3><i class="fa fa-folder-open"></i> Categories</h3>
+                                <div id="vendorCategoriesResults">
+                                    <ul class="catLevel0 no-paddings">
+                                        <li class="previousCat"><a href="#">High Tech</a></li>
+                                        <li class="previousCat"><a href="#">Smartphone</a></li>
+                                        <li class="currentCategory"><span class="currentCategoryTitle">Apple</span>
+                                            <ul class="subCategories">
+                                                <li class="subCategory"><a href="#">iPhone 4</a> <span class="countResults">(252)</span></li>
+                                                <li class="subCategory"><a href="#">iPhone 5</a> <span class="countResults">(252)</span></li>
+                                                <li class="subCategory"><a href="#">iPhone 5S</a> <span class="countResults">(252)</span></li>
+                                                <li class="subCategory"><a href="#">iPhone 6</a> <span class="countResults">(252)</span></li>
+                                                <li class="subCategory"><a href="#">iPhone 7</a> <span class="countResults">(252)</span></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="input-group table">
+                                <h3><i class="fa fa-filter"></i> Filters</h3>
+                                <div id="activeFilters" class="activeFilters m-b">
+                                    <div class="activeFiltersTitle"> Active filters </div>
+                                    <ul>
+                                        <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                                        <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                                        <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                                        <li><a data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter" href="#"> <span class="titleFilter">Title filter</span>: $titleValue <div class="removeBtn btn-link pull-right"><i class="fa fa-times"></i></div></a>  </li>
+                                    </ul>
+                                </div>
+                                <div id="FiltersResults">
+                                    <div class="filters-group">
+                                        <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                                        <ul class="filterResults">
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="filters-group">
+                                        <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                                        <ul class="filterResults">
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="filters-group">
+                                        <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                                        <ul class="filterResults">
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="filters-group">
+                                        <span class="filterTitle"><i class="fa fa-caret-right"></i> Title filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                                        <ul class="filterResults">
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a class="active" href="#">Name filters</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                            <li><a href="#">Name filters</a> <span class="countResults">(252)</span> </li>
+                                        </ul>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="filters-group">
+                                        <span class="filterTitle"><i class="fa fa-caret-right"></i> Price filter <i class="fa fa-plus-square-o pull-right"></i></span>
+                                        <div class="filterResults">
+                                            <div id="priceFilters"></div>
+                                        </div>
+                                    </div>
+                                    <div class="hr-line-dashed"></div>
+                                    <div class="filters-group">
+                                        <span class="filterTitle"><i class="fa fa-caret-right"></i> Type <i class="fa fa-plus-square-o pull-right"></i></span>
+                                        <ul class="filterResults">
+                                            <li><a href="#">Products</a> <span class="countResults">(252)</span> </li>
+                                            <li><a class="active" href="#">Services</a> <span class="removeActiveFilter" data-placement="top" data-toggle="tooltip" data-original-title="Remove this filter"><i class="fa fa-times-circle"></i></span> <span class="countResults">(252)</span> </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-9 col-lg-9 ">
+                        <div class="alert alert-info">
+                            <p>infoDev: Bellow 2 display style (grid and list). Switch css class with the buttons to get the grid or list display. <br>
+                                default display will be grid</p>
+                        </div>
+                        <div class="categoryInfos m-b">
+                            <h1>CategoryName</h1>
+                            <div class="categoryDescription">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+                                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+                                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                            </div>
+                        </div>
+                        <ul class="productList row list">
+                            <li class="productListItem col-sm-12">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-3 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 col-lg-8 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 col-lg-4 right-col text-center">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-sm-12">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-3 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 col-lg-8 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 col-lg-4 right-col text-center">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-sm-12">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-3 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 col-lg-8 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 col-lg-4 right-col text-center">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-sm-12">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-lg-2 col-sm-3 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-10 col-sm-9">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 col-lg-8 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 col-lg-4 right-col text-center">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="productList row grid">
+                            <li class="productListItem col-lg-3 col-md-4 col-sm-6">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-sm-12 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 floatingContent">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 text-center right-col">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-lg-3 col-md-4 col-sm-6">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-sm-12 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 floatingContent">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 text-center right-col">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-lg-3 col-md-4 col-sm-6">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-sm-12 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 floatingContent">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 text-center right-col">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-lg-3 col-md-4 col-sm-6">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-sm-12 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 floatingContent">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 text-center right-col">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-lg-3 col-md-4 col-sm-6">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-sm-12 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 floatingContent">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat. </div>
+                                                </div>
+                                                <div class="col-sm-12 text-center right-col">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="productListItem col-lg-3 col-md-4 col-sm-6">
+                                <div class="productContainer">
+                                    <div class="row">
+                                        <div class="col-sm-12 left-col">
+                                            <div class="product-image-container">
+                                                <a href="/productPageDetails"><img class="img-responsive" src="/img/product-large-2.jpg"></a>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12 floatingContent">
+                                            <div class="row col-container">
+                                                <div class="col-sm-12 center-col">
+                                                    <h2 class="productTitle">$ProductName</h2>
+                                                    <div class="productShortDescription">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolor vel quibusdam quasi dicta consequuntur quo non impedit eveniet sunt dolores officiis quisquam, deleniti, deserunt, ad laboriosam iure officia voluptatem quaerat.
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-12 text-center right-col">
+                                                    <div class="priceContainer m-b m-t"><span>Start at:</span> <span class="price text-success">799,99 €</span> </div>
+                                                    <div class="text-center buttonContainer"><a href="/productPageDetails" class="btn btn-primary"><i class="fa fa-eye"></i> View the offer</a></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <div class="content_sortPagiBar clearfix">
+                            <ul class="pagiList">
+                                <li><a href="#"><i class="fa fa-caret-left"></i></a></li>
+                                <li><a class="currentPage" id="changePage" name="1">1</a></li>
+                                <li><a class="currentPage" id="changePage" name="2">2</a></li>
+                                <li><a class="currentPage" id="changePage" name="3">3</a></li>
+                                <li><a class="currentPage" id="changePage" name="4">4</a></li>
+                                <li><a href="#">...</a></li>
+                                <li><a href="#">99</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right"></i></a></li>
+                            </ul>
+                        </div>
+                        <div class="alert alert-info  m-t text-center"><i class="fa fa-info-circle fa-3x pull-left"></i>
+                            You don’t find your project in the results ? <a href="#" class="btn btn-danger m-l"><i class="fa fa-search"></i> Search from all vendors</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

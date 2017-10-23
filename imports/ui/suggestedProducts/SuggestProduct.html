@@ -1,0 +1,519 @@
+<template name="SuggestProduct">
+    <div class="bg-white row page-breadcrumb m-b b-b">
+        <div class="content_sortPagiBar clearfix">
+            <div class="inline">
+                {{#each categoryListings}}
+                    <div class="categoryBreadcrumb">
+                        {{#each this}}
+                            {{#if this}}
+                                {{#if first .. this}}
+                                    {{#if last .. this}}
+                                        <i class="fa fa-folder-open">&nbsp;</i><a href="{{pathFor route=search id=this}}"><span class="text-warning">{{ catName this}}</span></a>
+                                    {{else}}
+                                        <i class="fa fa-folder-open">&nbsp;</i><a href="{{pathFor route=search id=this}}">{{ catName this}}</a>
+                                    {{/if}}
+                                {{else}}
+                                    {{#if last .. this}}
+                                        <i class="fa fa-angle-right"></i> <a href="{{pathFor route=search id=this}}"><span class="text-warning">{{ catName this}}</span></a>
+                                    {{else}}
+                                        <i class="fa fa-angle-right"></i> <a href="{{pathFor route=search route=search id=this}}">{{ catName this}}</a>
+                                    {{/if}}
+                                {{/if}}
+                            {{/if}}
+                        {{/each}}
+                    </div>
+                {{/each}}
+            </div>
+
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight SuggestProduct">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox-title"> <h3 class="text-center">Suggest a product</h3></div>
+                <div class="ibox-content">
+                    <div class="form-horizontal">
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">Select a type</label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="well">
+
+                                            <div class="radio radio-info radio-inline">
+                                                <input type="radio" checked="" name="radioInline" value="Product" id="inlineRadio1">
+                                                <label for="inlineRadio1">
+                                                    <b>Product</b>
+                                                    <div>Select this box if you want to create a page for a real item.</div>
+
+                                                </label>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="well">
+
+                                            <div class="radio radio-info radio-inline">
+                                                <input type="radio" name="radioInline" value="Service" id="inlineRadio2">
+                                                <label for="inlineRadio2">
+                                                    <b>Service</b>
+                                                    <div>Select this box if you want to create a service that requires professional intervention.</div>
+                                                </label>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">Title of {{isType}}
+                                <div class="alert alert-info">
+                                    <br>
+                                    The title should be simple and summarize what is this {{isType}}. it corresponds to a main title of the {{isType}}. <br>
+                                    <br>
+                                </div>
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="productName">
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <!--<div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">
+                                Select a category
+                                <div class="m-t">
+                                    <button class="btn btn-primary">Add a category</button>
+                                </div>
+
+                                <div class="alert alert-info">
+                                    ***IF producttype = product*** <br>
+                                    Selecting a category is necessary for the product to be easily found by the greatest possible product provider. <br>
+                                    ***else*** <br>
+                                    Selecting a category is necessary for the service to be easily found by the greatest possible service provider.
+                                </div>
+
+                            </label>
+                            <div class="col-sm-10">
+
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                Category #1
+                                            </div>
+                                            <div class="panel-body">
+                                                <select class="selectCategory form-control">
+                                                    <option value="Main Category 1">Main Category 1</option>
+                                                    <option value="Main Category 2">Main Category 2</option>
+                                                    <option value="Main Category 3">Main Category 3</option>
+                                                    <option value="Main Category 4">Main Category 4</option>
+                                                </select>
+                                                <div class="separator text-center"><i class="fa fa-angle-down"></i></div>
+                                                <select class="selectCategory form-control">
+                                                    <option value="Sub Category 1">Sub Category 1</option>
+                                                    <option value="Sub Category 2">Sub Category 2</option>
+                                                    <option value="Sub Category 3">Sub Category 3</option>
+                                                    <option value="Sub Category 4">Sub Category 4</option>
+                                                </select>
+                                                <div class="separator text-center"><i class="fa fa-angle-down"></i></div>
+                                                <select class="selectCategory form-control">
+                                                    <option value="Sub Sub Category 1">Sub Sub Category 1</option>
+                                                    <option value="Sub Sub Category 2">Sub Sub Category 2</option>
+                                                    <option value="Sub Sub Category 3">Sub Sub Category 3</option>
+                                                    <option value="Sub Sub Category 4">Sub Sub Category 4</option>
+                                                </select>
+                                                <div class="hr-line-dashed"></div>
+
+                                                <div class="defaultCat text-center radio radio-info">
+                                                    <input type="radio" checked="" name="defaultCat" value="option1" id="defaultCat">
+                                                    <label for="defaultCat"> Default </label>
+                                                </div>
+                                            </div>
+                                            <div class="panel-footer text-center">
+                                                <button class="btn btn-default removeItem"><i class="fa fa-times"></i> Remove</button>
+                                                <button class="btn btn-default"><i class="fa fa-check"></i> Assign</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                    <div class="panel panel-default">
+                                    <div class="panel-heading">
+                                    Category #2
+                                    </div>
+                                    <div class="panel-body">
+                                    <select class="selectCategory form-control">
+                                    <option value="Main Category 1">Main Category 1</option>
+                                    <option value="Main Category 2">Main Category 2</option>
+                                    <option value="Main Category 3">Main Category 3</option>
+                                    <option value="Main Category 4">Main Category 4</option>
+                                    </select>
+                                    <div class="separator text-center"><i class="fa fa-angle-down"></i></div>
+                                    <select class="selectCategory form-control">
+                                    <option value="Sub Category 1">Sub Category 1</option>
+                                    <option value="Sub Category 2">Sub Category 2</option>
+                                    <option value="Sub Category 3">Sub Category 3</option>
+                                    <option value="Sub Category 4">Sub Category 4</option>
+                                    </select>
+                                    <div class="separator text-center"><i class="fa fa-angle-down"></i></div>
+                                    <select class="selectCategory form-control">
+                                    <option value="Sub Sub Category 1">Sub Sub Category 1</option>
+                                    <option value="Sub Sub Category 2">Sub Sub Category 2</option>
+                                    <option value="Sub Sub Category 3">Sub Sub Category 3</option>
+                                    <option value="Sub Sub Category 4">Sub Sub Category 4</option>
+                                    </select>
+                                    <div class="hr-line-dashed"></div>
+
+                                    <div class="defaultCat text-center radio radio-info">
+                                    <input type="radio" name="defaultCat" value="option2" id="defaultCat2">
+                                    <label for="defaultCat2"> Default </label>
+                                    </div>
+                                    </div>
+                                    <div class="panel-footer text-center">
+                                    <button class="btn btn-default removeItem"><i class="fa fa-times"></i> Remove</button>
+                                    <button class="btn btn-default"><i class="fa fa-check"></i> Assign</button>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>-->
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">
+                                Select a category
+                                <div class="m-t">
+                                    <a><button class="btn btn-primary" id="addNewCategory">Add a category</button></a>
+                                </div>
+                            </label>
+                            <div class="col-sm-10">
+                                <div class="row">
+                                    {{#each showCategories}}
+                                        <div class="col-sm-3" id="{{uniqueId}}" categoryNumber= "{{@index}}">
+                                            <div class="panel panel-default">
+                                                <div class="panel-heading">
+                                                </div>
+                                                <div class="panel-body">
+                                                    {{#let parentRow=@index}}
+                                                        {{#each categoryList uniqueId}}
+                                                                <select id="categories_{{@index}}_{{../uniqueId}}" fetchId="{{@index}}_{{parentRow}}"  uniqueId="{{../uniqueId}}" class="selectCategory select_{{../uniqueId}} form-control">
+                                                                    <option value="placeholder" selected>Select Category</option>
+                                                                    {{#each this}}
+                                                                        <option value="{{this._id}}">{{getTranslation translation 'name'}}</option>
+                                                                    {{/each}}
+                                                                </select>
+                                                            <div class="separator text-center"><i class="fa fa-angle-down"></i></div>
+                                                        {{/each}}
+                                                    {{/let}}
+                                                    <!--</select>-->
+                                                    <div class="hr-line-dashed"></div>
+
+                                                    <div class="defaultCat text-center radio radio-info">
+                                                        <input type="radio" checked="" name="defaultCat" value="option1" index="{{@index}}" id="isDefault{{@index}}">
+                                                        <label for="defaultCat"> Default </label>
+                                                    </div>
+                                                </div>
+                                                <div class="panel-footer">
+                                                    <div class="text-center">
+                                                        <!-- The button remove should exist only from the second category tool selector.. As a product need min 1 category.  -->
+                                                        <button class="btn btn-default removeCategory" id="{{@index}}" uniqueId={{uniqueId}}><i class="fa fa-times"></i> Remove</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {{#if canContainProduct index}}
+                                                <div class="alert alert-info">This category can not contain products, please select another.</div>
+                                            {{/if}}
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">UIN (uniq identification number)
+                                <div class="alert alert-info">Infodev: this part of form will be hidden for users</div>
+                            </label>
+                            <div class="col-sm-10">
+                                <input id="productUin" type="text" class="form-control" disabled>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">GTIN<div class="alert alert-info"><a href="#"  data-toggle="modal" data-target="#aboutGTIN">How to find my GTIN?</a></div> </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control">
+                            </div>
+
+
+                            <div class="modal inmodal" id="aboutGTIN" tabindex="-1" role="dialog" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content animated bounceInRight">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                            <i class="fa fa-barcode modal-icon"></i>
+                                            <h4 class="modal-title">Find a GTIN (EAN/UCC 8, UCC 12, EAN/UCC 13 or EAN/UCC 14)</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div>
+                                                <p>A Global Trade Item Number (GTIN) is a unique and internationally recognized identifier for a product. When a GTIN is available, it will appear next to the barcode on your product's packaging or book cover. </p>
+                                            </div>
+                                            <h3>Types of GTINs</h3>
+                                            <p>GTINs vary in length depending on the type of product and where the product will be sold. Here are the different GTINs you might encounter:</p>
+                                            <ul>
+                                                <li>UPC (in North America / GTIN-12): 12-digit number (8-digit UPC-E codes should be converted to 12-digit UPC-A codes)</li>
+                                                <li>EAN (in Europe / GTIN-13): 13-digit number</li>
+                                                <li>JAN (in Japan / GTIN-13): 8 or 13-digit number</li>
+                                                <li>ISBN (for books): 13-digit number (ISBN-10 values should be converted to ISBN-13)</li>
+                                                <li>ITF-14 (for multipacks / GTIN-14): 14-digit number</li>
+                                            </ul>
+                                            <h3>Finding a GTIN</h3>
+                                            <p>Refer to the barcode on your product's packaging or book cover. If you can't find the GTIN, you can always contact the product's manufacturer to ask for it or try to find it on a website like Google Shopping.</p>
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">Select Skills or add new</label>
+                            <div class="col-sm-10">
+                                <select id="selectSkill" class="form-control" multiple="multiple" tabindex="4">
+                                    {{#each skills}}
+                                        <option value="{{this}}">{{this}}</option>
+                                    {{/each}}
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="productCreationStep form-group">
+                            <label class="col-sm-2 control-label">
+                                Description:
+                                <div class="m-t">
+                                    <button id="edit" class="btn btn-primary" onclick="edit()" type="button">Edit</button>
+                                    <button id="save" class="btn btn-primary" onclick="Preview()" type="button">Preview</button>
+                                    <br>
+                                    <a href="http://summernote.org/examples/#click-to-edit" target="_blank">Offical doc</a>
+                                    <br>
+                                    <a href="http://webapplayers.com/inspinia_admin-v2.4/form_editors.html#edit" target="_blank">Template preview</a>
+                                </div>
+
+                            </label>
+                            <div class="col-sm-10">
+                                {{#if progressBar2}}
+                                    <div class="progress">
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{progress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{progress}}%;">
+                                            <span class="sr-only">{{progress}}% Complete</span>
+                                        </div>
+                                    </div>
+                                {{/if}}
+                                <div id="productDescription" class="productDescription">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="productCreationStep form-group">
+                        <label class="col-sm-2 control-label">Pictures:
+                            <!--<div class="alert alert-info">By posting a photo here, you agree that its use is public, and you confirm to be the owner or have the rights to use it.</div>-->
+
+                        </label>
+                        <div class="col-sm-10">
+                            {{> imageCropper}}
+                        </div>
+                    </div>
+
+                    <div class="hr-line-dashed"></div>
+                    <div class="productCreationStep form-group">
+                        <label class="col-sm-2 control-label">
+                            Features:
+
+                            <div class="m-t">
+                                <button id="addNewFeature" class="btn btn-primary" type="button">Add new feature</button>
+                            </div>
+
+                        </label>
+                        <div class="col-sm-10">
+                            <div class="featuresManager">
+                                <table id="feature" class="table table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Features</th>
+                                        <th>Value(s)</th>
+                                        <th>Translatable values?</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {{#each showFeatures}}
+                                        <tr id="{{uniqueId}}" class="animated fadeIn">
+                                            <td class="animated fadeIn">
+                                                <div class="input-group">
+                                                    <select id="selectFeatures" data-placeholder="Choose a title feature..." class="features-key" style="width:350px;" uniqueId={{uniqueId}} tabindex="5">
+                                                        <option value="placeholder">Select Feature</option>
+                                                        {{#each features}}
+                                                            <option value="{{@index}}">{{this.name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td class="animated fadeIn">
+                                                <div class="input-group">
+                                                    <select data-placeholder="Choose values..." class="features-select" multiple style="width:350px;" tabindex="3">
+                                                        {{#each showValues index}}
+                                                            <option value="{{this}}">{{this}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </div>
+                                            </td>
+                                            <td><div class="switch">
+                                                <div class="onoffswitch">
+                                                    <input type="checkbox" class="onoffswitch-checkbox" id="featuresTranslatable{{@index}}" checked="{{featureTranslatable index}}">
+                                                    <label class="onoffswitch-label" for="featuresTranslatable{{@index}}"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span></label>
+                                                </div>
+                                            </div></td>
+                                            <td><button class="btn btn-default btn-sm remove-features" id="remove-feature" name="{{uniqueId}}" ><i class="fa fa-trash"></i></button></td>
+                                        </tr>
+                                    {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="productCreationStep form-group">
+                        <label class="col-sm-2 control-label">Combinations:
+                            <div class="alert alert-info">
+                                The combinations are variants of a {{isType}}. Please add variants that exist for this {{isType}}.
+                            </div>
+                            <div class="m-t">
+                                <button id="addNewCombinition" class="btn btn-primary" type="button" data-toggle="modal" data-target="#addAttributeModal">Add new attribute</button>
+                                <!--add new attribute model-->
+                                <div class="modal inmodal" id="addAttributeModal" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content animated bounceInRight">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                                <h4 class="modal-title">Add new attribute</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="form-horizontal">
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 control-label">Title</label>
+                                                        <div class="col-sm-9">
+                                                            <input id="attributeTitle" type="text" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="hr-line-dashed"></div>
+                                                    <div class="form-group">
+                                                        <label class="col-sm-3 label-control" style="text-align: right">Values</label>
+                                                        <div class="col-sm-9">
+                                                            <div class="text-muted"><small>separate the values with commas.</small></div>
+                                                            <textarea id="attributeValue" class="form-control"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="hr-line-dashed"></div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                                                <button id="addNewAttribute" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <div class="col-sm-10">
+                            <div class="row">
+                                <div class="col-sm-5">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Attributes selected
+                                            <input type="text" class="form-control m-t search-inSelected" placeholder="Search attribute">
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="editproductCombinationsSelected">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <button id="availableToSelected" type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-arrow-circle-left"></i></button>
+                                    <button id="selectedToAvailable" type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-arrow-circle-right"></i></button>
+                                </div>
+                                <div class="col-sm-5">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            Attributes available
+                                            <input type="text" class="form-control m-t search-inAvailable" placeholder="Search attribute">
+                                        </div>
+                                        <div class="panel-body">
+                                            <div id="editproductCombinationsAvailable">
+                                                <ul>
+                                                    {{#each attributes_available}}
+                                                        <li>{{this.text}}
+                                                            {{#each this.children}}
+                                                                <ul>
+                                                                    <li data-jstree='{"type":"js"}'>{{this.text}}</li>
+                                                                </ul>
+                                                            {{/each}}
+                                                        </li>
+                                                    {{/each}}
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hr-line-dashed"></div>
+
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="{{translationProgress}}" aria-valuemin="0" aria-valuemax="100" style="width: {{translationProgress}}%;">
+                                <span class="sr-only">{{translationProgress}}% Complete</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hr-line-dashed"></div>
+
+                <div class="text-center">
+                    <div class="checkbox checkbox-inline">
+                        <input type="checkbox" value="option1" id="inlineCheckbox1" checked="">
+                        <label for="inlineCheckbox1"> Uncheck this box if you don't want to subscribe to this product and be notified about new offers. </label>
+                    </div>
+                </div>
+            </div>
+            <div class="ibox-footer clearfix">
+              <span class="pull-right">
+
+                <button type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-eye"></i><span class="btn-title">Preview</span></button>
+                <button type="button" class="btn btn-default btn-large-dim btn-outline rejectSuggestion"><i class="fa fa-times"></i><span class="btn-title">Cancel</span></button>
+                <button id="publish" type="button" class="btn btn-default btn-large-dim btn-outline publishSuggestion"><i class="fa fa-check"></i><span class="btn-title">Send</span></button>
+              </span>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,39 @@
+<template name="customerAlertsTab">
+
+  <div id="customerAlertsTab" class="customerAlertsTab tab-pane">
+    <div class="panel-body">
+<table class="table table-striped" width="100%" border="0" cellspacing="0">
+        <thead>
+          <tr>
+            <th scope="col">UIN</th>
+            <th scope="col">Product name</th>
+            <th scope="col">Current best offer ($currency)</th>
+            <th scope="col">Action</th>
+          </tr>
+
+        </thead>
+
+        <tbody>
+
+        {{#each subscribedProducts}}
+            <tr>
+                <td>{{uin}}</td>
+                <td>{{getTranslation translation 'name'}}</td>
+                <td>{{bestOffer}}</td>
+                <td><div class="btn-group">
+                    <a href="{{ pathFor route='productDetails' id=_id}}" class="btn btn-default"><i class="fa fa-pencil-square-o"></i> Details</a>
+                    <button id="deleteBtn" class="ladda-button btn btn-default" data-style="zoom-in"><span class="ladda-label"><i class="fa fa-trash"></i></span><span class="ladda-spinner"></span></button>
+                </div></td>
+            </tr>
+        {{/each}}
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+</template>
+
+

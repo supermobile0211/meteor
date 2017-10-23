@@ -1,0 +1,172 @@
+<template name="vendorSettingsTab">
+
+  <div id="vendorSettingsTab" class="vendorSettingsTab tab-pane">
+    <div class="panel-body">
+
+    	<div class="form-horizontal">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">
+            Notifications
+          </label>
+          <div class="col-sm-9">
+
+            <table class="table table-striped table-hover" width="100%" border="0" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>Notifications</th>
+                  <th>Email</th>
+                  <th>Push</th>
+                  <th>Web</th>
+                </tr>
+              </thead>
+
+              <tbody>
+
+                <tr>
+                  <td><p class="font-bold">$notificationName</p>
+                    <p class="text-muted">$notificationDescription</p></td>
+                  <td>
+                    <div class="switch">
+                      <div class="onoffswitch">
+                        <input type="checkbox" id="example1" class="onoffswitch-checkbox" checked="">
+                        <label for="example1" class="onoffswitch-label">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="switch">
+                      <div class="onoffswitch">
+                        <input type="checkbox" id="example1" class="onoffswitch-checkbox" checked="">
+                        <label for="example1" class="onoffswitch-label">
+                          <span class="onoffswitch-inner"></span>
+                          <span class="onoffswitch-switch"></span>
+                        </label>
+                      </div>
+                    </div>
+                  </td>
+                  <td><div class="switch">
+                    <div class="onoffswitch">
+                      <input type="checkbox" id="example1" class="onoffswitch-checkbox" checked="checked" />
+                      <label for="example1" class="onoffswitch-label"> <span class="onoffswitch-inner"></span> <span class="onoffswitch-switch"></span> </label>
+                    </div>
+                    </div></td>
+                </tr>   
+
+              </tbody>
+
+            </table>
+
+
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Units</label>
+          <div class="col-sm-9">
+            <div class="radio radio-info radio-inline">
+                <input type="radio" checked="" name="radioInline" value="imperial" id="unitsimperial">
+                <label for="unitsimperial">Imperial</label>
+            </div>
+
+            <div class="radio radio-info radio-inline">
+                <input type="radio" checked="" name="radioInline" value="metric" id="unitsmetric">
+                <label for="unitsmetric">Metric</label>
+            </div>
+
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Favorite language</label>
+          <div class="col-sm-9"> 
+                        {{>languageSelect}}
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Favorite Currency</label>
+          <div class="col-sm-9"> 
+                        {{>currencySelect}}
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>        
+
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Need a break?
+
+            <div class="alert alert-info">
+              INFODEV: IF user click on "Desactivate my account" or "Delete my account permanently". Show Confirm password form, then allow to confirm. Else hide.
+            </div>
+
+          </label>
+          <div class="col-sm-9">
+
+
+            <h2>Deactivate my account</h2>
+            <ul>
+              <li>Your profile will appear deleted, but we’ll keep everything for you.</li>
+              <li>Simply sign in at any time re-enable your account.</li>
+            </ul>
+            <button class="btn btn-warning desactivateMyAccount">Deactivate my account</button>
+
+            <div class="m-t">
+              <p><strong>Confirm your password</strong></p>
+
+              <input type="password" class="form-control" placeholder="Current password">
+
+              <div class="m-t">
+                <button type="button" class="btn btn-default" disabled>Confirm</button>              
+                <button type="button" class="btn btn-default">Cancel</button>
+              </div>    
+            </div>            
+
+            <div class="hr-line-dashed"></div>
+
+            <!-- IF ACCOUNT IS DISABLED -->
+
+            <h2>Activate my account</h2>
+
+            <button class="btn btn-success activateMyAccount">Activate my account</button>
+
+
+
+            <div class="hr-line-dashed"></div>
+
+
+            <h2>Delete my account <span class="text-danger">This is permanent!</span></h2>
+            <ul>
+              <li>Everything will be deleted. Your profile, photos, messages, vendor account, affiliate account – all gone.</li>
+              <li>Simply sign in at any time re-enable your account.</li>
+              <li>Public items like order review, product contribution or suggestion remain are kept.</li>
+              
+            </ul>
+            <button class="btn btn-danger">Delete my account permanently</button>
+
+            <div class="m-t">
+              <p><strong>Confirm your password</strong></p>
+
+              <input type="password" class="form-control" placeholder="Current password">
+
+              <div class="m-t">
+                <button type="button" class="btn btn-default" disabled>Confirm</button>              
+                <button type="button" class="btn btn-default">Cancel</button>
+              </div>    
+            </div>
+
+          </div>
+        </div>
+        <div class="hr-line-dashed"></div>
+      </div>
+      
+
+    </div>
+
+  </div>
+</template>
+
+

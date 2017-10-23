@@ -1,0 +1,177 @@
+<template name="customerInformations">
+
+    <form id="form">
+        <div id="customerInformations" class="customerDashboard tab-pane">
+            <div class="panel-body">
+                {{#with currentUser}}
+                    <div class="form-horizontal">
+                        <div class="form-group">
+
+                            <label class="control-label col-sm-3">Social title</label>
+                            <div class="col-sm-9">
+
+                                <div class="radio radio-info radio-inline">
+                                    <input type="radio" name="gender" value="Mr." id="genderMale" checked="{{isGender "Mr."}}">
+                                    <label for="genderMale"> Mr. </label>
+                                </div>
+                                <div class="radio radio-info radio-inline">
+                                    <input type="radio" name="gender" value="Mrs." id="genderFemale" checked="{{isGender "Mrs."}}">
+                                    <label for="genderFemale"> Mrs. </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+
+                            <label for="firstName" class="control-label col-sm-3">First name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="firstName" value="{{profile.firstName}}">
+                            </div>
+
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+
+                            <label for="lastName" class="control-label col-sm-3">Last name</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="lastName" value="{{profile.lastName}}">
+                            </div>
+
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-sm-3" >E-mail Address
+
+                            </label>
+                            <div class="col-sm-9">
+                                <input type="email" class="form-control m-b" value="{{currentUser.emails.[0].address}}" id="email" >
+
+                                {{#if emailChanged}}
+
+                                <input type="email" class="form-control m-b" placeholder="ReType your new email" value="{{currentUser.emails.[0].address}}" id="confirmEmail">
+
+                                <p><strong>Confirm your password</strong></p>
+
+                                <input type="password" class="form-control m-b" placeholder="Type your password" id="cPassword">
+
+                                <div class="m-t">
+                                    <button id="updateEmail" class="btn btn-default" disabled="{{enableEmail}}">Save</button>
+                                    <button id="cancelEmail" type="button" class="btn btn-default">Cancel</button>
+                                </div>
+                                {{/if}}
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="control-label col-sm-3">Birth date</label>
+                            <div class="col-sm-9">
+
+                                <div class="input-group date">
+                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input name="birthday" autocomplete="off" type="text" class="form-control" value="{{profile.dob}}" id="dob">
+                                </div>
+
+
+                            </div>
+
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-sm-3">Change my password
+
+                            </label>
+                            <div class="col-sm-9">
+
+
+                                <input type="password" class="form-control m-b" placeholder="New password" id="password">
+
+                                {{#if passwordChanged}}
+
+                                <input type="password" class="form-control m-b" placeholder="Once more..." id="confirmPassword">
+
+
+                                <p><strong>Confirm your password</strong></p>
+
+                                <input type="password" class="form-control" placeholder="Current password" id="currentPassword">
+
+                                <div class="m-t">
+                                    <button id="updatePassword" type="button" class="btn btn-default" disabled="{{enablePassword}}" >Save</button>
+                                    <button id="cancelPassword" type="button" class="btn btn-default">Cancel</button>
+                                </div>
+
+                                {{/if}}
+
+                                <p class="m-t">Forgot your password? <a href="{{pathFor route='forgotPassword'}}">Reset it.</a></p>
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-sm-3">Newsletter</label>
+                            <div class="col-sm-9">
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" id="userAllowNewsletter" class="onoffswitch-checkbox" checked="{{profile.newsLetter}}">
+                                        <label for="userAllowNewsletter" class="onoffswitch-label">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+
+                            <label class="control-label col-sm-3">News from partners</label>
+                            <div class="col-sm-9">
+                                <div class="switch">
+                                    <div class="onoffswitch">
+                                        <input type="checkbox" id="userAllowOptin" class="onoffswitch-checkbox" checked="{{profile.partnersNews}}">
+                                        <label for="userAllowOptin" class="onoffswitch-label">
+                                            <span class="onoffswitch-inner"></span>
+                                            <span class="onoffswitch-switch"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/with}}
+
+            </div>
+            <div class="ibox-footer clearfix">
+      <span class="pull-right">
+        <button type="button" class="btn btn-default btn-large-dim btn-outline"><i class="fa fa-times"></i><span class="btn-title">Cancel</span></button>
+        <button type="submit" class="btn btn-default btn-large-dim btn-outline" id="publish"><i class="fa fa-check"></i><span class="btn-title">Save</span></button>
+      </span>
+            </div>
+
+        </div>
+    </form>
+
+</template>

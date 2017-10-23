@@ -1,0 +1,322 @@
+<template name="asAffiliateDashboardTab">
+
+  <div id="tab-AffiliatesDashboard" class="tab-pane active">
+    <div class="panel-body">
+    	<div class="row">
+    		<div class="col-lg-6">
+
+          <div class="widget bg-white well ">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-money fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span>Current eligible Earnings</span>
+                <h2 class="font-bold">$ 25,63</h2>
+              </div>
+            </div>
+          </div>
+        
+    			
+    		</div>
+    		<div class="col-lg-6">
+
+          <div class="widget bg-white well ">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-hourglass-half fa-4x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span>Remaining amount necessary to be eligible for a payment</span>
+                <h2 class="font-bold">$ 25,63</h2>
+              </div>
+            </div>
+          </div>
+        
+    			
+    		</div>
+    	</div>
+
+     
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="widget style1 red-bg">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-money fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span> Today income </span>
+                <h2 class="font-bold">$ 25,63</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="widget style1 yellow-bg">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-users fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span> Today visits </span>
+                <h2 class="font-bold">1254</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="widget style1 navy-bg">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-shopping-cart fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span> Today sales </span>
+                <h2 class="font-bold">$ 2540,63</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="widget style1 lazur-bg">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-line-chart fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span> Today Conversion </span>
+                <h2 class="font-bold">9%</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="widget red-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">458</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 30 days Income
+              </h3>
+              <small>Show affiliate income since the last 30 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart1"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="widget yellow-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">45,745</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 30 days Visits
+              </h3>
+              <small>Show visits since the last 30 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart2"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="widget navy-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">28,925</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 30 days Sales
+              </h3>
+              <small>Show sales since the last 30 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart3"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="widget lazur-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">10,42 %</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 30 days conversion rate
+              </h3>
+              <small>Last 30 days average conversion rate</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart4"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+        
+        
+        
+
+      </div>
+
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="widget red-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">458</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 90 days Income
+              </h3>
+              <small>Show affiliate income since the last 90 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart1"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="widget yellow-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">45,745</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 90 days Visits
+              </h3>
+              <small>Show visits since the last 90 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart2"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="widget navy-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">28,925</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 90 days Sales
+              </h3>
+              <small>Show sales since the last 90 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart3"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="widget lazur-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">10,42 %</h1>
+
+              <h3 class="font-bold no-margins">
+                Last 90 days conversion rate
+              </h3>
+              <small>Last 90 days average conversion rate</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart4"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+        
+        
+        
+
+      </div>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="widget red-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">1 458</h1>
+
+              <h3 class="font-bold no-margins">
+                Annual Income
+              </h3>
+              <small>Show affiliate income since the last 365 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart1"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="widget yellow-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">345,745</h1>
+
+              <h3 class="font-bold no-margins">
+                Annual Visits
+              </h3>
+              <small>Show visits since the last 365 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart2"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="widget navy-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">928,925</h1>
+
+              <h3 class="font-bold no-margins">
+                Annual Sales
+              </h3>
+              <small>Show sales since the last 365 days</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart3"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-lg-3">
+          <div class="widget lazur-bg no-padding">
+            <div class="p-m">
+              <h1 class="m-xs">10,42 %</h1>
+
+              <h3 class="font-bold no-margins">
+                Annual conversion rate
+              </h3>
+              <small>Show annual average conversion rate</small>
+              <div class="flot-chart">
+                        <div class="flot-chart-content" id="flot-chart4"></div>
+                    </div>
+            </div>
+
+          </div>
+        </div>
+        
+        
+        
+
+      </div>
+
+      
+          
+
+    </div>
+
+  </div>
+</template>

@@ -1,0 +1,138 @@
+<template name="asAffiliateVisitsTab">
+
+  <div id="tab-asAffiliateVisitsTab" class="tab-pane active">
+    <div class="panel-body">
+      <div class="well">
+        <div class="form-horizontal row">
+          <label class="control-label col-sm-2">Select a period</label>
+          <div class="col-sm-7 input-group" id="periodSelection">
+            <input class="form-control" type="text" name="daterange" value="01/01/2015 - 01/31/2015" />
+            <span class="input-group-btn"> 
+              <button class="btn btn-primary" type="button">Go!</button> 
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flot-chart">
+        <div class="flot-chart-content" id="flot-line-chart-multi"></div>
+      </div>
+
+      <div class="hr-line-dashed"></div>
+
+      <div class="row">
+      	<div class="col-sm-6">
+      		<div class="widget style1 yellow-bg">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-users fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span> Period visits </span>
+                <h2 class="font-bold">1254</h2>
+              </div>
+            </div>
+          </div>
+      	</div>
+
+      	<div class="col-sm-6">
+      		<div class="widget style1 lazur-bg">
+            <div class="row">
+              <div class="col-xs-4">
+                <i class="fa fa-line-chart fa-5x"></i>
+              </div>
+              <div class="col-xs-8 text-right">
+                <span> Period Conversion </span>
+                <h2 class="font-bold">9%</h2>
+              </div>
+            </div>
+          </div>
+      	</div>
+      </div>
+
+
+
+      <div class="hr-line-dashed"></div>
+
+
+
+      <table class="footable table table-striped toggle-arrow-tiny" data-page-size="8">
+        <thead>
+          <tr>
+            <th width="50" data-toggle="true">ID</th>
+            <th>Date</th>
+            <th>Origin</th>
+            <th>Landing page</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td width="50"><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td>&nbsp;</td>
+            <td><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td><input type="text" class="form-control input-sm" placeholder=""></td>
+            <td><select name="account9" class="form-control select-sm">
+                <option>All</option>
+                <option>France</option>
+                <option>Italy</option>
+                <option>Germany</option>
+                </select></td>
+          </tr>
+
+          <tr>
+            <td width="50">1</td>
+            <td>25/12/2016 - 00:42:12</td>
+            <td><a href="#linkToCompleteURLSource">siteReferent.com</a></td>
+            <td><a href="#linkToLandingPage" class="btn btn-default"><i class="fa fa-eye"></i> View</a></td>
+            <td><i class="flag16 flag16-France" title="France"></i> France</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>25/12/2016 - 00:42:12</td>
+            <td><a href="#linkToCompleteURLSource">siteReferent.com</a></td>
+            <td><a href="#linkToLandingPage" class="btn btn-default"><i class="fa fa-eye"></i> View</a></td>
+            <td><i class="flag16 flag16-France" title="France"></i> France</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>25/12/2016 - 00:42:12</td>
+            <td><a href="#linkToCompleteURLSource">siteReferent.com</a></td>
+            <td><a href="#linkToLandingPage" class="btn btn-default"><i class="fa fa-eye"></i> View</a></td>
+            <td><i class="flag16 flag16-France" title="France"></i> France</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>25/12/2016 - 00:42:12</td>
+            <td><a href="#linkToCompleteURLSource">siteReferent.com</a></td>
+            <td><a href="#linkToLandingPage" class="btn btn-default"><i class="fa fa-eye"></i> View</a></td>
+            <td><i class="flag16 flag16-France" title="France"></i> France</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>25/12/2016 - 00:42:12</td>
+            <td><a href="#linkToCompleteURLSource">siteReferent.com</a></td>
+            <td><a href="#linkToLandingPage" class="btn btn-default"><i class="fa fa-eye"></i> View</a></td>
+            <td><i class="flag16 flag16-France" title="France"></i> France</td>
+          </tr>
+
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="5">
+              <div class="sk-spinner sk-spinner-chasing-dots">
+                <div class="sk-dot1"></div>
+                <div class="sk-dot2"></div>
+              </div>                                    
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+
+
+
+
+    </div>
+
+  </div>
+</template>
